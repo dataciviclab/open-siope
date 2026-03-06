@@ -1,0 +1,40 @@
+root: "../../out"
+schema_version: 1
+
+dataset:
+  name: "siope_anag_comparti_seed"
+  years: [2024]
+
+raw:
+  extractor:
+    type: "unzip_all"
+  sources:
+    - name: "siope_anagrafiche_zip"
+      type: "http_file"
+      args:
+        url: "https://www.siope.it/Siope/documenti/siope2/open/last/SIOPE_ANAGRAFICHE.zip"
+        filename: "SIOPE_ANAGRAFICHE.zip"
+      primary: true
+
+clean:
+  sql: "sql/clean.sql"
+  read:
+    mode: "explicit"
+    include: ["ANAG_COMPARTI.*.csv"]
+    header: false
+    delim: ","
+    encoding: "utf-8"
+    columns:
+      column0: "VARCHAR"
+      column1: "VARCHAR"
+  validate: {}
+
+mart:
+  tables:
+    - name: "siope_anag_comparti_seed"
+      sql: "sql/mart.sql"
+  required_tables: ["siope_anag_comparti_seed"]
+  validate: {}
+
+validation:
+  fail_on_error: true
