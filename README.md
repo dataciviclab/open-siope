@@ -60,6 +60,7 @@ Il `mart` labeled espone almeno:
 
 - [docs/uso_mart_labeled.md](/C:/Users/gabry/OneDrive/Desktop/dataciviclab-workspace/siope-comuni/docs/uso_mart_labeled.md)
 - [docs/output_v1_entrate_comuni_2023_2024.md](/C:/Users/gabry/OneDrive/Desktop/dataciviclab-workspace/siope-comuni/docs/output_v1_entrate_comuni_2023_2024.md)
+- [docs/followup_d2_tributi_vs_trasferimenti_2023_2024.md](/C:/Users/gabry/OneDrive/Desktop/dataciviclab-workspace/siope-comuni/docs/followup_d2_tributi_vs_trasferimenti_2023_2024.md)
 
 ## Limiti noti
 
