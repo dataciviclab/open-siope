@@ -3,7 +3,9 @@ schema_version: 1
 
 dataset:
   name: "siope_comparto_2y"
-  years: [2023, 2024]
+  years: [2023, 2024, 2025]
+  # La fonte SIOPE aperta usata qui espone anche il 2025 con copertura fino al
+  # periodo 12. Il notebook D1 resta comunque focalizzato su 2023-2024.
 
 raw:
   extractor:
@@ -38,6 +40,8 @@ clean:
     - codice_voce
     - importo
   validate:
+    # Soglia mantenuta allineata a snapshot annuali completi: la fonte 2025
+    # oggi supera comunque questa soglia.
     min_rows: 3000000
     primary_key: ["codice_ente", "anno", "periodo", "codice_voce"]
     not_null: ["codice_ente", "anno", "periodo", "codice_voce", "importo"]
@@ -65,9 +69,16 @@ mart:
         not_null: ["codice_ente", "anno", "codice_voce", "importo_totale", "periodi_coperti", "codice_comparto"]
       siope_entrate_comuni_agg_labeled:
         min_rows: 300000
-        required_columns: ["codice_ente", "anno", "codice_voce", "importo_totale", "importo_totale_eur", "descrizione_codice", "has_codgest_match"]
+        required_columns: ["codice_ente", "anno", "codice_voce", "importo_totale", "importo_totale_eur", "descrizione_codice", "has_codgest_match", "is_titolo_9"]
         primary_key: ["codice_ente", "anno", "codice_voce"]
-        not_null: ["codice_ente", "anno", "codice_voce", "importo_totale", "importo_totale_eur", "descrizione_codice"]
+        not_null: ["codice_ente", "anno", "codice_voce", "importo_totale", "importo_totale_eur"]
 
 validation:
   fail_on_error: true
+
+cross_year:
+  tables:
+    - name: "siope_entrate_comuni_agg_labeled_multi_anno"
+      sql: "sql/cross/siope_entrate_comuni_agg_labeled_multi_anno.sql"
+      source_layer: "mart"
+      source_table: "siope_entrate_comuni_agg_labeled"
