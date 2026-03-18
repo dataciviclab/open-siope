@@ -2,7 +2,7 @@ root: "../../out"
 schema_version: 1
 
 dataset:
-  name: "siope_comparto_2y"
+  name: "siope_entrate_comuni"
   years: [2021, 2022, 2023, 2024, 2025]
   # La fonte SIOPE aperta usata qui espone anche il 2025 con copertura fino al
   # periodo 12. Il perimetro tecnico viene esteso a 2021-2025 per fissare una

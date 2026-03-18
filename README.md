@@ -16,7 +16,7 @@ Repo privata in consolidamento. Il perimetro tecnico oggi e':
 
 ## Struttura
 
-- `entrate/comuni_2023_2024/`: dataset principale entrate comuni
+- `entrate/comuni/`: dataset principale entrate comuni
 - `anagrafica/anag-enti/`: seed anagrafica enti
 - `anagrafica/anag-codgest-entrate/`: seed dizionario voci entrate
 - `anagrafica/anag-comparti/`: seed comparti
@@ -37,9 +37,9 @@ py -m toolkit.cli.app run all --config anagrafica/anag-codgest-entrate/dataset.y
 Poi eseguire il dataset principale:
 
 ```powershell
-py -m toolkit.cli.app run all --config entrate/comuni_2023_2024/dataset.yml
-py -m toolkit.cli.app validate all --config entrate/comuni_2023_2024/dataset.yml
-py -m toolkit.cli.app run cross_year --config entrate/comuni_2023_2024/dataset.yml
+py -m toolkit.cli.app run all --config entrate/comuni/dataset.yml
+py -m toolkit.cli.app validate all --config entrate/comuni/dataset.yml
+py -m toolkit.cli.app run cross_year --config entrate/comuni/dataset.yml
 ```
 
 ## Output attesi
@@ -61,10 +61,10 @@ Il `mart` labeled espone almeno:
 
 ## Documenti utili
 
-- [docs/uso_mart_labeled.md](/C:/Users/gabry/OneDrive/Desktop/dataciviclab-workspace/siope-comuni/docs/uso_mart_labeled.md)
-- [docs/output_v1_entrate_comuni_2023_2024.md](/C:/Users/gabry/OneDrive/Desktop/dataciviclab-workspace/siope-comuni/docs/output_v1_entrate_comuni_2023_2024.md)
+- [docs/uso_mart_labeled.md](docs/uso_mart_labeled.md)
+- [docs/output_v1_entrate_comuni_2023_2024.md](docs/output_v1_entrate_comuni_2023_2024.md)
   Documento storico del primo output pubblico stretto su `2023-2024`.
-- [entrate/comuni_2023_2024/notebooks/d3_entrate_comuni_2021_2025.ipynb](entrate/comuni_2023_2024/notebooks/d3_entrate_comuni_2021_2025.ipynb)
+- [entrate/comuni/notebooks/d3_entrate_comuni_2021_2025.ipynb](entrate/comuni/notebooks/d3_entrate_comuni_2021_2025.ipynb)
   Follow-up interno sul perimetro `2021-2025`: segnali `2024 -> 2025` e breakdown di `Altro`.
 
 ## Limiti noti

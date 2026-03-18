@@ -2,7 +2,7 @@
 
 Questa nota spiega come leggere in modo corretto il `mart` finale del progetto:
 
-- dataset: `entrate/comuni_2023_2024`
+- dataset: `entrate/comuni`
 - tabella: `siope_entrate_comuni_agg_labeled`
 
 ## Colonne da usare per prime
@@ -62,7 +62,7 @@ select
     denominazione_ente,
     anno,
     sum(importo_totale_eur) as totale_entrate_eur
-from read_parquet('out/data/mart/siope_comparto_2y/2024/siope_entrate_comuni_agg_labeled.parquet')
+from read_parquet('out/data/mart/siope_entrate_comuni/2024/siope_entrate_comuni_agg_labeled.parquet')
 where is_titolo_9 = false
 group by 1, 2;
 ```
