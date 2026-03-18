@@ -1,24 +1,24 @@
 # siope-comuni
 
-Repo progetto DataCivicLab dedicata a SIOPE, con base tecnica attuale su `entrate / comuni / 2021-2025`.
+Repo progetto DataCivicLab dedicata a SIOPE, con base tecnica attuale su `comuni / 2021-2025`, lato `entrate` gia consolidato e lato `uscite` in v1 tecnica.
 
 ## Stato
 
 Repo privata in consolidamento. Il perimetro tecnico oggi e':
 
 - perimetro: comuni
-- lato contabile: entrate
+- lato contabile: entrate + uscite
 - annualita': 2021-2025
 - pipeline: `RAW -> CLEAN -> MART` via `toolkit`
-- cross-year disponibile sul `mart` labeled multi-anno
-
-`uscite` resta ancora fuori dal perimetro implementato.
+- cross-year disponibile oggi solo per `entrate`
 
 ## Struttura
 
 - `entrate/comuni/`: dataset principale entrate comuni
+- `uscite/comuni/`: dataset v1 uscite comuni
 - `anagrafica/anag-enti/`: seed anagrafica enti
 - `anagrafica/anag-codgest-entrate/`: seed dizionario voci entrate
+- `anagrafica/anag-codgest-uscite/`: seed dizionario voci uscite
 - `anagrafica/anag-comparti/`: seed comparti
 - `anagrafica/anag-sottocomparti/`: seed sottocomparti
 - `docs/`: metodologia e backlog tecnico
@@ -32,19 +32,22 @@ py -m toolkit.cli.app run all --config anagrafica/anag-comparti/dataset.yml
 py -m toolkit.cli.app run all --config anagrafica/anag-sottocomparti/dataset.yml
 py -m toolkit.cli.app run all --config anagrafica/anag-enti/dataset.yml
 py -m toolkit.cli.app run all --config anagrafica/anag-codgest-entrate/dataset.yml
+py -m toolkit.cli.app run all --config anagrafica/anag-codgest-uscite/dataset.yml
 ```
 
-Poi eseguire il dataset principale:
+Poi eseguire i dataset principali:
 
 ```powershell
 py -m toolkit.cli.app run all --config entrate/comuni/dataset.yml
 py -m toolkit.cli.app validate all --config entrate/comuni/dataset.yml
 py -m toolkit.cli.app run cross_year --config entrate/comuni/dataset.yml
+py -m toolkit.cli.app run all --config uscite/comuni/dataset.yml
+py -m toolkit.cli.app validate all --config uscite/comuni/dataset.yml
 ```
 
 ## Output attesi
 
-Il dataset principale produce:
+`entrate/comuni` produce:
 
 - `clean` canonico delle entrate
 - `siope_entrate_comuni`
@@ -58,6 +61,13 @@ Il `mart` labeled espone almeno:
 - `importo_totale_eur`
 - `descrizione_codice`
 - `is_titolo_9`
+
+`uscite/comuni` produce:
+
+- `clean` canonico delle uscite
+- `siope_uscite_comuni`
+- `siope_uscite_comuni_agg`
+- `siope_uscite_comuni_agg_labeled`
 
 ## Documenti utili
 

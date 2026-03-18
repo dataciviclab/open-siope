@@ -4,7 +4,8 @@
 
 Il progetto usa i download open di SIOPE:
 
-- `SIOPE_ENTRATE.{year}.zip` per il dataset principale
+- `SIOPE_ENTRATE.{year}.zip` per il lato entrate
+- `SIOPE_USCITE.{year}.zip` per il lato uscite
 - `SIOPE_ANAGRAFICHE.zip` per i seed di supporto
 
 ## Pipeline
@@ -13,11 +14,13 @@ La pipeline segue il contract del `toolkit`:
 
 - `raw`: download e extraction degli archivi ZIP
 - `clean`: normalizzazione minima dei CSV SIOPE
-- `mart`: join anagrafici, filtro comuni, aggregazione e labeling
+- `mart`: join anagrafici, filtro comuni, aggregazione e labeling minimo
 
 ## Regole metodologiche iniziali
 
-- il perimetro tecnico attuale e' `comuni / entrate / 2021-2025`
+- il perimetro tecnico attuale e' `comuni / 2021-2025`
+- `entrate` e' il lato piu maturo, con `cross_year` e notebook interni
+- `uscite` e' oggi una v1 tecnica annuale, senza `cross_year` iniziale
 - il primo output pubblico storico resta invece volutamente stretto su `2023-2024`
 - il terzo campo delle entrate viene trattato come `periodo` (`01..12`), non come `codice_gestione`
 - il join contestuale del labeled usa `codice_comparto = codice_gestione` sul perimetro comuni
@@ -30,13 +33,20 @@ La pipeline segue il contract del `toolkit`:
 
 ## Output disponibili
 
-Il dataset principale espone:
+Il lato `entrate` espone:
 
 - `clean` entrate
 - `mart` comuni di dettaglio
 - `mart` comuni aggregato per `ente-anno-codice_voce`
 - `mart` comuni aggregato labeled con descrizioni voce
 - `cross_year` labeled multi-anno costruito sui parquet annuali del mart
+
+Il lato `uscite` espone:
+
+- `clean` uscite
+- `mart` comuni di dettaglio
+- `mart` comuni aggregato per `ente-anno-codice_voce`
+- `mart` comuni aggregato labeled con descrizioni voce
 
 ## Classificazione minima per letture pubbliche
 

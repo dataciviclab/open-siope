@@ -1,0 +1,73 @@
+root: "../../out"
+schema_version: 1
+
+dataset:
+  name: "siope_uscite_comuni"
+  years: [2021, 2022, 2023, 2024, 2025]
+  # V1 tecnica del lato uscite su comuni, con perimetro annuale e senza
+  # cross_year iniziale. La fonte open oggi espone anche il 2025.
+
+raw:
+  extractor:
+    type: "unzip_first_csv"
+  sources:
+    - name: "siope_uscite_open"
+      type: "http_file"
+      args:
+        url: "https://www.siope.it/Siope/documenti/siope2/open/last/SIOPE_USCITE.{year}.zip"
+        filename: "SIOPE_USCITE.{year}.zip"
+      primary: true
+
+clean:
+  sql: "sql/clean.sql"
+  read:
+    mode: "latest"
+    header: false
+    delim: ","
+    encoding: "utf-8"
+    columns:
+      column0: "VARCHAR"
+      column1: "VARCHAR"
+      column2: "VARCHAR"
+      column3: "VARCHAR"
+      column4: "VARCHAR"
+  required_columns:
+    - codice_ente
+    - anno
+    - periodo
+    - codice_voce
+    - importo
+  validate:
+    min_rows: 3000000
+    primary_key: ["codice_ente", "anno", "periodo", "codice_voce"]
+    not_null: ["codice_ente", "anno", "periodo", "codice_voce", "importo"]
+
+mart:
+  tables:
+    - name: "siope_uscite_comuni"
+      sql: "sql/mart_comuni.sql"
+    - name: "siope_uscite_comuni_agg"
+      sql: "sql/mart_comuni_agg.sql"
+    - name: "siope_uscite_comuni_agg_labeled"
+      sql: "sql/mart_comuni_agg_labeled.sql"
+  required_tables: ["siope_uscite_comuni", "siope_uscite_comuni_agg", "siope_uscite_comuni_agg_labeled"]
+  validate:
+    table_rules:
+      siope_uscite_comuni:
+        min_rows: 3000000
+        required_columns: ["codice_ente", "anno", "periodo", "codice_voce", "importo", "codice_comparto", "tipo_ente"]
+        primary_key: ["codice_ente", "anno", "periodo", "codice_voce", "importo"]
+        not_null: ["codice_ente", "anno", "periodo", "codice_voce", "importo", "codice_comparto", "tipo_ente"]
+      siope_uscite_comuni_agg:
+        min_rows: 300000
+        required_columns: ["codice_ente", "anno", "codice_voce", "importo_totale", "periodi_coperti", "codice_comparto"]
+        primary_key: ["codice_ente", "anno", "codice_voce"]
+        not_null: ["codice_ente", "anno", "codice_voce", "importo_totale", "periodi_coperti", "codice_comparto"]
+      siope_uscite_comuni_agg_labeled:
+        min_rows: 300000
+        required_columns: ["codice_ente", "anno", "codice_voce", "importo_totale", "importo_totale_eur", "descrizione_codice", "has_codgest_match"]
+        primary_key: ["codice_ente", "anno", "codice_voce"]
+        not_null: ["codice_ente", "anno", "codice_voce", "importo_totale", "importo_totale_eur"]
+
+validation:
+  fail_on_error: true
