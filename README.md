@@ -43,18 +43,20 @@ py -m toolkit.cli.app run all --config anagrafica/anag-comuni/dataset.yml
 Poi eseguire i dataset principali:
 
 ```powershell
-py -m toolkit.cli.app run all --config entrate/comuni/dataset.yml
-py -m toolkit.cli.app run all --config uscite/comuni/dataset.yml
+py -m toolkit.cli.app run all --config entrate/dataset.yml
+py -m toolkit.cli.app run all --config uscite/dataset.yml
 ```
 
 ## Output attesi
 
-`entrate/comuni` produce:
+`entrate/` produce:
 
 - `clean` canonico delle entrate
-- `siope_entrate_comuni` — dettaglio per ente-periodo-voce
 - `siope_entrate_comuni_agg` — aggregato per ente-anno-voce
 - `siope_entrate_comuni_agg_labeled` — aggregato con voci e territorio (provincia + regione)
+- `siope_entrate_regioni_agg_labeled` — regioni e province autonome
+- `siope_entrate_sanita_agg_labeled` — ASL, AO, IRCCS
+- `siope_entrate_universita_agg_labeled` — atenei e dipartimenti
 - `h_entrate_comune_macro` — gerarchia: comune × macro_categoria
 - `h_entrate_provincia_macro` — gerarchia: provincia × macro_categoria
 - `h_entrate_regione_macro` — gerarchia: regione × macro_categoria
@@ -66,15 +68,22 @@ Il `mart` labeled espone almeno:
 - `macro_categoria_v2`, `is_titolo_9`
 - `descrizione_codice`
 
-`uscite/comuni` produce:
+`uscite/` produce:
 
 - `clean` canonico delle uscite
-- `siope_uscite_comuni` — dettaglio per ente-periodo-voce
 - `siope_uscite_comuni_agg` — aggregato per ente-anno-voce
 - `siope_uscite_comuni_agg_labeled` — aggregato con voci e territorio
+- `siope_uscite_regioni_agg_labeled` — regioni e province autonome
+- `siope_uscite_sanita_agg_labeled` — ASL, AO, IRCCS
+- `siope_uscite_universita_agg_labeled` — atenei e dipartimenti
 - `h_uscite_comune` — gerarchia: comune
 - `h_uscite_provincia` — gerarchia: provincia
 - `h_uscite_regione` — gerarchia: regione
+
+> **Nota**: i mart detail mensili (`siope_*_comuni.parquet`) non sono generati di default
+> per contenere la dimensione dell'artifact CI (~200MB invece di 1GB).
+> Per rigenerarli: aggiungere manualmente `sql/mart_PRO.sql` a `mart.tables`
+> nel dataset.yml e rieseguire.
 
 ## Documenti utili
 
