@@ -2,8 +2,9 @@ root: "../../out"
 schema_version: 1
 
 dataset:
+  # Anno label: lo snapshot SIOPE e' sempre l'ultimo disponibile
   name: "siope_anag_sottocomparti_seed"
-  years: [2024]
+  years: [2026]
 
 raw:
   extractor:

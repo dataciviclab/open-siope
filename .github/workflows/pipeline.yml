@@ -1,0 +1,73 @@
+name: pipeline
+on:
+  workflow_dispatch:
+    inputs:
+      sides:
+        description: "Lato contabile (entrate, uscite, both)"
+        default: "both"
+        type: choice
+        options:
+          - both
+          - entrate
+          - uscite
+      years:
+        description: "Anni (es. 2025 o 2021,2022,2025 o all)"
+        default: "all"
+      smoke:
+        description: "Smoke test (1000 righe, veloce)"
+        default: false
+        type: boolean
+
+jobs:
+  siope-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install toolkit
+        run: |
+          pip install git+https://github.com/dataciviclab/lab-connectors.git
+          pip install git+https://github.com/dataciviclab/toolkit.git
+
+      - name: Seeds anagrafici
+        run: make seeds
+
+      - name: Run entrate
+        if: inputs.sides != 'uscite'
+        run: |
+          SIDES="entrate"
+          if [ "${{ inputs.years }}" = "all" ]; then
+            YEARS="2021 2022 2023 2024 2025"
+          else
+            YEARS=$(echo "${{ inputs.years }}" | tr ',' ' ')
+          fi
+          SMOKE_FLAG="${{ inputs.smoke && '--smoke' || '' }}"
+          for y in $YEARS; do
+            echo "=== entrate $y ==="
+            python3 -m toolkit.cli.app run all --config entrate/dataset.yml --year $y $SMOKE_FLAG
+          done
+
+      - name: Run uscite
+        if: inputs.sides != 'entrate'
+        run: |
+          if [ "${{ inputs.years }}" = "all" ]; then
+            YEARS="2021 2022 2023 2024 2025"
+          else
+            YEARS=$(echo "${{ inputs.years }}" | tr ',' ' ')
+          fi
+          SMOKE_FLAG="${{ inputs.smoke && '--smoke' || '' }}"
+          for y in $YEARS; do
+            echo "=== uscite $y ==="
+            python3 -m toolkit.cli.app run all --config uscite/dataset.yml --year $y $SMOKE_FLAG
+          done
+
+      - name: Upload mart artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: siope-mart
+          path: out/data/mart/
+          compression-level: 0
+          if-no-files-found: warn

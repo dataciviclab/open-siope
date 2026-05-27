@@ -111,19 +111,19 @@ validation:
 support:
   - name: "comparti"
     config: "../anagrafica/anag-comparti/dataset.yml"
-    years: [2024]
+    years: [2026]
   - name: "sottocomparti"
     config: "../anagrafica/anag-sottocomparti/dataset.yml"
-    years: [2024]
+    years: [2026]
   - name: "enti"
     config: "../anagrafica/anag-enti/dataset.yml"
-    years: [2024]
+    years: [2026]
   - name: "codgest_uscite"
     config: "../anagrafica/anag-codgest-uscite/dataset.yml"
-    years: [2024]
+    years: [2026]
   - name: "regprov"
     config: "../anagrafica/anag-reg-prov/dataset.yml"
-    years: [2024]
+    years: [2026]
   - name: "comuni"
     config: "../anagrafica/anag-comuni/dataset.yml"
-    years: [2024]
+    years: [2026]
