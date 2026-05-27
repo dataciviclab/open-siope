@@ -14,7 +14,7 @@ on:
         description: "Anni (es. 2025 o 2021,2022,2025 o all)"
         default: "all"
       smoke:
-        description: "Smoke test (1000 righe, veloce)"
+        description: "Smoke mode (--sample-rows 1000, root isolato in out/smoke/)"
         default: false
         type: boolean
 
@@ -38,43 +38,29 @@ jobs:
       - name: Run entrate
         if: inputs.sides != 'uscite'
         run: |
-          SMOKE="${{ inputs.smoke }}"
+          FLAG="${{ inputs.smoke == 'true' && '--sample-rows 1000' || '' }}"
           if [ "${{ inputs.years }}" = "all" ]; then YEARS="2021 2022 2023 2024 2025"
           else YEARS=$(echo "${{ inputs.years }}" | tr ',' ' '); fi
           for y in $YEARS; do
-            if [ "$SMOKE" = "true" ]; then
-              echo "=== entrate $y (smoke) ==="
-              python3 -m toolkit.cli.app run raw --config entrate/dataset.yml --year "$y"
-              python3 -m toolkit.cli.app run clean --config entrate/dataset.yml --year "$y" --smoke
-              python3 -m toolkit.cli.app run mart --config entrate/dataset.yml --year "$y"
-            else
-              echo "=== entrate $y (full) ==="
-              python3 -m toolkit.cli.app run all --config entrate/dataset.yml --year "$y"
-            fi
+            echo "=== entrate $y $FLAG ==="
+            python3 -m toolkit.cli.app run all --config entrate/dataset.yml --year "$y" $FLAG
           done
 
       - name: Run uscite
         if: inputs.sides != 'entrate'
         run: |
-          SMOKE="${{ inputs.smoke }}"
+          FLAG="${{ inputs.smoke == 'true' && '--sample-rows 1000' || '' }}"
           if [ "${{ inputs.years }}" = "all" ]; then YEARS="2021 2022 2023 2024 2025"
           else YEARS=$(echo "${{ inputs.years }}" | tr ',' ' '); fi
           for y in $YEARS; do
-            if [ "$SMOKE" = "true" ]; then
-              echo "=== uscite $y (smoke) ==="
-              python3 -m toolkit.cli.app run raw --config uscite/dataset.yml --year "$y"
-              python3 -m toolkit.cli.app run clean --config uscite/dataset.yml --year "$y" --smoke
-              python3 -m toolkit.cli.app run mart --config uscite/dataset.yml --year "$y"
-            else
-              echo "=== uscite $y (full) ==="
-              python3 -m toolkit.cli.app run all --config uscite/dataset.yml --year "$y"
-            fi
+            echo "=== uscite $y $FLAG ==="
+            python3 -m toolkit.cli.app run all --config uscite/dataset.yml --year "$y" $FLAG
           done
 
       - name: Upload mart artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: siope-mart
-          path: out/data/mart/
+          name: siope-mart${{ inputs.smoke == 'true' && '-smoke' || '' }}
+          path: ${{ inputs.smoke == 'true' && 'out/smoke/data/mart/' || 'out/data/mart/' }}
           compression-level: 0
           if-no-files-found: warn

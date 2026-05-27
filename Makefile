@@ -12,17 +12,11 @@ ANAG_SEEDS = \
 	anagrafica/anag-reg-prov \
 	anagrafica/anag-comuni
 
-.PHONY: seeds seeds-smoke
+.PHONY: seeds
 seeds:
 	@for d in $(ANAG_SEEDS); do \
 		echo "=== $$d ==="; \
 		$(TOOLKIT) run all --config $$d/dataset.yml || exit 1; \
-	done
-
-seeds-smoke:
-	@for d in $(ANAG_SEEDS); do \
-		echo "=== $$d (smoke) ==="; \
-		$(TOOLKIT) run all --config $$d/dataset.yml --smoke || exit 1; \
 	done
 
 # --- Dataset principali ---
@@ -43,24 +37,24 @@ comparti:
 	@echo "  REG    — Regioni e province autonome"
 	@echo "  SAN    — ASL, AO, IRCCS, Policlinici"
 	@echo "  UNI    — Universita' e dipartimenti"
-	@echo "Si eseguono automaticamente con: make smoke-entrate / make smoke-uscite"
+	@echo "Si eseguono con: make run-entrate / make run-uscite"
 
-# --- Smoke test (1000 righe, rapido) ---
-# RAW viene eseguito senza --smoke (lo ZIP troncato non si estrae),
-# CLEAN usa --smoke (1000 righe), MART processa solo quelle.
+# --- Smoke test (--sample-rows 1000, root isolato in out/smoke/) ---
 
 .PHONY: smoke smoke-entrate smoke-uscite
-smoke: seeds smoke-entrate smoke-uscite
+smoke: seeds-smoke smoke-entrate smoke-uscite
+
+seeds-smoke:
+	@for d in $(ANAG_SEEDS); do \
+		echo "=== $$d (smoke) ==="; \
+		$(TOOLKIT) run all --config $$d/dataset.yml --sample-rows 1000 || exit 1; \
+	done
 
 smoke-entrate:
-	$(TOOLKIT) run raw --config entrate/dataset.yml --year 2025
-	$(TOOLKIT) run clean --config entrate/dataset.yml --year 2025 --smoke
-	$(TOOLKIT) run mart --config entrate/dataset.yml --year 2025
+	$(TOOLKIT) run all --config entrate/dataset.yml --year 2025 --sample-rows 1000
 
 smoke-uscite:
-	$(TOOLKIT) run raw --config uscite/dataset.yml --year 2025
-	$(TOOLKIT) run clean --config uscite/dataset.yml --year 2025 --smoke
-	$(TOOLKIT) run mart --config uscite/dataset.yml --year 2025
+	$(TOOLKIT) run all --config uscite/dataset.yml --year 2025 --sample-rows 1000
 
 # --- Validazione config ---
 
