@@ -15,36 +15,30 @@ Il perimetro tecnico oggi e':
 
 ## Struttura
 
-- `entrate/comuni/`: dataset principale entrate comuni
-- `uscite/comuni/`: dataset v1 uscite comuni
-- `anagrafica/anag-enti/`: seed anagrafica enti (include cod. istat comune, cod. provincia, popolazione)
+- `entrate/`: dataset entrate (PRO comuni/province + REG + SAN + UNI)
+- `uscite/`: dataset uscite (PRO comuni/province + REG + SAN + UNI)
+- `anagrafica/anag-enti/`: seed anagrafica enti (cod. istat comune, provincia, popolazione)
 - `anagrafica/anag-codgest-entrate/`: seed dizionario voci entrate
 - `anagrafica/anag-codgest-uscite/`: seed dizionario voci uscite
 - `anagrafica/anag-comparti/`: seed comparti
 - `anagrafica/anag-sottocomparti/`: seed sottocomparti
-- `anagrafica/anag-reg-prov/`: seed regioni e province `[NUOVO]`
-- `anagrafica/anag-comuni/`: seed anagrafe comuni `[NUOVO]`
+- `anagrafica/anag-reg-prov/`: seed regioni e province
+- `anagrafica/anag-comuni/`: seed anagrafe comuni
 - `docs/`: metodologia e backlog tecnico
 
 ## Come eseguire
 
 Eseguire prima i seed anagrafici:
 
-```powershell
-py -m toolkit.cli.app run all --config anagrafica/anag-comparti/dataset.yml
-py -m toolkit.cli.app run all --config anagrafica/anag-sottocomparti/dataset.yml
-py -m toolkit.cli.app run all --config anagrafica/anag-enti/dataset.yml
-py -m toolkit.cli.app run all --config anagrafica/anag-codgest-entrate/dataset.yml
-py -m toolkit.cli.app run all --config anagrafica/anag-codgest-uscite/dataset.yml
-py -m toolkit.cli.app run all --config anagrafica/anag-reg-prov/dataset.yml
-py -m toolkit.cli.app run all --config anagrafica/anag-comuni/dataset.yml
+```bash
+make seeds
 ```
 
 Poi eseguire i dataset principali:
 
-```powershell
-py -m toolkit.cli.app run all --config entrate/dataset.yml
-py -m toolkit.cli.app run all --config uscite/dataset.yml
+```bash
+python3 -m toolkit.cli.app run all --config entrate/dataset.yml
+python3 -m toolkit.cli.app run all --config uscite/dataset.yml
 ```
 
 ## Output attesi
@@ -90,9 +84,9 @@ Il `mart` labeled espone almeno:
 - [docs/uso_mart_labeled.md](docs/uso_mart_labeled.md)
 - [docs/output_v1_entrate_comuni_2023_2024.md](docs/output_v1_entrate_comuni_2023_2024.md)
   Documento storico del primo output pubblico stretto su `2023-2024`.
-- [entrate/comuni/notebooks/d3_entrate_comuni_2021_2025.ipynb](entrate/comuni/notebooks/d3_entrate_comuni_2021_2025.ipynb)
+- [entrate/notebooks/d3_entrate_comuni_2021_2025.ipynb](entrate/notebooks/d3_entrate_comuni_2021_2025.ipynb)
   Notebook di follow-up sul perimetro `2021-2025`: segnali `2024 -> 2025` e breakdown di `Altro`.
-- [uscite/comuni/notebooks/d1_uscite_grandi_comuni_2021_2025.ipynb](uscite/comuni/notebooks/d1_uscite_grandi_comuni_2021_2025.ipynb)
+- [uscite/notebooks/d1_uscite_grandi_comuni_2021_2025.ipynb](uscite/notebooks/d1_uscite_grandi_comuni_2021_2025.ipynb)
   Primo notebook sul lato `uscite`: grandi comuni, `2021 -> 2025`, spesa corrente, investimenti e flussi tecnici.
 
 ## Limiti noti
