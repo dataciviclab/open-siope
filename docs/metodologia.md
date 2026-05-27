@@ -19,12 +19,14 @@ La pipeline segue il contract del `toolkit`:
 ## Regole metodologiche iniziali
 
 - il perimetro tecnico attuale e' `comuni / 2021-2025`
-- `entrate` e' il lato piu maturo, con multi-year mart e notebook gia' consolidati
-- `uscite` espone ora anche un multi-year mart labeled, ma non ha ancora notebook dedicati
-- il primo output pubblico storico resta invece volutamente stretto su `2023-2024`
+- `entrate` e' il lato piu maturo, con notebook gia' consolidati
+- `uscite` e' in v1 tecnica, senza ancora notebook dedicati
+- il primo output pubblico storico resta volutamente stretto su `2023-2024`
 - il terzo campo delle entrate viene trattato come `periodo` (`01..12`), non come `codice_gestione`
 - il join contestuale del labeled usa `codice_comparto = codice_gestione` sul perimetro comuni
 - i confronti descrittivi sui totali devono partire da `is_titolo_9 = false`
+- territorio: ogni comune ha codice provincia (da ANAG_ENTI_SIOPE), arricchito con provincia e regione via join con ANAG_REG_PROV
+- gerarchia territoriale: disponibile nei mart hierarchy (comune → provincia → regione) a 3 livelli
 
 ## Unita' di misura
 
@@ -36,18 +38,18 @@ La pipeline segue il contract del `toolkit`:
 Il lato `entrate` espone:
 
 - `clean` entrate
-- `mart` comuni di dettaglio
+- `mart` comuni di dettaglio per `ente-periodo-voce`
 - `mart` comuni aggregato per `ente-anno-codice_voce`
-- `mart` comuni aggregato labeled con descrizioni voce
-- multi-year mart labeled costruito sui parquet annuali del mart
+- `mart` comuni aggregato labeled con voce, provincia e regione
+- `hierarchy` a 3 livelli: comune × macro-categoria, provincia × macro-categoria, regione × macro-categoria
 
 Il lato `uscite` espone:
 
 - `clean` uscite
-- `mart` comuni di dettaglio
+- `mart` comuni di dettaglio per `ente-periodo-voce`
 - `mart` comuni aggregato per `ente-anno-codice_voce`
-- `mart` comuni aggregato labeled con descrizioni voce
-- multi-year mart labeled costruito sui parquet annuali del mart
+- `mart` comuni aggregato labeled con voce, provincia e regione
+- `hierarchy` a 3 livelli: comune, provincia, regione
 
 ## Classificazione minima per letture pubbliche
 

@@ -10,17 +10,20 @@ Il perimetro tecnico oggi e':
 - lato contabile: entrate + uscite
 - annualita': 2021-2025
 - pipeline: `RAW -> CLEAN -> MART` via `toolkit`
-- entrate e uscite su `2021-2025`, con gerarchia territoriale (comune→provincia→regione)
+- territori: comune → provincia → regione (join con anagrafica SIOPE)
+- gerarchia: mart automatico a 3 livelli (comune, provincia, regione)
 
 ## Struttura
 
 - `entrate/comuni/`: dataset principale entrate comuni
 - `uscite/comuni/`: dataset v1 uscite comuni
-- `anagrafica/anag-enti/`: seed anagrafica enti
+- `anagrafica/anag-enti/`: seed anagrafica enti (include cod. istat comune, cod. provincia, popolazione)
 - `anagrafica/anag-codgest-entrate/`: seed dizionario voci entrate
 - `anagrafica/anag-codgest-uscite/`: seed dizionario voci uscite
 - `anagrafica/anag-comparti/`: seed comparti
 - `anagrafica/anag-sottocomparti/`: seed sottocomparti
+- `anagrafica/anag-reg-prov/`: seed regioni e province `[NUOVO]`
+- `anagrafica/anag-comuni/`: seed anagrafe comuni `[NUOVO]`
 - `docs/`: metodologia e backlog tecnico
 
 ## Come eseguire
@@ -33,9 +36,11 @@ py -m toolkit.cli.app run all --config anagrafica/anag-sottocomparti/dataset.yml
 py -m toolkit.cli.app run all --config anagrafica/anag-enti/dataset.yml
 py -m toolkit.cli.app run all --config anagrafica/anag-codgest-entrate/dataset.yml
 py -m toolkit.cli.app run all --config anagrafica/anag-codgest-uscite/dataset.yml
+py -m toolkit.cli.app run all --config anagrafica/anag-reg-prov/dataset.yml
+py -m toolkit.cli.app run all --config anagrafica/anag-comuni/dataset.yml
 ```
 
-Poi eseguire i dataset principali (il multi-year è assorbito in `run all`):
+Poi eseguire i dataset principali:
 
 ```powershell
 py -m toolkit.cli.app run all --config entrate/comuni/dataset.yml
@@ -47,25 +52,29 @@ py -m toolkit.cli.app run all --config uscite/comuni/dataset.yml
 `entrate/comuni` produce:
 
 - `clean` canonico delle entrate
-- `siope_entrate_comuni`
-- `siope_entrate_comuni_agg`
-- `siope_entrate_comuni_agg_labeled`
-- `siope_entrate_comuni_agg_labeled_multi_anno`
+- `siope_entrate_comuni` — dettaglio per ente-periodo-voce
+- `siope_entrate_comuni_agg` — aggregato per ente-anno-voce
+- `siope_entrate_comuni_agg_labeled` — aggregato con voci e territorio (provincia + regione)
+- `h_entrate_comune_macro` — gerarchia: comune × macro_categoria
+- `h_entrate_provincia_macro` — gerarchia: provincia × macro_categoria
+- `h_entrate_regione_macro` — gerarchia: regione × macro_categoria
 
 Il `mart` labeled espone almeno:
 
-- `importo_totale`
-- `importo_totale_eur`
+- `importo_totale`, `importo_totale_eur`
+- `provincia`, `regione`
+- `macro_categoria_v2`, `is_titolo_9`
 - `descrizione_codice`
-- `is_titolo_9`
 
 `uscite/comuni` produce:
 
 - `clean` canonico delle uscite
-- `siope_uscite_comuni`
-- `siope_uscite_comuni_agg`
-- `siope_uscite_comuni_agg_labeled`
-- `siope_uscite_comuni_agg_labeled_multi_anno`
+- `siope_uscite_comuni` — dettaglio per ente-periodo-voce
+- `siope_uscite_comuni_agg` — aggregato per ente-anno-voce
+- `siope_uscite_comuni_agg_labeled` — aggregato con voci e territorio
+- `h_uscite_comune` — gerarchia: comune
+- `h_uscite_provincia` — gerarchia: provincia
+- `h_uscite_regione` — gerarchia: regione
 
 ## Documenti utili
 
