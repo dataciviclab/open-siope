@@ -37,15 +37,21 @@ run-uscite:
 run-all: seeds run-entrate run-uscite
 
 # --- Smoke test (1000 righe, rapido) ---
+# RAW viene eseguito senza --smoke (lo ZIP troncato non si estrae),
+# CLEAN usa --smoke (1000 righe), MART processa solo quelle.
 
 .PHONY: smoke smoke-entrate smoke-uscite
-smoke: seeds-smoke smoke-entrate smoke-uscite
+smoke: seeds smoke-entrate smoke-uscite
 
 smoke-entrate:
-	$(TOOLKIT) run all --config entrate/comuni/dataset.yml --year 2025 --smoke
+	$(TOOLKIT) run raw --config entrate/comuni/dataset.yml --year 2025
+	$(TOOLKIT) run clean --config entrate/comuni/dataset.yml --year 2025 --smoke
+	$(TOOLKIT) run mart --config entrate/comuni/dataset.yml --year 2025
 
 smoke-uscite:
-	$(TOOLKIT) run all --config uscite/comuni/dataset.yml --year 2025 --smoke
+	$(TOOLKIT) run raw --config uscite/comuni/dataset.yml --year 2025
+	$(TOOLKIT) run clean --config uscite/comuni/dataset.yml --year 2025 --smoke
+	$(TOOLKIT) run mart --config uscite/comuni/dataset.yml --year 2025
 
 # --- Validazione config ---
 
