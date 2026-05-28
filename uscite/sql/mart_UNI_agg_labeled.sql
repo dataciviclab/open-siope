@@ -69,7 +69,10 @@ select
     a.periodi_coperti,
     a.periodo_min,
     a.periodo_max,
-    a.importo_totale / 100.0 as importo_totale_eur,
+    a.importo_totale / 100.0 as importo_totale_eur,    g.is_titolo_9,
+    g.macro_area,
+    g.macro_categoria,
+
     g.descrizione_codice,
     g.data_inizio as codgest_data_inizio,
     g.data_fine as codgest_data_fine,

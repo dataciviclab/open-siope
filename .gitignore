@@ -1,5 +1,7 @@
 out/
 .tmp/
+dist/observable/
 .venv/
 __pycache__/
 .pytest_cache/
+explorer

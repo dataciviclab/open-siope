@@ -43,8 +43,6 @@ clean:
 mart:
   tables:
     # --- PRO: comuni, province, città metropolitane ---
-    - name: "siope_uscite_comuni_agg"
-      sql: "sql/mart_PRO_agg.sql"
     - name: "siope_uscite_comuni_agg_labeled"
       sql: "sql/mart_PRO_agg_labeled.sql"
     # --- REG: regioni e province autonome ---
@@ -59,20 +57,20 @@ mart:
   hierarchy:
     axis: "territoriale"
     levels:
-      # PRO hierarchy (comuni → provincia → regione)
+      # PRO hierarchy (comuni → provincia → regione × macro_categoria)
       - level: "comune"
         table: "h_uscite_comune"
-        grain: ["anno", "codice_ente", "denominazione_ente", "codice_provincia", "provincia", "regione"]
+        grain: ["anno", "codice_ente", "denominazione_ente", "codice_provincia", "provincia", "regione", "macro_area", "macro_categoria"]
         source_table: "siope_uscite_comuni_agg_labeled"
         exclude_metrics: ["importo_totale", "righe", "periodi_coperti"]
       - level: "provincia"
         table: "h_uscite_provincia"
-        grain: ["anno", "codice_provincia", "provincia", "regione"]
+        grain: ["anno", "codice_provincia", "provincia", "regione", "macro_area"]
         source_table: "siope_uscite_comuni_agg_labeled"
         exclude_metrics: ["importo_totale", "righe", "periodi_coperti"]
       - level: "regione"
         table: "h_uscite_regione"
-        grain: ["anno", "regione"]
+        grain: ["anno", "regione", "macro_area"]
         source_table: "siope_uscite_comuni_agg_labeled"
         exclude_metrics: ["importo_totale", "righe", "periodi_coperti"]
       # REG hierarchy (solo regioni)
@@ -82,34 +80,28 @@ mart:
         source_table: "siope_uscite_regioni_agg_labeled"
         exclude_metrics: ["importo_totale", "righe", "periodi_coperti"]
   required_tables:
-    - "siope_uscite_comuni_agg"
     - "siope_uscite_comuni_agg_labeled"
     - "siope_uscite_regioni_agg_labeled"
     - "siope_uscite_sanita_agg_labeled"
     - "siope_uscite_universita_agg_labeled"
   validate:
     table_rules:
-      siope_uscite_comuni_agg:
-        min_rows: 300000
-        required_columns: ["codice_ente", "anno", "codice_voce", "importo_totale", "periodi_coperti", "codice_comparto"]
-        primary_key: ["codice_ente", "anno", "codice_voce"]
-        not_null: ["codice_ente", "anno", "codice_voce", "importo_totale", "periodi_coperti", "codice_comparto"]
       siope_uscite_comuni_agg_labeled:
         min_rows: 300000
-        required_columns: ["codice_ente", "anno", "codice_voce", "importo_totale", "importo_totale_eur", "descrizione_codice", "has_codgest_match", "codice_provincia", "provincia", "regione"]
+        required_columns: ["codice_ente", "anno", "codice_voce", "importo_totale", "importo_totale_eur", "macro_area", "macro_categoria", "is_titolo_9", "descrizione_codice", "has_codgest_match", "codice_provincia", "provincia", "regione"]
         primary_key: ["codice_ente", "anno", "codice_voce"]
         not_null: ["codice_ente", "anno", "codice_voce", "importo_totale", "importo_totale_eur"]
       siope_uscite_regioni_agg_labeled:
         min_rows: 50
-        required_columns: ["codice_ente", "anno", "importo_totale_eur", "codice_comparto", "tipo_ente", "regione"]
+        required_columns: ["codice_ente", "anno", "importo_totale_eur", "macro_area", "macro_categoria", "is_titolo_9", "codice_comparto", "tipo_ente", "regione"]
         primary_key: ["codice_ente", "anno", "codice_voce"]
       siope_uscite_sanita_agg_labeled:
         min_rows: 50
-        required_columns: ["codice_ente", "anno", "importo_totale_eur", "codice_comparto", "tipo_ente", "regione"]
+        required_columns: ["codice_ente", "anno", "importo_totale_eur", "macro_area", "macro_categoria", "is_titolo_9", "codice_comparto", "tipo_ente", "regione"]
         primary_key: ["codice_ente", "anno", "codice_voce"]
       siope_uscite_universita_agg_labeled:
         min_rows: 20
-        required_columns: ["codice_ente", "anno", "importo_totale_eur", "codice_comparto", "tipo_ente"]
+        required_columns: ["codice_ente", "anno", "importo_totale_eur", "macro_area", "macro_categoria", "is_titolo_9", "codice_comparto", "tipo_ente"]
         primary_key: ["codice_ente", "anno", "codice_voce"]
 
 validation:

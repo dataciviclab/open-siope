@@ -44,8 +44,6 @@ clean:
 mart:
   tables:
     # --- PRO: comuni, province, città metropolitane ---
-    - name: "siope_entrate_comuni_agg"
-      sql: "sql/mart_PRO_agg.sql"
     - name: "siope_entrate_comuni_agg_labeled"
       sql: "sql/mart_PRO_agg_labeled.sql"
     # --- REG: regioni e province autonome ---
@@ -83,18 +81,12 @@ mart:
         source_table: "siope_entrate_regioni_agg_labeled"
         exclude_metrics: ["importo_totale", "righe", "periodi_coperti", "popolazione"]
   required_tables:
-    - "siope_entrate_comuni_agg"
     - "siope_entrate_comuni_agg_labeled"
     - "siope_entrate_regioni_agg_labeled"
     - "siope_entrate_sanita_agg_labeled"
     - "siope_entrate_universita_agg_labeled"
   validate:
     table_rules:
-      siope_entrate_comuni_agg:
-        min_rows: 300000
-        required_columns: ["codice_ente", "anno", "codice_voce", "importo_totale", "periodi_coperti", "codice_comparto"]
-        primary_key: ["codice_ente", "anno", "codice_voce"]
-        not_null: ["codice_ente", "anno", "codice_voce", "importo_totale", "periodi_coperti", "codice_comparto"]
       siope_entrate_comuni_agg_labeled:
         min_rows: 300000
         required_columns: ["codice_ente", "anno", "codice_voce", "importo_totale", "importo_totale_eur", "descrizione_codice", "has_codgest_match", "is_titolo_9", "macro_categoria_v2", "codice_provincia", "provincia", "regione"]

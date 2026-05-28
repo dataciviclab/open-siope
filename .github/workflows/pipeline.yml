@@ -94,6 +94,12 @@ jobs:
           gsutil -m rsync -r out/data/mart/ gs://dataciviclab-mart/siope/
           echo "✅ Synced to gs://dataciviclab-mart/siope/"
 
+      - name: Sync clean a GCS
+        if: ${{ !inputs.smoke }}
+        run: |
+          gsutil -m rsync -r out/data/clean/ gs://dataciviclab-clean/siope/
+          echo "✅ Clean synced to gs://dataciviclab-clean/siope/"
+
       - name: Upload mart artifacts
         uses: actions/upload-artifact@v4
         with:

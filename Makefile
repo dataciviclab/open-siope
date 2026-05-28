@@ -87,3 +87,10 @@ clean-runs:
 .PHONY: help
 help:
 	@grep -E '^[a-zA-Z_-]+:' Makefile | sort
+
+# --- Explorer Observable ---
+
+.PHONY: explorer
+explorer:
+	cd explorer && npm run build
+	@echo "✅ Explorer built in docs/explorer/"
