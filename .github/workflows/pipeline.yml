@@ -22,8 +22,8 @@ jobs:
   siope-pipeline:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6.0.3
+      - uses: actions/setup-python@v6.2.0
         with:
           python-version: "3.12"
 
@@ -100,7 +100,7 @@ jobs:
           echo "✅ Clean synced to gs://dataciviclab-clean/siope/"
 
       - name: Upload mart artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: siope-mart${{ inputs.smoke && '-smoke' || '' }}
           path: ${{ inputs.smoke && 'out/smoke/data/mart/' || 'out/data/mart/' }}
