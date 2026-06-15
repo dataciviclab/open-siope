@@ -24,19 +24,16 @@ SERVER = "siope"
 
 
 def _list_response(result: Any) -> dict[str, Any]:
-    """Wrappa una lista in un dict per evitare il wrapping `{"result": ...}` di FastMCP.
+    """Wrappa una lista in dict con data/count per structured_output di FastMCP.
 
     FastMCP con ``structured_output=True`` e return type ``list[T]`` crea
-    automaticamente un modello ``{funcName}Output(result=list[T])`` che wrappa
-    il risultato in ``{"result": [...]}``. Client come OpenCode non gestiscono
-    questo formato e falliscono con errore di validazione.
+    un pydantic model ``{name}Output(result=list[T])`` che wrappa il risultato
+    in ``{"result": [...]}``. OpenCode non gestisce questo formato.
 
-    Usando ``-> dict[str, Any]`` al posto di ``-> list[dict]``, FastMCP usa
-    ``RootModel`` senza wrapping. La chiave ``"data"`` rende il risultato
-    direttamente accessibile all'agente AI.
+    Con ``dict[str, Any]`` FastMCP usa RootModel senza wrapping aggiuntivo.
     """
     if isinstance(result, dict) and ("error" in result or "code" in result):
-        return result  # pass-through error
+        return result
     return {"data": result, "count": len(result)}
 
 
