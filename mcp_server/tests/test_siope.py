@@ -350,6 +350,71 @@ class TestServer:
 
         assert mcp.name == "siope"
 
+    def test_tool_formato_data_e_count(self):
+        """Tool lista deve restituire dict con data (list) e count (int)."""
+        from server import siope_cerca_ente as tool_fn
+
+        result = tool_fn(query="ROMA", limit=3)
+        assert isinstance(result, dict), f"dovrebbe essere dict, non {type(result)}"
+        assert "data" in result, f"dovrebbe avere chiave 'data': {list(result.keys())}"
+        assert isinstance(result["data"], list), "data deve essere list"
+        assert "count" in result, "dovrebbe avere chiave 'count'"
+        assert result["count"] == len(result["data"])
+
+    def test_tool_formato_non_wrappa_result(self):
+        """Tool lista NON deve avere chiave 'result' (fastmcp wrapping)."""
+        from server import siope_cerca_ente as tool_fn
+
+        result = tool_fn(query="ROMA", limit=2)
+        assert "result" not in result, (
+            f"Trovato 'result' invece di 'data': {result}"
+        )
+
+    def test_tool_get_bilancio_formato_dict(self):
+        """get_bilancio deve restituire dict con chiavi attese."""
+        from server import siope_get_bilancio as tool_fn
+
+        result = tool_fn(codice_ente="800000047", anno=2024, lato="entrate")
+        assert isinstance(result, dict)
+        assert "codice_ente" in result
+        assert "totale_eur" in result
+
+    def test_input_invalido_restituisce_dict_errore(self):
+        """Input invalido deve restituire error dict (non sollevare eccezione)."""
+        from server import siope_serie_storica as tool_fn
+
+        result = tool_fn(codice_ente="800000047", lato="lato_invalido")
+        # guard_timed converte ValueError in McpError.to_dict()
+        assert isinstance(result, dict)
+        assert "error" in result or "code" in result, (
+            f"Input invalido dovrebbe produrre error dict: {result}"
+        )
+
+
+@pytest.mark.contract
+class TestFastMCPContract:
+    """Test contratto MCP via FastMCP call_tool (simula client reale)."""
+
+    @pytest.mark.contract
+    def test_call_tool_lista_non_crash(self):
+        """FastMCP call_tool per tool lista non deve crashare."""
+        from server import mcp
+        import asyncio
+
+        result = asyncio.run(mcp.call_tool("siope_cerca_ente", {"query": "ROMA", "limit": 1}))
+        assert result is not None
+        assert len(result) >= 1  # almeno content
+
+    @pytest.mark.contract
+    def test_call_tool_dict_non_crash(self):
+        """FastMCP call_tool per tool dict non deve crashare."""
+        from server import mcp
+        import asyncio
+
+        result = asyncio.run(mcp.call_tool("siope_get_bilancio", {"codice_ente": "800000047", "anno": 2024, "lato": "entrate"}))
+        assert result is not None
+        assert len(result) >= 1
+
 
 @pytest.mark.smoke
 class TestIntegration:
