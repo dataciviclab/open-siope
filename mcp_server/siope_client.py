@@ -3,6 +3,9 @@
 Legge parquet direttamente dagli URL HTTPS dei bucket pubblici.
 Non richiede autenticazione GCS — i bucket dataciviclab-clean
 e dataciviclab-mart sono pubblici.
+
+Ogni funzione usa una connessione DuckDB isolata per evitare
+transactions abortite tra query successive.
 """
 
 from __future__ import annotations
@@ -19,6 +22,15 @@ ANNI = [2021, 2022, 2023, 2024, 2025]
 ENTI_URL = (
     f"{GCS_CLEAN}/siope_anag_enti_seed/2026/siope_anag_enti_seed_2026_clean.parquet"
 )
+
+
+def _query(sql: str) -> list[tuple]:
+    """Esegue SQL su una connessione DuckDB isolata."""
+    con = duckdb.connect()
+    try:
+        return con.sql(sql).fetchall()
+    finally:
+        con.close()
 
 
 def _mart_url(lato: str, anno: int) -> str:
@@ -41,7 +53,7 @@ def _clean_url(lato: str, anno: int) -> str:
 def cerca_ente(query: str, limit: int = 20) -> list[dict[str, Any]]:
     """Cerca enti per denominazione (LIKE %query%)."""
     safe = query.replace("'", "''")
-    rows = duckdb.sql(
+    rows = _query(
         f"""
         SELECT codice_ente, denominazione_ente, tipo_ente,
                codice_provincia, codice_istat_comune
@@ -50,7 +62,7 @@ def cerca_ente(query: str, limit: int = 20) -> list[dict[str, Any]]:
           AND denominazione_ente ILIKE '%{safe}%'
         LIMIT {limit}
         """
-    ).fetchall()
+    )
     cols = ["codice_ente", "denominazione", "tipo_ente", "provincia", "comune_istat"]
     return [dict(zip(cols, r)) for r in rows]
 
@@ -58,18 +70,18 @@ def cerca_ente(query: str, limit: int = 20) -> list[dict[str, Any]]:
 def get_bilancio(
     codice_ente: str, anno: int, lato: str
 ) -> dict[str, Any]:
-    """Totale entrate/uscite per un ente in un anno (da MART)."""
-    url = _mart_url(lato, anno)
-    row = duckdb.sql(
+    """Totale entrate/uscite per un ente in un anno (da CLEAN)."""
+    url = _clean_url(lato, anno)
+    row = _query(
         f"""
         SELECT count(*) as righe,
                count(DISTINCT codice_voce) as voci,
-               sum(importo_totale_eur) as totale_eur
+               sum(importo_eur) as totale_eur
         FROM read_parquet('{url}')
         WHERE codice_ente = '{codice_ente}'
           AND is_titolo_9 = false
         """
-    ).fetchone()
+    )[0]
     return {
         "codice_ente": codice_ente,
         "anno": anno,
@@ -83,13 +95,13 @@ def get_bilancio(
 def spesa_categoria(
     codice_ente: str, anno: int, lato: str
 ) -> list[dict[str, Any]]:
-    """Breakdown per macro-categoria di un ente."""
-    url = _mart_url(lato, anno)
+    """Breakdown per macro-categoria di un ente (da CLEAN)."""
+    url = _clean_url(lato, anno)
     cat_col = "macro_categoria_v2" if lato == "entrate" else "macro_categoria"
-    rows = duckdb.sql(
+    rows = _query(
         f"""
         SELECT {cat_col} as categoria,
-               sum(importo_totale_eur) as totale_eur,
+               sum(importo_eur) as totale_eur,
                count(DISTINCT codice_voce) as voci
         FROM read_parquet('{url}')
         WHERE codice_ente = '{codice_ente}'
@@ -97,7 +109,7 @@ def spesa_categoria(
         GROUP BY categoria
         ORDER BY totale_eur DESC
         """
-    ).fetchall()
+    )
     return [
         {"categoria": r[0], "totale_eur": round(r[1], 2), "voci": r[2]}
         for r in rows
@@ -107,15 +119,15 @@ def spesa_categoria(
 def top_enti(
     anno: int, lato: str, comparto: str | None = None, limit: int = 10
 ) -> list[dict[str, Any]]:
-    """Enti con maggiori entrate/uscite."""
-    url = _mart_url(lato, anno)
-    where = f"AND is_titolo_9 = false"
+    """Enti con maggiori entrate/uscite (da CLEAN)."""
+    url = _clean_url(lato, anno)
+    where = "AND is_titolo_9 = false"
     if comparto:
         where += f" AND codice_comparto = '{comparto}'"
-    rows = duckdb.sql(
+    rows = _query(
         f"""
         SELECT codice_ente, denominazione_ente,
-               sum(importo_totale_eur) as totale_eur,
+               sum(importo_eur) as totale_eur,
                codice_comparto
         FROM read_parquet('{url}')
         WHERE 1=1 {where}
@@ -123,7 +135,7 @@ def top_enti(
         ORDER BY totale_eur DESC
         LIMIT {limit}
         """
-    ).fetchall()
+    )
     return [
         {
             "codice_ente": r[0],
@@ -136,19 +148,19 @@ def top_enti(
 
 
 def serie_storica(codice_ente: str, lato: str) -> list[dict[str, Any]]:
-    """Trend pluriennale per un ente."""
+    """Trend pluriennale per un ente (da CLEAN)."""
     results = []
     for anno in ANNI:
         try:
-            row = duckdb.sql(
+            row = _query(
                 f"""
-                SELECT sum(importo_totale_eur) as totale_eur,
+                SELECT coalesce(sum(importo_eur), 0) as totale_eur,
                        count(*) as righe
-                FROM read_parquet('{_mart_url(lato, anno)}')
+                FROM read_parquet('{_clean_url(lato, anno)}')
                 WHERE codice_ente = '{codice_ente}'
                   AND is_titolo_9 = false
                 """
-            ).fetchone()
+            )[0]
             if row[0]:
                 results.append({
                     "anno": anno,
@@ -170,7 +182,7 @@ def elenca_enti(
     if tipo:
         where.append(f"tipo_ente = '{tipo}'")
     where_clause = " AND ".join(where)
-    rows = duckdb.sql(
+    rows = _query(
         f"""
         SELECT codice_ente, denominazione_ente, tipo_ente,
                codice_provincia, codice_istat_comune
@@ -179,6 +191,6 @@ def elenca_enti(
         ORDER BY denominazione_ente
         LIMIT {limit}
         """
-    ).fetchall()
+    )
     cols = ["codice_ente", "denominazione", "tipo_ente", "provincia", "comune_istat"]
     return [dict(zip(cols, r)) for r in rows]
