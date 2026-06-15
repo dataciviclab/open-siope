@@ -54,11 +54,15 @@ def _fake_query(sql: str, *args, **kwargs) -> list[tuple]:
         return _ENTI_FAKE
     if "ILIKE" in sql:
         return []
+    if "sottocomparti" in sql and "codice_ente" in sql:
+        if "000000000" in sql:
+            return []
+        return [("800000047", "ROMA CAPITALE", "COMUNE", "058", "091", "PRO", "COMUNI")]
     if "JOIN" in sql and "codice_comparto" in sql:
         return _ENTI_FILTRATI
     if "tipo_ente" in sql and "COMUNE" in sql:
         return _ENTI_FILTRATI
-    # Catch-all per query sulla tabella enti (senza filtri di comparto/tipo)
+    # Catch-all per query sulla tabella enti
     if "FROM read_parquet" in sql and "enti_seed" in sql:
         return _ENTI_FAKE[:2]
     return []
@@ -258,13 +262,72 @@ class TestClient:
         e = elenca_enti(limit=5)
         assert len(e) >= 1
 
+    def test_lookup_ente(self):
+        """lookup_ente deve restituire dettagli per codice_ente esistente."""
+        from siope_client import lookup_ente
+
+        r = lookup_ente("800000047")
+        assert r is not None
+        assert r["codice_ente"] == "800000047"
+        assert r["denominazione"] == "ROMA CAPITALE"
+        assert r["codice_comparto"] is not None  # join con sottocomparti
+
+    def test_lookup_ente_sconosciuto(self):
+        """lookup_ente deve restituire None per codice inesistente."""
+        from siope_client import lookup_ente
+
+        r = lookup_ente("000000000")
+        assert r is None
+
+    def test_lookup_ente_sql_semantica(self):
+        """La SQL per lookup_ente deve fare JOIN con sottocomparti."""
+        import siope_client
+        captured = []
+
+        def _capture(sql, *a, **kw):
+            captured.append(sql)
+            return []
+
+        original = siope_client._query
+        siope_client._query = _capture
+        try:
+            siope_client.lookup_ente("800000047")
+        finally:
+            siope_client._query = original
+
+        assert len(captured) == 1
+        sql = captured[0]
+        assert "LEFT JOIN" in sql
+        assert "codice_sottocomparto" in sql
+        assert "codice_comparto" in sql
+
+    def test_cerca_ente_sql_filtro_tipo(self):
+        """cerca_ente con tipo= deve filtrare su tipo_ente."""
+        import siope_client
+        captured = []
+
+        def _capture(sql, *a, **kw):
+            captured.append(sql)
+            return []
+
+        original = siope_client._query
+        siope_client._query = _capture
+        try:
+            siope_client.cerca_ente("milano", tipo="COMUNE", limit=5)
+        finally:
+            siope_client._query = original
+
+        assert len(captured) == 1
+        sql = captured[0]
+        assert "tipo_ente = 'COMUNE'" in sql
+
 
 @pytest.mark.contract
 class TestServer:
     """Test del server MCP — registrazione tool."""
 
     def test_all_tools_registered(self):
-        """Tutti i 6 tool devono essere registrati."""
+        """Tutti i 7 tool devono essere registrati."""
         from server import mcp
 
         tools = asyncio.run(mcp.list_tools())
@@ -273,11 +336,13 @@ class TestServer:
             "siope_cerca_ente",
             "siope_enti_comparto",
             "siope_get_bilancio",
+            "siope_lookup_ente",
             "siope_serie_storica",
             "siope_spesa_categoria",
             "siope_top_enti",
         ])
         assert names == expected
+        assert len(names) == 7  # sanity check: no extra
 
     def test_server_name(self):
         """Il server deve chiamarsi 'siope'."""
