@@ -16,7 +16,7 @@ from lab_connectors.mcp.cache import TtlCache
 
 # ── Costanti ──────────────────────────────────────────────────────────────────
 
-CLEAN_BUCKET = "dataciviclab-clean"
+GCS_BASE = "https://storage.googleapis.com/dataciviclab-clean/siope"
 ANNI = {2021, 2022, 2023, 2024, 2025}
 LATI = {"entrate", "uscite"}
 COMPARTI_VALIDI = {
@@ -25,11 +25,11 @@ COMPARTI_VALIDI = {
 }
 
 ENTI_URL = (
-    "s3://dataciviclab-clean/siope/siope_anag_enti_seed/2026"
+    f"{GCS_BASE}/siope_anag_enti_seed/2026"
     "/siope_anag_enti_seed_2026_clean.parquet"
 )
 SOTTOCOMPARTI_URL = (
-    "s3://dataciviclab-clean/siope/siope_anag_sottocomparti_seed/2026"
+    f"{GCS_BASE}/siope_anag_sottocomparti_seed/2026"
     "/siope_anag_sottocomparti_seed_2026_clean.parquet"
 )
 
@@ -73,9 +73,9 @@ def _escape_sql(val: str) -> str:
     return val.replace("'", "''")
 
 
-def _s3_path(lato: str, anno: int) -> str:
+def _parquet_url(lato: str, anno: int) -> str:
     return (
-        f"s3://{CLEAN_BUCKET}/siope/siope_{lato}_comuni/{anno}"
+        f"{GCS_BASE}/siope_{lato}_comuni/{anno}"
         f"/siope_{lato}_comuni_{anno}_clean.parquet"
     )
 
@@ -83,25 +83,25 @@ def _s3_path(lato: str, anno: int) -> str:
 # ── Esecuzione query ─────────────────────────────────────────────────────────
 
 
-def _query(sql: str, s3_path: str | None = None) -> list[tuple]:
+def _query(sql: str, parquet_url: str | None = None) -> list[tuple]:
     cached = _cache.get(sql)
     if cached is not None:
         return cached
 
-    path = s3_path or ENTI_URL
+    path = parquet_url or ENTI_URL
     with gcs_connect(path) as con:
         result = con.sql(sql).fetchall()
         _cache.set(sql, result)
         return result
 
 
-def _query_path(sql_template: str, s3_path: str, **kwargs) -> list[tuple]:
+def _query_path(sql_template: str, parquet_url: str, **kwargs) -> list[tuple]:
     """Build SQL with params, execute via gcs_connect."""
     sql = sql_template.format(**kwargs)
     cached = _cache.get(sql)
     if cached is not None:
         return cached
-    with gcs_connect(s3_path) as con:
+    with gcs_connect(parquet_url) as con:
         result = con.sql(sql).fetchall()
         _cache.set(sql, result)
         return result
@@ -145,7 +145,7 @@ def get_bilancio(
     lato = _validate_lato(lato)
     anno = _validate_anno(anno)
     ente = _escape_sql(codice_ente)
-    path = _s3_path(lato, anno)
+    path = _parquet_url(lato, anno)
     row = _query_path(
         """
         SELECT count(*) as righe,
@@ -175,7 +175,7 @@ def spesa_categoria(
     lato = _validate_lato(lato)
     anno = _validate_anno(anno)
     ente = _escape_sql(codice_ente)
-    path = _s3_path(lato, anno)
+    path = _parquet_url(lato, anno)
     cat_col = "macro_categoria_v2" if lato == "entrate" else "macro_categoria"
     rows = _query_path(
         """
@@ -205,7 +205,7 @@ def top_enti(
     lato = _validate_lato(lato)
     comparto = _validate_comparto(comparto)
     limit = _validate_limit(limit)
-    path = _s3_path(lato, anno)
+    path = _parquet_url(lato, anno)
 
     if comparto:
         extra = f"AND codice_comparto = '{comparto}'"
@@ -242,7 +242,7 @@ def serie_storica(codice_ente: str, lato: str) -> list[dict[str, Any]]:
     ente = _escape_sql(codice_ente)
     results: list[dict[str, Any]] = []
     for anno in sorted(ANNI):
-        path = _s3_path(lato, anno)
+        path = _parquet_url(lato, anno)
         row = _query_path(
             """
             SELECT coalesce(sum(importo_eur), 0) as totale_eur,
@@ -332,6 +332,6 @@ def elenca_enti(
             LIMIT {limit}
         """
 
-    rows = _query(sql, s3_path=ENTI_URL if not comparto else None)
+    rows = _query(sql, parquet_url=ENTI_URL if not comparto else None)
     cols = ["codice_ente", "denominazione", "tipo_ente", "provincia", "comune_istat"]
     return [dict(zip(cols, r)) for r in rows]
