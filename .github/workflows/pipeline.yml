@@ -38,7 +38,7 @@ jobs:
 
       - name: Seeds anagrafici
         run: |
-          if ${{ inputs.smoke }}; then
+          if [ "${{ inputs.smoke }}" = "true" ]; then
             for d in anagrafica/anag-comparti anagrafica/anag-sottocomparti anagrafica/anag-enti anagrafica/anag-codgest-entrate anagrafica/anag-codgest-uscite anagrafica/anag-reg-prov; do
               python3 -m toolkit.cli.app run all --config $d/dataset.yml --sample-rows 1000
             done
@@ -50,8 +50,9 @@ jobs:
         if: inputs.sides != 'uscite'
         run: |
           FLAG="${{ inputs.smoke && '--sample-rows 1000' || '' }}"
-          if [ "${{ inputs.years }}" = "all" ]; then YEARS="2021 2022 2023 2024 2025 2026"
-          else YEARS=$(echo "${{ inputs.years }}" | tr ',' ' '); fi
+          YEARS_INPUT="${{ inputs.years || 'all' }}"
+          if [ "$YEARS_INPUT" = "all" ]; then YEARS="2021 2022 2023 2024 2025 2026"
+          else YEARS=$(echo "$YEARS_INPUT" | tr ',' ' '); fi
           for y in $YEARS; do
             echo "=== entrate $y $FLAG ==="
             python3 -m toolkit.cli.app run all --config entrate/dataset.yml --year "$y" $FLAG
@@ -61,15 +62,17 @@ jobs:
         if: inputs.sides != 'entrate'
         run: |
           FLAG="${{ inputs.smoke && '--sample-rows 1000' || '' }}"
-          if [ "${{ inputs.years }}" = "all" ]; then YEARS="2021 2022 2023 2024 2025 2026"
-          else YEARS=$(echo "${{ inputs.years }}" | tr ',' ' '); fi
+          YEARS_INPUT="${{ inputs.years || 'all' }}"
+          if [ "$YEARS_INPUT" = "all" ]; then YEARS="2021 2022 2023 2024 2025 2026"
+          else YEARS=$(echo "$YEARS_INPUT" | tr ',' ' '); fi
           for y in $YEARS; do
             echo "=== uscite $y $FLAG ==="
             python3 -m toolkit.cli.app run all --config uscite/dataset.yml --year "$y" $FLAG
           done
 
       - name: Run cross-comparto
-        if: inputs.sides == 'both'
+        # both (dispatch) o schedule (inputs.sides assente = tutti i lati)
+        if: inputs.sides == 'both' || !inputs.sides
         # Il cross usa wildcard * nei path parquet (matcha tutti gli anni),
         # quindi un singolo anno basta. 
         # NOTA: senza --year il toolkit itera su tutti gli anni configurati.
@@ -81,8 +84,9 @@ jobs:
       - name: Verify output (gate)
         if: ${{ !inputs.smoke }}
         env:
-          LATO: ${{ inputs.sides == 'both' && 'all' || inputs.sides }}
-          ANNO: ${{ inputs.years }}
+          # Su schedule inputs.sides/years sono null → default a 'both'/'all'
+          LATO: ${{ inputs.sides == 'both' && 'all' || inputs.sides || 'both' }}
+          ANNO: ${{ inputs.years || 'all' }}
         run: |
           python3 scripts/verify_output.py --lato "$LATO" --year "$ANNO" --ci
 
