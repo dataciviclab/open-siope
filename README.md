@@ -27,7 +27,7 @@ Vedi un dato curioso? Apri una discussione. Hai una domanda? Usa **Q&A**.
 | Cosa | Quanto |
 |---|---|
 | **Enti coperti** | ~18.000 (comuni, ASL, università, regioni, province) |
-| **Periodo** | 2021 — 2025 |
+| **Periodo** | 2021 — 2026 |
 | **Comparti** | PRO (territorio) · REG (regioni) · SAN (sanità) · UNI (università) |
 | **Voci entrate** | ~2.000 codici (IMU, TARI, IRPEF, trasferimenti, ...) |
 | **Voci uscite** | ~2.700 codici (personale, beni, investimenti, interessi, ...) |

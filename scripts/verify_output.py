@@ -11,13 +11,13 @@ Usage:
   python3 scripts/verify_output.py --ci        # JSON per CI, parametri da env
 """
 
-import argparse, json, os, sys
+import argparse, datetime, json, os, sys
 from pathlib import Path
 
 import duckdb
 
 ROOT = Path(__file__).resolve().parent.parent / "out" / "data"
-ANNI_DISPONIBILI = [2025]  # solo 2025 ha schema arricchito
+ANNI_DISPONIBILI = [2025, 2026]
 
 LATI_CONFIG = {
     "entrate": {
@@ -50,8 +50,19 @@ SOGLIE = {
     "join_codgest_pct":   95.0,
     "mart_min_rows_PRO":  100_000,
     "importi_negativi_max": 100,
-    "periodi_attesi":      12,
 }
+
+
+def periodi_attesi(anno: int) -> int:
+    """Numero di periodi mensili attesi per anno.
+    - Anni passati: 12 (gen-dic completi)
+    - Anno corrente: ultimo mese completo (mese_corrente - 1)
+    """
+    oggi = datetime.date.today()
+    if anno < oggi.year:
+        return 12
+    # Anno corrente: mese corrente - 1 (es. a giugno → 5 periodi, gen-mag)
+    return max(oggi.month - 1, 1)
 
 
 def resolve(cfg, anno):
@@ -72,11 +83,12 @@ def check_clean(con, lato, anno, cfg):
     """).fetchone()
 
     righe, enti, periodi, neg, null_ente = r
+    attesi = periodi_attesi(anno)
     esito = "PASS"
     if righe < SOGLIE["clean_min_rows"]:
         esito = "CRITICAL"
-    if periodi != SOGLIE["periodi_attesi"]:
-        esito = "CRITICAL"
+    if periodi != attesi:
+        esito = "WARN" if anno == datetime.date.today().year else "CRITICAL"
     if neg > SOGLIE["importi_negativi_max"]:
         esito = "CRITICAL"
     if null_ente > 0:
@@ -84,7 +96,7 @@ def check_clean(con, lato, anno, cfg):
 
     return {"check": f"clean_{lato}_{anno}", "esito": esito,
             "dettaglio": {"righe": righe, "enti": enti, "periodi": periodi,
-                          "periodi_attesi": SOGLIE["periodi_attesi"],
+                          "periodi_attesi": attesi,
                           "importi_neg": neg, "null_ente": null_ente}}
 
 

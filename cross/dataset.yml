@@ -7,7 +7,7 @@ schema_version: 1
 
 dataset:
   name: "siope_cross_comparto"
-  years: [2021, 2022, 2023, 2024, 2025]
+  years: [2021, 2022, 2023, 2024, 2025, 2026]
 
 mart:
   tables:

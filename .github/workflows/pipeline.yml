@@ -1,5 +1,9 @@
 name: pipeline
 on:
+  schedule:
+    # Mensile: 5 del mese alle 6:00 UTC — i dati SIOPE vengono aggiornati
+    # entro il 5 del mese successivo a quello di riferimento.
+    - cron: "0 6 5 * *"
   workflow_dispatch:
     inputs:
       sides:
@@ -46,7 +50,7 @@ jobs:
         if: inputs.sides != 'uscite'
         run: |
           FLAG="${{ inputs.smoke && '--sample-rows 1000' || '' }}"
-          if [ "${{ inputs.years }}" = "all" ]; then YEARS="2021 2022 2023 2024 2025"
+          if [ "${{ inputs.years }}" = "all" ]; then YEARS="2021 2022 2023 2024 2025 2026"
           else YEARS=$(echo "${{ inputs.years }}" | tr ',' ' '); fi
           for y in $YEARS; do
             echo "=== entrate $y $FLAG ==="
@@ -57,7 +61,7 @@ jobs:
         if: inputs.sides != 'entrate'
         run: |
           FLAG="${{ inputs.smoke && '--sample-rows 1000' || '' }}"
-          if [ "${{ inputs.years }}" = "all" ]; then YEARS="2021 2022 2023 2024 2025"
+          if [ "${{ inputs.years }}" = "all" ]; then YEARS="2021 2022 2023 2024 2025 2026"
           else YEARS=$(echo "${{ inputs.years }}" | tr ',' ' '); fi
           for y in $YEARS; do
             echo "=== uscite $y $FLAG ==="
