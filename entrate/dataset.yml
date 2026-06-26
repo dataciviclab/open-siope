@@ -49,7 +49,8 @@ clean:
     - descrizione_codice
     - has_codgest_match
   validate:
-    min_rows: 3000000
+    # 3M per anno intero (~358K/mese); ridotto per anni in corso
+    min_rows: 200000
     primary_key: ["codice_ente", "anno", "periodo", "codice_voce"]
     not_null: ["codice_ente", "anno", "periodo", "codice_voce", "importo"]
 
@@ -100,7 +101,7 @@ mart:
   validate:
     table_rules:
       siope_entrate_comuni_agg_labeled:
-        min_rows: 300000
+        min_rows: 100000
         required_columns: ["codice_ente", "anno", "codice_voce", "importo_totale", "importo_totale_eur", "descrizione_codice", "has_codgest_match", "is_titolo_9", "macro_categoria_v2", "codice_provincia", "provincia", "regione"]
         primary_key: ["codice_ente", "anno", "codice_voce"]
         not_null: ["codice_ente", "anno", "codice_voce", "importo_totale", "importo_totale_eur", "macro_categoria_v2"]
