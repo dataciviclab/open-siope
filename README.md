@@ -4,6 +4,26 @@
 
 open-siope nasce dai dati SIOPE (Sistema Informativo sulle Operazioni degli Enti Pubblici) della Ragioneria Generale dello Stato. Li abbiamo puliti, arricchiti, e resi pubblici.
 
+## 🟢 MCP Server — interroga i dati in italiano
+
+Il dataset ha un server MCP live. Collegalo al tuo client (Claude Desktop, OpenCode, Copilot, Cursor)
+con questo URL e fai domande in linguaggio naturale — nessuna installazione, nessuna query SQL.
+
+```json
+{
+  "mcpServers": {
+    "siope": {
+      "url": "https://siope-mcp-217326868340.europe-west1.run.app/mcp"
+    }
+  }
+}
+```
+
+**Esempi**: "quanto ha speso Roma nel 2024?", "confronta le entrate di Milano e Napoli",
+"qual è la serie storica della Regione Lazio?", "quali sono i comuni con più uscite?"
+
+→ [Dettagli tecnici e tool](mcp_server/README.md)
+
 La discussione è qui — partecipa, chiedi, approfondisci.
 
 ---

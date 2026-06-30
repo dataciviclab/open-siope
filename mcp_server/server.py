@@ -2,10 +2,16 @@
 
 Tool parlanti: cerca enti, bilanci, categorie di spesa, top enti, serie storiche.
 Legge parquet da GCS via DuckDB + lab-connectors.
+
+Trasporto:
+  - default (stdin/stdout): compatibile con configurazioni MCP locali
+  - SIOPE_TRANSPORT=streamable-http: server HTTP remoto su SIOPE_HOST:SIOPE_PORT
+    (usato per deploy Cloud Run / Docker)
 """
 
 from __future__ import annotations
 
+import os
 from typing import Any
 
 from lab_connectors.mcp import create_mcp_server, guard_timed
@@ -130,5 +136,43 @@ def siope_enti_comparto(comparto: str | None = None, tipo: str | None = None, li
     return _list_response(guard_timed(elenca_enti, "siope_enti_comparto", comparto, tipo, limit, logger_name=SERVER))
 
 
+def main() -> None:
+    """Entry point: avvia il server MCP con trasporto configurabile.
+
+    Variabili d'ambiente:
+      SIOPE_TRANSPORT  — "stdio" (default) o "streamable-http"
+      SIOPE_HOST       — host su cui ascoltare (default "0.0.0.0" in HTTP, "127.0.0.1" in stdio)
+      SIOPE_PORT       — porta (default 8000)
+      PORT             — fallback per SIOPE_PORT (convenzione Cloud Run)
+    """
+    transport = os.environ.get("SIOPE_TRANSPORT", "stdio")
+
+    if transport in ("streamable-http", "sse", "http"):
+        mcp.settings.host = os.environ.get("SIOPE_HOST", "0.0.0.0")
+        mcp.settings.port = int(os.environ.get("SIOPE_PORT", os.environ.get("PORT", "8000")))
+        # FastMCP attiva DNS rebinding protection di default solo per localhost.
+        # In Cloud Run l'Host header è il dominio .run.app — lo aggiungiamo agli
+        # allowed_hosts (configurabile via SIOPE_ALLOWED_HOST per altri domini).
+        from mcp.server.transport_security import TransportSecuritySettings
+        cloud_run_host = os.environ.get(
+            "SIOPE_ALLOWED_HOST",
+            "siope-mcp-217326868340.europe-west1.run.app",
+        )
+        mcp.settings.transport_security = TransportSecuritySettings(
+            allowed_hosts=[
+                cloud_run_host,
+                f"{cloud_run_host}:*",
+                "127.0.0.1:*",
+                "localhost:*",
+            ],
+            allowed_origins=[
+                f"https://{cloud_run_host}",
+            ],
+        )
+        mcp.run("streamable-http")
+    else:
+        mcp.run()
+
+
 if __name__ == "__main__":
-    mcp.run()
+    main()
