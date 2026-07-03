@@ -38,6 +38,7 @@ clean:
     - importo_eur
     - denominazione_ente
     - tipo_ente
+    - codice_istat_comune
     - codice_provincia
     - provincia
     - regione

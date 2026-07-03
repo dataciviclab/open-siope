@@ -17,16 +17,27 @@ mart:
   validate:
     table_rules:
       siope_bilancio_unificato:
-        min_rows: 10000
+        min_rows: 500000
         required_columns:
           - lato
-          - comparto
+          - codice_comparto
           - anno
+          - periodo
           - codice_ente
+          - codice_voce
+          - codice_istat_comune
           - denominazione_ente
+          - tipo_ente
+          - codice_provincia
+          - provincia
           - regione
-          - importo_totale_eur
-        primary_key: ["lato", "comparto", "anno", "codice_ente", "codice_voce"]
+          - codice_comparto
+          - is_titolo_9
+          - descrizione_codice
+          - has_codgest_match
+          - importo
+          - importo_eur
+        primary_key: ["lato", "codice_comparto", "anno", "periodo", "codice_ente", "codice_voce"]
 
 validation:
   fail_on_error: true
