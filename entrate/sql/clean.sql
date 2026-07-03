@@ -16,6 +16,7 @@ select
     b.importo / 100.0 as importo_eur,
     a.denominazione_ente,
     a.tipo_ente,
+    a.codice_istat_comune,
     a.codice_provincia,
     r.provincia,
     r.regione,
