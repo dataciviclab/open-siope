@@ -233,28 +233,32 @@ def top_enti(
 
 
 def serie_storica(codice_ente: str, lato: str) -> list[dict[str, Any]]:
-    """Trend pluriennale per un ente (da CLEAN)."""
+    """Trend pluriennale per un ente (da CLEAN).
+
+    UNION ALL tra read_parquet singoli: ogni file e' isolato per evitare
+    bug di integer cast in DuckDB/httpfs su lettura multi-url.
+    """
     lato = _validate_lato(lato)
-    results: list[dict[str, Any]] = []
-    for anno in sorted(ANNI):
-        path = _parquet_url(lato, anno)
-        row = _query(
-            f"""
-            SELECT coalesce(sum(importo_eur), 0) as totale_eur,
-                   count(*) as righe
-            FROM read_parquet('{path}')
-            WHERE codice_ente = ?
-              AND is_titolo_9 = false
-            """,
-            params=[codice_ente],
-        )[0]
-        if row[0]:
-            results.append({
-                "anno": anno,
-                "totale_eur": round(row[0], 2),
-                "righe": row[1],
-            })
-    return results
+    union_parts = "\nUNION ALL\n".join(
+        f"""
+        SELECT {a} as anno,
+               coalesce(sum(importo_eur), 0) as totale_eur,
+               count(*) as righe
+        FROM read_parquet('{_parquet_url(lato, a)}')
+        WHERE codice_ente = ?
+          AND is_titolo_9 = false
+        """
+        for a in sorted(ANNI)
+    )
+    # params replicato per ogni anno (un ? per UNION)
+    rows = _query(
+        f"SELECT * FROM ({union_parts}) sub ORDER BY anno",
+        params=[codice_ente] * len(ANNI),
+    )
+    return [
+        {"anno": r[0], "totale_eur": round(r[1], 2), "righe": r[2]}
+        for r in rows if r[1]
+    ]
 
 
 def lookup_ente(codice_ente: str) -> dict[str, Any] | None:
