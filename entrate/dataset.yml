@@ -60,16 +60,16 @@ mart:
   tables:
     # --- PRO: comuni, province, città metropolitane ---
     - name: "siope_entrate_pro"
-      sql: "sql/mart_PRO_agg_labeled.sql"
+      sql: "sql/mart_PRO.sql"
     # --- REG: regioni e province autonome ---
     - name: "siope_entrate_reg"
-      sql: "sql/mart_REG_agg_labeled.sql"
+      sql: "sql/mart_REG.sql"
     # --- SAN: ASL, AO, IRCCS, policlinici ---
     - name: "siope_entrate_san"
-      sql: "sql/mart_SAN_agg_labeled.sql"
+      sql: "sql/mart_SAN.sql"
     # --- UNI: università e dipartimenti ---
     - name: "siope_entrate_uni"
-      sql: "sql/mart_UNI_agg_labeled.sql"
+      sql: "sql/mart_UNI.sql"
   required_tables:
     - "siope_entrate_pro"
     - "siope_entrate_reg"
