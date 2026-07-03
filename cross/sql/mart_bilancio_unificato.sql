@@ -16,7 +16,7 @@ with entrate as (
         has_codgest_match,
         importo,
         importo_eur
-    from read_parquet('{root}/data/clean/siope_entrate_comuni/{year}/siope_entrate_comuni_{year}_clean.parquet')
+    from read_parquet('{root}/data/clean/siope_entrate/{year}/siope_entrate_{year}_clean.parquet')
 ),
 uscite as (
     select
@@ -37,7 +37,7 @@ uscite as (
         has_codgest_match,
         importo,
         importo_eur
-    from read_parquet('{root}/data/clean/siope_uscite_comuni/{year}/siope_uscite_comuni_{year}_clean.parquet')
+    from read_parquet('{root}/data/clean/siope_uscite/{year}/siope_uscite_{year}_clean.parquet')
 )
 select * from entrate
 union all

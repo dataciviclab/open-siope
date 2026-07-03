@@ -71,8 +71,8 @@ def _validate_limit(limit: int) -> int:
 
 def _parquet_url(lato: str, anno: int) -> str:
     return (
-        f"{GCS_BASE}/siope_{lato}_comuni/{anno}"
-        f"/siope_{lato}_comuni_{anno}_clean.parquet"
+        f"{GCS_BASE}/siope_{lato}/{anno}"
+        f"/siope_{lato}_{anno}_clean.parquet"
     )
 
 

@@ -23,25 +23,25 @@ ANNI_DISPONIBILI = [2021, 2022, 2023, 2024, 2025, 2026]
 
 LATI_CONFIG = {
     "entrate": {
-        "clean": "clean/siope_entrate_comuni/{a}/siope_entrate_comuni_{a}_clean.parquet",
+        "clean": "clean/siope_entrate/{a}/siope_entrate_{a}_clean.parquet",
         "class_col": "macro_categoria_v2",
         "class_altro": "Altro",
         "mart": {
-            "PRO":  "mart/siope_entrate_comuni/{a}/siope_entrate_comuni_agg_labeled.parquet",
-            "REG":  "mart/siope_entrate_comuni/{a}/siope_entrate_regioni_agg_labeled.parquet",
-            "SAN":  "mart/siope_entrate_comuni/{a}/siope_entrate_sanita_agg_labeled.parquet",
-            "UNI":  "mart/siope_entrate_comuni/{a}/siope_entrate_universita_agg_labeled.parquet",
+            "PRO":  "mart/siope_entrate/{a}/siope_entrate_pro.parquet",
+            "REG":  "mart/siope_entrate/{a}/siope_entrate_reg.parquet",
+            "SAN":  "mart/siope_entrate/{a}/siope_entrate_san.parquet",
+            "UNI":  "mart/siope_entrate/{a}/siope_entrate_uni.parquet",
         },
     },
     "uscite": {
-        "clean": "clean/siope_uscite_comuni/{a}/siope_uscite_comuni_{a}_clean.parquet",
+        "clean": "clean/siope_uscite/{a}/siope_uscite_{a}_clean.parquet",
         "class_col": "macro_categoria",
         "class_altro": "Altre spese",
         "mart": {
-            "PRO":  "mart/siope_uscite_comuni/{a}/siope_uscite_comuni_agg_labeled.parquet",
-            "REG":  "mart/siope_uscite_comuni/{a}/siope_uscite_regioni_agg_labeled.parquet",
-            "SAN":  "mart/siope_uscite_comuni/{a}/siope_uscite_sanita_agg_labeled.parquet",
-            "UNI":  "mart/siope_uscite_comuni/{a}/siope_uscite_universita_agg_labeled.parquet",
+            "PRO":  "mart/siope_uscite/{a}/siope_uscite_pro.parquet",
+            "REG":  "mart/siope_uscite/{a}/siope_uscite_reg.parquet",
+            "SAN":  "mart/siope_uscite/{a}/siope_uscite_san.parquet",
+            "UNI":  "mart/siope_uscite/{a}/siope_uscite_uni.parquet",
         },
     },
 }

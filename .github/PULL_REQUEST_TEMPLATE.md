@@ -16,6 +16,7 @@ Descrivi brevemente le modifiche.
 - [ ] `make smoke-entrate` passa
 - [ ] `make smoke-uscite` passa
 - [ ] `make check` passa
+- [ ] `python -m pytest mcp_server/tests/ -v` passa
 
 ## Note
 

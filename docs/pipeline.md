@@ -29,27 +29,21 @@ Il workflow CI su GitHub Actions fa tutto automaticamente via dispatch.
 
 | Layer | Descrizione |
 |---|---|
-| `clean` | 19 colonne: dati mensili + territorio, comparto, classificazione |
-| `siope_entrate_comuni_agg_labeled` | aggregato voci + territorio (provincia + regione) |
-| `siope_entrate_regioni_agg_labeled` | regioni e province autonome |
-| `siope_entrate_sanita_agg_labeled` | ASL, AO, IRCCS |
-| `siope_entrate_universita_agg_labeled` | atenei e dipartimenti |
-| `h_entrate_comune_macro` | gerarchia: comune × macro_categoria |
-| `h_entrate_provincia_macro` | gerarchia: provincia × macro_categoria |
-| `h_entrate_regione_macro` | gerarchia: regione × macro_categoria |
+| `clean` | 21 colonne: dati mensili + territorio, comparto, classificazione |
+| `siope_entrate_pro` | aggregato voci + territorio (comuni, PRO) |
+| `siope_entrate_reg` | regioni e province autonome |
+| `siope_entrate_san` | ASL, AO, IRCCS |
+| `siope_entrate_uni` | atenei e dipartimenti |
 
 ## Output — Uscite
 
 | Layer | Descrizione |
 |---|---|
-| `clean` | 20 colonne: dati mensili + territorio, comparto, classificazione |
-| `siope_uscite_comuni_agg_labeled` | aggregato voci + territorio |
-| `siope_uscite_regioni_agg_labeled` | regioni e province autonome |
-| `siope_uscite_sanita_agg_labeled` | ASL, AO, IRCCS |
-| `siope_uscite_universita_agg_labeled` | atenei e dipartimenti |
-| `h_uscite_comune` | gerarchia: comune × macro_categoria |
-| `h_uscite_provincia` | gerarchia: provincia × macro_area |
-| `h_uscite_regione` | gerarchia: regione × macro_area |
+| `clean` | 21 colonne: dati mensili + territorio, comparto, classificazione |
+| `siope_uscite_pro` | aggregato voci + territorio (comuni, PRO) |
+| `siope_uscite_reg` | regioni e province autonome |
+| `siope_uscite_san` | ASL, AO, IRCCS |
+| `siope_uscite_uni` | atenei e dipartimenti |
 
 ## Output — Cross-comparto
 

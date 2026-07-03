@@ -18,9 +18,9 @@ La pipeline segue il contract del `toolkit`:
 
 ## Regole metodologiche iniziali
 
-- il perimetro tecnico attuale e' `comuni / 2021-2025`
+- il perimetro copre `2021-2026` per 4 comparti: PRO (comuni/province), REG (regioni), SAN (ASL/AO/IRCCS), UNI (universita')
 - entrate e uscite hanno entrambe notebook di analisi e verifica
-- il primo output pubblico storico resta volutamente stretto su `2023-2024`
+- il dataset consolidato e' `siope_bilancio_unificato` (v. [pipeline.md](pipeline.md))
 - il terzo campo delle entrate viene trattato come `periodo` (`01..12`), non come `codice_gestione`
 - il join contestuale del labeled usa `codice_comparto = codice_gestione` sul perimetro comuni
 - i confronti descrittivi sui totali devono partire da `is_titolo_9 = false`
