@@ -206,10 +206,18 @@ def main():
     for lato in lati:
         cfg = LATI_CONFIG[lato]
         for anno in anni:
-            checks.append(check_clean(con, lato, anno, cfg))
-            checks.append(check_join(con, lato, anno, cfg))
-            for comparto in ["PRO", "REG", "SAN", "UNI"]:
-                checks.append(check_mart(con, lato, anno, cfg, comparto))
+            for check_fn, check_args in [
+                (check_clean, [con, lato, anno, cfg]),
+                (check_join, [con, lato, anno, cfg]),
+            ] + [(check_mart, [con, lato, anno, cfg, c]) for c in ["PRO", "REG", "SAN", "UNI"]]:
+                try:
+                    checks.append(check_fn(*check_args))
+                except Exception as e:
+                    checks.append({
+                        "check": f"{check_fn.__name__}_{lato}_{anno}",
+                        "esito": "CRITICAL",
+                        "dettaglio": f"ERRORE ESECUZIONE: {e}",
+                    })
 
     con.close()
 
