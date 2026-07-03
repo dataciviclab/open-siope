@@ -74,6 +74,8 @@ def _fake_query(sql: str, *args, **kwargs) -> list[tuple]:
         return _CATEGORIE_ROMA
     if "GROUP BY codice_ente" in sql and "ORDER BY totale_eur DESC" in sql:
         return _TOP_ENTI_PRO
+    if "GROUP BY anno" in sql and "ORDER BY anno" in sql:
+        return [(2021, 1000.0, 10), (2022, 2000.0, 20), (2023, 3000.0, 30)]
     return []
 
 
