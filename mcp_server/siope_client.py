@@ -3,12 +3,13 @@
 Legge parquet da GCS via DuckDB con gcs_connect (lab_connectors).
 I risultati sono cached con TtlCache (TTL 120s).
 
-Tutti gli input utente sono validati con allowlist/cast per evitare
+Tutti gli input utente sono passati come parametri SQL (?) per evitare
 SQL injection tramite tool MCP esposti pubblicamente.
 """
 
 from __future__ import annotations
 
+from collections.abc import Sequence
 from typing import Any
 
 from lab_connectors.duckdb import gcs_connect
@@ -68,11 +69,6 @@ def _validate_limit(limit: int) -> int:
     return limit
 
 
-def _escape_sql(val: str) -> str:
-    """Escaping minimo per stringhe SQL (singoli apici)."""
-    return val.replace("'", "''")
-
-
 def _parquet_url(lato: str, anno: int) -> str:
     return (
         f"{GCS_BASE}/siope_{lato}_comuni/{anno}"
@@ -83,27 +79,25 @@ def _parquet_url(lato: str, anno: int) -> str:
 # ── Esecuzione query ─────────────────────────────────────────────────────────
 
 
-def _query(sql: str, parquet_url: str | None = None) -> list[tuple]:
-    cached = _cache.get(sql)
+def _query(sql: str, parquet_url: str | None = None,
+           params: Sequence | None = None) -> list[tuple]:
+    """Esegue SQL su un parquet GCS via DuckDB con parametri opzionali.
+
+    I placeholder ``?`` in SQL vengono sostituiti con i valori in ``params``
+    da DuckDB, eliminando rischi di SQL injection.
+    """
+    cache_key = repr((sql, parquet_url, params))
+    cached = _cache.get(cache_key)
     if cached is not None:
         return cached
 
     path = parquet_url or ENTI_URL
     with gcs_connect(path) as con:
-        result = con.sql(sql).fetchall()
-        _cache.set(sql, result)
-        return result
-
-
-def _query_path(sql_template: str, parquet_url: str, **kwargs) -> list[tuple]:
-    """Build SQL with params, execute via gcs_connect."""
-    sql = sql_template.format(**kwargs)
-    cached = _cache.get(sql)
-    if cached is not None:
-        return cached
-    with gcs_connect(parquet_url) as con:
-        result = con.sql(sql).fetchall()
-        _cache.set(sql, result)
+        if params:
+            result = con.execute(sql, list(params)).fetchall()
+        else:
+            result = con.sql(sql).fetchall()
+        _cache.set(cache_key, result)
         return result
 
 
@@ -113,16 +107,20 @@ def _query_path(sql_template: str, parquet_url: str, **kwargs) -> list[tuple]:
 def cerca_ente(query: str, tipo: str | None = None, limit: int = 20) -> list[dict[str, Any]]:
     """Cerca enti per denominazione (LIKE %query%), opzionalmente filtra per tipo."""
     limit = _validate_limit(limit)
-    safe = _escape_sql(query)
-    tipo_filter = f"AND tipo_ente = '{_escape_sql(tipo)}'" if tipo else ""
+    params: list[Any] = [f"%{query}%"]
+    tipo_clause = ""
+    if tipo:
+        tipo_clause = "AND tipo_ente = ?"
+        params.append(tipo)
+    params.append(limit)
     rows = _query(
         f"""
         SELECT codice_ente, denominazione_ente, tipo_ente,
                codice_provincia, codice_istat_comune
         FROM read_parquet('{ENTI_URL}')
         WHERE data_fine = '9999-12-31'
-          AND denominazione_ente ILIKE '%{safe}%'
-          {tipo_filter}
+          AND denominazione_ente ILIKE ?
+          {tipo_clause}
         ORDER BY
           CASE WHEN tipo_ente = 'COMUNE' THEN 0
                WHEN tipo_ente = 'ASL' THEN 1
@@ -131,8 +129,9 @@ def cerca_ente(query: str, tipo: str | None = None, limit: int = 20) -> list[dic
                ELSE 4
           END,
           denominazione_ente
-        LIMIT {limit}
-        """
+        LIMIT ?
+        """,
+        params=params,
     )
     cols = ["codice_ente", "denominazione", "tipo_ente", "provincia", "comune_istat"]
     return [dict(zip(cols, r)) for r in rows]
@@ -144,19 +143,17 @@ def get_bilancio(
     """Totale entrate/uscite per un ente in un anno (da CLEAN)."""
     lato = _validate_lato(lato)
     anno = _validate_anno(anno)
-    ente = _escape_sql(codice_ente)
     path = _parquet_url(lato, anno)
-    row = _query_path(
-        """
+    row = _query(
+        f"""
         SELECT count(*) as righe,
                count(DISTINCT codice_voce) as voci,
                sum(importo_eur) as totale_eur
         FROM read_parquet('{path}')
-        WHERE codice_ente = '{ente}'
+        WHERE codice_ente = ?
           AND is_titolo_9 = false
         """,
-        path,
-        path=path, ente=ente,
+        params=[codice_ente],
     )[0]
     return {
         "codice_ente": codice_ente,
@@ -174,22 +171,20 @@ def spesa_categoria(
     """Breakdown per macro-categoria di un ente (da CLEAN)."""
     lato = _validate_lato(lato)
     anno = _validate_anno(anno)
-    ente = _escape_sql(codice_ente)
     path = _parquet_url(lato, anno)
     cat_col = "macro_categoria_v2" if lato == "entrate" else "macro_categoria"
-    rows = _query_path(
-        """
-        SELECT {cat} as categoria,
+    rows = _query(
+        f"""
+        SELECT {cat_col} as categoria,
                sum(importo_eur) as totale_eur,
                count(DISTINCT codice_voce) as voci
         FROM read_parquet('{path}')
-        WHERE codice_ente = '{ente}'
+        WHERE codice_ente = ?
           AND is_titolo_9 = false
         GROUP BY categoria
         ORDER BY totale_eur DESC
         """,
-        path,
-        cat=cat_col, path=path, ente=ente,
+        params=[codice_ente],
     )
     return [
         {"categoria": r[0], "totale_eur": round(r[1], 2), "voci": r[2]}
@@ -208,11 +203,13 @@ def top_enti(
     path = _parquet_url(lato, anno)
 
     if comparto:
-        extra = f"AND codice_comparto = '{comparto}'"
+        extra = "AND codice_comparto = ?"
+        params = [comparto, limit]
     else:
         extra = ""
-    rows = _query_path(
-        """
+        params = [limit]
+    rows = _query(
+        f"""
         SELECT codice_ente, denominazione_ente,
                sum(importo_eur) as totale_eur,
                codice_comparto
@@ -220,10 +217,9 @@ def top_enti(
         WHERE is_titolo_9 = false {extra}
         GROUP BY codice_ente, denominazione_ente, codice_comparto
         ORDER BY totale_eur DESC
-        LIMIT {lim}
+        LIMIT ?
         """,
-        path,
-        path=path, extra=extra, lim=limit,
+        params=params,
     )
     return [
         {
@@ -239,20 +235,18 @@ def top_enti(
 def serie_storica(codice_ente: str, lato: str) -> list[dict[str, Any]]:
     """Trend pluriennale per un ente (da CLEAN)."""
     lato = _validate_lato(lato)
-    ente = _escape_sql(codice_ente)
     results: list[dict[str, Any]] = []
     for anno in sorted(ANNI):
         path = _parquet_url(lato, anno)
-        row = _query_path(
-            """
+        row = _query(
+            f"""
             SELECT coalesce(sum(importo_eur), 0) as totale_eur,
                    count(*) as righe
             FROM read_parquet('{path}')
-            WHERE codice_ente = '{ente}'
+            WHERE codice_ente = ?
               AND is_titolo_9 = false
             """,
-            path,
-            path=path, ente=ente,
+            params=[codice_ente],
         )[0]
         if row[0]:
             results.append({
@@ -265,7 +259,6 @@ def serie_storica(codice_ente: str, lato: str) -> list[dict[str, Any]]:
 
 def lookup_ente(codice_ente: str) -> dict[str, Any] | None:
     """Cerca un ente per codice_ente esatto. Restituisce dettagli o None."""
-    safe = _escape_sql(codice_ente)
     rows = _query(
         f"""
         SELECT e.codice_ente, e.denominazione_ente, e.tipo_ente,
@@ -274,10 +267,11 @@ def lookup_ente(codice_ente: str) -> dict[str, Any] | None:
         FROM read_parquet('{ENTI_URL}') e
         LEFT JOIN read_parquet('{SOTTOCOMPARTI_URL}') s
           ON e.tipo_ente = s.codice_sottocomparto
-        WHERE e.codice_ente = '{safe}'
+        WHERE e.codice_ente = ?
           AND e.data_fine = '9999-12-31'
         LIMIT 1
-        """
+        """,
+        params=[codice_ente],
     )
     if not rows:
         return None
@@ -304,7 +298,6 @@ def elenca_enti(
     comparto = _validate_comparto(comparto)
     limit = _validate_limit(limit)
 
-    # Costruisce la SQL: join enti → sottocomparti per filtro comparto
     if comparto:
         sql = f"""
             SELECT e.codice_ente, e.denominazione_ente, e.tipo_ente,
@@ -313,25 +306,28 @@ def elenca_enti(
             JOIN read_parquet('{SOTTOCOMPARTI_URL}') s
               ON e.tipo_ente = s.codice_sottocomparto
             WHERE e.data_fine = '9999-12-31'
-              AND s.codice_comparto = '{comparto}'
+              AND s.codice_comparto = ?
             ORDER BY e.denominazione_ente
-            LIMIT {limit}
+            LIMIT ?
         """
+        params = [comparto, limit]
     else:
-        conditions = ["e.data_fine = '9999-12-31'"]
+        params: list = []
+        tipo_clause = ""
         if tipo:
-            safe_tipo = _escape_sql(tipo)
-            conditions.append(f"e.tipo_ente = '{safe_tipo}'")
-        where = " AND ".join(conditions)
+            tipo_clause = "AND e.tipo_ente = ?"
+            params.append(tipo)
+        params.append(limit)
         sql = f"""
             SELECT e.codice_ente, e.denominazione_ente, e.tipo_ente,
                    e.codice_provincia, e.codice_istat_comune
             FROM read_parquet('{ENTI_URL}') e
-            WHERE {where}
+            WHERE e.data_fine = '9999-12-31'
+            {tipo_clause}
             ORDER BY e.denominazione_ente
-            LIMIT {limit}
+            LIMIT ?
         """
 
-    rows = _query(sql, parquet_url=ENTI_URL if not comparto else None)
+    rows = _query(sql, params=params)
     cols = ["codice_ente", "denominazione", "tipo_ente", "provincia", "comune_istat"]
     return [dict(zip(cols, r)) for r in rows]

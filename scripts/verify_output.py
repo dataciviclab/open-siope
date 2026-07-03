@@ -17,7 +17,9 @@ from pathlib import Path
 import duckdb
 
 ROOT = Path(__file__).resolve().parent.parent / "out" / "data"
-ANNI_DISPONIBILI = [2025, 2026]
+# Default: range completo SIOPE (2021-2026). Se --config e' passato,
+# gli anni vengono letti dal dataset.yml per allineamento automatico.
+ANNI_DISPONIBILI = [2021, 2022, 2023, 2024, 2025, 2026]
 
 LATI_CONFIG = {
     "entrate": {
@@ -174,15 +176,27 @@ def main():
     p = argparse.ArgumentParser(description="Certifica output SIOPE")
     p.add_argument("--lato", default="all", choices=["entrate", "uscite", "all"])
     p.add_argument("--year", default="2025", help="Anno/i separati da virgola o 'all'")
+    p.add_argument("--config", type=str, default=None,
+                   help="Path dataset.yml di entrate/uscite per leggere anni disponibili (es. entrate/dataset.yml)")
     p.add_argument("--ci", action="store_true", help="Output JSON per CI")
     args = p.parse_args()
 
     # --lato
     lati = ["entrate", "uscite"] if args.lato == "all" else [args.lato]
 
-    # --year
+    # --year: se 'all', usa ANNI_DISPONIBILI o li legge dal dataset.yml
+    anni_source = ANNI_DISPONIBILI
+    if args.config:
+        try:
+            import yaml
+            with open(args.config) as f:
+                cfg = yaml.safe_load(f)
+            anni_source = cfg.get("dataset", {}).get("years", ANNI_DISPONIBILI)
+        except Exception:
+            pass  # fallback a default
+
     if args.year == "all":
-        anni = ANNI_DISPONIBILI
+        anni = anni_source
     else:
         anni = [int(y) for y in args.year.split(",")]
 
