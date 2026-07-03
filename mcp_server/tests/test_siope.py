@@ -50,28 +50,24 @@ _ENTI_FILTRATI = [
 
 def _fake_query(sql: str, *args, **kwargs) -> list[tuple]:
     """Mock per _query: restituisce dati in base al contenuto della SQL."""
-    if "ILIKE" in sql and "ROMA" in sql:
-        return _ENTI_FAKE
+    params = kwargs.get("params", [])
     if "ILIKE" in sql:
+        if any("ROMA" in str(p) for p in params):
+            return _ENTI_FAKE
         return []
     if "sottocomparti" in sql and "codice_ente" in sql:
-        if "000000000" in sql:
+        if any("000000000" in str(p) for p in params):
             return []
         return [("800000047", "ROMA CAPITALE", "COMUNE", "058", "091", "PRO", "COMUNI")]
     if "JOIN" in sql and "codice_comparto" in sql:
         return _ENTI_FILTRATI
-    if "tipo_ente" in sql and "COMUNE" in sql:
+    if "tipo_ente" in sql and "AND e.tipo_ente = ?" in sql:
         return _ENTI_FILTRATI
     # Catch-all per query sulla tabella enti
     if "FROM read_parquet" in sql and "enti_seed" in sql:
         return _ENTI_FAKE[:2]
-    return []
-
-
-def _fake_query_path(sql: str, *args, **kwargs) -> list[tuple]:
-    """Mock per _query_path: opera sulla SQL già formattata."""
     if "count(*)" in sql and "count(DISTINCT codice_voce)" in sql:
-        if "M00010" in sql:
+        if "M00010" in kwargs.get("params", []):
             return [(0, 0, 0)]
         return _BILANCIO_ROMA
     if "GROUP BY categoria" in sql:
@@ -83,10 +79,9 @@ def _fake_query_path(sql: str, *args, **kwargs) -> list[tuple]:
 
 @pytest.fixture(autouse=True)
 def _mock_queries():
-    """Applica mock a _query e _query_path in siope_client per ogni test."""
+    """Applica mock a _query in siope_client per ogni test."""
     with patch("siope_client._query", side_effect=_fake_query):
-        with patch("siope_client._query_path", side_effect=_fake_query_path):
-            yield
+        yield
 
 
 # ── Tests ───────────────────────────────────────────────────────────────────
@@ -160,7 +155,6 @@ class TestClient:
         from siope_client import get_bilancio
 
         b = get_bilancio("M00010", 2024, "entrate")
-        # Il mock restituisce dati predefiniti, ma la struttura è corretta
         assert "codice_ente" in b
         assert "totale_eur" in b
         assert b["codice_ente"] == "M00010"
@@ -204,10 +198,10 @@ class TestClient:
     def test_elenca_enti_sql_semantica(self):
         """La SQL generata per comparto deve filtrare su codice_comparto, non tipo_ente."""
         import siope_client
-        captured_sql = []
+        captured = []
 
         def _capture(sql, *a, **kw):
-            captured_sql.append(sql)
+            captured.append((sql, kw.get("params", [])))
             return []
 
         original = siope_client._query
@@ -217,42 +211,36 @@ class TestClient:
         finally:
             siope_client._query = original
 
-        assert len(captured_sql) == 1
-        sql = captured_sql[0]
-        # Deve contenere il join con sottocomparti su codice_comparto
-        assert "codice_comparto" in sql, f"SQL manca codice_comparto: {sql}"
-        assert "s.codice_comparto = 'PRO'" in sql, (
-            f"SQL deve filtrare su s.codice_comparto, non tipo_ente.\nSQL: {sql}"
-        )
-        # Non deve filtrare su tipo_ente per il parametro comparto
+        assert len(captured) == 1
+        sql, params = captured[0]
+        assert "codice_comparto = ?" in sql, f"SQL deve usare parametro: {sql}"
+        assert "PRO" in params, f"params deve contenere 'PRO': {params}"
         assert "JOIN" in sql, f"SQL deve usare JOIN con sottocomparti"
 
     def test_top_enti_sql_semantica(self):
-        """La SQL per top_enti con comparto deve filtrare su codice_comparto."""
+        """La SQL per top_enti con comparto deve filtrare su codice_comparto via parametro."""
         import siope_client
         captured = []
 
-        def _capture(sql_template, s3_path, **kwargs):
-            # _query_path riceve template + kwargs, formatta prima di eseguire
-            captured.append((sql_template, kwargs))
+        def _capture(sql, *a, **kw):
+            captured.append((sql, kw.get("params", [])))
             return []
 
-        original = siope_client._query_path
-        siope_client._query_path = _capture
+        original = siope_client._query
+        siope_client._query = _capture
         try:
             siope_client.top_enti(2024, "entrate", "SAN", 5)
         finally:
-            siope_client._query_path = original
+            siope_client._query = original
 
         assert len(captured) == 1
-        sql_template, kwargs = captured[0]
-        # Verifica che il template abbia codice_comparto e che extra sia passato
-        assert "codice_comparto" in sql_template, (
-            f"Template deve selezionare codice_comparto"
+        sql, params = captured[0]
+        assert "codice_comparto" in sql, f"SQL deve menzionare codice_comparto: {sql}"
+        assert "SAN" in params, (
+            f"params deve contenere 'SAN' (comparto): {params}"
         )
-        # Verifica che kwargs contenga il filtro corretto
-        assert kwargs.get("extra", "") == "AND codice_comparto = 'SAN'", (
-            f"extra deve contenere il filtro comparto: {kwargs.get('extra')}"
+        assert "codice_comparto = ?" in sql, (
+            f"Filtro comparto deve essere parametrizzato: {sql}"
         )
 
     def test_elenca_enti_senza_filtri(self):
@@ -285,7 +273,7 @@ class TestClient:
         captured = []
 
         def _capture(sql, *a, **kw):
-            captured.append(sql)
+            captured.append((sql, kw.get("params", [])))
             return []
 
         original = siope_client._query
@@ -296,18 +284,18 @@ class TestClient:
             siope_client._query = original
 
         assert len(captured) == 1
-        sql = captured[0]
+        sql, params = captured[0]
         assert "LEFT JOIN" in sql
         assert "codice_sottocomparto" in sql
         assert "codice_comparto" in sql
 
-    def test_cerca_ente_sql_filtro_tipo(self):
-        """cerca_ente con tipo= deve filtrare su tipo_ente."""
+    def test_cerca_ente_filtro_tipo(self):
+        """cerca_ente con tipo= deve filtrare su tipo_ente via parametro."""
         import siope_client
         captured = []
 
         def _capture(sql, *a, **kw):
-            captured.append(sql)
+            captured.append((sql, kw.get("params", [])))
             return []
 
         original = siope_client._query
@@ -318,8 +306,9 @@ class TestClient:
             siope_client._query = original
 
         assert len(captured) == 1
-        sql = captured[0]
-        assert "tipo_ente = 'COMUNE'" in sql
+        sql, params = captured[0]
+        assert "tipo_ente = ?" in sql, f"SQL deve usare parametro: {sql}"
+        assert "COMUNE" in params, f"params deve contenere 'COMUNE': {params}"
 
 
 @pytest.mark.contract
