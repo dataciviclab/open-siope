@@ -5,3 +5,4 @@ dist/observable/
 __pycache__/
 .pytest_cache/
 explorer
+_local/

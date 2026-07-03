@@ -104,7 +104,7 @@ mart:
     table_rules:
       siope_uscite_comuni_agg_labeled:
         min_rows: 100000
-        required_columns: ["codice_ente", "anno", "codice_voce", "importo_totale", "importo_totale_eur", "macro_area", "macro_categoria", "is_titolo_9", "descrizione_codice", "has_codgest_match", "codice_provincia", "provincia", "regione"]
+        required_columns: ["codice_ente", "anno", "codice_voce", "importo_totale", "importo_totale_eur", "macro_area", "macro_categoria", "is_titolo_9", "descrizione_codice", "has_codgest_match", "codice_istat_comune", "codice_provincia", "provincia", "regione"]
         primary_key: ["codice_ente", "anno", "codice_voce"]
         not_null: ["codice_ente", "anno", "codice_voce", "importo_totale", "importo_totale_eur"]
       siope_uscite_regioni_agg_labeled:

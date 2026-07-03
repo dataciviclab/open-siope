@@ -3,7 +3,7 @@ schema_version: 1
 
 # Dataset cross-comparto: unisce tutti i comparti (PRO, REG, SAN, UNI)
 # di entrate e uscite in una vista unica.
-# Non ha raw/clean — legge direttamente dai mart di entrate/uscite.
+# Legge dai CLEAN di entrate/uscite per massima granularita' (dato mensile).
 
 dataset:
   name: "siope_cross_comparto"
