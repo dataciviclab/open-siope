@@ -235,26 +235,25 @@ def top_enti(
 def serie_storica(codice_ente: str, lato: str) -> list[dict[str, Any]]:
     """Trend pluriennale per un ente (da CLEAN).
 
-    Usa read_parquet con lista di URL e GROUP BY anno per una singola
-    query DuckDB invece di un loop su 6 anni (6 query HTTP separate).
+    UNION ALL tra read_parquet singoli: ogni file e' isolato per evitare
+    bug di integer cast in DuckDB/httpfs su lettura multi-url.
     """
     lato = _validate_lato(lato)
-    urls = ", ".join(
-        f"'{_parquet_url(lato, a)}'"
-        for a in sorted(ANNI)
-    )
-    rows = _query(
+    union_parts = "\nUNION ALL\n".join(
         f"""
-        SELECT anno,
+        SELECT {a} as anno,
                coalesce(sum(importo_eur), 0) as totale_eur,
                count(*) as righe
-        FROM read_parquet([{urls}])
+        FROM read_parquet('{_parquet_url(lato, a)}')
         WHERE codice_ente = ?
           AND is_titolo_9 = false
-        GROUP BY anno
-        ORDER BY anno
-        """,
-        params=[codice_ente],
+        """
+        for a in sorted(ANNI)
+    )
+    # params replicato per ogni anno (un ? per UNION)
+    rows = _query(
+        f"SELECT * FROM ({union_parts}) sub ORDER BY anno",
+        params=[codice_ente] * len(ANNI),
     )
     return [
         {"anno": r[0], "totale_eur": round(r[1], 2), "righe": r[2]}
