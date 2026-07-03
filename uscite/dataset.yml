@@ -2,7 +2,7 @@ root: "../out"
 schema_version: 1
 
 dataset:
-  name: "siope_uscite_comuni"
+  name: "siope_uscite"
   years: [2021, 2022, 2023, 2024, 2025, 2026]
 
 raw:
@@ -59,63 +59,38 @@ clean:
 mart:
   tables:
     # --- PRO: comuni, province, città metropolitane ---
-    - name: "siope_uscite_comuni_agg_labeled"
-      sql: "sql/mart_PRO_agg_labeled.sql"
+    - name: "siope_uscite_pro"
+      sql: "sql/mart_PRO.sql"
     # --- REG: regioni e province autonome ---
-    - name: "siope_uscite_regioni_agg_labeled"
-      sql: "sql/mart_REG_agg_labeled.sql"
+    - name: "siope_uscite_reg"
+      sql: "sql/mart_REG.sql"
     # --- SAN: ASL, AO, IRCCS, policlinici ---
-    - name: "siope_uscite_sanita_agg_labeled"
-      sql: "sql/mart_SAN_agg_labeled.sql"
+    - name: "siope_uscite_san"
+      sql: "sql/mart_SAN.sql"
     # --- UNI: università e dipartimenti ---
-    - name: "siope_uscite_universita_agg_labeled"
-      sql: "sql/mart_UNI_agg_labeled.sql"
-  hierarchy:
-    axis: "territoriale"
-    levels:
-      # PRO hierarchy (comuni → provincia → regione × macro_categoria)
-      - level: "comune"
-        table: "h_uscite_comune"
-        grain: ["anno", "codice_ente", "denominazione_ente", "codice_provincia", "provincia", "regione", "macro_area", "macro_categoria"]
-        source_table: "siope_uscite_comuni_agg_labeled"
-        exclude_metrics: ["importo_totale", "righe", "periodi_coperti"]
-      - level: "provincia"
-        table: "h_uscite_provincia"
-        grain: ["anno", "codice_provincia", "provincia", "regione", "macro_area"]
-        source_table: "siope_uscite_comuni_agg_labeled"
-        exclude_metrics: ["importo_totale", "righe", "periodi_coperti"]
-      - level: "regione"
-        table: "h_uscite_regione"
-        grain: ["anno", "regione", "macro_area"]
-        source_table: "siope_uscite_comuni_agg_labeled"
-        exclude_metrics: ["importo_totale", "righe", "periodi_coperti"]
-      # REG hierarchy (solo regioni)
-      - level: "regione"
-        table: "h_uscite_regioni"
-        grain: ["anno", "codice_ente", "denominazione_ente", "regione"]
-        source_table: "siope_uscite_regioni_agg_labeled"
-        exclude_metrics: ["importo_totale", "righe", "periodi_coperti"]
+    - name: "siope_uscite_uni"
+      sql: "sql/mart_UNI.sql"
   required_tables:
-    - "siope_uscite_comuni_agg_labeled"
-    - "siope_uscite_regioni_agg_labeled"
-    - "siope_uscite_sanita_agg_labeled"
-    - "siope_uscite_universita_agg_labeled"
+    - "siope_uscite_pro"
+    - "siope_uscite_reg"
+    - "siope_uscite_san"
+    - "siope_uscite_uni"
   validate:
     table_rules:
-      siope_uscite_comuni_agg_labeled:
+      siope_uscite_pro:
         min_rows: 100000
         required_columns: ["codice_ente", "anno", "codice_voce", "importo_totale", "importo_totale_eur", "macro_area", "macro_categoria", "is_titolo_9", "descrizione_codice", "has_codgest_match", "codice_istat_comune", "codice_provincia", "provincia", "regione"]
         primary_key: ["codice_ente", "anno", "codice_voce"]
         not_null: ["codice_ente", "anno", "codice_voce", "importo_totale", "importo_totale_eur"]
-      siope_uscite_regioni_agg_labeled:
+      siope_uscite_reg:
         min_rows: 50
         required_columns: ["codice_ente", "anno", "importo_totale_eur", "macro_area", "macro_categoria", "is_titolo_9", "codice_comparto", "tipo_ente", "regione"]
         primary_key: ["codice_ente", "anno", "codice_voce"]
-      siope_uscite_sanita_agg_labeled:
+      siope_uscite_san:
         min_rows: 50
         required_columns: ["codice_ente", "anno", "importo_totale_eur", "macro_area", "macro_categoria", "is_titolo_9", "codice_comparto", "tipo_ente", "regione"]
         primary_key: ["codice_ente", "anno", "codice_voce"]
-      siope_uscite_universita_agg_labeled:
+      siope_uscite_uni:
         min_rows: 20
         required_columns: ["codice_ente", "anno", "importo_totale_eur", "macro_area", "macro_categoria", "is_titolo_9", "codice_comparto", "tipo_ente"]
         primary_key: ["codice_ente", "anno", "codice_voce"]

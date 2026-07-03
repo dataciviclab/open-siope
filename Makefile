@@ -1,5 +1,7 @@
 PYTHON ?= python3
-TOOLKIT = $(PYTHON) -m toolkit.cli.app
+# scripts/run_toolkit.py: wrapper che monkey-patcha duckdb.connect()
+# per settare memory_limit e preserve_insertion_order — evita OOM in CI.
+TOOLKIT = $(PYTHON) scripts/run_toolkit.py
 
 # --- Anagrafica seeds (eseguire prima dei dataset principali) ---
 

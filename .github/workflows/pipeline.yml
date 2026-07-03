@@ -40,7 +40,7 @@ jobs:
         run: |
           if [ "${{ inputs.smoke }}" = "true" ]; then
             for d in anagrafica/anag-comparti anagrafica/anag-sottocomparti anagrafica/anag-enti anagrafica/anag-codgest-entrate anagrafica/anag-codgest-uscite anagrafica/anag-reg-prov; do
-              python3 -m toolkit.cli.app run all --config $d/dataset.yml --sample-rows 1000
+              python3 scripts/run_toolkit.py run all --config $d/dataset.yml --sample-rows 1000
             done
           else
             make seeds
@@ -55,7 +55,7 @@ jobs:
           else YEARS=$(echo "$YEARS_INPUT" | tr ',' ' '); fi
           for y in $YEARS; do
             echo "=== entrate $y $FLAG ==="
-            python3 -m toolkit.cli.app run all --config entrate/dataset.yml --year "$y" $FLAG
+            python3 scripts/run_toolkit.py run all --config entrate/dataset.yml --year "$y" $FLAG
           done
 
       - name: Run uscite
@@ -67,7 +67,7 @@ jobs:
           else YEARS=$(echo "$YEARS_INPUT" | tr ',' ' '); fi
           for y in $YEARS; do
             echo "=== uscite $y $FLAG ==="
-            python3 -m toolkit.cli.app run all --config uscite/dataset.yml --year "$y" $FLAG
+            python3 scripts/run_toolkit.py run all --config uscite/dataset.yml --year "$y" $FLAG
           done
 
       - name: Run cross-comparto
@@ -79,7 +79,7 @@ jobs:
         run: |
           FLAG="${{ inputs.smoke && '--sample-rows 1000' || '' }}"
           echo "=== cross $FLAG ==="
-          python3 -m toolkit.cli.app run mart --config cross/dataset.yml --year 2025 $FLAG
+          python3 scripts/run_toolkit.py run mart --config cross/dataset.yml --year 2025 $FLAG
 
       - name: Verify output (gate)
         if: ${{ !inputs.smoke }}

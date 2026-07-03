@@ -1,9 +1,14 @@
 # Uso operativo del mart labeled
 
-Questa nota spiega come leggere in modo corretto il `mart` finale del progetto:
+> **⚠️ Documento storico (v1)**
+> Questo documento si riferisce alla configurazione **pre-rename** del progetto,
+> quando il perimetro era limitato a `entrate/comuni` con nome legacy
+> `siope_entrate_comuni`. Oggi i dataset si chiamano `siope_entrate`/`siope_uscite`
+> e il dataset consolidato e' `siope_bilancio_unificato` (v. `docs/pipeline.md`).
+> I nomi di tabella e path qui sotto non sono piu' aggiornati.
 
-- dataset: `entrate/comuni`
-- tabella: `siope_entrate_comuni_agg_labeled`
+- dataset: `entrate/comuni` (v1)
+- tabella: `siope_entrate_comuni_agg_labeled` (ora `siope_entrate_pro`)
 
 ## Colonne da usare per prime
 
