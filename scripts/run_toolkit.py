@@ -33,6 +33,7 @@ def _patched_connect(*args, **kwargs):
 duckdb.connect = _patched_connect
 
 # ── Chiama toolkit ───────────────────────────────────────────────────────────
-from toolkit.cli.app import cli  # noqa: E402
+# typer.Typer() legge sys.argv al momento della chiamata
+from toolkit.cli.app import app  # noqa: E402
 
-sys.exit(cli(sys.argv[1:] if len(sys.argv) > 1 else ["--help"]))
+app()
