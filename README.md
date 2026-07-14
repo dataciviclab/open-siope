@@ -19,7 +19,7 @@ IRPEF, appalti, ...). La tabella si chiama `clean_input`.
 - `SELECT codice_voce, descrizione_codice, sum(importo_eur) FROM clean_input WHERE codice_ente='000270622' AND anno=2024 AND lato='uscite' GROUP BY 1,2 ORDER BY 3 DESC`
 - `SELECT anno, sum(importo_eur) FROM clean_input WHERE codice_ente='000715014000000' AND lato='entrate' GROUP BY anno ORDER BY anno`
 
-→ [Documentazione clean-query](https://github.com/dataciviclab/dataset-incubator/tree/main/tools/clean-query-mcp)
+→ [Documentazione clean-query](https://github.com/dataciviclab/dataset-incubator/tree/main/tools/clean_query_mcp)
 
 ---
 
