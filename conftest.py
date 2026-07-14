@@ -1,4 +1,4 @@
-"""Config pytest per test open-siope (MCP server e pipeline)."""
+"""Config pytest per test open-siope (pipeline)."""
 
 from __future__ import annotations
 

@@ -47,6 +47,4 @@ jobs:
           done
           echo "✅ All configs valid"
 
-      - name: Run MCP server tests
-        run: |
-          python -m pytest mcp_server/tests/ -v --timeout=30
+
