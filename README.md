@@ -4,27 +4,22 @@
 
 open-siope nasce dai dati SIOPE (Sistema Informativo sulle Operazioni degli Enti Pubblici) della Ragioneria Generale dello Stato. Li abbiamo puliti, arricchiti, e resi pubblici.
 
-## 🟢 MCP Server — interroga i dati in italiano
+## 🟢 Interroga i dati via clean-query (MCP)
 
-Il dataset ha un server MCP live. Collegalo al tuo client (Claude Desktop, OpenCode, Copilot, Cursor)
-con questo URL e fai domande in linguaggio naturale — nessuna installazione, nessuna query SQL.
+Il dataset `siope_bilancio_unificato` è accessibile tramite il server MCP **clean-query** del
+DataCivicLab. Collegalo al tuo client (Claude Desktop, OpenCode, Copilot, Cursor)
+con la configurazione standard del Lab — vedi [DataCivicLab MCP servers](https://github.com/dataciviclab/dataciviclab).
 
-```json
-{
-  "mcpServers": {
-    "siope": {
-      "url": "https://siope-mcp-217326868340.europe-west1.run.app/mcp"
-    }
-  }
-}
-```
+Con clean-query puoi fare **SQL arbitrario** su tutti i dati SIOPE (entrate, uscite, comparti,
+voci contabili, classificazioni), più join con altri dataset del Lab (popolazione, dipendenti,
+IRPEF, appalti, ...). La tabella si chiama `clean_input`.
 
-**Esempi**: "quanto ha speso Roma nel 2024?", "confronta le entrate di Milano e Napoli",
-"qual è la serie storica della Regione Lazio?", "quali sono i comuni con più uscite?"
+**Esempi SQL:**
+- `SELECT sum(importo_eur) FROM clean_input WHERE codice_ente='800000047' AND anno=2024 AND lato='entrate' AND is_titolo_9=false`
+- `SELECT codice_voce, descrizione_codice, sum(importo_eur) FROM clean_input WHERE codice_ente='000270622' AND anno=2024 AND lato='uscite' GROUP BY 1,2 ORDER BY 3 DESC`
+- `SELECT anno, sum(importo_eur) FROM clean_input WHERE codice_ente='000715014000000' AND lato='entrate' GROUP BY anno ORDER BY anno`
 
-→ [Dettagli tecnici e tool](mcp_server/README.md)
-
-La discussione è qui — partecipa, chiedi, approfondisci.
+→ [Documentazione clean-query](https://github.com/dataciviclab/dataset-incubator/tree/main/tools/clean-query-mcp)
 
 ---
 
