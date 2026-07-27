@@ -1,84 +1,70 @@
 # open-siope — La spesa pubblica italiana, aperta e interrogabile
 
-> **Quanto spende e quanto incassa ogni ente pubblico italiano, mese per mese.**
+**Quanto spende il tuo comune? E quanto incassa? Mese per mese, voce per voce.**
 
-open-siope nasce dai dati SIOPE (Sistema Informativo sulle Operazioni degli Enti Pubblici) della Ragioneria Generale dello Stato. Li abbiamo puliti, arricchiti, e resi pubblici.
+open-siope nasce dai dati SIOPE (Sistema Informativo sulle Operazioni degli Enti Pubblici)
+della Ragioneria Generale dello Stato. Li abbiamo puliti, arricchiti e resi pubblici.
 
-## 🟢 Interroga i dati via clean-query (MCP)
+## Cosa contiene
 
-Il dataset `siope_bilancio_unificato` è accessibile tramite il server MCP **clean-query** del
-DataCivicLab. Collegalo al tuo client (Claude Desktop, OpenCode, Copilot, Cursor)
-con la configurazione standard del Lab — vedi [DataCivicLab MCP servers](https://github.com/dataciviclab/dataciviclab).
-
-Con clean-query puoi fare **SQL arbitrario** su tutti i dati SIOPE (entrate, uscite, comparti,
-voci contabili, classificazioni), più join con altri dataset del Lab (popolazione, dipendenti,
-IRPEF, appalti, ...). La tabella si chiama `clean_input`.
-
-**Esempi SQL:**
-- `SELECT sum(importo_eur) FROM clean_input WHERE codice_ente='800000047' AND anno=2024 AND lato='entrate' AND is_titolo_9=false`
-- `SELECT codice_voce, descrizione_codice, sum(importo_eur) FROM clean_input WHERE codice_ente='000270622' AND anno=2024 AND lato='uscite' GROUP BY 1,2 ORDER BY 3 DESC`
-- `SELECT anno, sum(importo_eur) FROM clean_input WHERE codice_ente='000715014000000' AND lato='entrate' GROUP BY anno ORDER BY anno`
-
-→ [Documentazione clean-query](https://github.com/dataciviclab/dataset-incubator/tree/main/tools/clean_query_mcp)
-
----
-
-## 💬 Partecipa
-
-Le discussioni sono il cuore del progetto. Trovi già i primi temi aperti:
-
-- **🏘️ [Territorio](https://github.com/dataciviclab/open-siope/discussions/categories/territorio)** — IMU, TARI, personale, manutenzione strade, refezione scolastica
-- **🏥 [Sanità](https://github.com/dataciviclab/open-siope/discussions/categories/sanit%C3%A0-san)** — ASL, ospedali, farmaceutica, spesa sanitaria
-- **🏛️ [Regioni](https://github.com/dataciviclab/open-siope/discussions/categories/regioni-reg)** — IRAP, trasporti, fondi europei
-- **🎓 [Università](https://github.com/dataciviclab/open-siope/discussions/categories/universit%C3%A0-uni)** — tasse, FFO, ricerca, edilizia
-- **🔗 [Trasversale](https://github.com/dataciviclab/open-siope/discussions/categories/trasversale)** — temi che tagliano tutti i comparti (consulenze, debito, personale)
-
-Vedi un dato curioso? Apri una discussione. Hai una domanda? Usa **Q&A**.
-
----
-
-## 📦 I dati in breve
-
-| Cosa | Quanto |
+| | |
 |---|---|
 | **Enti coperti** | ~18.000 (comuni, ASL, università, regioni, province) |
 | **Periodo** | 2021 — 2026 |
+| **Voci entrate** | ~2.000 codici (IMU, TARI, IRPEF, trasferimenti...) |
+| **Voci uscite** | ~2.700 codici (personale, beni, investimenti, interessi...) |
 | **Comparti** | PRO (territorio) · REG (regioni) · SAN (sanità) · UNI (università) |
-| **Voci entrate** | ~2.000 codici (IMU, TARI, IRPEF, trasferimenti, ...) |
-| **Voci uscite** | ~2.700 codici (personale, beni, investimenti, interessi, ...) |
 
-I dati puliti (CLEAN) e aggregati (MART) sono pubblici su **Google Cloud Storage**:
+## Esempi di domande
+
+- **Quanto spende il tuo comune in manutenzione strade?** E in refezione scolastica?
+- **Quali enti incassano più IMU pro-capite?**
+- **Come cambia la spesa sanitaria tra regioni?**
+- **Quanto vale il FFO (Fondo di Finanziamento Ordinario) della tua università?**
+- **Quali comuni dipendono di più dai trasferimenti statali?**
+
+## Tre modi per accedere ai dati
+
+### 1. Via MCP (clean-query)
+
+Il dataset `siope_bilancio_unificato` è accessibile via SQL arbitrario
+dal server MCP clean-query del Lab.
 
 ```
-gs://dataciviclab-clean/siope/...
-gs://dataciviclab-mart/siope/...
+"Quanto ha speso il Comune di Milano nel 2024?"
+"Quali sono le 10 voci di uscita più grandi delle ASL lombarde?"
 ```
 
-Accessibili via HTTPS: `https://storage.googleapis.com/dataciviclab-clean/siope/...`
+### 2. Via DuckDB diretto
 
----
+```python
+import duckdb
+duckdb.sql("""
+    SELECT anno, SUM(importo_eur) AS entrate
+    FROM read_parquet('gs://dataciviclab-clean/siope/*.parquet')
+    WHERE codice_ente = '000000047' AND lato = 'entrate'
+    GROUP BY anno ORDER BY anno
+""").show()
+```
 
-## 🧭 Come si usa
+### 3. Via download parquet
 
-- **Esplora le discussioni** — ogni tema parte da una domanda aperta
-- **Chiedi una query** — nei commenti, chiedi un estratto dati specifico
-- **Scarica i parquet** — dai bucket GCS pubblici
-- **Interroga con SQL** — via DuckDB, Python, o clean-query MCP
-- **Esegui la pipeline** — vedi [docs/pipeline.md](docs/pipeline.md) per dettagli tecnici
+Bucket pubblico: `gs://dataciviclab-clean/siope/` (accessibile anche via HTTPS)
 
----
+## Approfondimenti
 
-## 📚 Documenti tecnici
+- Discussion per comparto: [Territorio](https://github.com/dataciviclab/open-siope/discussions/categories/territorio) · [Sanità](https://github.com/dataciviclab/open-siope/discussions/categories/sanit%C3%A0-san) · [Regioni](https://github.com/dataciviclab/open-siope/discussions/categories/regioni-reg) · [Università](https://github.com/dataciviclab/open-siope/discussions/categories/universit%C3%A0-uni)
+- [Analisi: Dove vanno i soldi dei comuni italiani?](https://github.com/dataciviclab/dataciviclab/tree/main/analisi/siope-comuni-spesa)
 
-I dettagli su pipeline, metodologia e output vivono separati dal README per non appesantirlo:
+## Partecipa
 
-- [Pipeline](docs/pipeline.md) — come eseguire, struttura, output
-- [Metodologia](docs/metodologia.md) — origini dati, classificazioni, unità di misura
-- [Backlog tecnico](docs/backlog_tecnico.md) — cose ancora da fare
-- [Uso mart](docs/uso_mart_labeled.md) — guida alle tabelle aggregate
+- **Hai una domanda sui dati?** Apri una [Discussion](https://github.com/dataciviclab/open-siope/discussions/new?category=Q-A)
+- **Vuoi contribuire?** Vedi [come contribuire al Lab](https://github.com/dataciviclab/dataciviclab/blob/main/docs/come-contribuire.md)
 
----
+## Documenti tecnici
 
-## 🏛️ DataCivicLab
+- [Pipeline](docs/pipeline.md) — esecuzione, struttura, output
+- [Metodologia](docs/metodologia.md) — origini dati, classificazioni
+- [Uso mart](docs/uso_mart_labeled.md) — tabelle aggregate
 
-open-siope è un progetto di [DataCivicLab](https://github.com/dataciviclab) — un laboratorio civico di dati aperti italiani.
+Questo progetto fa parte di [DataCivicLab](https://github.com/dataciviclab).
