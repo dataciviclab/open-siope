@@ -54,12 +54,12 @@ Bucket pubblico: `gs://dataciviclab-clean/siope/` (accessibile anche via HTTPS)
 ## Approfondimenti
 
 - Discussion per comparto: [Territorio](https://github.com/dataciviclab/open-siope/discussions/categories/territorio) · [Sanità](https://github.com/dataciviclab/open-siope/discussions/categories/sanit%C3%A0-san) · [Regioni](https://github.com/dataciviclab/open-siope/discussions/categories/regioni-reg) · [Università](https://github.com/dataciviclab/open-siope/discussions/categories/universit%C3%A0-uni)
-- [Analisi: Dove vanno i soldi dei comuni italiani?](https://github.com/dataciviclab/dataciviclab/tree/main/analisi/siope_uscite_comuni)
+- [Analisi: Dove vanno i soldi dei comuni italiani?](https://github.com/dataciviclab/dataciviclab/tree/main/analisi/siope-comuni-spesa)
 
 ## Partecipa
 
 - **Hai una domanda sui dati?** Apri una [Discussion](https://github.com/dataciviclab/open-siope/discussions/new?category=Q-A)
-- **Vuoi contribuire?** Vedi [CONTRIBUTING.md](CONTRIBUTING.md)
+- **Vuoi contribuire?** Vedi [come contribuire al Lab](https://github.com/dataciviclab/dataciviclab/blob/main/docs/come-contribuire.md)
 
 ## Documenti tecnici
 
