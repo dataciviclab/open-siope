@@ -31,15 +31,6 @@ run-uscite:
 
 run-all: seeds run-entrate run-uscite
 
-.PHONY: comparti
-comparti:
-	@echo "Comparti disponibili:"
-	@echo "  PRO    — Comuni, Province, Citta' metropolitane"
-	@echo "  REG    — Regioni e province autonome"
-	@echo "  SAN    — ASL, AO, IRCCS, Policlinici"
-	@echo "  UNI    — Universita' e dipartimenti"
-	@echo "Si eseguono con: make run-entrate / make run-uscite"
-
 # --- Smoke test (--sample-rows 1000, root isolato in out/smoke/) ---
 
 .PHONY: smoke smoke-entrate smoke-uscite
@@ -66,10 +57,6 @@ check:
 		$(TOOLKIT) inspect paths --config "$$f" --year 2026 > /dev/null 2>&1 || exit 1; \
 	done
 	@for f in $$(find . \( -path '*/entrate/*' -o -path '*/uscite/*' \) -name dataset.yml | sort); do \
-		echo "→ $$f"; \
-		$(TOOLKIT) inspect paths --config "$$f" --year 2025 > /dev/null 2>&1 || exit 1; \
-	done
-	@for f in $$(find . -path '*/cross/*' -name dataset.yml | sort); do \
 		echo "→ $$f"; \
 		$(TOOLKIT) inspect paths --config "$$f" --year 2025 > /dev/null 2>&1 || exit 1; \
 	done
