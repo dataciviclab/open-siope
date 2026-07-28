@@ -20,7 +20,7 @@ La pipeline segue il contract del `toolkit`:
 
 - il perimetro copre `2021-2026` per 4 comparti: PRO (comuni/province), REG (regioni), SAN (ASL/AO/IRCCS), UNI (universita')
 - entrate e uscite hanno entrambe notebook di analisi e verifica
-- il dataset consolidato e' `siope_bilancio_unificato` (v. [pipeline.md](pipeline.md))
+- il dataset consolidato `siope_bilancio_unificato` e' ora gestito dal compose in [dataset-incubator](https://github.com/dataciviclab/dataset-incubator/tree/main/candidates/siope-bilancio-unificato) (v. [pipeline.md](pipeline.md))
 - il terzo campo delle entrate viene trattato come `periodo` (`01..12`), non come `codice_gestione`
 - il join contestuale del labeled usa `codice_comparto = codice_gestione` sul perimetro comuni
 - i confronti descrittivi sui totali devono partire da `is_titolo_9 = false`

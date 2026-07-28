@@ -45,11 +45,9 @@ Il workflow CI su GitHub Actions fa tutto automaticamente via dispatch.
 | `siope_uscite_san` | ASL, AO, IRCCS |
 | `siope_uscite_uni` | atenei e dipartimenti |
 
-## Output — Cross-comparto
-
-| Layer | Descrizione |
-|---|---|
-| `siope_bilancio_unificato` | bilancio consolidato su tutti i comparti |
+Il dataset consolidato `siope_bilancio_unificato` (UNION ALL di entrate+uscite)
+è ora gestito dal compose [`siope-bilancio-unificato`](https://github.com/dataciviclab/dataset-incubator/tree/main/candidates/siope-bilancio-unificato)
+in dataset-incubator, che ne produce anche i mart analitici (sintesi, trend, enti).
 
 ## Limiti noti
 
