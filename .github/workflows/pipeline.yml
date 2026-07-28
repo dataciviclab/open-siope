@@ -70,19 +70,6 @@ jobs:
             python3 scripts/run_toolkit.py run all --config uscite/dataset.yml --year "$y" $FLAG
           done
 
-      - name: Run cross-comparto
-        # both (dispatch) o schedule (inputs.sides assente = tutti i lati)
-        if: inputs.sides == 'both' || !inputs.sides
-        run: |
-          FLAG="${{ inputs.smoke && '--sample-rows 1000' || '' }}"
-          YEARS_INPUT="${{ inputs.years || 'all' }}"
-          if [ "$YEARS_INPUT" = "all" ]; then YEARS="2021 2022 2023 2024 2025 2026"
-          else YEARS=$(echo "$YEARS_INPUT" | tr ',' ' '); fi
-          for y in $YEARS; do
-            echo "=== cross $y $FLAG ==="
-            python3 scripts/run_toolkit.py run mart --config cross/dataset.yml --year "$y" $FLAG
-          done
-
       - name: Verify output (gate)
         if: ${{ !inputs.smoke }}
         env:
