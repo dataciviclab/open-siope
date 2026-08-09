@@ -22,12 +22,10 @@ on:
           - entrate
           - uscite
       years:
-        description: "Anni (es. 2025 o 2021,2022,2025 o all)"
+        # NOTA: per entrate/uscite serve 'all' (o tutti gli anni): i mart
+        # multi-anno (mart_trend) richiedono i clean di tutti gli anni dichiarati.
+        description: "Anni (es. 2025 o 2021,2022,2025 o all) — per entrate/uscite usare 'all'"
         default: "all"
-      smoke:
-        description: "Smoke mode (--sample-rows 1000, root isolato in out/smoke/)"
-        default: false
-        type: boolean
 
 concurrency:
   group: siope-pipeline-${{ github.event.pull_request.number || github.ref || 'schedule' }}
@@ -78,15 +76,11 @@ jobs:
 
       - name: Support seeds (anagrafiche)
         if: steps.detect.outputs.dirs != ''
-        run: |
-          if [ "${{ inputs.smoke }}" = "true" ]; then
-            for d in $(find support -mindepth 1 -maxdepth 1 -type d | sort); do
-              python3 scripts/run_toolkit.py run --config $d/dataset.yml --sample-rows 1000
-            done
-          else
-            make seeds
-          fi
+        run: make seeds
 
+      # I mart multi-anno (mart_trend) richiedono il run con TUTTI gli anni del
+      # dataset: il runner usa gli anni dichiarati nella tabella, non quelli
+      # selezionati (vedi toolkit). Il run per-anno singolo fallirebbe.
       - name: Run datasets (PR merge — solo toccati)
         if: github.event_name == 'pull_request' && steps.detect.outputs.dirs != ''
         run: |
@@ -94,38 +88,31 @@ jobs:
             case "$dir" in
               support/*) continue;;  # già eseguiti nei seeds
             esac
-            for y in $(python3 -c "import yaml; print(' '.join(map(str, yaml.safe_load(open('${dir}/dataset.yml'))['dataset']['years'])))"); do
-              echo "=== $dir $y ==="
-              python3 scripts/run_toolkit.py run --config "$dir/dataset.yml" --year "$y"
-            done
+            YEARS=$(python3 -c "import yaml; print(','.join(map(str, yaml.safe_load(open('${dir}/dataset.yml'))['dataset']['years'])))")
+            echo "=== $dir anni:$YEARS ==="
+            python3 scripts/run_toolkit.py run --config "$dir/dataset.yml" --years "$YEARS"
           done
 
       - name: Run entrate (schedule/dispatch)
         if: github.event_name != 'pull_request' && inputs.sides != 'uscite'
         run: |
-          FLAG="${{ inputs.smoke && '--sample-rows 1000' || '' }}"
           YEARS_INPUT="${{ inputs.years || 'all' }}"
-          if [ "$YEARS_INPUT" = "all" ]; then YEARS="2021 2022 2023 2024 2025 2026"
-          else YEARS=$(echo "$YEARS_INPUT" | tr ',' ' '); fi
-          for y in $YEARS; do
-            echo "=== entrate $y $FLAG ==="
-            python3 scripts/run_toolkit.py run --config datasets/siope-entrate/dataset.yml --year "$y" $FLAG
-          done
+          if [ "$YEARS_INPUT" = "all" ]; then YEARS="2021,2022,2023,2024,2025,2026"
+          else YEARS=$(echo "$YEARS_INPUT" | tr ' ' ','); fi
+          echo "=== entrate anni:$YEARS ==="
+          python3 scripts/run_toolkit.py run --config datasets/siope-entrate/dataset.yml --years "$YEARS"
 
       - name: Run uscite (schedule/dispatch)
         if: github.event_name != 'pull_request' && inputs.sides != 'entrate'
         run: |
-          FLAG="${{ inputs.smoke && '--sample-rows 1000' || '' }}"
           YEARS_INPUT="${{ inputs.years || 'all' }}"
-          if [ "$YEARS_INPUT" = "all" ]; then YEARS="2021 2022 2023 2024 2025 2026"
-          else YEARS=$(echo "$YEARS_INPUT" | tr ',' ' '); fi
-          for y in $YEARS; do
-            echo "=== uscite $y $FLAG ==="
-            python3 scripts/run_toolkit.py run --config datasets/siope-uscite/dataset.yml --year "$y" $FLAG
-          done
+          if [ "$YEARS_INPUT" = "all" ]; then YEARS="2021,2022,2023,2024,2025,2026"
+          else YEARS=$(echo "$YEARS_INPUT" | tr ' ' ','); fi
+          echo "=== uscite anni:$YEARS ==="
+          python3 scripts/run_toolkit.py run --config datasets/siope-uscite/dataset.yml --years "$YEARS"
 
       - name: Verify output (gate)
-        if: ${{ !inputs.smoke && steps.detect.outputs.dirs != '' }}
+        if: steps.detect.outputs.dirs != ''
         env:
           EVENT: ${{ github.event_name }}
           PR_DIRS: ${{ steps.detect.outputs.dirs }}
@@ -149,7 +136,7 @@ jobs:
 
       - name: Auth GCP
         id: gcs
-        if: ${{ !inputs.smoke }}
+        if: steps.detect.outputs.dirs != ''
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
         run: |
@@ -175,12 +162,12 @@ jobs:
           echo "✅ Synced to gs://dataciviclab-mart|clean/siope/"
 
       - name: Build registry
-        if: ${{ !inputs.smoke && steps.detect.outputs.dirs != '' }}
+        if: steps.detect.outputs.dirs != ''
         run: python3 scripts/build_registry.py --write
 
       - name: Check registry diff
         id: diff
-        if: ${{ !inputs.smoke && steps.detect.outputs.dirs != '' }}
+        if: steps.detect.outputs.dirs != ''
         run: |
           if git status --porcelain -- registry/ | grep -q .; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -211,7 +198,7 @@ jobs:
       - name: Upload mart artifacts
         uses: actions/upload-artifact@v7.0.1
         with:
-          name: siope-mart${{ inputs.smoke && '-smoke' || '' }}
-          path: ${{ inputs.smoke && 'out/smoke/data/mart/' || 'out/data/mart/' }}
+          name: siope-mart
+          path: out/data/mart/
           compression-level: 0
           if-no-files-found: warn

@@ -32,6 +32,11 @@ LATI_CONFIG = {
             "SAN":  "mart/siope_entrate/{a}/mart_san.parquet",
             "UNI":  "mart/siope_entrate/{a}/mart_uni.parquet",
         },
+        "analitici": {
+            "sintesi": "mart/siope_entrate/{a}/mart_sintesi.parquet",
+            # mart_trend è multi-anno → scritto flat (fuori dalla dir anno)
+            "trend": "mart/siope_entrate/mart_trend.parquet",
+        },
     },
     "uscite": {
         "clean": "clean/siope_uscite/{a}/siope_uscite_{a}_clean.parquet",
@@ -42,6 +47,10 @@ LATI_CONFIG = {
             "REG":  "mart/siope_uscite/{a}/mart_reg.parquet",
             "SAN":  "mart/siope_uscite/{a}/mart_san.parquet",
             "UNI":  "mart/siope_uscite/{a}/mart_uni.parquet",
+        },
+        "analitici": {
+            "sintesi": "mart/siope_uscite/{a}/mart_sintesi.parquet",
+            "trend": "mart/siope_uscite/mart_trend.parquet",
         },
     },
 }
@@ -172,6 +181,34 @@ def check_mart(con, lato, anno, cfg, comparto):
                           "negativi": neg, "null_class": null_class, "altro_pct": altro_pct}}
 
 
+def check_analitici(con, lato, anno, cfg):
+    """Check mart analitici: sintesi per-anno (CRITICAL se manca), trend multi-anno
+    (WARN se manca — generato solo nei run multi-anno, non in PR mode)."""
+    checks = []
+
+    path = resolve(cfg["analitici"]["sintesi"], anno)
+    if not Path(path).exists():
+        checks.append({"check": f"analitici_{lato}_{anno}_sintesi", "esito": "CRITICAL",
+                       "dettaglio": f"FILE MANCANTE: {path}"})
+    else:
+        r = con.execute(f"select count(*) from read_parquet('{path}')").fetchone()[0]
+        esito = "PASS" if r >= 1000 else "CRITICAL"
+        checks.append({"check": f"analitici_{lato}_{anno}_sintesi", "esito": esito,
+                       "dettaglio": {"righe": r}})
+
+    tpath = str(ROOT / cfg["analitici"]["trend"])
+    if not Path(tpath).exists():
+        checks.append({"check": f"analitici_{lato}_trend", "esito": "WARN",
+                       "dettaglio": "FILE MANCANTE (generato nei run multi-anno)"})
+    else:
+        r = con.execute(f"select count(*) from read_parquet('{tpath}')").fetchone()[0]
+        esito = "PASS" if r >= 1000 else "WARN"
+        checks.append({"check": f"analitici_{lato}_trend", "esito": esito,
+                       "dettaglio": {"righe": r}})
+
+    return checks
+
+
 def main():
     p = argparse.ArgumentParser(description="Certifica output SIOPE")
     p.add_argument("--lato", default="all", choices=["entrate", "uscite", "all"])
@@ -218,6 +255,14 @@ def main():
                         "esito": "CRITICAL",
                         "dettaglio": f"ERRORE ESECUZIONE: {e}",
                     })
+            try:
+                checks.extend(check_analitici(con, lato, anno, cfg))
+            except Exception as e:
+                checks.append({
+                    "check": f"check_analitici_{lato}_{anno}",
+                    "esito": "CRITICAL",
+                    "dettaglio": f"ERRORE ESECUZIONE: {e}",
+                })
 
     con.close()
 

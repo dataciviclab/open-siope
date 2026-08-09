@@ -32,23 +32,6 @@ run-uscite:
 
 run-all: seeds run-entrate run-uscite
 
-# --- Smoke test (--sample-rows 1000, root isolato in out/smoke/) ---
-
-.PHONY: smoke smoke-entrate smoke-uscite
-smoke: seeds-smoke smoke-entrate smoke-uscite
-
-seeds-smoke:
-	@for d in $(ANAG_SEEDS); do \
-		echo "=== $$d (smoke) ==="; \
-		$(TOOLKIT) run --config $$d/dataset.yml --sample-rows 1000 || exit 1; \
-	done
-
-smoke-entrate:
-	$(TOOLKIT) run --config datasets/siope-entrate/dataset.yml --year 2025 --sample-rows 1000
-
-smoke-uscite:
-	$(TOOLKIT) run --config datasets/siope-uscite/dataset.yml --year 2025 --sample-rows 1000
-
 # --- Validazione config ---
 
 .PHONY: check

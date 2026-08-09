@@ -74,11 +74,20 @@ mart:
     # --- UNI: università e dipartimenti ---
     - name: "mart_uni"
       sql: "sql/mart_uni.sql"
+    # --- Analitici: scheda ente annuale + trend multi-anno ---
+    - name: "mart_sintesi"
+      sql: "sql/mart_sintesi.sql"
+    - name: "mart_trend"
+      sql: "sql/mart_trend.sql"
+      years: [2021, 2022, 2023, 2024, 2025, 2026]
+      source_layer: clean
   required_tables:
     - "mart_pro"
     - "mart_reg"
     - "mart_san"
     - "mart_uni"
+    - "mart_sintesi"
+    - "mart_trend"
   validate:
     table_rules:
       mart_pro:
@@ -98,6 +107,14 @@ mart:
         min_rows: 20
         required_columns: ["codice_ente", "anno", "importo_totale_eur", "macro_area", "macro_categoria", "is_titolo_9", "codice_comparto", "tipo_ente"]
         primary_key: ["codice_ente", "anno", "codice_voce"]
+      mart_sintesi:
+        min_rows: 15000
+        required_columns: ["anno", "codice_ente", "denominazione_ente", "totale_eur", "totale_eur_no_titolo9"]
+        primary_key: ["anno", "codice_ente"]
+      mart_trend:
+        min_rows: 15000
+        required_columns: ["codice_ente", "first_year", "last_year", "totale_first", "totale_last", "delta_eur", "variazione_pct", "cagr_pct"]
+        primary_key: ["codice_ente"]
 
 validation:
   fail_on_error: true
