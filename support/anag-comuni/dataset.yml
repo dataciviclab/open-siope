@@ -1,0 +1,46 @@
+root: "../../out"
+schema_version: 1
+
+dataset:
+  # Anno label: lo snapshot SIOPE e' sempre l'ultimo disponibile
+  name: "siope_anag_comuni_seed"
+  source_id: "siope"
+  tags: [siope, anagrafica, support, comuni]
+  category: finanza-pubblica
+  description: "Anagrafica comuni SIOPE: codice ISTAT, denominazione e provincia — dizionario di supporto."
+  years: [2026]
+
+raw:
+  extractor:
+    type: "unzip_all"
+  sources:
+    - name: "siope_anagrafiche_zip"
+      type: "http_file"
+      args:
+        url: "https://www.siope.it/documenti/siope2/open/last/SIOPE_ANAGRAFICHE.zip"
+        filename: "SIOPE_ANAGRAFICHE.zip"
+      primary: true
+
+clean:
+  sql: "sql/clean.sql"
+  read:
+    mode: "explicit"
+    include: ["ANAGRAFE_COMUNI.*.csv"]
+    header: false
+    delim: ","
+    encoding: "utf-8"
+    columns:
+      column0: "VARCHAR"
+      column1: "VARCHAR"
+      column2: "VARCHAR"
+  validate: {}
+
+mart:
+  tables:
+    - name: "siope_anag_comuni_seed"
+      sql: "sql/mart.sql"
+  required_tables: ["siope_anag_comuni_seed"]
+  validate: {}
+
+validation:
+  fail_on_error: true

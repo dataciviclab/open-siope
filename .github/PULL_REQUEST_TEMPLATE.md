@@ -12,10 +12,8 @@ Descrivi brevemente le modifiche.
 
 ## Verifica
 
-- [ ] `make seeds-smoke` passa
-- [ ] `make smoke-entrate` passa
-- [ ] `make smoke-uscite` passa
 - [ ] `make check` passa
+- [ ] `make seeds` passa (o run completo locale di entrate/uscite se toccati)
 
 
 ## Note

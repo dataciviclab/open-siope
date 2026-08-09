@@ -25,10 +25,17 @@ della Ragioneria Generale dello Stato. Li abbiamo puliti, arricchiti e resi pubb
 
 ## Tre modi per accedere ai dati
 
-### 1. Via MCP (clean-query)
+### 1. Via MCP (toolkit del Lab)
 
-Il dataset `siope_bilancio_unificato` è accessibile via SQL arbitrario
-dal server MCP clean-query del Lab.
+I dataset di questo repo (`siope_entrate`, `siope_uscite` e le anagrafiche
+`siope_anag_*_seed`) sono esposti dal server MCP centralizzato del Lab:
+
+- `toolkit_find` / `toolkit_dataset_overview` — scoperta e schema
+- `toolkit_layer` — SQL arbitrario su clean/mart
+- `toolkit_registry_show repo=open-siope` — catalogo e stato run
+
+Il dataset consolidato `siope_bilancio_unificato` (entrate+uscite) è inoltre
+accessibile via SQL arbitrario dal server MCP clean-query del Lab.
 
 ```
 "Quanto ha speso il Comune di Milano nel 2024?"
@@ -64,6 +71,7 @@ Bucket pubblico: `gs://dataciviclab-clean/siope/` (accessibile anche via HTTPS)
 ## Documenti tecnici
 
 - [Pipeline](docs/pipeline.md) — esecuzione, struttura, output
+- [Dataset registry](docs/dataset-registry.md) — catalogo `registry.json`, accesso MCP
 - [Metodologia](docs/metodologia.md) — origini dati, classificazioni
 - [Uso mart](docs/uso_mart_labeled.md) — tabelle aggregate
 

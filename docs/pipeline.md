@@ -2,15 +2,16 @@
 
 ## Struttura del repository
 
-- `entrate/`: dataset entrate
-- `uscite/`: dataset uscite
-- `anagrafica/`: seed anagrafiche (enti, codici gestionali, comparti, reg/prov)
-- `scripts/`: utility (verify_output.py)
-- `.github/workflows/`: CI/CD (check + pipeline dispatch)
+- `datasets/siope-entrate/`: dataset entrate (dataset.yml + sql/)
+- `datasets/siope-uscite/`: dataset uscite (dataset.yml + sql/)
+- `support/`: support seed — anagrafiche SIOPE (enti, codici gestionali, comparti, reg/prov, comuni)
+- `scripts/`: utility (verify_output.py, build_registry.py)
+- `registry/`: artifact catalogo `registry.json` (generato dalla pipeline post-merge)
+- `.github/workflows/`: CI/CD (check + pipeline)
 
 ## Esecuzione
 
-Eseguire prima i seed anagrafici:
+Eseguire prima i support seed:
 
 ```bash
 make seeds
@@ -19,31 +20,39 @@ make seeds
 Poi i dataset principali:
 
 ```bash
-python3 -m toolkit.cli.app run all --config entrate/dataset.yml
-python3 -m toolkit.cli.app run all --config uscite/dataset.yml
+toolkit run --config datasets/siope-entrate/dataset.yml
+toolkit run --config datasets/siope-uscite/dataset.yml
 ```
 
-Il workflow CI su GitHub Actions fa tutto automaticamente via dispatch.
+Il comando `run` esegue la pipeline completa RAW → CLEAN → MART per il dataset.
+Il workflow CI (`pipeline.yml`) fa tutto automaticamente: su merge di una PR esegue
+solo i dataset/support toccati, su schedule (5 del mese) o dispatch esegue entrate+uscite,
+sincronizza i parquet su GCS, genera `registry/registry.json` e apre una PR draft
+`chore(post-merge)` se il catalogo cambia.
 
 ## Output — Entrate
 
 | Layer | Descrizione |
 |---|---|
-| `clean` | 21 colonne: dati mensili + territorio, comparto, classificazione |
-| `siope_entrate_pro` | aggregato voci + territorio (comuni, PRO) |
-| `siope_entrate_reg` | regioni e province autonome |
-| `siope_entrate_san` | ASL, AO, IRCCS |
-| `siope_entrate_uni` | atenei e dipartimenti |
+| `clean` | 18 colonne: dati mensili + territorio, comparto, classificazione |
+| `mart_pro` | aggregato voci + territorio (comuni, PRO) |
+| `mart_reg` | regioni e province autonome |
+| `mart_san` | ASL, AO, IRCCS |
+| `mart_uni` | atenei e dipartimenti |
+| `mart_sintesi` | scheda ente annuale: totale, totale no-titolo9, n voci, n mesi |
+| `mart_trend` | multi-anno per ente: first/last, delta, variazione %, CAGR |
 
 ## Output — Uscite
 
 | Layer | Descrizione |
 |---|---|
-| `clean` | 21 colonne: dati mensili + territorio, comparto, classificazione |
-| `siope_uscite_pro` | aggregato voci + territorio (comuni, PRO) |
-| `siope_uscite_reg` | regioni e province autonome |
-| `siope_uscite_san` | ASL, AO, IRCCS |
-| `siope_uscite_uni` | atenei e dipartimenti |
+| `clean` | 19 colonne: dati mensili + territorio, comparto, classificazione |
+| `mart_pro` | aggregato voci + territorio (comuni, PRO) |
+| `mart_reg` | regioni e province autonome |
+| `mart_san` | ASL, AO, IRCCS |
+| `mart_uni` | atenei e dipartimenti |
+| `mart_sintesi` | scheda ente annuale: totale, totale no-titolo9, n voci, n mesi |
+| `mart_trend` | multi-anno per ente: first/last, delta, variazione %, CAGR |
 
 Il dataset consolidato `siope_bilancio_unificato` (UNION ALL di entrate+uscite)
 è ora gestito dal compose [`siope-bilancio-unificato`](https://github.com/dataciviclab/dataset-incubator/tree/main/candidates/siope-bilancio-unificato)

@@ -27,10 +27,15 @@ LATI_CONFIG = {
         "class_col": "macro_categoria_v2",
         "class_altro": "Altro",
         "mart": {
-            "PRO":  "mart/siope_entrate/{a}/siope_entrate_pro.parquet",
-            "REG":  "mart/siope_entrate/{a}/siope_entrate_reg.parquet",
-            "SAN":  "mart/siope_entrate/{a}/siope_entrate_san.parquet",
-            "UNI":  "mart/siope_entrate/{a}/siope_entrate_uni.parquet",
+            "PRO":  "mart/siope_entrate/{a}/mart_pro.parquet",
+            "REG":  "mart/siope_entrate/{a}/mart_reg.parquet",
+            "SAN":  "mart/siope_entrate/{a}/mart_san.parquet",
+            "UNI":  "mart/siope_entrate/{a}/mart_uni.parquet",
+        },
+        "analitici": {
+            "sintesi": "mart/siope_entrate/{a}/mart_sintesi.parquet",
+            # mart_trend è multi-anno → scritto flat (fuori dalla dir anno)
+            "trend": "mart/siope_entrate/mart_trend.parquet",
         },
     },
     "uscite": {
@@ -38,10 +43,14 @@ LATI_CONFIG = {
         "class_col": "macro_categoria",
         "class_altro": "Altre spese",
         "mart": {
-            "PRO":  "mart/siope_uscite/{a}/siope_uscite_pro.parquet",
-            "REG":  "mart/siope_uscite/{a}/siope_uscite_reg.parquet",
-            "SAN":  "mart/siope_uscite/{a}/siope_uscite_san.parquet",
-            "UNI":  "mart/siope_uscite/{a}/siope_uscite_uni.parquet",
+            "PRO":  "mart/siope_uscite/{a}/mart_pro.parquet",
+            "REG":  "mart/siope_uscite/{a}/mart_reg.parquet",
+            "SAN":  "mart/siope_uscite/{a}/mart_san.parquet",
+            "UNI":  "mart/siope_uscite/{a}/mart_uni.parquet",
+        },
+        "analitici": {
+            "sintesi": "mart/siope_uscite/{a}/mart_sintesi.parquet",
+            "trend": "mart/siope_uscite/mart_trend.parquet",
         },
     },
 }
@@ -51,7 +60,6 @@ SOGLIE = {
     "clean_min_rows_floor": 100_000,
     "join_territorio_pct": 95.0,
     "join_codgest_pct":   95.0,
-    "mart_min_rows_PRO":  100_000,
     "importi_negativi_max": 100,
 }
 
@@ -108,8 +116,7 @@ def check_clean(con, lato, anno, cfg):
         esito = "WARN" if anno == datetime.date.today().year else "CRITICAL"
     if neg > SOGLIE["importi_negativi_max"]:
         esito = "CRITICAL"
-    if null_ente > 0:
-        esito = "CRITICAL"
+    # null_ente è già bloccato a runtime da clean.validate.not_null nel dataset.yml
 
     return {"check": f"clean_{lato}_{anno}", "esito": esito,
             "dettaglio": {"righe": righe, "enti": enti, "periodi": periodi,
@@ -160,10 +167,8 @@ def check_mart(con, lato, anno, cfg, comparto):
     """).fetchone()
 
     righe, totale, neg, null_class, altro_pct = r
-    min_rows = SOGLIE["mart_min_rows_PRO"] if comparto == "PRO" else 10
     esito = "PASS"
-    if righe < min_rows:
-        esito = "CRITICAL"
+    # min_rows è già bloccato a runtime da mart.validate.table_rules nel dataset.yml
     if null_class > 0:
         esito = "CRITICAL"
 
@@ -172,12 +177,37 @@ def check_mart(con, lato, anno, cfg, comparto):
                           "negativi": neg, "null_class": null_class, "altro_pct": altro_pct}}
 
 
+def check_analitici(con, lato, anno, cfg):
+    """Check mart analitici: sintesi per-anno (CRITICAL se manca), trend multi-anno
+    (WARN se manca — generato solo nei run multi-anno, non in PR mode)."""
+    checks = []
+
+    path = resolve(cfg["analitici"]["sintesi"], anno)
+    if not Path(path).exists():
+        checks.append({"check": f"analitici_{lato}_{anno}_sintesi", "esito": "CRITICAL",
+                       "dettaglio": f"FILE MANCANTE: {path}"})
+    else:
+        # min_rows è già bloccato a runtime da mart.validate.table_rules
+        checks.append({"check": f"analitici_{lato}_{anno}_sintesi", "esito": "PASS",
+                       "dettaglio": "presente"})
+
+    tpath = str(ROOT / cfg["analitici"]["trend"])
+    if not Path(tpath).exists():
+        checks.append({"check": f"analitici_{lato}_trend", "esito": "WARN",
+                       "dettaglio": "FILE MANCANTE (generato nei run multi-anno)"})
+    else:
+        checks.append({"check": f"analitici_{lato}_trend", "esito": "PASS",
+                       "dettaglio": "presente"})
+
+    return checks
+
+
 def main():
     p = argparse.ArgumentParser(description="Certifica output SIOPE")
     p.add_argument("--lato", default="all", choices=["entrate", "uscite", "all"])
     p.add_argument("--year", default="2025", help="Anno/i separati da virgola o 'all'")
     p.add_argument("--config", type=str, default=None,
-                   help="Path dataset.yml di entrate/uscite per leggere anni disponibili (es. entrate/dataset.yml)")
+                   help="Path dataset.yml di entrate/uscite per leggere anni disponibili (es. datasets/siope-entrate/dataset.yml)")
     p.add_argument("--ci", action="store_true", help="Output JSON per CI")
     args = p.parse_args()
 
@@ -218,6 +248,14 @@ def main():
                         "esito": "CRITICAL",
                         "dettaglio": f"ERRORE ESECUZIONE: {e}",
                     })
+            try:
+                checks.extend(check_analitici(con, lato, anno, cfg))
+            except Exception as e:
+                checks.append({
+                    "check": f"check_analitici_{lato}_{anno}",
+                    "esito": "CRITICAL",
+                    "dettaglio": f"ERRORE ESECUZIONE: {e}",
+                })
 
     con.close()
 
