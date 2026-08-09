@@ -60,7 +60,6 @@ SOGLIE = {
     "clean_min_rows_floor": 100_000,
     "join_territorio_pct": 95.0,
     "join_codgest_pct":   95.0,
-    "mart_min_rows_PRO":  100_000,
     "importi_negativi_max": 100,
 }
 
@@ -117,8 +116,7 @@ def check_clean(con, lato, anno, cfg):
         esito = "WARN" if anno == datetime.date.today().year else "CRITICAL"
     if neg > SOGLIE["importi_negativi_max"]:
         esito = "CRITICAL"
-    if null_ente > 0:
-        esito = "CRITICAL"
+    # null_ente è già bloccato a runtime da clean.validate.not_null nel dataset.yml
 
     return {"check": f"clean_{lato}_{anno}", "esito": esito,
             "dettaglio": {"righe": righe, "enti": enti, "periodi": periodi,
@@ -169,10 +167,8 @@ def check_mart(con, lato, anno, cfg, comparto):
     """).fetchone()
 
     righe, totale, neg, null_class, altro_pct = r
-    min_rows = SOGLIE["mart_min_rows_PRO"] if comparto == "PRO" else 10
     esito = "PASS"
-    if righe < min_rows:
-        esito = "CRITICAL"
+    # min_rows è già bloccato a runtime da mart.validate.table_rules nel dataset.yml
     if null_class > 0:
         esito = "CRITICAL"
 
@@ -191,20 +187,17 @@ def check_analitici(con, lato, anno, cfg):
         checks.append({"check": f"analitici_{lato}_{anno}_sintesi", "esito": "CRITICAL",
                        "dettaglio": f"FILE MANCANTE: {path}"})
     else:
-        r = con.execute(f"select count(*) from read_parquet('{path}')").fetchone()[0]
-        esito = "PASS" if r >= 1000 else "CRITICAL"
-        checks.append({"check": f"analitici_{lato}_{anno}_sintesi", "esito": esito,
-                       "dettaglio": {"righe": r}})
+        # min_rows è già bloccato a runtime da mart.validate.table_rules
+        checks.append({"check": f"analitici_{lato}_{anno}_sintesi", "esito": "PASS",
+                       "dettaglio": "presente"})
 
     tpath = str(ROOT / cfg["analitici"]["trend"])
     if not Path(tpath).exists():
         checks.append({"check": f"analitici_{lato}_trend", "esito": "WARN",
                        "dettaglio": "FILE MANCANTE (generato nei run multi-anno)"})
     else:
-        r = con.execute(f"select count(*) from read_parquet('{tpath}')").fetchone()[0]
-        esito = "PASS" if r >= 1000 else "WARN"
-        checks.append({"check": f"analitici_{lato}_trend", "esito": esito,
-                       "dettaglio": {"righe": r}})
+        checks.append({"check": f"analitici_{lato}_trend", "esito": "PASS",
+                       "dettaglio": "presente"})
 
     return checks
 

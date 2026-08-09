@@ -35,11 +35,11 @@ jobs:
         run: |
           for cfg in $(find . -path '*/support/*' -name dataset.yml | sort); do
             echo "→ $cfg"
-            python3 -m toolkit.cli.app run preflight --config "$cfg" --years 2026 > /dev/null 2>&1 || exit 1
+            toolkit run preflight --config "$cfg" --years 2026 > /dev/null 2>&1 || exit 1
           done
           for cfg in $(find . -path '*/datasets/*' -name dataset.yml | sort); do
             echo "→ $cfg"
-            python3 -m toolkit.cli.app run preflight --config "$cfg" --years 2025 > /dev/null 2>&1 || exit 1
+            toolkit run preflight --config "$cfg" --years 2025 > /dev/null 2>&1 || exit 1
           done
           echo "✅ All configs valid"
 
