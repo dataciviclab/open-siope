@@ -129,6 +129,7 @@ jobs:
             ANNO=$(python3 -c "import yaml; print(','.join(map(str, yaml.safe_load(open('datasets/siope-entrate/dataset.yml'))['dataset']['years'])))")
           else
             LATO="${SIDES:-all}"
+            [ "$LATO" = "both" ] && LATO="all"
             ANNO="${YEARS:-all}"
           fi
           echo "verify: lato=$LATO anni=$ANNO"
