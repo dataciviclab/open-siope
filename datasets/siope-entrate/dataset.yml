@@ -1,0 +1,120 @@
+root: "../../out"
+schema_version: 1
+
+dataset:
+  name: "siope_entrate"
+  source_id: "siope"
+  tags: [finanza-pubblica, siope, entrate, bilancio, enti-pubblici]
+  category: finanza-pubblica
+  description: "Entrate mensili di tutti gli enti pubblici italiani (comuni, regioni, ASL, universita') dal 2021 — importi per codice SIOPE, arricchite con anagrafica enti e territorio."
+  years: [2021, 2022, 2023, 2024, 2025, 2026]
+
+raw:
+  extractor:
+    type: "unzip_first_csv"
+  sources:
+    - name: "siope_entrate_open"
+      type: "http_file"
+      args:
+        url: "https://www.siope.it/documenti/siope2/open/last/SIOPE_ENTRATE.{year}.zip"
+        filename: "SIOPE_ENTRATE.{year}.zip"
+      primary: true
+    # Anagrafica SIOPE vive nei dataset separati sotto `anagrafica/`.
+
+clean:
+  sql: "sql/clean.sql"
+  read:
+    mode: "latest"
+    header: false
+    delim: ","
+    encoding: "utf-8"
+    columns:
+      column0: "VARCHAR"
+      column1: "VARCHAR"
+      column2: "VARCHAR"
+      column3: "VARCHAR"
+      column4: "VARCHAR"
+  required_columns:
+    - codice_ente
+    - anno
+    - periodo
+    - codice_voce
+    - importo
+    - importo_eur
+    - denominazione_ente
+    - tipo_ente
+    - codice_istat_comune
+    - codice_provincia
+    - provincia
+    - regione
+    - codice_comparto
+    - descrizione_comparto
+    - is_titolo_9
+    - macro_categoria_v2
+    - descrizione_codice
+    - has_codgest_match
+  validate:
+    # Gate anticorruzione: soglia bassa per non bloccare anni parziali.
+    # Il gate qualitativo vero è in verify_output.py (proporzionale per anno in corso).
+    min_rows: 200000
+    primary_key: ["codice_ente", "anno", "periodo", "codice_voce"]
+    not_null: ["codice_ente", "anno", "periodo", "codice_voce", "importo"]
+
+mart:
+  tables:
+    # --- PRO: comuni, province, città metropolitane ---
+    - name: "mart_pro"
+      sql: "sql/mart_pro.sql"
+    # --- REG: regioni e province autonome ---
+    - name: "mart_reg"
+      sql: "sql/mart_reg.sql"
+    # --- SAN: ASL, AO, IRCCS, policlinici ---
+    - name: "mart_san"
+      sql: "sql/mart_san.sql"
+    # --- UNI: università e dipartimenti ---
+    - name: "mart_uni"
+      sql: "sql/mart_uni.sql"
+  required_tables:
+    - "mart_pro"
+    - "mart_reg"
+    - "mart_san"
+    - "mart_uni"
+  validate:
+    table_rules:
+      mart_pro:
+        min_rows: 100000
+        required_columns: ["codice_ente", "anno", "codice_voce", "importo_totale", "importo_totale_eur", "descrizione_codice", "has_codgest_match", "is_titolo_9", "macro_categoria_v2", "codice_istat_comune", "codice_provincia", "provincia", "regione"]
+        primary_key: ["codice_ente", "anno", "codice_voce"]
+        not_null: ["codice_ente", "anno", "codice_voce", "importo_totale", "importo_totale_eur", "macro_categoria_v2"]
+      mart_reg:
+        min_rows: 50
+        required_columns: ["codice_ente", "anno", "importo_totale_eur", "codice_comparto", "tipo_ente", "regione"]
+        primary_key: ["codice_ente", "anno", "codice_voce"]
+      mart_san:
+        min_rows: 50
+        required_columns: ["codice_ente", "anno", "importo_totale_eur", "codice_comparto", "tipo_ente", "regione"]
+        primary_key: ["codice_ente", "anno", "codice_voce"]
+      mart_uni:
+        min_rows: 20
+        required_columns: ["codice_ente", "anno", "importo_totale_eur", "codice_comparto", "tipo_ente"]
+        primary_key: ["codice_ente", "anno", "codice_voce"]
+
+validation:
+  fail_on_error: true
+
+support:
+  - name: "comparti"
+    config: "../../support/anag-comparti/dataset.yml"
+    years: [2026]
+  - name: "sottocomparti"
+    config: "../../support/anag-sottocomparti/dataset.yml"
+    years: [2026]
+  - name: "enti"
+    config: "../../support/anag-enti/dataset.yml"
+    years: [2026]
+  - name: "codgest_entrate"
+    config: "../../support/anag-codgest-entrate/dataset.yml"
+    years: [2026]
+  - name: "regprov"
+    config: "../../support/anag-reg-prov/dataset.yml"
+    years: [2026]

@@ -33,13 +33,13 @@ jobs:
 
       - name: Validate all dataset configs parse correctly
         run: |
-          for cfg in $(find . -path '*/anagrafica/*' -name dataset.yml | sort); do
+          for cfg in $(find . -path '*/support/*' -name dataset.yml | sort); do
             echo "→ $cfg"
-            python3 -m toolkit.cli.app inspect paths --config "$cfg" --year 2026 > /dev/null 2>&1
+            python3 -m toolkit.cli.app run preflight --config "$cfg" --years 2026 > /dev/null 2>&1 || exit 1
           done
-          for cfg in $(find . \( -path '*/entrate/*' -o -path '*/uscite/*' \) -name dataset.yml | sort); do
+          for cfg in $(find . -path '*/datasets/*' -name dataset.yml | sort); do
             echo "→ $cfg"
-            python3 -m toolkit.cli.app inspect paths --config "$cfg" --year 2025 > /dev/null 2>&1
+            python3 -m toolkit.cli.app run preflight --config "$cfg" --years 2025 > /dev/null 2>&1 || exit 1
           done
           echo "✅ All configs valid"
 

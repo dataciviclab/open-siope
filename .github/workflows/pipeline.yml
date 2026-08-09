@@ -36,11 +36,11 @@ jobs:
           pip install git+https://github.com/dataciviclab/lab-connectors.git
           pip install git+https://github.com/dataciviclab/toolkit.git
 
-      - name: Seeds anagrafici
+      - name: Support seeds (anagrafiche)
         run: |
           if [ "${{ inputs.smoke }}" = "true" ]; then
-            for d in anagrafica/anag-comparti anagrafica/anag-sottocomparti anagrafica/anag-enti anagrafica/anag-codgest-entrate anagrafica/anag-codgest-uscite anagrafica/anag-reg-prov; do
-              python3 scripts/run_toolkit.py run all --config $d/dataset.yml --sample-rows 1000
+            for d in support/anag-comparti support/anag-sottocomparti support/anag-enti support/anag-codgest-entrate support/anag-codgest-uscite support/anag-reg-prov; do
+              python3 scripts/run_toolkit.py run --config $d/dataset.yml --sample-rows 1000
             done
           else
             make seeds
@@ -55,7 +55,7 @@ jobs:
           else YEARS=$(echo "$YEARS_INPUT" | tr ',' ' '); fi
           for y in $YEARS; do
             echo "=== entrate $y $FLAG ==="
-            python3 scripts/run_toolkit.py run all --config entrate/dataset.yml --year "$y" $FLAG
+            python3 scripts/run_toolkit.py run --config datasets/siope-entrate/dataset.yml --year "$y" $FLAG
           done
 
       - name: Run uscite
@@ -67,7 +67,7 @@ jobs:
           else YEARS=$(echo "$YEARS_INPUT" | tr ',' ' '); fi
           for y in $YEARS; do
             echo "=== uscite $y $FLAG ==="
-            python3 scripts/run_toolkit.py run all --config uscite/dataset.yml --year "$y" $FLAG
+            python3 scripts/run_toolkit.py run --config datasets/siope-uscite/dataset.yml --year "$y" $FLAG
           done
 
       - name: Verify output (gate)

@@ -7,7 +7,7 @@ su ogni nuova connessione, prevenendo OutOfMemory nei runner CI con
 2GB di RAM (GitHub Actions free).
 
 Usage:
-  python3 scripts/run_toolkit.py run all --config entrate/dataset.yml --year 2025
+  python3 scripts/run_toolkit.py run --config datasets/siope-entrate/dataset.yml --year 2025
 """
 import duckdb
 import sys

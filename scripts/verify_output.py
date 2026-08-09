@@ -27,10 +27,10 @@ LATI_CONFIG = {
         "class_col": "macro_categoria_v2",
         "class_altro": "Altro",
         "mart": {
-            "PRO":  "mart/siope_entrate/{a}/siope_entrate_pro.parquet",
-            "REG":  "mart/siope_entrate/{a}/siope_entrate_reg.parquet",
-            "SAN":  "mart/siope_entrate/{a}/siope_entrate_san.parquet",
-            "UNI":  "mart/siope_entrate/{a}/siope_entrate_uni.parquet",
+            "PRO":  "mart/siope_entrate/{a}/mart_pro.parquet",
+            "REG":  "mart/siope_entrate/{a}/mart_reg.parquet",
+            "SAN":  "mart/siope_entrate/{a}/mart_san.parquet",
+            "UNI":  "mart/siope_entrate/{a}/mart_uni.parquet",
         },
     },
     "uscite": {
@@ -38,10 +38,10 @@ LATI_CONFIG = {
         "class_col": "macro_categoria",
         "class_altro": "Altre spese",
         "mart": {
-            "PRO":  "mart/siope_uscite/{a}/siope_uscite_pro.parquet",
-            "REG":  "mart/siope_uscite/{a}/siope_uscite_reg.parquet",
-            "SAN":  "mart/siope_uscite/{a}/siope_uscite_san.parquet",
-            "UNI":  "mart/siope_uscite/{a}/siope_uscite_uni.parquet",
+            "PRO":  "mart/siope_uscite/{a}/mart_pro.parquet",
+            "REG":  "mart/siope_uscite/{a}/mart_reg.parquet",
+            "SAN":  "mart/siope_uscite/{a}/mart_san.parquet",
+            "UNI":  "mart/siope_uscite/{a}/mart_uni.parquet",
         },
     },
 }
