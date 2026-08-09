@@ -11,7 +11,8 @@ ANAG_SEEDS = \
 	support/anag-enti \
 	support/anag-codgest-entrate \
 	support/anag-codgest-uscite \
-	support/anag-reg-prov
+	support/anag-reg-prov \
+	support/anag-comuni
 
 .PHONY: seeds
 seeds:
@@ -78,13 +79,15 @@ clean-runs:
 verify:
 	python3 scripts/verify_output.py
 
+# --- Registry (artifact catalogo — dry-run di default) ---
+
+.PHONY: registry registry-write
+registry:
+	python3 scripts/build_registry.py
+
+registry-write:
+	python3 scripts/build_registry.py --write
+
 .PHONY: help
 help:
 	@grep -E '^[a-zA-Z_-]+:' Makefile | sort
-
-# --- Explorer Observable ---
-
-.PHONY: explorer
-explorer:
-	cd explorer && npm run build
-	@echo "✅ Explorer built in docs/explorer/"

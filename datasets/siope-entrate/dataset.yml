@@ -19,7 +19,7 @@ raw:
         url: "https://www.siope.it/documenti/siope2/open/last/SIOPE_ENTRATE.{year}.zip"
         filename: "SIOPE_ENTRATE.{year}.zip"
       primary: true
-    # Anagrafica SIOPE vive nei dataset separati sotto `anagrafica/`.
+    # Anagrafica SIOPE vive nei support dataset separati sotto `support/`.
 
 clean:
   sql: "sql/clean.sql"

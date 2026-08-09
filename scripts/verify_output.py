@@ -177,7 +177,7 @@ def main():
     p.add_argument("--lato", default="all", choices=["entrate", "uscite", "all"])
     p.add_argument("--year", default="2025", help="Anno/i separati da virgola o 'all'")
     p.add_argument("--config", type=str, default=None,
-                   help="Path dataset.yml di entrate/uscite per leggere anni disponibili (es. entrate/dataset.yml)")
+                   help="Path dataset.yml di entrate/uscite per leggere anni disponibili (es. datasets/siope-entrate/dataset.yml)")
     p.add_argument("--ci", action="store_true", help="Output JSON per CI")
     args = p.parse_args()
 
