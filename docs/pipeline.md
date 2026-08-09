@@ -5,7 +5,7 @@
 - `datasets/siope-entrate/`: dataset entrate (dataset.yml + sql/)
 - `datasets/siope-uscite/`: dataset uscite (dataset.yml + sql/)
 - `support/`: support seed — anagrafiche SIOPE (enti, codici gestionali, comparti, reg/prov, comuni)
-- `scripts/`: utility (verify_output.py, build_registry.py)
+- `scripts/`: utility (run_toolkit.py, verify_output.py, build_registry.py)
 - `registry/`: artifact catalogo `registry.json` (generato dalla pipeline post-merge)
 - `.github/workflows/`: CI/CD (check + pipeline)
 
@@ -20,9 +20,13 @@ make seeds
 Poi i dataset principali:
 
 ```bash
-toolkit run --config datasets/siope-entrate/dataset.yml
-toolkit run --config datasets/siope-uscite/dataset.yml
+python3 scripts/run_toolkit.py run --config datasets/siope-entrate/dataset.yml
+python3 scripts/run_toolkit.py run --config datasets/siope-uscite/dataset.yml
 ```
+
+Il wrapper (`run_toolkit.py`) limita la memoria DuckDB a 1.5GB: il default 2GB
+di `safe_connect` supera la RAM reale dei runner CI (2GB) e causa OOM sul
+processing di milioni di righe (es. siope_entrate 2021, 4M righe).
 
 Il comando `run` esegue la pipeline completa RAW → CLEAN → MART per il dataset.
 Il workflow CI (`pipeline.yml`) fa tutto automaticamente: su merge di una PR esegue
