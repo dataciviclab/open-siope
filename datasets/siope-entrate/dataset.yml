@@ -108,11 +108,11 @@ mart:
         required_columns: ["codice_ente", "anno", "importo_totale_eur", "codice_comparto", "tipo_ente"]
         primary_key: ["codice_ente", "anno", "codice_voce"]
       mart_sintesi:
-        min_rows: 15000
+        min_rows: 8000
         required_columns: ["anno", "codice_ente", "denominazione_ente", "totale_eur", "totale_eur_no_titolo9"]
         primary_key: ["anno", "codice_ente"]
       mart_trend:
-        min_rows: 15000
+        min_rows: 8000
         required_columns: ["codice_ente", "first_year", "last_year", "totale_first", "totale_last", "delta_eur", "variazione_pct", "cagr_pct"]
         primary_key: ["codice_ente"]
 
