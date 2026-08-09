@@ -39,6 +39,8 @@ sincronizza i parquet su GCS, genera `registry/registry.json` e apre una PR draf
 | `mart_reg` | regioni e province autonome |
 | `mart_san` | ASL, AO, IRCCS |
 | `mart_uni` | atenei e dipartimenti |
+| `mart_sintesi` | scheda ente annuale: totale, totale no-titolo9, n voci, n mesi |
+| `mart_trend` | multi-anno per ente: first/last, delta, variazione %, CAGR |
 
 ## Output — Uscite
 
@@ -49,6 +51,8 @@ sincronizza i parquet su GCS, genera `registry/registry.json` e apre una PR draf
 | `mart_reg` | regioni e province autonome |
 | `mart_san` | ASL, AO, IRCCS |
 | `mart_uni` | atenei e dipartimenti |
+| `mart_sintesi` | scheda ente annuale: totale, totale no-titolo9, n voci, n mesi |
+| `mart_trend` | multi-anno per ente: first/last, delta, variazione %, CAGR |
 
 Il dataset consolidato `siope_bilancio_unificato` (UNION ALL di entrate+uscite)
 è ora gestito dal compose [`siope-bilancio-unificato`](https://github.com/dataciviclab/dataset-incubator/tree/main/candidates/siope-bilancio-unificato)
