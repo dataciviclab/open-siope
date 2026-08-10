@@ -3,7 +3,7 @@
 `registry/registry.json` è l'**artifact catalogo** del repo (fusion ADR, toolkit v1.49+):
 un unico file con le sezioni `datasets`, `marts`, `signals`, `codelists`, `entities`.
 
-Viene generato da `scripts/build_registry.py` (wrapper sul builder condiviso
+Viene generato da `toolkit registry build --prefix siope` (comando unico su
 `toolkit.registry`) e **non è committato manualmente**: lo produce la pipeline
 post-merge dopo ogni run e lo pubblica con una PR draft `chore(post-merge)`.
 
@@ -38,6 +38,6 @@ Layout GCS: `gs://dataciviclab-clean/siope/{slug}/{year}/` e
 ## Aggiornamento
 
 ```bash
-python3 scripts/build_registry.py           # dry-run (riepilogo)
-python3 scripts/build_registry.py --write   # scrive registry/registry.json
+toolkit registry build --prefix siope           # dry-run (riepilogo)
+toolkit registry build --prefix siope --write   # scrive registry/registry.json
 ```
