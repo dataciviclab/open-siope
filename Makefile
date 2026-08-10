@@ -68,10 +68,10 @@ verify:
 
 .PHONY: registry registry-write
 registry:
-	python3 scripts/build_registry.py
+	toolkit registry build --prefix siope
 
 registry-write:
-	python3 scripts/build_registry.py --write
+	toolkit registry build --prefix siope --write
 
 .PHONY: help
 help:
