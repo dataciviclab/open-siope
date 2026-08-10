@@ -164,7 +164,7 @@ jobs:
 
       - name: Build registry
         if: steps.detect.outputs.dirs != ''
-        run: python3 scripts/build_registry.py --write
+        run: toolkit registry build --prefix siope --write
 
       - name: Check registry diff
         id: diff
