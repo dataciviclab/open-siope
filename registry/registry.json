@@ -761,8 +761,8 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope/siope_uscite/2022/siope_uscite_2022_clean.parquet",
-        "multi_file": false
+        "path": "gs://dataciviclab-clean/siope/siope_uscite/*/siope_uscite_*_clean.parquet",
+        "multi_file": true
       },
       "stage": "incubating",
       "mart_refs": [
