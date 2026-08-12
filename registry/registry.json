@@ -2,7 +2,7 @@
   "schema_version": 1,
   "repo": "open-siope",
   "source_repo": "dataciviclab/open-siope",
-  "updated_at": "2026-08-09",
+  "updated_at": "2026-08-12",
   "datasets": [
     {
       "slug": "siope_anag_codgest_entrate_seed",
@@ -14,9 +14,6 @@
         "start": 2026,
         "end": 2026
       },
-      "years": [
-        2026
-      ],
       "tags": [
         "siope",
         "anagrafica",
@@ -71,37 +68,13 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope/siope_anag_codgest_entrate_seed/2026/siope_anag_codgest_entrate_seed_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/siope_anag_codgest_entrate_seed/2026/siope_anag_codgest_entrate_seed_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
-      "registry_source": "derive_auto",
       "mart_refs": [
         "siope_anag_codgest_entrate_seed__siope_anag_codgest_entrate_seed"
-      ],
-      "run": {
-        "run_id": "20260809T153316Z_de273ac9",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 18065,
-          "clean": 18066,
-          "mart": 18066
-        },
-        "output_bytes": {
-          "raw": 7529359,
-          "clean": 62881,
-          "mart": 62881
-        },
-        "started_at": "2026-08-09T15:33:16.659500+00:00",
-        "finished_at": "2026-08-09T15:33:18.657868+00:00",
-        "duration_seconds": 1.998
-      }
+      ]
     },
     {
       "slug": "siope_anag_codgest_uscite_seed",
@@ -113,9 +86,6 @@
         "start": 2026,
         "end": 2026
       },
-      "years": [
-        2026
-      ],
       "tags": [
         "siope",
         "anagrafica",
@@ -176,37 +146,13 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope/siope_anag_codgest_uscite_seed/2026/siope_anag_codgest_uscite_seed_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/siope_anag_codgest_uscite_seed/2026/siope_anag_codgest_uscite_seed_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
-      "registry_source": "derive_auto",
       "mart_refs": [
         "siope_anag_codgest_uscite_seed__siope_anag_codgest_uscite_seed"
-      ],
-      "run": {
-        "run_id": "20260809T153319Z_14262ea7",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 18065,
-          "clean": 21343,
-          "mart": 21343
-        },
-        "output_bytes": {
-          "raw": 7529359,
-          "clean": 81741,
-          "mart": 81741
-        },
-        "started_at": "2026-08-09T15:33:19.833963+00:00",
-        "finished_at": "2026-08-09T15:33:22.199936+00:00",
-        "duration_seconds": 2.366
-      }
+      ]
     },
     {
       "slug": "siope_anag_comparti_seed",
@@ -218,9 +164,6 @@
         "start": 2026,
         "end": 2026
       },
-      "years": [
-        2026
-      ],
       "tags": [
         "siope",
         "anagrafica",
@@ -244,36 +187,13 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope/siope_anag_comparti_seed/2026/siope_anag_comparti_seed_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/siope_anag_comparti_seed/2026/siope_anag_comparti_seed_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
-      "registry_source": "derive_auto",
       "mart_refs": [
         "siope_anag_comparti_seed__siope_anag_comparti_seed"
-      ],
-      "run": {
-        "run_id": "20260809T153304Z_acb7f193",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "clean": 24,
-          "mart": 24
-        },
-        "output_bytes": {
-          "raw": 7529359,
-          "clean": 971,
-          "mart": 971
-        },
-        "started_at": "2026-08-09T15:33:04.458440+00:00",
-        "finished_at": "2026-08-09T15:33:07.624640+00:00",
-        "duration_seconds": 3.166
-      }
+      ]
     },
     {
       "slug": "siope_anag_comuni_seed",
@@ -285,9 +205,6 @@
         "start": 2026,
         "end": 2026
       },
-      "years": [
-        2026
-      ],
       "tags": [
         "siope",
         "anagrafica",
@@ -320,36 +237,13 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope/siope_anag_comuni_seed/2026/siope_anag_comuni_seed_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/siope_anag_comuni_seed/2026/siope_anag_comuni_seed_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
-      "registry_source": "derive_auto",
       "mart_refs": [
         "siope_anag_comuni_seed__siope_anag_comuni_seed"
-      ],
-      "run": {
-        "run_id": "20260809T153327Z_60cb4612",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "clean": 8226,
-          "mart": 8226
-        },
-        "output_bytes": {
-          "raw": 7529359,
-          "clean": 68497,
-          "mart": 68497
-        },
-        "started_at": "2026-08-09T15:33:27.377491+00:00",
-        "finished_at": "2026-08-09T15:33:29.675719+00:00",
-        "duration_seconds": 2.298
-      }
+      ]
     },
     {
       "slug": "siope_anag_enti_seed",
@@ -361,9 +255,6 @@
         "start": 2026,
         "end": 2026
       },
-      "years": [
-        2026
-      ],
       "tags": [
         "siope",
         "anagrafica",
@@ -433,36 +324,13 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope/siope_anag_enti_seed/2026/siope_anag_enti_seed_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/siope_anag_enti_seed/2026/siope_anag_enti_seed_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
-      "registry_source": "derive_auto",
       "mart_refs": [
         "siope_anag_enti_seed__siope_anag_enti_seed"
-      ],
-      "run": {
-        "run_id": "20260809T153312Z_8a53d6aa",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "clean": 18060,
-          "mart": 18060
-        },
-        "output_bytes": {
-          "raw": 7529359,
-          "clean": 427258,
-          "mart": 427258
-        },
-        "started_at": "2026-08-09T15:33:12.949208+00:00",
-        "finished_at": "2026-08-09T15:33:15.352484+00:00",
-        "duration_seconds": 2.403
-      }
+      ]
     },
     {
       "slug": "siope_anag_reg_prov_seed",
@@ -474,9 +342,6 @@
         "start": 2026,
         "end": 2026
       },
-      "years": [
-        2026
-      ],
       "tags": [
         "siope",
         "anagrafica",
@@ -524,36 +389,13 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope/siope_anag_reg_prov_seed/2026/siope_anag_reg_prov_seed_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/siope_anag_reg_prov_seed/2026/siope_anag_reg_prov_seed_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
-      "registry_source": "derive_auto",
       "mart_refs": [
         "siope_anag_reg_prov_seed__siope_anag_reg_prov_seed"
-      ],
-      "run": {
-        "run_id": "20260809T153323Z_b07c169e",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "clean": 110,
-          "mart": 110
-        },
-        "output_bytes": {
-          "raw": 7529359,
-          "clean": 2477,
-          "mart": 2477
-        },
-        "started_at": "2026-08-09T15:33:23.375337+00:00",
-        "finished_at": "2026-08-09T15:33:25.834725+00:00",
-        "duration_seconds": 2.459
-      }
+      ]
     },
     {
       "slug": "siope_anag_sottocomparti_seed",
@@ -565,9 +407,6 @@
         "start": 2026,
         "end": 2026
       },
-      "years": [
-        2026
-      ],
       "tags": [
         "siope",
         "anagrafica",
@@ -597,36 +436,13 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope/siope_anag_sottocomparti_seed/2026/siope_anag_sottocomparti_seed_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/siope_anag_sottocomparti_seed/2026/siope_anag_sottocomparti_seed_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
-      "registry_source": "derive_auto",
       "mart_refs": [
         "siope_anag_sottocomparti_seed__siope_anag_sottocomparti_seed"
-      ],
-      "run": {
-        "run_id": "20260809T153309Z_36b820c4",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "clean": 75,
-          "mart": 75
-        },
-        "output_bytes": {
-          "raw": 7529359,
-          "clean": 2350,
-          "mart": 2350
-        },
-        "started_at": "2026-08-09T15:33:09.167575+00:00",
-        "finished_at": "2026-08-09T15:33:11.395533+00:00",
-        "duration_seconds": 2.228
-      }
+      ]
     },
     {
       "slug": "siope_entrate",
@@ -638,14 +454,6 @@
         "start": 2021,
         "end": 2026
       },
-      "years": [
-        2021,
-        2022,
-        2023,
-        2024,
-        2025,
-        2026
-      ],
       "tags": [
         "finanza-pubblica",
         "siope",
@@ -665,7 +473,7 @@
         {
           "name": "anno",
           "type": "INTEGER",
-          "role": "metric",
+          "role": "dimension",
           "description": "",
           "semantic_type": "year"
         },
@@ -789,7 +597,6 @@
         "multi_file": true
       },
       "stage": "incubating",
-      "registry_source": "derive_auto",
       "mart_refs": [
         "siope_entrate__mart_pro",
         "siope_entrate__mart_reg",
@@ -797,30 +604,7 @@
         "siope_entrate__mart_uni",
         "siope_entrate__mart_sintesi",
         "siope_entrate__mart_trend"
-      ],
-      "run": {
-        "run_id": "20260809T153811Z_2d525533",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 2596623,
-          "clean": 2596624,
-          "mart": 339366
-        },
-        "output_bytes": {
-          "raw": 124682995,
-          "clean": 26082086,
-          "mart": 6736571
-        },
-        "started_at": "2026-08-09T15:38:11.925869+00:00",
-        "finished_at": "2026-08-09T15:38:45.862713+00:00",
-        "duration_seconds": 33.937
-      }
+      ]
     },
     {
       "slug": "siope_uscite",
@@ -832,14 +616,6 @@
         "start": 2021,
         "end": 2026
       },
-      "years": [
-        2021,
-        2022,
-        2023,
-        2024,
-        2025,
-        2026
-      ],
       "tags": [
         "finanza-pubblica",
         "siope",
@@ -859,7 +635,7 @@
         {
           "name": "anno",
           "type": "INTEGER",
-          "role": "metric",
+          "role": "dimension",
           "description": "",
           "semantic_type": "year"
         },
@@ -985,11 +761,10 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope/siope_uscite/*/siope_uscite_*_clean.parquet",
-        "multi_file": true
+        "path": "gs://dataciviclab-clean/siope_uscite/2022/siope_uscite_2022_clean.parquet",
+        "multi_file": false
       },
       "stage": "incubating",
-      "registry_source": "derive_auto",
       "mart_refs": [
         "siope_uscite__mart_pro",
         "siope_uscite__mart_reg",
@@ -997,30 +772,7 @@
         "siope_uscite__mart_uni",
         "siope_uscite__mart_sintesi",
         "siope_uscite__mart_trend"
-      ],
-      "run": {
-        "run_id": "20260809T154823Z_a0ad18fd",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 5418535,
-          "clean": 5418536,
-          "mart": 705427
-        },
-        "output_bytes": {
-          "raw": 258321411,
-          "clean": 52450494,
-          "mart": 14246900
-        },
-        "started_at": "2026-08-09T15:48:23.888800+00:00",
-        "finished_at": "2026-08-09T15:49:38.616710+00:00",
-        "duration_seconds": 74.728
-      }
+      ]
     }
   ],
   "marts": [
@@ -1028,33 +780,9 @@
       "slug": "siope_anag_codgest_entrate_seed__siope_anag_codgest_entrate_seed",
       "dataset": "siope_anag_codgest_entrate_seed",
       "table": "siope_anag_codgest_entrate_seed",
-      "description": "siope_anag_codgest_entrate_seed — mart siope_anag_codgest_entrate_seed",
-      "run": {
-        "run_id": "20260809T153316Z_de273ac9",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 18065,
-          "clean": 18066,
-          "mart": 18066
-        },
-        "output_bytes": {
-          "raw": 7529359,
-          "clean": 62881,
-          "mart": 62881
-        },
-        "started_at": "2026-08-09T15:33:16.659500+00:00",
-        "finished_at": "2026-08-09T15:33:18.657868+00:00",
-        "duration_seconds": 1.998
-      },
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_anag_codgest_entrate_seed/2026/siope_anag_codgest_entrate_seed.parquet",
+        "path": "gs://dataciviclab-mart/siope_anag_codgest_entrate_seed/2026/siope_anag_codgest_entrate_seed.parquet",
         "multi_file": false
       }
     },
@@ -1062,33 +790,9 @@
       "slug": "siope_anag_codgest_uscite_seed__siope_anag_codgest_uscite_seed",
       "dataset": "siope_anag_codgest_uscite_seed",
       "table": "siope_anag_codgest_uscite_seed",
-      "description": "siope_anag_codgest_uscite_seed — mart siope_anag_codgest_uscite_seed",
-      "run": {
-        "run_id": "20260809T153319Z_14262ea7",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 18065,
-          "clean": 21343,
-          "mart": 21343
-        },
-        "output_bytes": {
-          "raw": 7529359,
-          "clean": 81741,
-          "mart": 81741
-        },
-        "started_at": "2026-08-09T15:33:19.833963+00:00",
-        "finished_at": "2026-08-09T15:33:22.199936+00:00",
-        "duration_seconds": 2.366
-      },
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_anag_codgest_uscite_seed/2026/siope_anag_codgest_uscite_seed.parquet",
+        "path": "gs://dataciviclab-mart/siope_anag_codgest_uscite_seed/2026/siope_anag_codgest_uscite_seed.parquet",
         "multi_file": false
       }
     },
@@ -1096,32 +800,9 @@
       "slug": "siope_anag_comparti_seed__siope_anag_comparti_seed",
       "dataset": "siope_anag_comparti_seed",
       "table": "siope_anag_comparti_seed",
-      "description": "siope_anag_comparti_seed — mart siope_anag_comparti_seed",
-      "run": {
-        "run_id": "20260809T153304Z_acb7f193",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "clean": 24,
-          "mart": 24
-        },
-        "output_bytes": {
-          "raw": 7529359,
-          "clean": 971,
-          "mart": 971
-        },
-        "started_at": "2026-08-09T15:33:04.458440+00:00",
-        "finished_at": "2026-08-09T15:33:07.624640+00:00",
-        "duration_seconds": 3.166
-      },
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_anag_comparti_seed/2026/siope_anag_comparti_seed.parquet",
+        "path": "gs://dataciviclab-mart/siope_anag_comparti_seed/2026/siope_anag_comparti_seed.parquet",
         "multi_file": false
       }
     },
@@ -1129,32 +810,9 @@
       "slug": "siope_anag_comuni_seed__siope_anag_comuni_seed",
       "dataset": "siope_anag_comuni_seed",
       "table": "siope_anag_comuni_seed",
-      "description": "siope_anag_comuni_seed — mart siope_anag_comuni_seed",
-      "run": {
-        "run_id": "20260809T153327Z_60cb4612",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "clean": 8226,
-          "mart": 8226
-        },
-        "output_bytes": {
-          "raw": 7529359,
-          "clean": 68497,
-          "mart": 68497
-        },
-        "started_at": "2026-08-09T15:33:27.377491+00:00",
-        "finished_at": "2026-08-09T15:33:29.675719+00:00",
-        "duration_seconds": 2.298
-      },
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_anag_comuni_seed/2026/siope_anag_comuni_seed.parquet",
+        "path": "gs://dataciviclab-mart/siope_anag_comuni_seed/2026/siope_anag_comuni_seed.parquet",
         "multi_file": false
       }
     },
@@ -1162,32 +820,9 @@
       "slug": "siope_anag_enti_seed__siope_anag_enti_seed",
       "dataset": "siope_anag_enti_seed",
       "table": "siope_anag_enti_seed",
-      "description": "siope_anag_enti_seed — mart siope_anag_enti_seed",
-      "run": {
-        "run_id": "20260809T153312Z_8a53d6aa",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "clean": 18060,
-          "mart": 18060
-        },
-        "output_bytes": {
-          "raw": 7529359,
-          "clean": 427258,
-          "mart": 427258
-        },
-        "started_at": "2026-08-09T15:33:12.949208+00:00",
-        "finished_at": "2026-08-09T15:33:15.352484+00:00",
-        "duration_seconds": 2.403
-      },
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_anag_enti_seed/2026/siope_anag_enti_seed.parquet",
+        "path": "gs://dataciviclab-mart/siope_anag_enti_seed/2026/siope_anag_enti_seed.parquet",
         "multi_file": false
       }
     },
@@ -1195,32 +830,9 @@
       "slug": "siope_anag_reg_prov_seed__siope_anag_reg_prov_seed",
       "dataset": "siope_anag_reg_prov_seed",
       "table": "siope_anag_reg_prov_seed",
-      "description": "siope_anag_reg_prov_seed — mart siope_anag_reg_prov_seed",
-      "run": {
-        "run_id": "20260809T153323Z_b07c169e",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "clean": 110,
-          "mart": 110
-        },
-        "output_bytes": {
-          "raw": 7529359,
-          "clean": 2477,
-          "mart": 2477
-        },
-        "started_at": "2026-08-09T15:33:23.375337+00:00",
-        "finished_at": "2026-08-09T15:33:25.834725+00:00",
-        "duration_seconds": 2.459
-      },
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_anag_reg_prov_seed/2026/siope_anag_reg_prov_seed.parquet",
+        "path": "gs://dataciviclab-mart/siope_anag_reg_prov_seed/2026/siope_anag_reg_prov_seed.parquet",
         "multi_file": false
       }
     },
@@ -1228,32 +840,9 @@
       "slug": "siope_anag_sottocomparti_seed__siope_anag_sottocomparti_seed",
       "dataset": "siope_anag_sottocomparti_seed",
       "table": "siope_anag_sottocomparti_seed",
-      "description": "siope_anag_sottocomparti_seed — mart siope_anag_sottocomparti_seed",
-      "run": {
-        "run_id": "20260809T153309Z_36b820c4",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "clean": 75,
-          "mart": 75
-        },
-        "output_bytes": {
-          "raw": 7529359,
-          "clean": 2350,
-          "mart": 2350
-        },
-        "started_at": "2026-08-09T15:33:09.167575+00:00",
-        "finished_at": "2026-08-09T15:33:11.395533+00:00",
-        "duration_seconds": 2.228
-      },
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_anag_sottocomparti_seed/2026/siope_anag_sottocomparti_seed.parquet",
+        "path": "gs://dataciviclab-mart/siope_anag_sottocomparti_seed/2026/siope_anag_sottocomparti_seed.parquet",
         "multi_file": false
       }
     },
@@ -1261,54 +850,9 @@
       "slug": "siope_entrate__mart_pro",
       "dataset": "siope_entrate",
       "table": "mart_pro",
-      "description": "siope_entrate — mart mart_pro",
-      "primary_key": [
-        "codice_ente",
-        "anno",
-        "codice_voce"
-      ],
-      "required_columns": [
-        "codice_ente",
-        "anno",
-        "codice_voce",
-        "importo_totale",
-        "importo_totale_eur",
-        "descrizione_codice",
-        "has_codgest_match",
-        "is_titolo_9",
-        "macro_categoria_v2",
-        "codice_istat_comune",
-        "codice_provincia",
-        "provincia",
-        "regione"
-      ],
-      "min_rows": 100000,
-      "run": {
-        "run_id": "20260809T153811Z_2d525533",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 2596623,
-          "clean": 2596624,
-          "mart": 339366
-        },
-        "output_bytes": {
-          "raw": 124682995,
-          "clean": 26082086,
-          "mart": 6736571
-        },
-        "started_at": "2026-08-09T15:38:11.925869+00:00",
-        "finished_at": "2026-08-09T15:38:45.862713+00:00",
-        "duration_seconds": 33.937
-      },
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_entrate/2026/mart_pro.parquet",
+        "path": "gs://dataciviclab-mart/siope_entrate/2026/mart_pro.parquet",
         "multi_file": false
       }
     },
@@ -1316,47 +860,9 @@
       "slug": "siope_entrate__mart_reg",
       "dataset": "siope_entrate",
       "table": "mart_reg",
-      "description": "siope_entrate — mart mart_reg",
-      "primary_key": [
-        "codice_ente",
-        "anno",
-        "codice_voce"
-      ],
-      "required_columns": [
-        "codice_ente",
-        "anno",
-        "importo_totale_eur",
-        "codice_comparto",
-        "tipo_ente",
-        "regione"
-      ],
-      "min_rows": 50,
-      "run": {
-        "run_id": "20260809T153811Z_2d525533",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 2596623,
-          "clean": 2596624,
-          "mart": 339366
-        },
-        "output_bytes": {
-          "raw": 124682995,
-          "clean": 26082086,
-          "mart": 6736571
-        },
-        "started_at": "2026-08-09T15:38:11.925869+00:00",
-        "finished_at": "2026-08-09T15:38:45.862713+00:00",
-        "duration_seconds": 33.937
-      },
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_entrate/2026/mart_reg.parquet",
+        "path": "gs://dataciviclab-mart/siope_entrate/2026/mart_reg.parquet",
         "multi_file": false
       }
     },
@@ -1364,47 +870,9 @@
       "slug": "siope_entrate__mart_san",
       "dataset": "siope_entrate",
       "table": "mart_san",
-      "description": "siope_entrate — mart mart_san",
-      "primary_key": [
-        "codice_ente",
-        "anno",
-        "codice_voce"
-      ],
-      "required_columns": [
-        "codice_ente",
-        "anno",
-        "importo_totale_eur",
-        "codice_comparto",
-        "tipo_ente",
-        "regione"
-      ],
-      "min_rows": 50,
-      "run": {
-        "run_id": "20260809T153811Z_2d525533",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 2596623,
-          "clean": 2596624,
-          "mart": 339366
-        },
-        "output_bytes": {
-          "raw": 124682995,
-          "clean": 26082086,
-          "mart": 6736571
-        },
-        "started_at": "2026-08-09T15:38:11.925869+00:00",
-        "finished_at": "2026-08-09T15:38:45.862713+00:00",
-        "duration_seconds": 33.937
-      },
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_entrate/2026/mart_san.parquet",
+        "path": "gs://dataciviclab-mart/siope_entrate/2026/mart_san.parquet",
         "multi_file": false
       }
     },
@@ -1412,45 +880,9 @@
       "slug": "siope_entrate__mart_sintesi",
       "dataset": "siope_entrate",
       "table": "mart_sintesi",
-      "description": "siope_entrate — mart mart_sintesi",
-      "primary_key": [
-        "anno",
-        "codice_ente"
-      ],
-      "required_columns": [
-        "anno",
-        "codice_ente",
-        "denominazione_ente",
-        "totale_eur",
-        "totale_eur_no_titolo9"
-      ],
-      "min_rows": 8000,
-      "run": {
-        "run_id": "20260809T153811Z_2d525533",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 2596623,
-          "clean": 2596624,
-          "mart": 339366
-        },
-        "output_bytes": {
-          "raw": 124682995,
-          "clean": 26082086,
-          "mart": 6736571
-        },
-        "started_at": "2026-08-09T15:38:11.925869+00:00",
-        "finished_at": "2026-08-09T15:38:45.862713+00:00",
-        "duration_seconds": 33.937
-      },
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_entrate/2026/mart_sintesi.parquet",
+        "path": "gs://dataciviclab-mart/siope_entrate/2026/mart_sintesi.parquet",
         "multi_file": false
       }
     },
@@ -1458,47 +890,9 @@
       "slug": "siope_entrate__mart_trend",
       "dataset": "siope_entrate",
       "table": "mart_trend",
-      "description": "siope_entrate — mart mart_trend",
-      "primary_key": [
-        "codice_ente"
-      ],
-      "required_columns": [
-        "codice_ente",
-        "first_year",
-        "last_year",
-        "totale_first",
-        "totale_last",
-        "delta_eur",
-        "variazione_pct",
-        "cagr_pct"
-      ],
-      "min_rows": 8000,
-      "run": {
-        "run_id": "20260809T153811Z_2d525533",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 2596623,
-          "clean": 2596624,
-          "mart": 339366
-        },
-        "output_bytes": {
-          "raw": 124682995,
-          "clean": 26082086,
-          "mart": 6736571
-        },
-        "started_at": "2026-08-09T15:38:11.925869+00:00",
-        "finished_at": "2026-08-09T15:38:45.862713+00:00",
-        "duration_seconds": 33.937
-      },
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_entrate/mart_trend.parquet",
+        "path": "gs://dataciviclab-mart/siope_entrate/mart_trend.parquet",
         "multi_file": false
       }
     },
@@ -1506,46 +900,9 @@
       "slug": "siope_entrate__mart_uni",
       "dataset": "siope_entrate",
       "table": "mart_uni",
-      "description": "siope_entrate — mart mart_uni",
-      "primary_key": [
-        "codice_ente",
-        "anno",
-        "codice_voce"
-      ],
-      "required_columns": [
-        "codice_ente",
-        "anno",
-        "importo_totale_eur",
-        "codice_comparto",
-        "tipo_ente"
-      ],
-      "min_rows": 20,
-      "run": {
-        "run_id": "20260809T153811Z_2d525533",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 2596623,
-          "clean": 2596624,
-          "mart": 339366
-        },
-        "output_bytes": {
-          "raw": 124682995,
-          "clean": 26082086,
-          "mart": 6736571
-        },
-        "started_at": "2026-08-09T15:38:11.925869+00:00",
-        "finished_at": "2026-08-09T15:38:45.862713+00:00",
-        "duration_seconds": 33.937
-      },
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_entrate/2026/mart_uni.parquet",
+        "path": "gs://dataciviclab-mart/siope_entrate/2026/mart_uni.parquet",
         "multi_file": false
       }
     },
@@ -1553,55 +910,9 @@
       "slug": "siope_uscite__mart_pro",
       "dataset": "siope_uscite",
       "table": "mart_pro",
-      "description": "siope_uscite — mart mart_pro",
-      "primary_key": [
-        "codice_ente",
-        "anno",
-        "codice_voce"
-      ],
-      "required_columns": [
-        "codice_ente",
-        "anno",
-        "codice_voce",
-        "importo_totale",
-        "importo_totale_eur",
-        "macro_area",
-        "macro_categoria",
-        "is_titolo_9",
-        "descrizione_codice",
-        "has_codgest_match",
-        "codice_istat_comune",
-        "codice_provincia",
-        "provincia",
-        "regione"
-      ],
-      "min_rows": 100000,
-      "run": {
-        "run_id": "20260809T154823Z_a0ad18fd",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 5418535,
-          "clean": 5418536,
-          "mart": 705427
-        },
-        "output_bytes": {
-          "raw": 258321411,
-          "clean": 52450494,
-          "mart": 14246900
-        },
-        "started_at": "2026-08-09T15:48:23.888800+00:00",
-        "finished_at": "2026-08-09T15:49:38.616710+00:00",
-        "duration_seconds": 74.728
-      },
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_uscite/2026/mart_pro.parquet",
+        "path": "gs://dataciviclab-mart/siope_uscite/2026/mart_pro.parquet",
         "multi_file": false
       }
     },
@@ -1609,50 +920,9 @@
       "slug": "siope_uscite__mart_reg",
       "dataset": "siope_uscite",
       "table": "mart_reg",
-      "description": "siope_uscite — mart mart_reg",
-      "primary_key": [
-        "codice_ente",
-        "anno",
-        "codice_voce"
-      ],
-      "required_columns": [
-        "codice_ente",
-        "anno",
-        "importo_totale_eur",
-        "macro_area",
-        "macro_categoria",
-        "is_titolo_9",
-        "codice_comparto",
-        "tipo_ente",
-        "regione"
-      ],
-      "min_rows": 50,
-      "run": {
-        "run_id": "20260809T154823Z_a0ad18fd",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 5418535,
-          "clean": 5418536,
-          "mart": 705427
-        },
-        "output_bytes": {
-          "raw": 258321411,
-          "clean": 52450494,
-          "mart": 14246900
-        },
-        "started_at": "2026-08-09T15:48:23.888800+00:00",
-        "finished_at": "2026-08-09T15:49:38.616710+00:00",
-        "duration_seconds": 74.728
-      },
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_uscite/2026/mart_reg.parquet",
+        "path": "gs://dataciviclab-mart/siope_uscite/2026/mart_reg.parquet",
         "multi_file": false
       }
     },
@@ -1660,50 +930,9 @@
       "slug": "siope_uscite__mart_san",
       "dataset": "siope_uscite",
       "table": "mart_san",
-      "description": "siope_uscite — mart mart_san",
-      "primary_key": [
-        "codice_ente",
-        "anno",
-        "codice_voce"
-      ],
-      "required_columns": [
-        "codice_ente",
-        "anno",
-        "importo_totale_eur",
-        "macro_area",
-        "macro_categoria",
-        "is_titolo_9",
-        "codice_comparto",
-        "tipo_ente",
-        "regione"
-      ],
-      "min_rows": 50,
-      "run": {
-        "run_id": "20260809T154823Z_a0ad18fd",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 5418535,
-          "clean": 5418536,
-          "mart": 705427
-        },
-        "output_bytes": {
-          "raw": 258321411,
-          "clean": 52450494,
-          "mart": 14246900
-        },
-        "started_at": "2026-08-09T15:48:23.888800+00:00",
-        "finished_at": "2026-08-09T15:49:38.616710+00:00",
-        "duration_seconds": 74.728
-      },
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_uscite/2026/mart_san.parquet",
+        "path": "gs://dataciviclab-mart/siope_uscite/2026/mart_san.parquet",
         "multi_file": false
       }
     },
@@ -1711,45 +940,9 @@
       "slug": "siope_uscite__mart_sintesi",
       "dataset": "siope_uscite",
       "table": "mart_sintesi",
-      "description": "siope_uscite — mart mart_sintesi",
-      "primary_key": [
-        "anno",
-        "codice_ente"
-      ],
-      "required_columns": [
-        "anno",
-        "codice_ente",
-        "denominazione_ente",
-        "totale_eur",
-        "totale_eur_no_titolo9"
-      ],
-      "min_rows": 8000,
-      "run": {
-        "run_id": "20260809T154823Z_a0ad18fd",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 5418535,
-          "clean": 5418536,
-          "mart": 705427
-        },
-        "output_bytes": {
-          "raw": 258321411,
-          "clean": 52450494,
-          "mart": 14246900
-        },
-        "started_at": "2026-08-09T15:48:23.888800+00:00",
-        "finished_at": "2026-08-09T15:49:38.616710+00:00",
-        "duration_seconds": 74.728
-      },
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_uscite/2026/mart_sintesi.parquet",
+        "path": "gs://dataciviclab-mart/siope_uscite/2026/mart_sintesi.parquet",
         "multi_file": false
       }
     },
@@ -1757,47 +950,9 @@
       "slug": "siope_uscite__mart_trend",
       "dataset": "siope_uscite",
       "table": "mart_trend",
-      "description": "siope_uscite — mart mart_trend",
-      "primary_key": [
-        "codice_ente"
-      ],
-      "required_columns": [
-        "codice_ente",
-        "first_year",
-        "last_year",
-        "totale_first",
-        "totale_last",
-        "delta_eur",
-        "variazione_pct",
-        "cagr_pct"
-      ],
-      "min_rows": 8000,
-      "run": {
-        "run_id": "20260809T154823Z_a0ad18fd",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 5418535,
-          "clean": 5418536,
-          "mart": 705427
-        },
-        "output_bytes": {
-          "raw": 258321411,
-          "clean": 52450494,
-          "mart": 14246900
-        },
-        "started_at": "2026-08-09T15:48:23.888800+00:00",
-        "finished_at": "2026-08-09T15:49:38.616710+00:00",
-        "duration_seconds": 74.728
-      },
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_uscite/mart_trend.parquet",
+        "path": "gs://dataciviclab-mart/siope_uscite/mart_trend.parquet",
         "multi_file": false
       }
     },
@@ -1805,49 +960,9 @@
       "slug": "siope_uscite__mart_uni",
       "dataset": "siope_uscite",
       "table": "mart_uni",
-      "description": "siope_uscite — mart mart_uni",
-      "primary_key": [
-        "codice_ente",
-        "anno",
-        "codice_voce"
-      ],
-      "required_columns": [
-        "codice_ente",
-        "anno",
-        "importo_totale_eur",
-        "macro_area",
-        "macro_categoria",
-        "is_titolo_9",
-        "codice_comparto",
-        "tipo_ente"
-      ],
-      "min_rows": 20,
-      "run": {
-        "run_id": "20260809T154823Z_a0ad18fd",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 5418535,
-          "clean": 5418536,
-          "mart": 705427
-        },
-        "output_bytes": {
-          "raw": 258321411,
-          "clean": 52450494,
-          "mart": 14246900
-        },
-        "started_at": "2026-08-09T15:48:23.888800+00:00",
-        "finished_at": "2026-08-09T15:49:38.616710+00:00",
-        "duration_seconds": 74.728
-      },
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_uscite/2026/mart_uni.parquet",
+        "path": "gs://dataciviclab-mart/siope_uscite/2026/mart_uni.parquet",
         "multi_file": false
       }
     }
@@ -1860,14 +975,6 @@
       "label": "siope_entrate",
       "detail": "anni 2021-2026 — mart: si",
       "action": "",
-      "years": [
-        2021,
-        2022,
-        2023,
-        2024,
-        2025,
-        2026
-      ],
       "run": {
         "run_id": "20260809T153811Z_2d525533",
         "year": 2026,
@@ -1899,14 +1006,6 @@
       "label": "siope_uscite",
       "detail": "anni 2021-2026 — mart: si",
       "action": "",
-      "years": [
-        2021,
-        2022,
-        2023,
-        2024,
-        2025,
-        2026
-      ],
       "run": {
         "run_id": "20260809T154823Z_a0ad18fd",
         "year": 2026,
@@ -1938,9 +1037,6 @@
       "label": "siope_anag_codgest_entrate_seed",
       "detail": "anno 2026 — mart: si",
       "action": "",
-      "years": [
-        2026
-      ],
       "run": {
         "run_id": "20260809T153316Z_de273ac9",
         "year": 2026,
@@ -1972,9 +1068,6 @@
       "label": "siope_anag_codgest_uscite_seed",
       "detail": "anno 2026 — mart: si",
       "action": "",
-      "years": [
-        2026
-      ],
       "run": {
         "run_id": "20260809T153319Z_14262ea7",
         "year": 2026,
@@ -2006,9 +1099,6 @@
       "label": "siope_anag_comparti_seed",
       "detail": "anno 2026 — mart: si",
       "action": "",
-      "years": [
-        2026
-      ],
       "run": {
         "run_id": "20260809T153304Z_acb7f193",
         "year": 2026,
@@ -2039,9 +1129,6 @@
       "label": "siope_anag_comuni_seed",
       "detail": "anno 2026 — mart: si",
       "action": "",
-      "years": [
-        2026
-      ],
       "run": {
         "run_id": "20260809T153327Z_60cb4612",
         "year": 2026,
@@ -2072,9 +1159,6 @@
       "label": "siope_anag_enti_seed",
       "detail": "anno 2026 — mart: si",
       "action": "",
-      "years": [
-        2026
-      ],
       "run": {
         "run_id": "20260809T153312Z_8a53d6aa",
         "year": 2026,
@@ -2105,9 +1189,6 @@
       "label": "siope_anag_reg_prov_seed",
       "detail": "anno 2026 — mart: si",
       "action": "",
-      "years": [
-        2026
-      ],
       "run": {
         "run_id": "20260809T153323Z_b07c169e",
         "year": 2026,
@@ -2138,9 +1219,6 @@
       "label": "siope_anag_sottocomparti_seed",
       "detail": "anno 2026 — mart: si",
       "action": "",
-      "years": [
-        2026
-      ],
       "run": {
         "run_id": "20260809T153309Z_36b820c4",
         "year": 2026,
@@ -2165,12 +1243,8 @@
       }
     }
   ],
-  "codelists": {
-    "source_repo": "dataciviclab/open-siope",
-    "codelists": {}
-  },
+  "codelists": [],
   "entities": {
-    "generated_from": "clean_catalog.json",
     "entities": {
       "Comune": {
         "entity": "Comune",
@@ -2419,15 +1493,6 @@
           "semantic_type": "municipality_code"
         }
       }
-    ],
-    "summary": {
-      "total_entities": 6,
-      "total_relations": 3
-    }
-  },
-  "summary": {
-    "datasets": 9,
-    "marts": 19,
-    "signals": 9
+    ]
   }
 }
