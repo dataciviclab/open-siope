@@ -38,6 +38,10 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+    env:
+      # Runner CI = 2GB RAM: il default 2GB di safe_connect supera la RAM
+      # reale e causa OOM → limitiamo a 1.5GB (fix lab-connectors #76).
+      DUCKDB_MEMORY_LIMIT: 1.5GB
     steps:
       - uses: actions/checkout@v6.0.3
         with:
@@ -90,7 +94,7 @@ jobs:
             esac
             YEARS=$(python3 -c "import yaml; print(','.join(map(str, yaml.safe_load(open('${dir}/dataset.yml'))['dataset']['years'])))")
             echo "=== $dir anni:$YEARS ==="
-            python3 scripts/run_toolkit.py run --config "$dir/dataset.yml" --years "$YEARS"
+            toolkit run --config "$dir/dataset.yml" --years "$YEARS"
           done
 
       - name: Run entrate (schedule/dispatch)
@@ -100,7 +104,7 @@ jobs:
           if [ "$YEARS_INPUT" = "all" ]; then YEARS="2021,2022,2023,2024,2025,2026"
           else YEARS=$(echo "$YEARS_INPUT" | tr ' ' ','); fi
           echo "=== entrate anni:$YEARS ==="
-          python3 scripts/run_toolkit.py run --config datasets/siope-entrate/dataset.yml --years "$YEARS"
+          toolkit run --config datasets/siope-entrate/dataset.yml --years "$YEARS"
 
       - name: Run uscite (schedule/dispatch)
         if: github.event_name != 'pull_request' && inputs.sides != 'entrate'
@@ -109,7 +113,7 @@ jobs:
           if [ "$YEARS_INPUT" = "all" ]; then YEARS="2021,2022,2023,2024,2025,2026"
           else YEARS=$(echo "$YEARS_INPUT" | tr ' ' ','); fi
           echo "=== uscite anni:$YEARS ==="
-          python3 scripts/run_toolkit.py run --config datasets/siope-uscite/dataset.yml --years "$YEARS"
+          toolkit run --config datasets/siope-uscite/dataset.yml --years "$YEARS"
 
       - name: Verify output (gate)
         if: steps.detect.outputs.dirs != ''

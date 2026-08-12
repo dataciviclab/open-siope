@@ -1,9 +1,7 @@
-PYTHON ?= python3
-# scripts/run_toolkit.py: wrapper che monkey-patcha duckdb.connect() per
-# impostare memory_limit (1.5GB), threads e preserve_insertion_order —
-# evita OOM su runner CI con 2GB RAM (il default 2GB di safe_connect
-# supera la RAM reale disponibile sul runner).
-TOOLKIT = $(PYTHON) scripts/run_toolkit.py
+# CLI toolkit del Lab. La memoria DuckDB è controllata da safe_connect
+# (lab-connectors) via env DUCKDB_MEMORY_LIMIT (default 2GB); nel CI
+# (runner 2GB RAM) il pipeline imposta 1.5GB.
+TOOLKIT = toolkit
 
 # --- Support seeds (eseguire prima dei dataset principali) ---
 
