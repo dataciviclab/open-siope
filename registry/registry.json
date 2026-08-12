@@ -68,7 +68,7 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope_anag_codgest_entrate_seed/2026/siope_anag_codgest_entrate_seed_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/siope/siope_anag_codgest_entrate_seed/2026/siope_anag_codgest_entrate_seed_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
@@ -146,7 +146,7 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope_anag_codgest_uscite_seed/2026/siope_anag_codgest_uscite_seed_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/siope/siope_anag_codgest_uscite_seed/2026/siope_anag_codgest_uscite_seed_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
@@ -187,7 +187,7 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope_anag_comparti_seed/2026/siope_anag_comparti_seed_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/siope/siope_anag_comparti_seed/2026/siope_anag_comparti_seed_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
@@ -237,7 +237,7 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope_anag_comuni_seed/2026/siope_anag_comuni_seed_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/siope/siope_anag_comuni_seed/2026/siope_anag_comuni_seed_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
@@ -324,7 +324,7 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope_anag_enti_seed/2026/siope_anag_enti_seed_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/siope/siope_anag_enti_seed/2026/siope_anag_enti_seed_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
@@ -389,7 +389,7 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope_anag_reg_prov_seed/2026/siope_anag_reg_prov_seed_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/siope/siope_anag_reg_prov_seed/2026/siope_anag_reg_prov_seed_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
@@ -436,7 +436,7 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope_anag_sottocomparti_seed/2026/siope_anag_sottocomparti_seed_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/siope/siope_anag_sottocomparti_seed/2026/siope_anag_sottocomparti_seed_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
@@ -761,7 +761,7 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope_uscite/2022/siope_uscite_2022_clean.parquet",
+        "path": "gs://dataciviclab-clean/siope/siope_uscite/2022/siope_uscite_2022_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
@@ -782,7 +782,7 @@
       "table": "siope_anag_codgest_entrate_seed",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope_anag_codgest_entrate_seed/2026/siope_anag_codgest_entrate_seed.parquet",
+        "path": "gs://dataciviclab-mart/siope/siope_anag_codgest_entrate_seed/2026/siope_anag_codgest_entrate_seed.parquet",
         "multi_file": false
       }
     },
@@ -792,7 +792,7 @@
       "table": "siope_anag_codgest_uscite_seed",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope_anag_codgest_uscite_seed/2026/siope_anag_codgest_uscite_seed.parquet",
+        "path": "gs://dataciviclab-mart/siope/siope_anag_codgest_uscite_seed/2026/siope_anag_codgest_uscite_seed.parquet",
         "multi_file": false
       }
     },
@@ -802,7 +802,7 @@
       "table": "siope_anag_comparti_seed",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope_anag_comparti_seed/2026/siope_anag_comparti_seed.parquet",
+        "path": "gs://dataciviclab-mart/siope/siope_anag_comparti_seed/2026/siope_anag_comparti_seed.parquet",
         "multi_file": false
       }
     },
@@ -812,7 +812,7 @@
       "table": "siope_anag_comuni_seed",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope_anag_comuni_seed/2026/siope_anag_comuni_seed.parquet",
+        "path": "gs://dataciviclab-mart/siope/siope_anag_comuni_seed/2026/siope_anag_comuni_seed.parquet",
         "multi_file": false
       }
     },
@@ -822,7 +822,7 @@
       "table": "siope_anag_enti_seed",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope_anag_enti_seed/2026/siope_anag_enti_seed.parquet",
+        "path": "gs://dataciviclab-mart/siope/siope_anag_enti_seed/2026/siope_anag_enti_seed.parquet",
         "multi_file": false
       }
     },
@@ -832,7 +832,7 @@
       "table": "siope_anag_reg_prov_seed",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope_anag_reg_prov_seed/2026/siope_anag_reg_prov_seed.parquet",
+        "path": "gs://dataciviclab-mart/siope/siope_anag_reg_prov_seed/2026/siope_anag_reg_prov_seed.parquet",
         "multi_file": false
       }
     },
@@ -842,7 +842,7 @@
       "table": "siope_anag_sottocomparti_seed",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope_anag_sottocomparti_seed/2026/siope_anag_sottocomparti_seed.parquet",
+        "path": "gs://dataciviclab-mart/siope/siope_anag_sottocomparti_seed/2026/siope_anag_sottocomparti_seed.parquet",
         "multi_file": false
       }
     },
@@ -852,7 +852,7 @@
       "table": "mart_pro",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope_entrate/2026/mart_pro.parquet",
+        "path": "gs://dataciviclab-mart/siope/siope_entrate/2026/mart_pro.parquet",
         "multi_file": false
       }
     },
@@ -862,7 +862,7 @@
       "table": "mart_reg",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope_entrate/2026/mart_reg.parquet",
+        "path": "gs://dataciviclab-mart/siope/siope_entrate/2026/mart_reg.parquet",
         "multi_file": false
       }
     },
@@ -872,7 +872,7 @@
       "table": "mart_san",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope_entrate/2026/mart_san.parquet",
+        "path": "gs://dataciviclab-mart/siope/siope_entrate/2026/mart_san.parquet",
         "multi_file": false
       }
     },
@@ -882,7 +882,7 @@
       "table": "mart_sintesi",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope_entrate/2026/mart_sintesi.parquet",
+        "path": "gs://dataciviclab-mart/siope/siope_entrate/2026/mart_sintesi.parquet",
         "multi_file": false
       }
     },
@@ -892,7 +892,7 @@
       "table": "mart_trend",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope_entrate/mart_trend.parquet",
+        "path": "gs://dataciviclab-mart/siope/siope_entrate/mart_trend.parquet",
         "multi_file": false
       }
     },
@@ -902,7 +902,7 @@
       "table": "mart_uni",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope_entrate/2026/mart_uni.parquet",
+        "path": "gs://dataciviclab-mart/siope/siope_entrate/2026/mart_uni.parquet",
         "multi_file": false
       }
     },
@@ -912,7 +912,7 @@
       "table": "mart_pro",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope_uscite/2026/mart_pro.parquet",
+        "path": "gs://dataciviclab-mart/siope/siope_uscite/2026/mart_pro.parquet",
         "multi_file": false
       }
     },
@@ -922,7 +922,7 @@
       "table": "mart_reg",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope_uscite/2026/mart_reg.parquet",
+        "path": "gs://dataciviclab-mart/siope/siope_uscite/2026/mart_reg.parquet",
         "multi_file": false
       }
     },
@@ -932,7 +932,7 @@
       "table": "mart_san",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope_uscite/2026/mart_san.parquet",
+        "path": "gs://dataciviclab-mart/siope/siope_uscite/2026/mart_san.parquet",
         "multi_file": false
       }
     },
@@ -942,7 +942,7 @@
       "table": "mart_sintesi",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope_uscite/2026/mart_sintesi.parquet",
+        "path": "gs://dataciviclab-mart/siope/siope_uscite/2026/mart_sintesi.parquet",
         "multi_file": false
       }
     },
@@ -952,7 +952,7 @@
       "table": "mart_trend",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope_uscite/mart_trend.parquet",
+        "path": "gs://dataciviclab-mart/siope/siope_uscite/mart_trend.parquet",
         "multi_file": false
       }
     },
@@ -962,7 +962,7 @@
       "table": "mart_uni",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope_uscite/2026/mart_uni.parquet",
+        "path": "gs://dataciviclab-mart/siope/siope_uscite/2026/mart_uni.parquet",
         "multi_file": false
       }
     }
