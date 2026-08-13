@@ -27,6 +27,12 @@ La pipeline segue il contract del `toolkit`:
 - territorio: ogni comune ha codice provincia (da ANAG_ENTI_SIOPE), arricchito con provincia e regione via join con ANAG_REG_PROV
 - gerarchia territoriale: disponibile nei mart hierarchy (comune → provincia → regione) a 3 livelli
 
+## Validita' temporale
+
+I join anagrafici usano `make_date(anno, 12, 31)` come data di validita'
+dell'anno (scelta metodologica semplice e stabile; da rivalutare se emergono
+enti con transizioni infra-annuali rilevanti).
+
 ## Unita' di misura
 
 - `importo`: centesimi di euro
