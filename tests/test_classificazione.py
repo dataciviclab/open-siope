@@ -27,6 +27,10 @@ USCITE = {
     ("1255", "REG"): ("Spese correnti", "Altre spese"),            # multi-gestione: REG accertamenti sanitari
     ("2102", "RIC"): ("Spese correnti", "Personale"),              # multi-gestione: RIC assegni di ricerca
     ("2102", "SAN"): ("Spese correnti", "Acquisto beni e servizi"),
+    ("2201", "EGP"): ("Spese correnti", "Trasferimenti correnti"),  # multi-significato: EGP trasferimenti allo Stato
+    ("2201", "SAN"): ("Spese correnti", "Acquisto beni e servizi"),  # SAN prodotti alimentari
+    ("2203", "EGP"): ("Spese correnti", "Trasferimenti correnti"),
+    ("3106", "SP5"): ("Spese correnti", "Trasferimenti correnti"),
     ("A0400", "STA"): ("Spese correnti", "Trasferimenti correnti"),
     ("9999", "SAN"): ("Spese correnti", "Altre spese"),          # partita di giro (compatti 999x); area irrilevante: is_titolo_9=True
 }

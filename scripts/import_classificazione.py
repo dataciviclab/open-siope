@@ -215,34 +215,62 @@ def main() -> int:
             if cat:
                 for gest in [g for (c, g) in baseline_e if c == cod and g in SAN_GEST]:
                     final_e[(cod, gest)] = cat
-    # Override mirati per i codici multi-descrizione (es. 1255 UNI "Arretrati
-    # ... ricercatori" → Personale; 2102 RIC "Assegni di ricerca" → Personale).
-    # La mappa resta esplicita: qualunque correzione ulteriore è un edit del CSV.
-    OVERRIDE_U = [
-        ("%ricercatori%", "Personale"),
-        ("%assegni di ricerca%", "Personale"),
-        ("%ricercatore%", "Personale"),
-    ]
-    OVERRIDE_E: list[tuple[str, str]] = []
-    # baseline per riga: applica override sulla descrizione quando la riga
-    # non è coperta dall'ufficiale
+    # Per i codici NON coperti dall'ufficiale (compatti multi-significato,
+    # comparti senza glossario): la categoria per (gestione, voce) è derivata
+    # dalla DESCRIZIONE DI QUELLA GESTIONE con pattern forti (ordine
+    # specifico→generico; word-boundary per i token ambigui iva/tari/tribut/
+    # imu/canone). Il risultato è versionato nel CSV: è il contratto, non una
+    # regola runtime — l'audit a 0 contraddizioni descrizione↔categoria è il gate.
     import duckdb
+    import re as _re
     con = duckdb.connect()
     pu = f"{ROOT}/out/data/clean/siope_anag_codgest_uscite_seed/2026/siope_anag_codgest_uscite_seed_2026_clean.parquet"
+    pe = f"{ROOT}/out/data/clean/siope_anag_codgest_entrate_seed/2026/siope_anag_codgest_entrate_seed_2026_clean.parquet"
     desc_u = {(r[0], r[1]): r[2] for r in con.execute(
         f"select codice_voce, codice_gestione, descrizione_codice from read_parquet('{pu}')").fetchall()}
+    desc_e = {(r[0], r[1]): r[2] for r in con.execute(
+        f"select codice_voce, codice_gestione, descrizione_codice from read_parquet('{pe}')").fetchall()}
+
+    def _cat_uscite(d: str) -> str:
+        dl = d.lower()
+        if "contributi agli investimenti" in dl: return "Contributi investimenti"
+        if "trasferimenti in conto capitale" in dl or "conto capitale" in dl: return "Trasferimenti c/capitale"
+        if "investimenti fissi" in dl or "immobilizzazioni materiali" in dl: return "Investimenti fissi"
+        if "acquisizioni di attivita' finanziarie" in dl: return "Incremento attivita' finanziarie"
+        if "rimborso passivita' finanziarie" in dl or "rimborso prestiti" in dl: return "Rimborso prestiti"
+        if "anticipazioni" in dl: return "Anticipazioni"
+        if "trasferimenti correnti" in dl: return "Trasferimenti correnti"
+        if "contributi e trasferimenti" in dl: return "Trasferimenti correnti"
+        if "personale" in dl or "competenze" in dl or "stipendi" in dl or "ricercatori" in dl or "assegni di ricerca" in dl: return "Personale"
+        if "interessi passivi" in dl: return "Interessi passivi"
+        if "poste correttive" in dl: return "Poste correttive"
+        if "imposte" in dl or "tasse" in dl or "irap" in dl or _re.search(r"\biva\b", dl): return "Imposte e tasse"
+        if ("prodotti" in dl or "farmaceut" in dl or "alimentari" in dl or "materiali" in dl
+                or "beni di consumo" in dl or "dispositivi" in dl): return "Acquisto beni e servizi"
+        if ("servizi" in dl or "prestazioni" in dl or "manutenzion" in dl or "noleggi" in dl
+                or "formazione" in dl or "consulenz" in dl): return "Acquisto beni e servizi"
+        return "Altre spese"
+
+    def _cat_entrate(d: str) -> str:
+        dl = d.lower()
+        if "contributi agli investimenti" in dl: return "Contributi agli investimenti"
+        if "trasferimenti in conto capitale" in dl or "conto capitale" in dl: return "Trasferimenti c/capitale"
+        if "fondo perequativo" in dl: return "Fondi perequativi"
+        if "trasferimenti correnti" in dl or "contributi e trasferimenti" in dl: return "Trasferimenti correnti"
+        if "imposta" in dl or "addizional" in dl or "irap" in dl or _re.search(r"\b(iva|imu|tari|tribut|canone)\b", dl): return "Imposte proprie"
+        return "Entrate extratributarie"
+
     for (cod, gest), (a, c) in baseline_u.items():
         if (cod, gest) in final_u:
             continue
         d = desc_u.get((cod, gest), "")
-        cat = c
-        for pat, ov in OVERRIDE_U:
-            if pat.strip("%") in d.lower():
-                cat = ov
-                break
+        cat = _cat_uscite(d)
         final_u[(cod, gest)] = (area_of(cat), cat)
     for (cod, gest), c in baseline_e.items():
-        final_e.setdefault((cod, gest), c)
+        if (cod, gest) in final_e:
+            continue
+        d = desc_e.get((cod, gest), "")
+        final_e[(cod, gest)] = _cat_entrate(d)
 
     MAPPING.mkdir(exist_ok=True)
     with (MAPPING / "uscite_categorie.csv").open("w", newline="", encoding="utf-8") as f:

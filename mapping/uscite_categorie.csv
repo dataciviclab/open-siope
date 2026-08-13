@@ -65,7 +65,7 @@ STA,001,Spese correnti,Personale
 STA,002,Spese correnti,Altre spese
 STA,003,Spese correnti,Altre spese
 STA,004,Spese correnti,Altre spese
-STA,005,Spese correnti,Trasferimenti correnti
+STA,005,Spese correnti,Altre spese
 STA,006,Spese correnti,Altre spese
 STA,007,Spese correnti,Altre spese
 STA,008,Spese correnti,Altre spese
@@ -76,7 +76,7 @@ STA,012,Spese correnti,Altre spese
 STA,013,Spese correnti,Altre spese
 STA,014,Spese correnti,Altre spese
 STA,015,Spese correnti,Acquisto beni e servizi
-STA,016,Spese correnti,Trasferimenti correnti
+STA,016,Spese correnti,Altre spese
 STA,017,Spese correnti,Altre spese
 STA,018,Spese correnti,Personale
 STA,019,Spese correnti,Altre spese
@@ -120,12 +120,12 @@ STA,056,Spese correnti,Acquisto beni e servizi
 STA,057,Spese correnti,Acquisto beni e servizi
 STA,058,Spese correnti,Acquisto beni e servizi
 STA,059,Spese correnti,Acquisto beni e servizi
-STA,060,Spese correnti,Acquisto beni e servizi
-STA,061,Spese correnti,Acquisto beni e servizi
-STA,062,Spese correnti,Acquisto beni e servizi
-STA,063,Spese correnti,Acquisto beni e servizi
-STA,064,Spese correnti,Acquisto beni e servizi
-STA,065,Spese correnti,Acquisto beni e servizi
+STA,060,Spese correnti,Altre spese
+STA,061,Spese correnti,Altre spese
+STA,062,Spese correnti,Altre spese
+STA,063,Spese correnti,Altre spese
+STA,064,Spese correnti,Altre spese
+STA,065,Spese correnti,Altre spese
 STA,066,Spese correnti,Acquisto beni e servizi
 STA,067,Spese correnti,Personale
 STA,068,Spese correnti,Personale
@@ -284,22 +284,22 @@ SP7,1.01.01.01.009,Spese correnti,Personale
 SP8,1.01.01.01.009,Spese correnti,Personale
 UNI,1.01.01.01.009,Spese correnti,Personale
 VCF,1.01.01.01.009,Spese correnti,Personale
-AAI,1.01.01.01.010,Spese correnti,Personale
-ASP,1.01.01.01.010,Spese correnti,Personale
-RIC,1.01.01.01.010,Spese correnti,Personale
-SP4,1.01.01.01.010,Spese correnti,Personale
-VCF,1.01.01.01.010,Spese correnti,Personale
-AAI,1.01.01.01.011,Spese correnti,Personale
-ASP,1.01.01.01.011,Spese correnti,Personale
-VCF,1.01.01.01.011,Spese correnti,Personale
+AAI,1.01.01.01.010,Spese correnti,Altre spese
+ASP,1.01.01.01.010,Spese correnti,Altre spese
+RIC,1.01.01.01.010,Spese correnti,Altre spese
+SP4,1.01.01.01.010,Spese correnti,Altre spese
+VCF,1.01.01.01.010,Spese correnti,Altre spese
+AAI,1.01.01.01.011,Spese correnti,Altre spese
+ASP,1.01.01.01.011,Spese correnti,Altre spese
+VCF,1.01.01.01.011,Spese correnti,Altre spese
 FLS,1.01.01.01.994,Spese correnti,Personale
 VCE,1.01.01.01.994,Spese correnti,Personale
 FLS,1.01.01.01.995,Spese correnti,Personale
 VCE,1.01.01.01.995,Spese correnti,Personale
-FLS,1.01.01.01.996,Spese correnti,Personale
-VCE,1.01.01.01.996,Spese correnti,Personale
-FLS,1.01.01.01.997,Spese correnti,Personale
-VCE,1.01.01.01.997,Spese correnti,Personale
+FLS,1.01.01.01.996,Spese correnti,Altre spese
+VCE,1.01.01.01.996,Spese correnti,Altre spese
+FLS,1.01.01.01.997,Spese correnti,Altre spese
+VCE,1.01.01.01.997,Spese correnti,Altre spese
 FLS,1.01.01.01.998,Spese correnti,Personale
 VCE,1.01.01.01.998,Spese correnti,Personale
 AAI,1.01.01.02.001,Spese correnti,Personale
@@ -446,18 +446,18 @@ SP8,1.01.02.02.002,Spese correnti,Personale
 UNI,1.01.02.02.002,Spese correnti,Personale
 VCE,1.01.02.02.002,Spese correnti,Personale
 VCF,1.01.02.02.002,Spese correnti,Personale
-ASP,1.01.02.02.003,Spese correnti,Personale
-EPF,1.01.02.02.003,Spese correnti,Personale
-MON,1.01.02.02.003,Spese correnti,Personale
-PRO,1.01.02.02.003,Spese correnti,Personale
-REG,1.01.02.02.003,Spese correnti,Personale
-RIC,1.01.02.02.003,Spese correnti,Personale
-SP1,1.01.02.02.003,Spese correnti,Personale
-SP3,1.01.02.02.003,Spese correnti,Personale
-SP4,1.01.02.02.003,Spese correnti,Personale
-SP7,1.01.02.02.003,Spese correnti,Personale
-SP8,1.01.02.02.003,Spese correnti,Personale
-UNI,1.01.02.02.003,Spese correnti,Personale
+ASP,1.01.02.02.003,Spese correnti,Acquisto beni e servizi
+EPF,1.01.02.02.003,Spese correnti,Acquisto beni e servizi
+MON,1.01.02.02.003,Spese correnti,Acquisto beni e servizi
+PRO,1.01.02.02.003,Spese correnti,Acquisto beni e servizi
+REG,1.01.02.02.003,Spese correnti,Acquisto beni e servizi
+RIC,1.01.02.02.003,Spese correnti,Acquisto beni e servizi
+SP1,1.01.02.02.003,Spese correnti,Acquisto beni e servizi
+SP3,1.01.02.02.003,Spese correnti,Acquisto beni e servizi
+SP4,1.01.02.02.003,Spese correnti,Acquisto beni e servizi
+SP7,1.01.02.02.003,Spese correnti,Acquisto beni e servizi
+SP8,1.01.02.02.003,Spese correnti,Acquisto beni e servizi
+UNI,1.01.02.02.003,Spese correnti,Acquisto beni e servizi
 AAI,1.01.02.02.004,Spese correnti,Personale
 ASP,1.01.02.02.004,Spese correnti,Personale
 EPF,1.01.02.02.004,Spese correnti,Personale
@@ -3869,10 +3869,10 @@ SP3,1.04.02.03.002,Spese correnti,Trasferimenti correnti
 SP7,1.04.02.03.002,Spese correnti,Trasferimenti correnti
 SP8,1.04.02.03.002,Spese correnti,Trasferimenti correnti
 UNI,1.04.02.03.002,Spese correnti,Trasferimenti correnti
-RIC,1.04.02.03.003,Spese correnti,Trasferimenti correnti
-SP4,1.04.02.03.003,Spese correnti,Trasferimenti correnti
-SP7,1.04.02.03.003,Spese correnti,Trasferimenti correnti
-UNI,1.04.02.03.003,Spese correnti,Trasferimenti correnti
+RIC,1.04.02.03.003,Spese correnti,Altre spese
+SP4,1.04.02.03.003,Spese correnti,Altre spese
+SP7,1.04.02.03.003,Spese correnti,Altre spese
+UNI,1.04.02.03.003,Spese correnti,Altre spese
 EPF,1.04.02.03.004,Spese correnti,Trasferimenti correnti
 MON,1.04.02.03.004,Spese correnti,Trasferimenti correnti
 PRO,1.04.02.03.004,Spese correnti,Trasferimenti correnti
@@ -5955,8 +5955,8 @@ FLS,1.10.97.02.001,Spese correnti,Altre spese
 VCE,1.10.97.02.001,Spese correnti,Altre spese
 FLS,1.10.97.99.999,Spese correnti,Personale
 VCE,1.10.97.99.999,Spese correnti,Personale
-FLS,1.10.98.01.001,Spese correnti,Trasferimenti correnti
-VCE,1.10.98.01.001,Spese correnti,Trasferimenti correnti
+FLS,1.10.98.01.001,Spese correnti,Altre spese
+VCE,1.10.98.01.001,Spese correnti,Altre spese
 FLS,1.10.98.02.001,Spese correnti,Imposte e tasse
 VCE,1.10.98.02.001,Spese correnti,Imposte e tasse
 FLS,1.10.98.99.001,Spese correnti,Acquisto beni e servizi
@@ -5992,43 +5992,43 @@ STA,108,Spese correnti,Altre spese
 STA,109,Spese correnti,Altre spese
 STA,110,Spese correnti,Altre spese
 CDC,1101,Spese correnti,Personale
-EGP,1101,Spese correnti,Personale
-EPF,1101,Spese correnti,Personale
+EGP,1101,Spese correnti,Altre spese
+EPF,1101,Spese correnti,Altre spese
 MON,1101,Spese correnti,Personale
 PRO,1101,Spese correnti,Personale
-REG,1101,Spese correnti,Personale
-RIC,1101,Spese correnti,Personale
+REG,1101,Spese correnti,Altre spese
+RIC,1101,Spese correnti,Altre spese
 SAN,1101,Spese correnti,Personale
 SP1,1101,Spese correnti,Personale
 SP2,1101,Spese correnti,Personale
 SP3,1101,Spese correnti,Personale
-SP4,1101,Spese correnti,Personale
+SP4,1101,Spese correnti,Altre spese
 SP5,1101,Spese correnti,Personale
-SP6,1101,Spese correnti,Personale
-SP8,1101,Spese correnti,Personale
+SP6,1101,Spese correnti,Altre spese
+SP8,1101,Spese correnti,Altre spese
 VSN,1101,Spese correnti,Personale
 CDC,1102,Spese correnti,Personale
-EGP,1102,Spese correnti,Personale
-EPF,1102,Spese correnti,Personale
+EGP,1102,Spese correnti,Altre spese
+EPF,1102,Spese correnti,Altre spese
 MON,1102,Spese correnti,Personale
 PRO,1102,Spese correnti,Personale
-RIC,1102,Spese correnti,Personale
+RIC,1102,Spese correnti,Altre spese
 SAN,1102,Spese correnti,Personale
 SP1,1102,Spese correnti,Personale
 SP2,1102,Spese correnti,Personale
 SP3,1102,Spese correnti,Personale
-SP4,1102,Spese correnti,Personale
+SP4,1102,Spese correnti,Altre spese
 SP5,1102,Spese correnti,Personale
-SP6,1102,Spese correnti,Personale
+SP6,1102,Spese correnti,Altre spese
 VSN,1102,Spese correnti,Personale
-CDC,1103,Spese correnti,Personale
+CDC,1103,Spese correnti,Altre spese
 MON,1103,Spese correnti,Personale
 PRO,1103,Spese correnti,Personale
 SAN,1103,Spese correnti,Personale
 SP1,1103,Spese correnti,Personale
 SP2,1103,Spese correnti,Personale
 SP3,1103,Spese correnti,Personale
-SP5,1103,Spese correnti,Personale
+SP5,1103,Spese correnti,Altre spese
 VSN,1103,Spese correnti,Personale
 MON,1104,Spese correnti,Personale
 PRO,1104,Spese correnti,Personale
@@ -6070,28 +6070,28 @@ SP1,1111,Spese correnti,Personale
 SP3,1111,Spese correnti,Personale
 SP7,1111,Spese correnti,Personale
 UNI,1111,Spese correnti,Personale
-MON,1112,Spese correnti,Trasferimenti correnti
-PRO,1112,Spese correnti,Trasferimenti correnti
-SP1,1112,Spese correnti,Trasferimenti correnti
-SP3,1112,Spese correnti,Trasferimenti correnti
-SP7,1112,Spese correnti,Trasferimenti correnti
-UNI,1112,Spese correnti,Trasferimenti correnti
-MON,1113,Spese correnti,Personale
-PRO,1113,Spese correnti,Personale
-SP1,1113,Spese correnti,Personale
-SP3,1113,Spese correnti,Personale
+MON,1112,Spese correnti,Altre spese
+PRO,1112,Spese correnti,Altre spese
+SP1,1112,Spese correnti,Altre spese
+SP3,1112,Spese correnti,Altre spese
+SP7,1112,Spese correnti,Personale
+UNI,1112,Spese correnti,Personale
+MON,1113,Spese correnti,Acquisto beni e servizi
+PRO,1113,Spese correnti,Acquisto beni e servizi
+SP1,1113,Spese correnti,Acquisto beni e servizi
+SP3,1113,Spese correnti,Acquisto beni e servizi
 SP7,1113,Spese correnti,Personale
 UNI,1113,Spese correnti,Personale
-MON,1114,Spese correnti,Personale
-PRO,1114,Spese correnti,Personale
-SP1,1114,Spese correnti,Personale
-SP3,1114,Spese correnti,Personale
+MON,1114,Spese correnti,Altre spese
+PRO,1114,Spese correnti,Altre spese
+SP1,1114,Spese correnti,Altre spese
+SP3,1114,Spese correnti,Altre spese
 SP7,1114,Spese correnti,Personale
 UNI,1114,Spese correnti,Personale
-MON,1115,Spese correnti,Trasferimenti correnti
-PRO,1115,Spese correnti,Trasferimenti correnti
-SP1,1115,Spese correnti,Trasferimenti correnti
-SP3,1115,Spese correnti,Trasferimenti correnti
+MON,1115,Spese correnti,Altre spese
+PRO,1115,Spese correnti,Altre spese
+SP1,1115,Spese correnti,Altre spese
+SP3,1115,Spese correnti,Altre spese
 STA,112,Spese correnti,Altre spese
 MON,1121,Spese correnti,Personale
 PRO,1121,Spese correnti,Personale
@@ -6112,16 +6112,16 @@ PRO,1124,Spese correnti,Altre spese
 SP1,1124,Spese correnti,Altre spese
 SP3,1124,Spese correnti,Altre spese
 STA,113,Spese correnti,Altre spese
-MON,1131,Spese correnti,Personale
-PRO,1131,Spese correnti,Personale
-SP1,1131,Spese correnti,Personale
-SP3,1131,Spese correnti,Personale
+MON,1131,Spese correnti,Altre spese
+PRO,1131,Spese correnti,Altre spese
+SP1,1131,Spese correnti,Altre spese
+SP3,1131,Spese correnti,Altre spese
 SP7,1131,Spese correnti,Personale
 UNI,1131,Spese correnti,Personale
-MON,1132,Spese correnti,Personale
-PRO,1132,Spese correnti,Personale
-SP1,1132,Spese correnti,Personale
-SP3,1132,Spese correnti,Personale
+MON,1132,Spese correnti,Altre spese
+PRO,1132,Spese correnti,Altre spese
+SP1,1132,Spese correnti,Altre spese
+SP3,1132,Spese correnti,Altre spese
 SP7,1132,Spese correnti,Personale
 UNI,1132,Spese correnti,Personale
 MON,1133,Spese correnti,Personale
@@ -6163,13 +6163,13 @@ SP6,1199,Spese correnti,Altre spese
 CDC,1201,Spese correnti,Personale
 EGP,1201,Spese correnti,Personale
 EPF,1201,Spese correnti,Personale
-MON,1201,Spese correnti,Personale
-PRO,1201,Spese correnti,Personale
+MON,1201,Spese correnti,Altre spese
+PRO,1201,Spese correnti,Altre spese
 RIC,1201,Spese correnti,Personale
 SAN,1201,Spese correnti,Personale
-SP1,1201,Spese correnti,Personale
+SP1,1201,Spese correnti,Altre spese
 SP2,1201,Spese correnti,Personale
-SP3,1201,Spese correnti,Personale
+SP3,1201,Spese correnti,Altre spese
 SP4,1201,Spese correnti,Personale
 SP5,1201,Spese correnti,Personale
 SP6,1201,Spese correnti,Personale
@@ -6177,13 +6177,13 @@ VSN,1201,Spese correnti,Personale
 CDC,1202,Spese correnti,Personale
 EGP,1202,Spese correnti,Personale
 EPF,1202,Spese correnti,Personale
-MON,1202,Spese correnti,Personale
-PRO,1202,Spese correnti,Personale
+MON,1202,Spese correnti,Altre spese
+PRO,1202,Spese correnti,Altre spese
 RIC,1202,Spese correnti,Personale
 SAN,1202,Spese correnti,Personale
-SP1,1202,Spese correnti,Personale
+SP1,1202,Spese correnti,Altre spese
 SP2,1202,Spese correnti,Personale
-SP3,1202,Spese correnti,Personale
+SP3,1202,Spese correnti,Altre spese
 SP4,1202,Spese correnti,Personale
 SP5,1202,Spese correnti,Personale
 SP6,1202,Spese correnti,Personale
@@ -6191,165 +6191,165 @@ VSN,1202,Spese correnti,Personale
 CDC,1203,Spese correnti,Personale
 EGP,1203,Spese correnti,Personale
 EPF,1203,Spese correnti,Personale
-MON,1203,Spese correnti,Personale
-PRO,1203,Spese correnti,Personale
+MON,1203,Spese correnti,Altre spese
+PRO,1203,Spese correnti,Altre spese
 RIC,1203,Spese correnti,Personale
 SAN,1203,Spese correnti,Personale
-SP1,1203,Spese correnti,Personale
+SP1,1203,Spese correnti,Altre spese
 SP2,1203,Spese correnti,Personale
-SP3,1203,Spese correnti,Personale
+SP3,1203,Spese correnti,Altre spese
 SP4,1203,Spese correnti,Personale
 SP5,1203,Spese correnti,Personale
 SP6,1203,Spese correnti,Personale
 VSN,1203,Spese correnti,Personale
 EGP,1204,Spese correnti,Personale
 EPF,1204,Spese correnti,Personale
-MON,1204,Spese correnti,Personale
-PRO,1204,Spese correnti,Personale
+MON,1204,Spese correnti,Altre spese
+PRO,1204,Spese correnti,Altre spese
 RIC,1204,Spese correnti,Personale
 SAN,1204,Spese correnti,Personale
-SP1,1204,Spese correnti,Personale
+SP1,1204,Spese correnti,Altre spese
 SP2,1204,Spese correnti,Personale
-SP3,1204,Spese correnti,Personale
+SP3,1204,Spese correnti,Altre spese
 SP4,1204,Spese correnti,Personale
 SP6,1204,Spese correnti,Personale
 VSN,1204,Spese correnti,Personale
 EGP,1205,Spese correnti,Personale
 EPF,1205,Spese correnti,Personale
-MON,1205,Spese correnti,Personale
-PRO,1205,Spese correnti,Personale
+MON,1205,Spese correnti,Altre spese
+PRO,1205,Spese correnti,Altre spese
 RIC,1205,Spese correnti,Personale
 SAN,1205,Spese correnti,Personale
-SP1,1205,Spese correnti,Personale
+SP1,1205,Spese correnti,Altre spese
 SP2,1205,Spese correnti,Personale
-SP3,1205,Spese correnti,Personale
+SP3,1205,Spese correnti,Altre spese
 SP4,1205,Spese correnti,Personale
 SP6,1205,Spese correnti,Personale
 VSN,1205,Spese correnti,Personale
-EGP,1206,Spese correnti,Personale
-EPF,1206,Spese correnti,Personale
-MON,1206,Spese correnti,Personale
-PRO,1206,Spese correnti,Personale
-RIC,1206,Spese correnti,Personale
+EGP,1206,Spese correnti,Altre spese
+EPF,1206,Spese correnti,Altre spese
+MON,1206,Spese correnti,Altre spese
+PRO,1206,Spese correnti,Altre spese
+RIC,1206,Spese correnti,Altre spese
 SAN,1206,Spese correnti,Personale
-SP1,1206,Spese correnti,Personale
+SP1,1206,Spese correnti,Altre spese
 SP2,1206,Spese correnti,Personale
-SP3,1206,Spese correnti,Personale
-SP4,1206,Spese correnti,Personale
-SP6,1206,Spese correnti,Personale
+SP3,1206,Spese correnti,Altre spese
+SP4,1206,Spese correnti,Altre spese
+SP6,1206,Spese correnti,Altre spese
 VSN,1206,Spese correnti,Personale
 EGP,1207,Spese correnti,Personale
 EPF,1207,Spese correnti,Personale
-MON,1207,Spese correnti,Personale
-PRO,1207,Spese correnti,Personale
+MON,1207,Spese correnti,Altre spese
+PRO,1207,Spese correnti,Altre spese
 RIC,1207,Spese correnti,Personale
 SAN,1207,Spese correnti,Personale
-SP1,1207,Spese correnti,Personale
+SP1,1207,Spese correnti,Altre spese
 SP2,1207,Spese correnti,Personale
-SP3,1207,Spese correnti,Personale
+SP3,1207,Spese correnti,Altre spese
 SP4,1207,Spese correnti,Personale
 SP6,1207,Spese correnti,Personale
 VSN,1207,Spese correnti,Personale
 EGP,1208,Spese correnti,Personale
 EPF,1208,Spese correnti,Personale
-MON,1208,Spese correnti,Personale
-PRO,1208,Spese correnti,Personale
+MON,1208,Spese correnti,Altre spese
+PRO,1208,Spese correnti,Altre spese
 RIC,1208,Spese correnti,Personale
-SP1,1208,Spese correnti,Personale
-SP3,1208,Spese correnti,Personale
+SP1,1208,Spese correnti,Altre spese
+SP3,1208,Spese correnti,Altre spese
 SP4,1208,Spese correnti,Personale
 SP6,1208,Spese correnti,Personale
-EGP,1209,Spese correnti,Acquisto beni e servizi
-EPF,1209,Spese correnti,Acquisto beni e servizi
+EGP,1209,Spese correnti,Personale
+EPF,1209,Spese correnti,Personale
 MON,1209,Spese correnti,Acquisto beni e servizi
 PRO,1209,Spese correnti,Acquisto beni e servizi
-RIC,1209,Spese correnti,Acquisto beni e servizi
+RIC,1209,Spese correnti,Personale
 SP1,1209,Spese correnti,Acquisto beni e servizi
 SP3,1209,Spese correnti,Acquisto beni e servizi
-SP4,1209,Spese correnti,Acquisto beni e servizi
-SP6,1209,Spese correnti,Acquisto beni e servizi
+SP4,1209,Spese correnti,Personale
+SP6,1209,Spese correnti,Personale
 EGP,1210,Spese correnti,Personale
 EPF,1210,Spese correnti,Personale
-MON,1210,Spese correnti,Personale
-PRO,1210,Spese correnti,Personale
+MON,1210,Spese correnti,Acquisto beni e servizi
+PRO,1210,Spese correnti,Acquisto beni e servizi
 RIC,1210,Spese correnti,Personale
-SP1,1210,Spese correnti,Personale
-SP3,1210,Spese correnti,Personale
+SP1,1210,Spese correnti,Acquisto beni e servizi
+SP3,1210,Spese correnti,Acquisto beni e servizi
 SP4,1210,Spese correnti,Personale
 SP6,1210,Spese correnti,Personale
-EGP,1211,Spese correnti,Acquisto beni e servizi
-EPF,1211,Spese correnti,Acquisto beni e servizi
+EGP,1211,Spese correnti,Altre spese
+EPF,1211,Spese correnti,Altre spese
 MON,1211,Spese correnti,Acquisto beni e servizi
 PRO,1211,Spese correnti,Acquisto beni e servizi
-REG,1211,Spese correnti,Acquisto beni e servizi
-RIC,1211,Spese correnti,Acquisto beni e servizi
+REG,1211,Spese correnti,Personale
+RIC,1211,Spese correnti,Altre spese
 SP1,1211,Spese correnti,Acquisto beni e servizi
 SP3,1211,Spese correnti,Acquisto beni e servizi
-SP4,1211,Spese correnti,Acquisto beni e servizi
-SP6,1211,Spese correnti,Acquisto beni e servizi
+SP4,1211,Spese correnti,Altre spese
+SP6,1211,Spese correnti,Altre spese
 SP7,1211,Spese correnti,Personale
-SP8,1211,Spese correnti,Acquisto beni e servizi
+SP8,1211,Spese correnti,Personale
 UNI,1211,Spese correnti,Personale
-EGP,1212,Spese correnti,Altre spese
-EPF,1212,Spese correnti,Altre spese
-MON,1212,Spese correnti,Altre spese
-PRO,1212,Spese correnti,Altre spese
-REG,1212,Spese correnti,Altre spese
-RIC,1212,Spese correnti,Altre spese
-SP1,1212,Spese correnti,Altre spese
-SP3,1212,Spese correnti,Altre spese
-SP4,1212,Spese correnti,Altre spese
-SP6,1212,Spese correnti,Altre spese
+EGP,1212,Spese correnti,Personale
+EPF,1212,Spese correnti,Personale
+MON,1212,Spese correnti,Acquisto beni e servizi
+PRO,1212,Spese correnti,Acquisto beni e servizi
+REG,1212,Spese correnti,Personale
+RIC,1212,Spese correnti,Personale
+SP1,1212,Spese correnti,Acquisto beni e servizi
+SP3,1212,Spese correnti,Acquisto beni e servizi
+SP4,1212,Spese correnti,Personale
+SP6,1212,Spese correnti,Personale
 SP7,1212,Spese correnti,Altre spese
-SP8,1212,Spese correnti,Altre spese
+SP8,1212,Spese correnti,Personale
 UNI,1212,Spese correnti,Altre spese
-EGP,1213,Spese correnti,Personale
-EPF,1213,Spese correnti,Personale
-MON,1213,Spese correnti,Personale
-PRO,1213,Spese correnti,Personale
+EGP,1213,Spese correnti,Altre spese
+EPF,1213,Spese correnti,Altre spese
+MON,1213,Spese correnti,Acquisto beni e servizi
+PRO,1213,Spese correnti,Acquisto beni e servizi
 REG,1213,Spese correnti,Personale
-RIC,1213,Spese correnti,Personale
-SP1,1213,Spese correnti,Personale
-SP3,1213,Spese correnti,Personale
-SP4,1213,Spese correnti,Personale
-SP6,1213,Spese correnti,Personale
+RIC,1213,Spese correnti,Altre spese
+SP1,1213,Spese correnti,Acquisto beni e servizi
+SP3,1213,Spese correnti,Acquisto beni e servizi
+SP4,1213,Spese correnti,Altre spese
+SP6,1213,Spese correnti,Altre spese
 SP7,1213,Spese correnti,Personale
 SP8,1213,Spese correnti,Personale
 UNI,1213,Spese correnti,Personale
-EGP,1214,Spese correnti,Altre spese
-EPF,1214,Spese correnti,Altre spese
-REG,1214,Spese correnti,Altre spese
+EGP,1214,Spese correnti,Personale
+EPF,1214,Spese correnti,Personale
+REG,1214,Spese correnti,Personale
 RIC,1214,Spese correnti,Altre spese
 SP4,1214,Spese correnti,Altre spese
-SP6,1214,Spese correnti,Altre spese
+SP6,1214,Spese correnti,Personale
 SP7,1214,Spese correnti,Altre spese
-SP8,1214,Spese correnti,Altre spese
+SP8,1214,Spese correnti,Personale
 UNI,1214,Spese correnti,Altre spese
 EGP,1215,Spese correnti,Altre spese
 EPF,1215,Spese correnti,Altre spese
-REG,1215,Spese correnti,Altre spese
+REG,1215,Spese correnti,Personale
 RIC,1215,Spese correnti,Altre spese
 SP4,1215,Spese correnti,Altre spese
 SP6,1215,Spese correnti,Altre spese
 SP7,1215,Spese correnti,Altre spese
-SP8,1215,Spese correnti,Altre spese
+SP8,1215,Spese correnti,Personale
 UNI,1215,Spese correnti,Altre spese
-EGP,1216,Spese correnti,Personale
-EPF,1216,Spese correnti,Personale
-REG,1216,Spese correnti,Personale
+EGP,1216,Spese correnti,Altre spese
+EPF,1216,Spese correnti,Altre spese
+REG,1216,Spese correnti,Altre spese
 RIC,1216,Spese correnti,Personale
 SP4,1216,Spese correnti,Personale
-SP6,1216,Spese correnti,Personale
-SP7,1216,Spese correnti,Personale
-SP8,1216,Spese correnti,Personale
-UNI,1216,Spese correnti,Personale
+SP6,1216,Spese correnti,Altre spese
+SP7,1216,Spese correnti,Altre spese
+SP8,1216,Spese correnti,Altre spese
+UNI,1216,Spese correnti,Altre spese
 EGP,1217,Spese correnti,Personale
 EPF,1217,Spese correnti,Personale
 RIC,1217,Spese correnti,Personale
 SP4,1217,Spese correnti,Personale
 SP6,1217,Spese correnti,Personale
-SP7,1217,Spese correnti,Personale
-UNI,1217,Spese correnti,Personale
+SP7,1217,Spese correnti,Altre spese
+UNI,1217,Spese correnti,Altre spese
 EGP,1218,Spese correnti,Personale
 EPF,1218,Spese correnti,Personale
 RIC,1218,Spese correnti,Personale
@@ -6367,23 +6367,23 @@ REG,1221,Spese correnti,Personale
 SP7,1221,Spese correnti,Personale
 SP8,1221,Spese correnti,Personale
 UNI,1221,Spese correnti,Personale
-REG,1222,Spese correnti,Trasferimenti correnti
-SP7,1222,Spese correnti,Trasferimenti correnti
-SP8,1222,Spese correnti,Trasferimenti correnti
-UNI,1222,Spese correnti,Trasferimenti correnti
+REG,1222,Spese correnti,Altre spese
+SP7,1222,Spese correnti,Personale
+SP8,1222,Spese correnti,Altre spese
+UNI,1222,Spese correnti,Personale
 REG,1223,Spese correnti,Acquisto beni e servizi
-SP7,1223,Spese correnti,Acquisto beni e servizi
+SP7,1223,Spese correnti,Personale
 SP8,1223,Spese correnti,Acquisto beni e servizi
-UNI,1223,Spese correnti,Acquisto beni e servizi
-REG,1224,Spese correnti,Trasferimenti correnti
-SP7,1224,Spese correnti,Trasferimenti correnti
-SP8,1224,Spese correnti,Trasferimenti correnti
-UNI,1224,Spese correnti,Trasferimenti correnti
+UNI,1223,Spese correnti,Personale
+REG,1224,Spese correnti,Altre spese
+SP7,1224,Spese correnti,Personale
+SP8,1224,Spese correnti,Altre spese
+UNI,1224,Spese correnti,Personale
 SP7,1230,Spese correnti,Personale
 UNI,1230,Spese correnti,Personale
-REG,1231,Spese correnti,Personale
+REG,1231,Spese correnti,Altre spese
 SP7,1231,Spese correnti,Personale
-SP8,1231,Spese correnti,Personale
+SP8,1231,Spese correnti,Altre spese
 UNI,1231,Spese correnti,Personale
 REG,1232,Spese correnti,Altre spese
 SP8,1232,Spese correnti,Altre spese
@@ -6400,16 +6400,16 @@ SP8,1242,Spese correnti,Altre spese
 REG,1243,Spese correnti,Altre spese
 SP8,1243,Spese correnti,Altre spese
 REG,1251,Spese correnti,Personale
-SP7,1251,Spese correnti,Personale
+SP7,1251,Spese correnti,Altre spese
 SP8,1251,Spese correnti,Personale
-UNI,1251,Spese correnti,Personale
+UNI,1251,Spese correnti,Altre spese
 REG,1252,Spese correnti,Altre spese
 SP7,1252,Spese correnti,Altre spese
 SP8,1252,Spese correnti,Altre spese
 UNI,1252,Spese correnti,Altre spese
-REG,1253,Spese correnti,Personale
+REG,1253,Spese correnti,Altre spese
 SP7,1253,Spese correnti,Personale
-SP8,1253,Spese correnti,Personale
+SP8,1253,Spese correnti,Altre spese
 UNI,1253,Spese correnti,Personale
 REG,1254,Spese correnti,Altre spese
 SP7,1254,Spese correnti,Altre spese
@@ -6431,85 +6431,85 @@ RIC,1299,Spese correnti,Personale
 SP4,1299,Spese correnti,Personale
 SP6,1299,Spese correnti,Personale
 CDC,1301,Spese correnti,Personale
-EGP,1301,Spese correnti,Personale
-EPF,1301,Spese correnti,Personale
-RIC,1301,Spese correnti,Personale
+EGP,1301,Spese correnti,Altre spese
+EPF,1301,Spese correnti,Altre spese
+RIC,1301,Spese correnti,Altre spese
 SAN,1301,Spese correnti,Personale
 SP2,1301,Spese correnti,Personale
-SP4,1301,Spese correnti,Personale
+SP4,1301,Spese correnti,Altre spese
 SP5,1301,Spese correnti,Personale
-SP6,1301,Spese correnti,Personale
+SP6,1301,Spese correnti,Altre spese
 VSN,1301,Spese correnti,Personale
-CDC,1302,Spese correnti,Personale
-EGP,1302,Spese correnti,Personale
-EPF,1302,Spese correnti,Personale
-MON,1302,Spese correnti,Personale
-PRO,1302,Spese correnti,Personale
+CDC,1302,Spese correnti,Altre spese
+EGP,1302,Spese correnti,Altre spese
+EPF,1302,Spese correnti,Altre spese
+MON,1302,Spese correnti,Acquisto beni e servizi
+PRO,1302,Spese correnti,Acquisto beni e servizi
 SAN,1302,Spese correnti,Personale
-SP1,1302,Spese correnti,Personale
+SP1,1302,Spese correnti,Acquisto beni e servizi
 SP2,1302,Spese correnti,Personale
-SP3,1302,Spese correnti,Personale
-SP5,1302,Spese correnti,Personale
-SP6,1302,Spese correnti,Personale
+SP3,1302,Spese correnti,Acquisto beni e servizi
+SP5,1302,Spese correnti,Altre spese
+SP6,1302,Spese correnti,Altre spese
 VSN,1302,Spese correnti,Personale
-EGP,1303,Spese correnti,Personale
-EPF,1303,Spese correnti,Personale
-MON,1303,Spese correnti,Personale
-PRO,1303,Spese correnti,Personale
-RIC,1303,Spese correnti,Personale
+EGP,1303,Spese correnti,Altre spese
+EPF,1303,Spese correnti,Altre spese
+MON,1303,Spese correnti,Acquisto beni e servizi
+PRO,1303,Spese correnti,Acquisto beni e servizi
+RIC,1303,Spese correnti,Altre spese
 SAN,1303,Spese correnti,Personale
-SP1,1303,Spese correnti,Personale
+SP1,1303,Spese correnti,Acquisto beni e servizi
 SP2,1303,Spese correnti,Personale
-SP3,1303,Spese correnti,Personale
-SP4,1303,Spese correnti,Personale
-SP6,1303,Spese correnti,Personale
+SP3,1303,Spese correnti,Acquisto beni e servizi
+SP4,1303,Spese correnti,Altre spese
+SP6,1303,Spese correnti,Altre spese
 VSN,1303,Spese correnti,Personale
-EGP,1304,Spese correnti,Personale
-EPF,1304,Spese correnti,Personale
-MON,1304,Spese correnti,Personale
-PRO,1304,Spese correnti,Personale
+EGP,1304,Spese correnti,Altre spese
+EPF,1304,Spese correnti,Altre spese
+MON,1304,Spese correnti,Acquisto beni e servizi
+PRO,1304,Spese correnti,Acquisto beni e servizi
 SAN,1304,Spese correnti,Personale
-SP1,1304,Spese correnti,Personale
+SP1,1304,Spese correnti,Acquisto beni e servizi
 SP2,1304,Spese correnti,Personale
-SP3,1304,Spese correnti,Personale
-SP6,1304,Spese correnti,Personale
+SP3,1304,Spese correnti,Acquisto beni e servizi
+SP6,1304,Spese correnti,Altre spese
 VSN,1304,Spese correnti,Personale
-EGP,1305,Spese correnti,Personale
-EPF,1305,Spese correnti,Personale
-MON,1305,Spese correnti,Personale
-PRO,1305,Spese correnti,Personale
+EGP,1305,Spese correnti,Acquisto beni e servizi
+EPF,1305,Spese correnti,Acquisto beni e servizi
+MON,1305,Spese correnti,Altre spese
+PRO,1305,Spese correnti,Altre spese
 SAN,1305,Spese correnti,Personale
-SP1,1305,Spese correnti,Personale
+SP1,1305,Spese correnti,Altre spese
 SP2,1305,Spese correnti,Personale
-SP3,1305,Spese correnti,Personale
-SP6,1305,Spese correnti,Personale
+SP3,1305,Spese correnti,Altre spese
+SP6,1305,Spese correnti,Acquisto beni e servizi
 VSN,1305,Spese correnti,Personale
-EGP,1306,Spese correnti,Personale
-EPF,1306,Spese correnti,Personale
-MON,1306,Spese correnti,Personale
-PRO,1306,Spese correnti,Personale
+EGP,1306,Spese correnti,Altre spese
+EPF,1306,Spese correnti,Altre spese
+MON,1306,Spese correnti,Acquisto beni e servizi
+PRO,1306,Spese correnti,Acquisto beni e servizi
 SAN,1306,Spese correnti,Personale
-SP1,1306,Spese correnti,Personale
+SP1,1306,Spese correnti,Acquisto beni e servizi
 SP2,1306,Spese correnti,Personale
-SP3,1306,Spese correnti,Personale
-SP6,1306,Spese correnti,Personale
+SP3,1306,Spese correnti,Acquisto beni e servizi
+SP6,1306,Spese correnti,Altre spese
 VSN,1306,Spese correnti,Personale
-EGP,1307,Spese correnti,Personale
-EPF,1307,Spese correnti,Personale
-MON,1307,Spese correnti,Personale
-PRO,1307,Spese correnti,Personale
+EGP,1307,Spese correnti,Acquisto beni e servizi
+EPF,1307,Spese correnti,Acquisto beni e servizi
+MON,1307,Spese correnti,Altre spese
+PRO,1307,Spese correnti,Altre spese
 SAN,1307,Spese correnti,Personale
-SP1,1307,Spese correnti,Personale
+SP1,1307,Spese correnti,Altre spese
 SP2,1307,Spese correnti,Personale
-SP3,1307,Spese correnti,Personale
-SP6,1307,Spese correnti,Personale
+SP3,1307,Spese correnti,Altre spese
+SP6,1307,Spese correnti,Acquisto beni e servizi
 VSN,1307,Spese correnti,Personale
 EGP,1308,Spese correnti,Acquisto beni e servizi
 EPF,1308,Spese correnti,Acquisto beni e servizi
-MON,1308,Spese correnti,Acquisto beni e servizi
-PRO,1308,Spese correnti,Acquisto beni e servizi
-SP1,1308,Spese correnti,Acquisto beni e servizi
-SP3,1308,Spese correnti,Acquisto beni e servizi
+MON,1308,Spese correnti,Altre spese
+PRO,1308,Spese correnti,Altre spese
+SP1,1308,Spese correnti,Altre spese
+SP3,1308,Spese correnti,Altre spese
 SP6,1308,Spese correnti,Acquisto beni e servizi
 MON,1309,Spese correnti,Personale
 PRO,1309,Spese correnti,Personale
@@ -6519,8 +6519,8 @@ MON,1310,Spese correnti,Acquisto beni e servizi
 PRO,1310,Spese correnti,Acquisto beni e servizi
 SP1,1310,Spese correnti,Acquisto beni e servizi
 SP3,1310,Spese correnti,Acquisto beni e servizi
-SP7,1310,Spese correnti,Acquisto beni e servizi
-UNI,1310,Spese correnti,Acquisto beni e servizi
+SP7,1310,Spese correnti,Personale
+UNI,1310,Spese correnti,Personale
 MON,1311,Spese correnti,Acquisto beni e servizi
 PRO,1311,Spese correnti,Acquisto beni e servizi
 SP1,1311,Spese correnti,Acquisto beni e servizi
@@ -6537,30 +6537,30 @@ MON,1314,Spese correnti,Acquisto beni e servizi
 PRO,1314,Spese correnti,Acquisto beni e servizi
 SP1,1314,Spese correnti,Acquisto beni e servizi
 SP3,1314,Spese correnti,Acquisto beni e servizi
-MON,1315,Spese correnti,Acquisto beni e servizi
-PRO,1315,Spese correnti,Acquisto beni e servizi
-SP1,1315,Spese correnti,Acquisto beni e servizi
-SP3,1315,Spese correnti,Acquisto beni e servizi
-MON,1316,Spese correnti,Acquisto beni e servizi
-PRO,1316,Spese correnti,Acquisto beni e servizi
-SP1,1316,Spese correnti,Acquisto beni e servizi
-SP3,1316,Spese correnti,Acquisto beni e servizi
-MON,1317,Spese correnti,Acquisto beni e servizi
-PRO,1317,Spese correnti,Acquisto beni e servizi
-SP1,1317,Spese correnti,Acquisto beni e servizi
-SP3,1317,Spese correnti,Acquisto beni e servizi
-MON,1318,Spese correnti,Acquisto beni e servizi
-PRO,1318,Spese correnti,Acquisto beni e servizi
-SP1,1318,Spese correnti,Acquisto beni e servizi
-SP3,1318,Spese correnti,Acquisto beni e servizi
+MON,1315,Spese correnti,Altre spese
+PRO,1315,Spese correnti,Altre spese
+SP1,1315,Spese correnti,Altre spese
+SP3,1315,Spese correnti,Altre spese
+MON,1316,Spese correnti,Altre spese
+PRO,1316,Spese correnti,Altre spese
+SP1,1316,Spese correnti,Altre spese
+SP3,1316,Spese correnti,Altre spese
+MON,1317,Spese correnti,Altre spese
+PRO,1317,Spese correnti,Altre spese
+SP1,1317,Spese correnti,Altre spese
+SP3,1317,Spese correnti,Altre spese
+MON,1318,Spese correnti,Altre spese
+PRO,1318,Spese correnti,Altre spese
+SP1,1318,Spese correnti,Altre spese
+SP3,1318,Spese correnti,Altre spese
 MON,1319,Spese correnti,Acquisto beni e servizi
 PRO,1319,Spese correnti,Acquisto beni e servizi
 SP1,1319,Spese correnti,Acquisto beni e servizi
 SP3,1319,Spese correnti,Acquisto beni e servizi
-MON,1320,Spese correnti,Personale
-PRO,1320,Spese correnti,Personale
-SP1,1320,Spese correnti,Personale
-SP3,1320,Spese correnti,Personale
+MON,1320,Spese correnti,Acquisto beni e servizi
+PRO,1320,Spese correnti,Acquisto beni e servizi
+SP1,1320,Spese correnti,Acquisto beni e servizi
+SP3,1320,Spese correnti,Acquisto beni e servizi
 SP7,1320,Spese correnti,Personale
 UNI,1320,Spese correnti,Personale
 MON,1321,Spese correnti,Altre spese
@@ -6669,10 +6669,10 @@ REG,1353,Spese correnti,Acquisto beni e servizi
 SP8,1353,Spese correnti,Acquisto beni e servizi
 REG,1354,Spese correnti,Acquisto beni e servizi
 SP8,1354,Spese correnti,Acquisto beni e servizi
-REG,1355,Spese correnti,Acquisto beni e servizi
-SP8,1355,Spese correnti,Acquisto beni e servizi
-REG,1356,Spese correnti,Acquisto beni e servizi
-SP8,1356,Spese correnti,Acquisto beni e servizi
+REG,1355,Spese correnti,Altre spese
+SP8,1355,Spese correnti,Altre spese
+REG,1356,Spese correnti,Altre spese
+SP8,1356,Spese correnti,Altre spese
 REG,1357,Spese correnti,Acquisto beni e servizi
 SP8,1357,Spese correnti,Acquisto beni e servizi
 REG,1358,Spese correnti,Acquisto beni e servizi
@@ -6701,42 +6701,42 @@ RIC,1399,Spese correnti,Acquisto beni e servizi
 SP4,1399,Spese correnti,Acquisto beni e servizi
 SP6,1399,Spese correnti,Acquisto beni e servizi
 CDC,1401,Spese correnti,Personale
-EGP,1401,Spese correnti,Personale
-EPF,1401,Spese correnti,Personale
-MON,1401,Spese correnti,Personale
-PRO,1401,Spese correnti,Personale
-RIC,1401,Spese correnti,Personale
+EGP,1401,Spese correnti,Acquisto beni e servizi
+EPF,1401,Spese correnti,Acquisto beni e servizi
+MON,1401,Spese correnti,Acquisto beni e servizi
+PRO,1401,Spese correnti,Acquisto beni e servizi
+RIC,1401,Spese correnti,Acquisto beni e servizi
 SAN,1401,Spese correnti,Personale
-SP1,1401,Spese correnti,Personale
+SP1,1401,Spese correnti,Acquisto beni e servizi
 SP2,1401,Spese correnti,Personale
-SP3,1401,Spese correnti,Personale
-SP4,1401,Spese correnti,Personale
+SP3,1401,Spese correnti,Acquisto beni e servizi
+SP4,1401,Spese correnti,Acquisto beni e servizi
 SP5,1401,Spese correnti,Personale
-SP6,1401,Spese correnti,Personale
+SP6,1401,Spese correnti,Acquisto beni e servizi
 VSN,1401,Spese correnti,Personale
 CDC,1402,Spese correnti,Personale
-EGP,1402,Spese correnti,Personale
-EPF,1402,Spese correnti,Personale
-MON,1402,Spese correnti,Personale
-PRO,1402,Spese correnti,Personale
-RIC,1402,Spese correnti,Personale
+EGP,1402,Spese correnti,Altre spese
+EPF,1402,Spese correnti,Altre spese
+MON,1402,Spese correnti,Altre spese
+PRO,1402,Spese correnti,Altre spese
+RIC,1402,Spese correnti,Altre spese
 SAN,1402,Spese correnti,Personale
-SP1,1402,Spese correnti,Personale
+SP1,1402,Spese correnti,Altre spese
 SP2,1402,Spese correnti,Personale
-SP3,1402,Spese correnti,Personale
-SP4,1402,Spese correnti,Personale
+SP3,1402,Spese correnti,Altre spese
+SP4,1402,Spese correnti,Altre spese
 SP5,1402,Spese correnti,Personale
-SP6,1402,Spese correnti,Personale
+SP6,1402,Spese correnti,Altre spese
 VSN,1402,Spese correnti,Personale
 EGP,1403,Spese correnti,Personale
 EPF,1403,Spese correnti,Personale
-MON,1403,Spese correnti,Personale
-PRO,1403,Spese correnti,Personale
+MON,1403,Spese correnti,Altre spese
+PRO,1403,Spese correnti,Altre spese
 RIC,1403,Spese correnti,Personale
 SAN,1403,Spese correnti,Personale
-SP1,1403,Spese correnti,Personale
+SP1,1403,Spese correnti,Altre spese
 SP2,1403,Spese correnti,Personale
-SP3,1403,Spese correnti,Personale
+SP3,1403,Spese correnti,Altre spese
 SP4,1403,Spese correnti,Personale
 SP6,1403,Spese correnti,Personale
 VSN,1403,Spese correnti,Personale
@@ -6764,106 +6764,106 @@ EPF,1407,Spese correnti,Altre spese
 RIC,1407,Spese correnti,Altre spese
 SP4,1407,Spese correnti,Altre spese
 SP6,1407,Spese correnti,Altre spese
-EGP,1408,Spese correnti,Personale
-EPF,1408,Spese correnti,Personale
-RIC,1408,Spese correnti,Personale
-SP4,1408,Spese correnti,Personale
-SP6,1408,Spese correnti,Personale
+EGP,1408,Spese correnti,Altre spese
+EPF,1408,Spese correnti,Altre spese
+RIC,1408,Spese correnti,Altre spese
+SP4,1408,Spese correnti,Altre spese
+SP6,1408,Spese correnti,Altre spese
 SP7,1408,Spese correnti,Personale
 UNI,1408,Spese correnti,Personale
-EGP,1409,Spese correnti,Acquisto beni e servizi
-EPF,1409,Spese correnti,Acquisto beni e servizi
+EGP,1409,Spese correnti,Altre spese
+EPF,1409,Spese correnti,Altre spese
 RIC,1409,Spese correnti,Acquisto beni e servizi
 SP4,1409,Spese correnti,Acquisto beni e servizi
-SP6,1409,Spese correnti,Acquisto beni e servizi
+SP6,1409,Spese correnti,Altre spese
 SP7,1409,Spese correnti,Personale
 UNI,1409,Spese correnti,Personale
-EGP,1410,Spese correnti,Trasferimenti correnti
-EPF,1410,Spese correnti,Trasferimenti correnti
-RIC,1410,Spese correnti,Trasferimenti correnti
-SP4,1410,Spese correnti,Trasferimenti correnti
-SP6,1410,Spese correnti,Trasferimenti correnti
-SP7,1410,Spese correnti,Trasferimenti correnti
-UNI,1410,Spese correnti,Trasferimenti correnti
-EGP,1411,Spese correnti,Personale
-EPF,1411,Spese correnti,Personale
-REG,1411,Spese correnti,Personale
-RIC,1411,Spese correnti,Personale
-SP4,1411,Spese correnti,Personale
-SP6,1411,Spese correnti,Personale
+EGP,1410,Spese correnti,Altre spese
+EPF,1410,Spese correnti,Altre spese
+RIC,1410,Spese correnti,Altre spese
+SP4,1410,Spese correnti,Altre spese
+SP6,1410,Spese correnti,Altre spese
+SP7,1410,Spese correnti,Altre spese
+UNI,1410,Spese correnti,Altre spese
+EGP,1411,Spese correnti,Acquisto beni e servizi
+EPF,1411,Spese correnti,Acquisto beni e servizi
+REG,1411,Spese correnti,Acquisto beni e servizi
+RIC,1411,Spese correnti,Altre spese
+SP4,1411,Spese correnti,Altre spese
+SP6,1411,Spese correnti,Acquisto beni e servizi
 SP7,1411,Spese correnti,Personale
-SP8,1411,Spese correnti,Personale
+SP8,1411,Spese correnti,Acquisto beni e servizi
 UNI,1411,Spese correnti,Personale
-EGP,1412,Spese correnti,Trasferimenti correnti
-EPF,1412,Spese correnti,Trasferimenti correnti
-REG,1412,Spese correnti,Trasferimenti correnti
-RIC,1412,Spese correnti,Trasferimenti correnti
-SP4,1412,Spese correnti,Trasferimenti correnti
-SP6,1412,Spese correnti,Trasferimenti correnti
-SP7,1412,Spese correnti,Trasferimenti correnti
-SP8,1412,Spese correnti,Trasferimenti correnti
-UNI,1412,Spese correnti,Trasferimenti correnti
-EGP,1413,Spese correnti,Personale
-EPF,1413,Spese correnti,Personale
-RIC,1413,Spese correnti,Personale
-SP4,1413,Spese correnti,Personale
-SP6,1413,Spese correnti,Personale
+EGP,1412,Spese correnti,Altre spese
+EPF,1412,Spese correnti,Altre spese
+REG,1412,Spese correnti,Altre spese
+RIC,1412,Spese correnti,Altre spese
+SP4,1412,Spese correnti,Altre spese
+SP6,1412,Spese correnti,Altre spese
+SP7,1412,Spese correnti,Altre spese
+SP8,1412,Spese correnti,Altre spese
+UNI,1412,Spese correnti,Altre spese
+EGP,1413,Spese correnti,Altre spese
+EPF,1413,Spese correnti,Altre spese
+RIC,1413,Spese correnti,Altre spese
+SP4,1413,Spese correnti,Altre spese
+SP6,1413,Spese correnti,Altre spese
 SP7,1413,Spese correnti,Personale
 UNI,1413,Spese correnti,Personale
-EGP,1414,Spese correnti,Acquisto beni e servizi
-EPF,1414,Spese correnti,Acquisto beni e servizi
-RIC,1414,Spese correnti,Acquisto beni e servizi
-SP4,1414,Spese correnti,Acquisto beni e servizi
-SP6,1414,Spese correnti,Acquisto beni e servizi
-SP7,1414,Spese correnti,Acquisto beni e servizi
-UNI,1414,Spese correnti,Acquisto beni e servizi
-EGP,1415,Spese correnti,Acquisto beni e servizi
-EPF,1415,Spese correnti,Acquisto beni e servizi
+EGP,1414,Spese correnti,Altre spese
+EPF,1414,Spese correnti,Altre spese
+RIC,1414,Spese correnti,Altre spese
+SP4,1414,Spese correnti,Altre spese
+SP6,1414,Spese correnti,Altre spese
+SP7,1414,Spese correnti,Altre spese
+UNI,1414,Spese correnti,Altre spese
+EGP,1415,Spese correnti,Altre spese
+EPF,1415,Spese correnti,Altre spese
 RIC,1415,Spese correnti,Acquisto beni e servizi
 SP4,1415,Spese correnti,Acquisto beni e servizi
-SP6,1415,Spese correnti,Acquisto beni e servizi
+SP6,1415,Spese correnti,Altre spese
 SP7,1415,Spese correnti,Personale
 UNI,1415,Spese correnti,Personale
-EGP,1416,Spese correnti,Personale
-EPF,1416,Spese correnti,Personale
-RIC,1416,Spese correnti,Personale
-SP4,1416,Spese correnti,Personale
-SP6,1416,Spese correnti,Personale
+EGP,1416,Spese correnti,Altre spese
+EPF,1416,Spese correnti,Altre spese
+RIC,1416,Spese correnti,Acquisto beni e servizi
+SP4,1416,Spese correnti,Acquisto beni e servizi
+SP6,1416,Spese correnti,Altre spese
 SP7,1416,Spese correnti,Personale
 UNI,1416,Spese correnti,Personale
-EGP,1417,Spese correnti,Trasferimenti correnti
-EPF,1417,Spese correnti,Trasferimenti correnti
-RIC,1417,Spese correnti,Trasferimenti correnti
-SP4,1417,Spese correnti,Trasferimenti correnti
-SP6,1417,Spese correnti,Trasferimenti correnti
+EGP,1417,Spese correnti,Acquisto beni e servizi
+EPF,1417,Spese correnti,Acquisto beni e servizi
+RIC,1417,Spese correnti,Acquisto beni e servizi
+SP4,1417,Spese correnti,Acquisto beni e servizi
+SP6,1417,Spese correnti,Acquisto beni e servizi
 SP7,1417,Spese correnti,Personale
 UNI,1417,Spese correnti,Personale
-EGP,1418,Spese correnti,Trasferimenti correnti
-EPF,1418,Spese correnti,Trasferimenti correnti
-RIC,1418,Spese correnti,Trasferimenti correnti
-SP4,1418,Spese correnti,Trasferimenti correnti
-SP6,1418,Spese correnti,Trasferimenti correnti
-SP7,1418,Spese correnti,Trasferimenti correnti
-UNI,1418,Spese correnti,Trasferimenti correnti
+EGP,1418,Spese correnti,Acquisto beni e servizi
+EPF,1418,Spese correnti,Acquisto beni e servizi
+RIC,1418,Spese correnti,Acquisto beni e servizi
+SP4,1418,Spese correnti,Acquisto beni e servizi
+SP6,1418,Spese correnti,Acquisto beni e servizi
+SP7,1418,Spese correnti,Altre spese
+UNI,1418,Spese correnti,Altre spese
 EGP,1419,Spese correnti,Acquisto beni e servizi
 EPF,1419,Spese correnti,Acquisto beni e servizi
 RIC,1419,Spese correnti,Acquisto beni e servizi
 SP4,1419,Spese correnti,Acquisto beni e servizi
 SP6,1419,Spese correnti,Acquisto beni e servizi
-SP7,1419,Spese correnti,Acquisto beni e servizi
-UNI,1419,Spese correnti,Acquisto beni e servizi
+SP7,1419,Spese correnti,Altre spese
+UNI,1419,Spese correnti,Altre spese
 EGP,1420,Spese correnti,Acquisto beni e servizi
 EPF,1420,Spese correnti,Acquisto beni e servizi
-RIC,1420,Spese correnti,Acquisto beni e servizi
-SP4,1420,Spese correnti,Acquisto beni e servizi
+RIC,1420,Spese correnti,Altre spese
+SP4,1420,Spese correnti,Altre spese
 SP6,1420,Spese correnti,Acquisto beni e servizi
-SP7,1420,Spese correnti,Acquisto beni e servizi
-UNI,1420,Spese correnti,Acquisto beni e servizi
-EGP,1421,Spese correnti,Personale
-EPF,1421,Spese correnti,Personale
-RIC,1421,Spese correnti,Personale
-SP4,1421,Spese correnti,Personale
-SP6,1421,Spese correnti,Personale
+SP7,1420,Spese correnti,Personale
+UNI,1420,Spese correnti,Personale
+EGP,1421,Spese correnti,Acquisto beni e servizi
+EPF,1421,Spese correnti,Acquisto beni e servizi
+RIC,1421,Spese correnti,Acquisto beni e servizi
+SP4,1421,Spese correnti,Acquisto beni e servizi
+SP6,1421,Spese correnti,Acquisto beni e servizi
 SP7,1421,Spese correnti,Personale
 UNI,1421,Spese correnti,Personale
 EGP,1422,Spese correnti,Altre spese
@@ -6873,32 +6873,32 @@ SP4,1422,Spese correnti,Altre spese
 SP6,1422,Spese correnti,Altre spese
 SP7,1422,Spese correnti,Altre spese
 UNI,1422,Spese correnti,Altre spese
-EGP,1423,Spese correnti,Personale
-EPF,1423,Spese correnti,Personale
-RIC,1423,Spese correnti,Personale
-SP4,1423,Spese correnti,Personale
-SP6,1423,Spese correnti,Personale
+EGP,1423,Spese correnti,Acquisto beni e servizi
+EPF,1423,Spese correnti,Acquisto beni e servizi
+RIC,1423,Spese correnti,Altre spese
+SP4,1423,Spese correnti,Altre spese
+SP6,1423,Spese correnti,Acquisto beni e servizi
 SP7,1423,Spese correnti,Personale
 UNI,1423,Spese correnti,Personale
-EGP,1424,Spese correnti,Altre spese
-EPF,1424,Spese correnti,Altre spese
+EGP,1424,Spese correnti,Acquisto beni e servizi
+EPF,1424,Spese correnti,Acquisto beni e servizi
 RIC,1424,Spese correnti,Altre spese
 SP4,1424,Spese correnti,Altre spese
-SP6,1424,Spese correnti,Altre spese
+SP6,1424,Spese correnti,Acquisto beni e servizi
 SP7,1424,Spese correnti,Altre spese
 UNI,1424,Spese correnti,Altre spese
 EGP,1425,Spese correnti,Altre spese
 EPF,1425,Spese correnti,Altre spese
-RIC,1425,Spese correnti,Altre spese
-SP4,1425,Spese correnti,Altre spese
+RIC,1425,Spese correnti,Imposte e tasse
+SP4,1425,Spese correnti,Imposte e tasse
 SP6,1425,Spese correnti,Altre spese
 SP7,1425,Spese correnti,Personale
 UNI,1425,Spese correnti,Personale
-EGP,1426,Spese correnti,Personale
-EPF,1426,Spese correnti,Personale
-RIC,1426,Spese correnti,Personale
-SP4,1426,Spese correnti,Personale
-SP6,1426,Spese correnti,Personale
+EGP,1426,Spese correnti,Altre spese
+EPF,1426,Spese correnti,Altre spese
+RIC,1426,Spese correnti,Altre spese
+SP4,1426,Spese correnti,Altre spese
+SP6,1426,Spese correnti,Altre spese
 SP7,1426,Spese correnti,Personale
 UNI,1426,Spese correnti,Personale
 EGP,1427,Spese correnti,Altre spese
@@ -6906,91 +6906,91 @@ EPF,1427,Spese correnti,Altre spese
 SP6,1427,Spese correnti,Altre spese
 SP7,1427,Spese correnti,Altre spese
 UNI,1427,Spese correnti,Altre spese
-EGP,1428,Spese correnti,Trasferimenti correnti
-EPF,1428,Spese correnti,Trasferimenti correnti
-SP6,1428,Spese correnti,Trasferimenti correnti
-SP7,1428,Spese correnti,Trasferimenti correnti
-UNI,1428,Spese correnti,Trasferimenti correnti
+EGP,1428,Spese correnti,Imposte e tasse
+EPF,1428,Spese correnti,Imposte e tasse
+SP6,1428,Spese correnti,Imposte e tasse
+SP7,1428,Spese correnti,Altre spese
+UNI,1428,Spese correnti,Altre spese
 SP7,1429,Spese correnti,Personale
 UNI,1429,Spese correnti,Personale
 STA,143,Spese correnti,Altre spese
-SP7,1430,Spese correnti,Trasferimenti correnti
-UNI,1430,Spese correnti,Trasferimenti correnti
+SP7,1430,Spese correnti,Altre spese
+UNI,1430,Spese correnti,Altre spese
 SP7,1431,Spese correnti,Personale
 UNI,1431,Spese correnti,Personale
 STA,144,Spese correnti,Altre spese
 SP7,1441,Spese correnti,Personale
 UNI,1441,Spese correnti,Personale
-SP7,1442,Spese correnti,Trasferimenti correnti
-UNI,1442,Spese correnti,Trasferimenti correnti
+SP7,1442,Spese correnti,Altre spese
+UNI,1442,Spese correnti,Altre spese
 SP7,1443,Spese correnti,Personale
 UNI,1443,Spese correnti,Personale
-SP7,1444,Spese correnti,Trasferimenti correnti
-UNI,1444,Spese correnti,Trasferimenti correnti
+SP7,1444,Spese correnti,Altre spese
+UNI,1444,Spese correnti,Altre spese
 SP7,1445,Spese correnti,Personale
 UNI,1445,Spese correnti,Personale
 SP7,1446,Spese correnti,Personale
 UNI,1446,Spese correnti,Personale
-SP7,1447,Spese correnti,Trasferimenti correnti
-UNI,1447,Spese correnti,Trasferimenti correnti
-SP7,1448,Spese correnti,Trasferimenti correnti
-UNI,1448,Spese correnti,Trasferimenti correnti
+SP7,1447,Spese correnti,Altre spese
+UNI,1447,Spese correnti,Altre spese
+SP7,1448,Spese correnti,Altre spese
+UNI,1448,Spese correnti,Altre spese
 SP7,1449,Spese correnti,Personale
 UNI,1449,Spese correnti,Personale
 STA,145,Spese correnti,Altre spese
-SP7,1450,Spese correnti,Trasferimenti correnti
-UNI,1450,Spese correnti,Trasferimenti correnti
+SP7,1450,Spese correnti,Altre spese
+UNI,1450,Spese correnti,Altre spese
 SP7,1451,Spese correnti,Personale
 UNI,1451,Spese correnti,Personale
 STA,146,Spese correnti,Altre spese
 SP7,1461,Spese correnti,Personale
 UNI,1461,Spese correnti,Personale
-SP7,1462,Spese correnti,Trasferimenti correnti
-UNI,1462,Spese correnti,Trasferimenti correnti
+SP7,1462,Spese correnti,Altre spese
+UNI,1462,Spese correnti,Altre spese
 SP7,1463,Spese correnti,Personale
 UNI,1463,Spese correnti,Personale
-SP7,1464,Spese correnti,Trasferimenti correnti
-UNI,1464,Spese correnti,Trasferimenti correnti
+SP7,1464,Spese correnti,Altre spese
+UNI,1464,Spese correnti,Altre spese
 SP7,1465,Spese correnti,Personale
 UNI,1465,Spese correnti,Personale
 SP7,1466,Spese correnti,Personale
 UNI,1466,Spese correnti,Personale
-SP7,1467,Spese correnti,Trasferimenti correnti
-UNI,1467,Spese correnti,Trasferimenti correnti
-SP7,1468,Spese correnti,Trasferimenti correnti
-UNI,1468,Spese correnti,Trasferimenti correnti
+SP7,1467,Spese correnti,Altre spese
+UNI,1467,Spese correnti,Altre spese
+SP7,1468,Spese correnti,Altre spese
+UNI,1468,Spese correnti,Altre spese
 SP7,1469,Spese correnti,Personale
 UNI,1469,Spese correnti,Personale
 STA,147,Spese correnti,Altre spese
-SP7,1470,Spese correnti,Trasferimenti correnti
-UNI,1470,Spese correnti,Trasferimenti correnti
+SP7,1470,Spese correnti,Altre spese
+UNI,1470,Spese correnti,Altre spese
 SP7,1471,Spese correnti,Personale
 UNI,1471,Spese correnti,Personale
 STA,148,Spese correnti,Altre spese
 STA,149,Spese correnti,Altre spese
 EGP,1499,Spese correnti,Acquisto beni e servizi
 EPF,1499,Spese correnti,Acquisto beni e servizi
-MON,1499,Spese correnti,Acquisto beni e servizi
-PRO,1499,Spese correnti,Acquisto beni e servizi
+MON,1499,Spese correnti,Altre spese
+PRO,1499,Spese correnti,Altre spese
 RIC,1499,Spese correnti,Acquisto beni e servizi
-SP1,1499,Spese correnti,Acquisto beni e servizi
-SP3,1499,Spese correnti,Acquisto beni e servizi
+SP1,1499,Spese correnti,Altre spese
+SP3,1499,Spese correnti,Altre spese
 SP4,1499,Spese correnti,Acquisto beni e servizi
 SP6,1499,Spese correnti,Acquisto beni e servizi
 STA,150,Spese correnti,Altre spese
-CDC,1501,Spese correnti,Personale
-MON,1501,Spese correnti,Personale
-PRO,1501,Spese correnti,Personale
+CDC,1501,Spese correnti,Altre spese
+MON,1501,Spese correnti,Trasferimenti correnti
+PRO,1501,Spese correnti,Trasferimenti correnti
 SAN,1501,Spese correnti,Personale
-SP1,1501,Spese correnti,Personale
+SP1,1501,Spese correnti,Trasferimenti correnti
 SP2,1501,Spese correnti,Personale
-SP3,1501,Spese correnti,Personale
-SP5,1501,Spese correnti,Personale
+SP3,1501,Spese correnti,Trasferimenti correnti
+SP5,1501,Spese correnti,Altre spese
 VSN,1501,Spese correnti,Personale
-CDC,1502,Spese correnti,Personale
+CDC,1502,Spese correnti,Altre spese
 SAN,1502,Spese correnti,Personale
 SP2,1502,Spese correnti,Personale
-SP5,1502,Spese correnti,Personale
+SP5,1502,Spese correnti,Altre spese
 VSN,1502,Spese correnti,Personale
 SAN,1503,Spese correnti,Personale
 SP2,1503,Spese correnti,Personale
@@ -7013,9 +7013,9 @@ SP8,1512,Spese correnti,Trasferimenti correnti
 REG,1513,Spese correnti,Trasferimenti correnti
 SP8,1513,Spese correnti,Trasferimenti correnti
 STA,152,Spese correnti,Altre spese
-REG,1520,Spese correnti,Altre spese
+REG,1520,Spese correnti,Trasferimenti correnti
 SP7,1520,Spese correnti,Altre spese
-SP8,1520,Spese correnti,Altre spese
+SP8,1520,Spese correnti,Trasferimenti correnti
 UNI,1520,Spese correnti,Altre spese
 MON,1521,Spese correnti,Trasferimenti correnti
 PRO,1521,Spese correnti,Trasferimenti correnti
@@ -7055,9 +7055,9 @@ SP8,1538,Spese correnti,Trasferimenti correnti
 REG,1539,Spese correnti,Trasferimenti correnti
 SP8,1539,Spese correnti,Trasferimenti correnti
 STA,154,Spese correnti,Acquisto beni e servizi
-REG,1540,Spese correnti,Altre spese
+REG,1540,Spese correnti,Trasferimenti correnti
 SP7,1540,Spese correnti,Altre spese
-SP8,1540,Spese correnti,Altre spese
+SP8,1540,Spese correnti,Trasferimenti correnti
 UNI,1540,Spese correnti,Altre spese
 MON,1541,Spese correnti,Trasferimenti correnti
 PRO,1541,Spese correnti,Trasferimenti correnti
@@ -7099,9 +7099,9 @@ REG,1549,Spese correnti,Trasferimenti correnti
 SP8,1549,Spese correnti,Trasferimenti correnti
 STA,155,Spese correnti,Altre spese
 REG,1550,Spese correnti,Trasferimenti correnti
-SP7,1550,Spese correnti,Trasferimenti correnti
+SP7,1550,Spese correnti,Altre spese
 SP8,1550,Spese correnti,Trasferimenti correnti
-UNI,1550,Spese correnti,Trasferimenti correnti
+UNI,1550,Spese correnti,Altre spese
 MON,1551,Spese correnti,Trasferimenti correnti
 PRO,1551,Spese correnti,Trasferimenti correnti
 REG,1551,Spese correnti,Trasferimenti correnti
@@ -7118,12 +7118,12 @@ REG,1553,Spese correnti,Trasferimenti correnti
 SP8,1553,Spese correnti,Trasferimenti correnti
 REG,1554,Spese correnti,Trasferimenti correnti
 SP8,1554,Spese correnti,Trasferimenti correnti
-REG,1555,Spese correnti,Trasferimenti correnti
-SP8,1555,Spese correnti,Trasferimenti correnti
-REG,1556,Spese correnti,Trasferimenti correnti
-SP8,1556,Spese correnti,Trasferimenti correnti
-REG,1557,Spese correnti,Trasferimenti correnti
-SP8,1557,Spese correnti,Trasferimenti correnti
+REG,1555,Spese correnti,Altre spese
+SP8,1555,Spese correnti,Altre spese
+REG,1556,Spese correnti,Altre spese
+SP8,1556,Spese correnti,Altre spese
+REG,1557,Spese correnti,Altre spese
+SP8,1557,Spese correnti,Altre spese
 REG,1558,Spese correnti,Altre spese
 SP8,1558,Spese correnti,Altre spese
 REG,1559,Spese correnti,Altre spese
@@ -7132,11 +7132,11 @@ REG,1560,Spese correnti,Altre spese
 SP7,1560,Spese correnti,Altre spese
 SP8,1560,Spese correnti,Altre spese
 UNI,1560,Spese correnti,Altre spese
-MON,1561,Spese correnti,Altre spese
-PRO,1561,Spese correnti,Altre spese
+MON,1561,Spese correnti,Trasferimenti correnti
+PRO,1561,Spese correnti,Trasferimenti correnti
 REG,1561,Spese correnti,Altre spese
-SP1,1561,Spese correnti,Altre spese
-SP3,1561,Spese correnti,Altre spese
+SP1,1561,Spese correnti,Trasferimenti correnti
+SP3,1561,Spese correnti,Trasferimenti correnti
 SP8,1561,Spese correnti,Altre spese
 MON,1562,Spese correnti,Trasferimenti correnti
 PRO,1562,Spese correnti,Trasferimenti correnti
@@ -7177,8 +7177,8 @@ MON,1570,Spese correnti,Trasferimenti correnti
 PRO,1570,Spese correnti,Trasferimenti correnti
 SP1,1570,Spese correnti,Trasferimenti correnti
 SP3,1570,Spese correnti,Trasferimenti correnti
-SP7,1570,Spese correnti,Trasferimenti correnti
-UNI,1570,Spese correnti,Trasferimenti correnti
+SP7,1570,Spese correnti,Personale
+UNI,1570,Spese correnti,Personale
 MON,1571,Spese correnti,Trasferimenti correnti
 PRO,1571,Spese correnti,Trasferimenti correnti
 SP1,1571,Spese correnti,Trasferimenti correnti
@@ -7190,10 +7190,10 @@ SP3,1572,Spese correnti,Trasferimenti correnti
 STA,158,Spese correnti,Altre spese
 SP7,1580,Spese correnti,Altre spese
 UNI,1580,Spese correnti,Altre spese
-MON,1581,Spese correnti,Altre spese
-PRO,1581,Spese correnti,Altre spese
-SP1,1581,Spese correnti,Altre spese
-SP3,1581,Spese correnti,Altre spese
+MON,1581,Spese correnti,Trasferimenti correnti
+PRO,1581,Spese correnti,Trasferimenti correnti
+SP1,1581,Spese correnti,Trasferimenti correnti
+SP3,1581,Spese correnti,Trasferimenti correnti
 SP7,1581,Spese correnti,Altre spese
 UNI,1581,Spese correnti,Altre spese
 MON,1582,Spese correnti,Trasferimenti correnti
@@ -7224,22 +7224,22 @@ SP3,1602,Spese correnti,Interessi passivi
 STA,161,Spese correnti,Altre spese
 MON,1611,Spese correnti,Interessi passivi
 PRO,1611,Spese correnti,Interessi passivi
-REG,1611,Spese correnti,Interessi passivi
+REG,1611,Spese correnti,Trasferimenti correnti
 SP1,1611,Spese correnti,Interessi passivi
 SP3,1611,Spese correnti,Interessi passivi
-SP8,1611,Spese correnti,Interessi passivi
+SP8,1611,Spese correnti,Trasferimenti correnti
 MON,1612,Spese correnti,Interessi passivi
 PRO,1612,Spese correnti,Interessi passivi
-REG,1612,Spese correnti,Interessi passivi
+REG,1612,Spese correnti,Trasferimenti correnti
 SP1,1612,Spese correnti,Interessi passivi
 SP3,1612,Spese correnti,Interessi passivi
-SP8,1612,Spese correnti,Interessi passivi
+SP8,1612,Spese correnti,Trasferimenti correnti
 MON,1613,Anticipazioni e partite di giro,Anticipazioni
 PRO,1613,Anticipazioni e partite di giro,Anticipazioni
-REG,1613,Anticipazioni e partite di giro,Anticipazioni
+REG,1613,Spese correnti,Trasferimenti correnti
 SP1,1613,Anticipazioni e partite di giro,Anticipazioni
 SP3,1613,Anticipazioni e partite di giro,Anticipazioni
-SP8,1613,Anticipazioni e partite di giro,Anticipazioni
+SP8,1613,Spese correnti,Trasferimenti correnti
 STA,162,Spese correnti,Altre spese
 MON,1621,Spese correnti,Interessi passivi
 PRO,1621,Spese correnti,Interessi passivi
@@ -7249,24 +7249,24 @@ MON,1622,Spese correnti,Interessi passivi
 PRO,1622,Spese correnti,Interessi passivi
 SP1,1622,Spese correnti,Interessi passivi
 SP3,1622,Spese correnti,Interessi passivi
-MON,1623,Spese correnti,Trasferimenti correnti
-PRO,1623,Spese correnti,Trasferimenti correnti
+MON,1623,Anticipazioni e partite di giro,Anticipazioni
+PRO,1623,Anticipazioni e partite di giro,Anticipazioni
 REG,1623,Spese correnti,Trasferimenti correnti
-SP1,1623,Spese correnti,Trasferimenti correnti
-SP3,1623,Spese correnti,Trasferimenti correnti
+SP1,1623,Anticipazioni e partite di giro,Anticipazioni
+SP3,1623,Anticipazioni e partite di giro,Anticipazioni
 SP8,1623,Spese correnti,Trasferimenti correnti
-MON,1624,Spese correnti,Trasferimenti correnti
-PRO,1624,Spese correnti,Trasferimenti correnti
+MON,1624,Spese correnti,Interessi passivi
+PRO,1624,Spese correnti,Interessi passivi
 REG,1624,Spese correnti,Trasferimenti correnti
-SP1,1624,Spese correnti,Trasferimenti correnti
-SP3,1624,Spese correnti,Trasferimenti correnti
+SP1,1624,Spese correnti,Interessi passivi
+SP3,1624,Spese correnti,Interessi passivi
 SP8,1624,Spese correnti,Trasferimenti correnti
 MON,1625,Spese correnti,Interessi passivi
 PRO,1625,Spese correnti,Interessi passivi
-REG,1625,Spese correnti,Interessi passivi
+REG,1625,Spese correnti,Trasferimenti correnti
 SP1,1625,Spese correnti,Interessi passivi
 SP3,1625,Spese correnti,Interessi passivi
-SP8,1625,Spese correnti,Interessi passivi
+SP8,1625,Spese correnti,Trasferimenti correnti
 MON,1626,Spese correnti,Interessi passivi
 PRO,1626,Spese correnti,Interessi passivi
 SP1,1626,Spese correnti,Interessi passivi
@@ -7287,28 +7287,28 @@ STA,165,Spese correnti,Acquisto beni e servizi
 STA,166,Spese correnti,Acquisto beni e servizi
 STA,167,Spese correnti,Altre spese
 STA,168,Spese correnti,Acquisto beni e servizi
-STA,169,Spese correnti,Trasferimenti correnti
+STA,169,Spese correnti,Altre spese
 MON,1699,Spese correnti,Interessi passivi
 PRO,1699,Spese correnti,Interessi passivi
 SP1,1699,Spese correnti,Interessi passivi
 SP3,1699,Spese correnti,Interessi passivi
-STA,170,Spese correnti,Trasferimenti correnti
+STA,170,Spese correnti,Altre spese
 MON,1701,Spese correnti,Imposte e tasse
 PRO,1701,Spese correnti,Imposte e tasse
 SP1,1701,Spese correnti,Imposte e tasse
 SP3,1701,Spese correnti,Imposte e tasse
-STA,171,Spese correnti,Trasferimenti correnti
+STA,171,Spese correnti,Altre spese
 MON,1711,Spese correnti,Imposte e tasse
 PRO,1711,Spese correnti,Imposte e tasse
-REG,1711,Spese correnti,Imposte e tasse
+REG,1711,Spese correnti,Interessi passivi
 SP1,1711,Spese correnti,Imposte e tasse
 SP3,1711,Spese correnti,Imposte e tasse
-SP8,1711,Spese correnti,Imposte e tasse
-MON,1712,Spese correnti,Interessi passivi
-PRO,1712,Spese correnti,Interessi passivi
+SP8,1711,Spese correnti,Interessi passivi
+MON,1712,Spese correnti,Imposte e tasse
+PRO,1712,Spese correnti,Imposte e tasse
 REG,1712,Spese correnti,Interessi passivi
-SP1,1712,Spese correnti,Interessi passivi
-SP3,1712,Spese correnti,Interessi passivi
+SP1,1712,Spese correnti,Imposte e tasse
+SP3,1712,Spese correnti,Imposte e tasse
 SP8,1712,Spese correnti,Interessi passivi
 MON,1713,Spese correnti,Altre spese
 PRO,1713,Spese correnti,Altre spese
@@ -7331,17 +7331,17 @@ REG,1721,Spese correnti,Interessi passivi
 SP8,1721,Spese correnti,Interessi passivi
 REG,1722,Spese correnti,Interessi passivi
 SP8,1722,Spese correnti,Interessi passivi
-STA,173,Spese correnti,Trasferimenti correnti
+STA,173,Spese correnti,Altre spese
 REG,1731,Spese correnti,Interessi passivi
 SP8,1731,Spese correnti,Interessi passivi
 REG,1732,Spese correnti,Interessi passivi
 SP8,1732,Spese correnti,Interessi passivi
-STA,174,Spese correnti,Trasferimenti correnti
+STA,174,Spese correnti,Altre spese
 REG,1741,Spese correnti,Interessi passivi
 SP8,1741,Spese correnti,Interessi passivi
 REG,1742,Spese correnti,Interessi passivi
 SP8,1742,Spese correnti,Interessi passivi
-STA,175,Spese correnti,Trasferimenti correnti
+STA,175,Spese correnti,Altre spese
 REG,1750,Anticipazioni e partite di giro,Anticipazioni
 SP8,1750,Anticipazioni e partite di giro,Anticipazioni
 STA,176,Spese correnti,Altre spese
@@ -7350,7 +7350,7 @@ SP8,1760,Spese correnti,Interessi passivi
 STA,177,Spese correnti,Altre spese
 REG,1770,Spese correnti,Altre spese
 SP8,1770,Spese correnti,Altre spese
-STA,178,Spese correnti,Trasferimenti correnti
+STA,178,Spese correnti,Altre spese
 STA,179,Spese correnti,Altre spese
 STA,180,Spese correnti,Altre spese
 MON,1801,Spese correnti,Acquisto beni e servizi
@@ -7413,7 +7413,7 @@ SP8,1913,Spese correnti,Altre spese
 STA,192,Spese correnti,Altre spese
 STA,193,Spese correnti,Altre spese
 STA,194,Spese correnti,Altre spese
-STA,195,Spese correnti,Trasferimenti correnti
+STA,195,Spese correnti,Altre spese
 STA,196,Spese correnti,Altre spese
 STA,197,Spese correnti,Altre spese
 STA,198,Spese in conto capitale,Trasferimenti c/capitale
@@ -8537,8 +8537,8 @@ SP3,2.02.04.01.999,Spese in conto capitale,Investimenti fissi
 SP8,2.02.04.01.999,Spese in conto capitale,Investimenti fissi
 VCE,2.02.04.01.999,Spese in conto capitale,Investimenti fissi
 VCF,2.02.04.01.999,Spese in conto capitale,Investimenti fissi
-RIC,2.02.04.02.999,Spese in conto capitale,Contributi investimenti
-SP4,2.02.04.02.999,Spese in conto capitale,Contributi investimenti
+RIC,2.02.04.02.999,Spese correnti,Altre spese
+SP4,2.02.04.02.999,Spese correnti,Altre spese
 AAI,2.02.04.03.001,Spese in conto capitale,Investimenti fissi
 ASP,2.02.04.03.001,Spese in conto capitale,Investimenti fissi
 EPF,2.02.04.03.001,Spese in conto capitale,Investimenti fissi
@@ -12417,186 +12417,186 @@ PRO,2093,Spese correnti,Altre spese
 SP1,2093,Spese correnti,Altre spese
 SP3,2093,Spese correnti,Altre spese
 STA,210,Spese correnti,Altre spese
-CDC,2101,Spese correnti,Acquisto beni e servizi
-MON,2101,Spese correnti,Acquisto beni e servizi
-PRO,2101,Spese correnti,Acquisto beni e servizi
-REG,2101,Spese correnti,Acquisto beni e servizi
-RIC,2101,Spese correnti,Acquisto beni e servizi
+CDC,2101,Spese correnti,Altre spese
+MON,2101,Spese correnti,Altre spese
+PRO,2101,Spese correnti,Altre spese
+REG,2101,Spese correnti,Altre spese
+RIC,2101,Spese correnti,Altre spese
 SAN,2101,Spese correnti,Acquisto beni e servizi
-SP1,2101,Spese correnti,Acquisto beni e servizi
+SP1,2101,Spese correnti,Altre spese
 SP2,2101,Spese correnti,Acquisto beni e servizi
-SP3,2101,Spese correnti,Acquisto beni e servizi
-SP4,2101,Spese correnti,Acquisto beni e servizi
-SP5,2101,Spese correnti,Acquisto beni e servizi
-SP8,2101,Spese correnti,Acquisto beni e servizi
+SP3,2101,Spese correnti,Altre spese
+SP4,2101,Spese correnti,Altre spese
+SP5,2101,Spese correnti,Altre spese
+SP8,2101,Spese correnti,Altre spese
 VSN,2101,Spese correnti,Acquisto beni e servizi
-CDC,2102,Spese correnti,Acquisto beni e servizi
-MON,2102,Spese correnti,Acquisto beni e servizi
-PRO,2102,Spese correnti,Acquisto beni e servizi
-REG,2102,Spese correnti,Acquisto beni e servizi
+CDC,2102,Spese correnti,Altre spese
+MON,2102,Spese correnti,Altre spese
+PRO,2102,Spese correnti,Altre spese
+REG,2102,Spese correnti,Altre spese
 RIC,2102,Spese correnti,Personale
 SAN,2102,Spese correnti,Acquisto beni e servizi
-SP1,2102,Spese correnti,Acquisto beni e servizi
+SP1,2102,Spese correnti,Altre spese
 SP2,2102,Spese correnti,Acquisto beni e servizi
-SP3,2102,Spese correnti,Acquisto beni e servizi
+SP3,2102,Spese correnti,Altre spese
 SP4,2102,Spese correnti,Personale
-SP5,2102,Spese correnti,Acquisto beni e servizi
-SP8,2102,Spese correnti,Acquisto beni e servizi
+SP5,2102,Spese correnti,Altre spese
+SP8,2102,Spese correnti,Altre spese
 VSN,2102,Spese correnti,Acquisto beni e servizi
-CDC,2103,Spese correnti,Acquisto beni e servizi
-MON,2103,Spese correnti,Acquisto beni e servizi
-PRO,2103,Spese correnti,Acquisto beni e servizi
-REG,2103,Spese correnti,Acquisto beni e servizi
-RIC,2103,Spese correnti,Acquisto beni e servizi
+CDC,2103,Spese correnti,Altre spese
+MON,2103,Spese correnti,Altre spese
+PRO,2103,Spese correnti,Altre spese
+REG,2103,Spese correnti,Altre spese
+RIC,2103,Spese correnti,Altre spese
 SAN,2103,Spese correnti,Acquisto beni e servizi
-SP1,2103,Spese correnti,Acquisto beni e servizi
+SP1,2103,Spese correnti,Altre spese
 SP2,2103,Spese correnti,Acquisto beni e servizi
-SP3,2103,Spese correnti,Acquisto beni e servizi
-SP4,2103,Spese correnti,Acquisto beni e servizi
-SP5,2103,Spese correnti,Acquisto beni e servizi
-SP8,2103,Spese correnti,Acquisto beni e servizi
+SP3,2103,Spese correnti,Altre spese
+SP4,2103,Spese correnti,Altre spese
+SP5,2103,Spese correnti,Altre spese
+SP8,2103,Spese correnti,Altre spese
 VSN,2103,Spese correnti,Acquisto beni e servizi
 CDC,2104,Spese correnti,Acquisto beni e servizi
-REG,2104,Spese correnti,Acquisto beni e servizi
+REG,2104,Spese correnti,Altre spese
 RIC,2104,Spese correnti,Acquisto beni e servizi
 SAN,2104,Spese correnti,Acquisto beni e servizi
 SP2,2104,Spese correnti,Acquisto beni e servizi
 SP4,2104,Spese correnti,Acquisto beni e servizi
 SP5,2104,Spese correnti,Acquisto beni e servizi
-SP8,2104,Spese correnti,Acquisto beni e servizi
+SP8,2104,Spese correnti,Altre spese
 VSN,2104,Spese correnti,Acquisto beni e servizi
-CDC,2105,Spese correnti,Acquisto beni e servizi
-REG,2105,Spese correnti,Acquisto beni e servizi
-RIC,2105,Spese correnti,Acquisto beni e servizi
+CDC,2105,Spese correnti,Altre spese
+REG,2105,Spese correnti,Altre spese
+RIC,2105,Spese correnti,Altre spese
 SAN,2105,Spese correnti,Acquisto beni e servizi
 SP2,2105,Spese correnti,Acquisto beni e servizi
-SP4,2105,Spese correnti,Acquisto beni e servizi
-SP5,2105,Spese correnti,Acquisto beni e servizi
-SP8,2105,Spese correnti,Acquisto beni e servizi
+SP4,2105,Spese correnti,Altre spese
+SP5,2105,Spese correnti,Altre spese
+SP8,2105,Spese correnti,Altre spese
 VSN,2105,Spese correnti,Acquisto beni e servizi
-CDC,2106,Spese correnti,Acquisto beni e servizi
-MON,2106,Spese correnti,Acquisto beni e servizi
-PRO,2106,Spese correnti,Acquisto beni e servizi
-REG,2106,Spese correnti,Acquisto beni e servizi
+CDC,2106,Spese correnti,Altre spese
+MON,2106,Spese correnti,Altre spese
+PRO,2106,Spese correnti,Altre spese
+REG,2106,Spese correnti,Altre spese
 SAN,2106,Spese correnti,Acquisto beni e servizi
-SP1,2106,Spese correnti,Acquisto beni e servizi
+SP1,2106,Spese correnti,Altre spese
 SP2,2106,Spese correnti,Acquisto beni e servizi
-SP3,2106,Spese correnti,Acquisto beni e servizi
-SP5,2106,Spese correnti,Acquisto beni e servizi
-SP8,2106,Spese correnti,Acquisto beni e servizi
+SP3,2106,Spese correnti,Altre spese
+SP5,2106,Spese correnti,Altre spese
+SP8,2106,Spese correnti,Altre spese
 VSN,2106,Spese correnti,Acquisto beni e servizi
-CDC,2107,Spese correnti,Acquisto beni e servizi
-MON,2107,Spese correnti,Acquisto beni e servizi
-PRO,2107,Spese correnti,Acquisto beni e servizi
-REG,2107,Spese correnti,Acquisto beni e servizi
+CDC,2107,Spese correnti,Altre spese
+MON,2107,Spese correnti,Altre spese
+PRO,2107,Spese correnti,Altre spese
+REG,2107,Spese correnti,Altre spese
 SAN,2107,Spese correnti,Acquisto beni e servizi
-SP1,2107,Spese correnti,Acquisto beni e servizi
+SP1,2107,Spese correnti,Altre spese
 SP2,2107,Spese correnti,Acquisto beni e servizi
-SP3,2107,Spese correnti,Acquisto beni e servizi
-SP5,2107,Spese correnti,Acquisto beni e servizi
-SP8,2107,Spese correnti,Acquisto beni e servizi
+SP3,2107,Spese correnti,Altre spese
+SP5,2107,Spese correnti,Altre spese
+SP8,2107,Spese correnti,Altre spese
 VSN,2107,Spese correnti,Acquisto beni e servizi
-CDC,2108,Spese correnti,Acquisto beni e servizi
-MON,2108,Spese correnti,Acquisto beni e servizi
-PRO,2108,Spese correnti,Acquisto beni e servizi
-REG,2108,Spese correnti,Acquisto beni e servizi
+CDC,2108,Spese correnti,Personale
+MON,2108,Spese correnti,Altre spese
+PRO,2108,Spese correnti,Altre spese
+REG,2108,Spese correnti,Altre spese
 SAN,2108,Spese correnti,Acquisto beni e servizi
-SP1,2108,Spese correnti,Acquisto beni e servizi
+SP1,2108,Spese correnti,Altre spese
 SP2,2108,Spese correnti,Acquisto beni e servizi
-SP3,2108,Spese correnti,Acquisto beni e servizi
-SP5,2108,Spese correnti,Acquisto beni e servizi
-SP8,2108,Spese correnti,Acquisto beni e servizi
+SP3,2108,Spese correnti,Altre spese
+SP5,2108,Spese correnti,Personale
+SP8,2108,Spese correnti,Altre spese
 VSN,2108,Spese correnti,Acquisto beni e servizi
 CDC,2109,Spese correnti,Acquisto beni e servizi
-MON,2109,Spese correnti,Acquisto beni e servizi
-PRO,2109,Spese correnti,Acquisto beni e servizi
-REG,2109,Spese correnti,Acquisto beni e servizi
+MON,2109,Spese correnti,Altre spese
+PRO,2109,Spese correnti,Altre spese
+REG,2109,Spese correnti,Altre spese
 SAN,2109,Spese correnti,Acquisto beni e servizi
-SP1,2109,Spese correnti,Acquisto beni e servizi
+SP1,2109,Spese correnti,Altre spese
 SP2,2109,Spese correnti,Acquisto beni e servizi
-SP3,2109,Spese correnti,Acquisto beni e servizi
+SP3,2109,Spese correnti,Altre spese
 SP5,2109,Spese correnti,Acquisto beni e servizi
-SP8,2109,Spese correnti,Acquisto beni e servizi
+SP8,2109,Spese correnti,Altre spese
 VSN,2109,Spese correnti,Acquisto beni e servizi
 STA,211,Spese correnti,Altre spese
 CDC,2110,Spese correnti,Acquisto beni e servizi
-MON,2110,Spese correnti,Acquisto beni e servizi
-PRO,2110,Spese correnti,Acquisto beni e servizi
-REG,2110,Spese correnti,Acquisto beni e servizi
+MON,2110,Spese correnti,Altre spese
+PRO,2110,Spese correnti,Altre spese
+REG,2110,Spese correnti,Altre spese
 SAN,2110,Spese correnti,Acquisto beni e servizi
-SP1,2110,Spese correnti,Acquisto beni e servizi
+SP1,2110,Spese correnti,Altre spese
 SP2,2110,Spese correnti,Acquisto beni e servizi
-SP3,2110,Spese correnti,Acquisto beni e servizi
+SP3,2110,Spese correnti,Altre spese
 SP5,2110,Spese correnti,Acquisto beni e servizi
-SP7,2110,Spese correnti,Acquisto beni e servizi
-SP8,2110,Spese correnti,Acquisto beni e servizi
-UNI,2110,Spese correnti,Acquisto beni e servizi
+SP7,2110,Spese correnti,Altre spese
+SP8,2110,Spese correnti,Altre spese
+UNI,2110,Spese correnti,Altre spese
 VSN,2110,Spese correnti,Acquisto beni e servizi
-CDC,2111,Spese correnti,Acquisto beni e servizi
-MON,2111,Spese correnti,Acquisto beni e servizi
-PRO,2111,Spese correnti,Acquisto beni e servizi
-REG,2111,Spese correnti,Acquisto beni e servizi
+CDC,2111,Spese correnti,Altre spese
+MON,2111,Spese correnti,Altre spese
+PRO,2111,Spese correnti,Altre spese
+REG,2111,Spese correnti,Altre spese
 SAN,2111,Spese correnti,Acquisto beni e servizi
-SP1,2111,Spese correnti,Acquisto beni e servizi
+SP1,2111,Spese correnti,Altre spese
 SP2,2111,Spese correnti,Acquisto beni e servizi
-SP3,2111,Spese correnti,Acquisto beni e servizi
-SP5,2111,Spese correnti,Acquisto beni e servizi
-SP8,2111,Spese correnti,Acquisto beni e servizi
+SP3,2111,Spese correnti,Altre spese
+SP5,2111,Spese correnti,Altre spese
+SP8,2111,Spese correnti,Altre spese
 VSN,2111,Spese correnti,Acquisto beni e servizi
-CDC,2112,Spese correnti,Acquisto beni e servizi
-MON,2112,Spese correnti,Acquisto beni e servizi
-PRO,2112,Spese correnti,Acquisto beni e servizi
-REG,2112,Spese correnti,Acquisto beni e servizi
+CDC,2112,Spese correnti,Altre spese
+MON,2112,Spese correnti,Altre spese
+PRO,2112,Spese correnti,Altre spese
+REG,2112,Spese correnti,Altre spese
 SAN,2112,Spese correnti,Acquisto beni e servizi
-SP1,2112,Spese correnti,Acquisto beni e servizi
+SP1,2112,Spese correnti,Altre spese
 SP2,2112,Spese correnti,Acquisto beni e servizi
-SP3,2112,Spese correnti,Acquisto beni e servizi
-SP5,2112,Spese correnti,Acquisto beni e servizi
-SP8,2112,Spese correnti,Acquisto beni e servizi
+SP3,2112,Spese correnti,Altre spese
+SP5,2112,Spese correnti,Altre spese
+SP8,2112,Spese correnti,Altre spese
 VSN,2112,Spese correnti,Acquisto beni e servizi
 CDC,2113,Spese correnti,Acquisto beni e servizi
-MON,2113,Spese correnti,Acquisto beni e servizi
-PRO,2113,Spese correnti,Acquisto beni e servizi
-REG,2113,Spese correnti,Acquisto beni e servizi
+MON,2113,Spese correnti,Altre spese
+PRO,2113,Spese correnti,Altre spese
+REG,2113,Spese correnti,Altre spese
 SAN,2113,Spese correnti,Acquisto beni e servizi
-SP1,2113,Spese correnti,Acquisto beni e servizi
+SP1,2113,Spese correnti,Altre spese
 SP2,2113,Spese correnti,Acquisto beni e servizi
-SP3,2113,Spese correnti,Acquisto beni e servizi
+SP3,2113,Spese correnti,Altre spese
 SP5,2113,Spese correnti,Acquisto beni e servizi
-SP8,2113,Spese correnti,Acquisto beni e servizi
+SP8,2113,Spese correnti,Altre spese
 VSN,2113,Spese correnti,Acquisto beni e servizi
-CDC,2114,Spese correnti,Acquisto beni e servizi
+CDC,2114,Spese correnti,Personale
 MON,2114,Spese correnti,Acquisto beni e servizi
 PRO,2114,Spese correnti,Acquisto beni e servizi
 REG,2114,Spese correnti,Acquisto beni e servizi
 SP1,2114,Spese correnti,Acquisto beni e servizi
 SP3,2114,Spese correnti,Acquisto beni e servizi
-SP5,2114,Spese correnti,Acquisto beni e servizi
+SP5,2114,Spese correnti,Personale
 SP8,2114,Spese correnti,Acquisto beni e servizi
-CDC,2115,Spese correnti,Acquisto beni e servizi
-MON,2115,Spese correnti,Acquisto beni e servizi
-PRO,2115,Spese correnti,Acquisto beni e servizi
-REG,2115,Spese correnti,Acquisto beni e servizi
-SP1,2115,Spese correnti,Acquisto beni e servizi
-SP3,2115,Spese correnti,Acquisto beni e servizi
-SP5,2115,Spese correnti,Acquisto beni e servizi
-SP8,2115,Spese correnti,Acquisto beni e servizi
-CDC,2116,Spese correnti,Acquisto beni e servizi
-MON,2116,Spese correnti,Acquisto beni e servizi
-PRO,2116,Spese correnti,Acquisto beni e servizi
-REG,2116,Spese correnti,Acquisto beni e servizi
-SP1,2116,Spese correnti,Acquisto beni e servizi
-SP3,2116,Spese correnti,Acquisto beni e servizi
-SP5,2116,Spese correnti,Acquisto beni e servizi
-SP8,2116,Spese correnti,Acquisto beni e servizi
+CDC,2115,Spese correnti,Altre spese
+MON,2115,Spese correnti,Altre spese
+PRO,2115,Spese correnti,Altre spese
+REG,2115,Spese correnti,Altre spese
+SP1,2115,Spese correnti,Altre spese
+SP3,2115,Spese correnti,Altre spese
+SP5,2115,Spese correnti,Altre spese
+SP8,2115,Spese correnti,Altre spese
+CDC,2116,Spese correnti,Altre spese
+MON,2116,Spese correnti,Altre spese
+PRO,2116,Spese correnti,Altre spese
+REG,2116,Spese correnti,Altre spese
+SP1,2116,Spese correnti,Altre spese
+SP3,2116,Spese correnti,Altre spese
+SP5,2116,Spese correnti,Altre spese
+SP8,2116,Spese correnti,Altre spese
 CDC,2117,Spese correnti,Acquisto beni e servizi
-MON,2117,Spese correnti,Acquisto beni e servizi
-PRO,2117,Spese correnti,Acquisto beni e servizi
-REG,2117,Spese correnti,Acquisto beni e servizi
-SP1,2117,Spese correnti,Acquisto beni e servizi
-SP3,2117,Spese correnti,Acquisto beni e servizi
+MON,2117,Spese correnti,Altre spese
+PRO,2117,Spese correnti,Altre spese
+REG,2117,Spese correnti,Altre spese
+SP1,2117,Spese correnti,Altre spese
+SP3,2117,Spese correnti,Altre spese
 SP5,2117,Spese correnti,Acquisto beni e servizi
-SP8,2117,Spese correnti,Acquisto beni e servizi
+SP8,2117,Spese correnti,Altre spese
 CDC,2118,Spese correnti,Altre spese
 MON,2118,Spese correnti,Altre spese
 PRO,2118,Spese correnti,Altre spese
@@ -12606,8 +12606,8 @@ SP5,2118,Spese correnti,Altre spese
 CDC,2119,Spese correnti,Acquisto beni e servizi
 SP5,2119,Spese correnti,Acquisto beni e servizi
 STA,212,Spese correnti,Altre spese
-CDC,2120,Spese correnti,Altre spese
-SP5,2120,Spese correnti,Altre spese
+CDC,2120,Spese correnti,Acquisto beni e servizi
+SP5,2120,Spese correnti,Acquisto beni e servizi
 SP7,2120,Spese correnti,Altre spese
 UNI,2120,Spese correnti,Altre spese
 CDC,2121,Spese correnti,Altre spese
@@ -12655,10 +12655,10 @@ SP8,2141,Spese correnti,Altre spese
 REG,2142,Spese correnti,Altre spese
 SP8,2142,Spese correnti,Altre spese
 STA,215,Spese correnti,Altre spese
-STA,216,Spese in conto capitale,Investimenti fissi
-STA,217,Spese in conto capitale,Investimenti fissi
-STA,218,Spese in conto capitale,Investimenti fissi
-STA,219,Spese in conto capitale,Investimenti fissi
+STA,216,Spese correnti,Altre spese
+STA,217,Spese correnti,Altre spese
+STA,218,Spese correnti,Altre spese
+STA,219,Spese correnti,Altre spese
 SAN,2198,Spese correnti,Acquisto beni e servizi
 SP2,2198,Spese correnti,Acquisto beni e servizi
 VSN,2198,Spese correnti,Acquisto beni e servizi
@@ -12668,65 +12668,65 @@ SP2,2199,Spese correnti,Acquisto beni e servizi
 SP4,2199,Spese correnti,Acquisto beni e servizi
 VSN,2199,Spese correnti,Acquisto beni e servizi
 STA,220,Spese correnti,Altre spese
-EGP,2201,Spese correnti,Acquisto beni e servizi
-EPF,2201,Spese correnti,Acquisto beni e servizi
-MON,2201,Spese correnti,Acquisto beni e servizi
-PRO,2201,Spese correnti,Acquisto beni e servizi
-RIC,2201,Spese correnti,Acquisto beni e servizi
+EGP,2201,Spese correnti,Trasferimenti correnti
+EPF,2201,Spese correnti,Trasferimenti correnti
+MON,2201,Spese correnti,Altre spese
+PRO,2201,Spese correnti,Altre spese
+RIC,2201,Spese correnti,Trasferimenti correnti
 SAN,2201,Spese correnti,Acquisto beni e servizi
-SP1,2201,Spese correnti,Acquisto beni e servizi
+SP1,2201,Spese correnti,Altre spese
 SP2,2201,Spese correnti,Acquisto beni e servizi
-SP3,2201,Spese correnti,Acquisto beni e servizi
-SP4,2201,Spese correnti,Acquisto beni e servizi
-SP6,2201,Spese correnti,Acquisto beni e servizi
+SP3,2201,Spese correnti,Altre spese
+SP4,2201,Spese correnti,Trasferimenti correnti
+SP6,2201,Spese correnti,Trasferimenti correnti
 VSN,2201,Spese correnti,Acquisto beni e servizi
-EGP,2202,Spese correnti,Acquisto beni e servizi
-EPF,2202,Spese correnti,Acquisto beni e servizi
-RIC,2202,Spese correnti,Acquisto beni e servizi
+EGP,2202,Spese correnti,Trasferimenti correnti
+EPF,2202,Spese correnti,Trasferimenti correnti
+RIC,2202,Spese correnti,Trasferimenti correnti
 SAN,2202,Spese correnti,Acquisto beni e servizi
 SP2,2202,Spese correnti,Acquisto beni e servizi
-SP4,2202,Spese correnti,Acquisto beni e servizi
-SP6,2202,Spese correnti,Acquisto beni e servizi
+SP4,2202,Spese correnti,Trasferimenti correnti
+SP6,2202,Spese correnti,Trasferimenti correnti
 VSN,2202,Spese correnti,Acquisto beni e servizi
-EGP,2203,Spese correnti,Acquisto beni e servizi
-EPF,2203,Spese correnti,Acquisto beni e servizi
-RIC,2203,Spese correnti,Acquisto beni e servizi
+EGP,2203,Spese correnti,Trasferimenti correnti
+EPF,2203,Spese correnti,Trasferimenti correnti
+RIC,2203,Spese correnti,Trasferimenti correnti
 SAN,2203,Spese correnti,Acquisto beni e servizi
 SP2,2203,Spese correnti,Acquisto beni e servizi
-SP4,2203,Spese correnti,Acquisto beni e servizi
-SP6,2203,Spese correnti,Acquisto beni e servizi
+SP4,2203,Spese correnti,Trasferimenti correnti
+SP6,2203,Spese correnti,Trasferimenti correnti
 VSN,2203,Spese correnti,Acquisto beni e servizi
-EGP,2204,Spese correnti,Acquisto beni e servizi
-EPF,2204,Spese correnti,Acquisto beni e servizi
-RIC,2204,Spese correnti,Acquisto beni e servizi
+EGP,2204,Spese correnti,Trasferimenti correnti
+EPF,2204,Spese correnti,Trasferimenti correnti
+RIC,2204,Spese correnti,Trasferimenti correnti
 SAN,2204,Spese correnti,Acquisto beni e servizi
 SP2,2204,Spese correnti,Acquisto beni e servizi
-SP4,2204,Spese correnti,Acquisto beni e servizi
-SP6,2204,Spese correnti,Acquisto beni e servizi
+SP4,2204,Spese correnti,Trasferimenti correnti
+SP6,2204,Spese correnti,Trasferimenti correnti
 VSN,2204,Spese correnti,Acquisto beni e servizi
-EGP,2205,Spese correnti,Acquisto beni e servizi
-EPF,2205,Spese correnti,Acquisto beni e servizi
-RIC,2205,Spese correnti,Acquisto beni e servizi
+EGP,2205,Spese correnti,Trasferimenti correnti
+EPF,2205,Spese correnti,Trasferimenti correnti
+RIC,2205,Spese correnti,Trasferimenti correnti
 SAN,2205,Spese correnti,Acquisto beni e servizi
 SP2,2205,Spese correnti,Acquisto beni e servizi
-SP4,2205,Spese correnti,Acquisto beni e servizi
-SP6,2205,Spese correnti,Acquisto beni e servizi
+SP4,2205,Spese correnti,Trasferimenti correnti
+SP6,2205,Spese correnti,Trasferimenti correnti
 VSN,2205,Spese correnti,Acquisto beni e servizi
-EGP,2206,Spese correnti,Acquisto beni e servizi
-EPF,2206,Spese correnti,Acquisto beni e servizi
-RIC,2206,Spese correnti,Acquisto beni e servizi
+EGP,2206,Spese correnti,Trasferimenti correnti
+EPF,2206,Spese correnti,Trasferimenti correnti
+RIC,2206,Spese correnti,Trasferimenti correnti
 SAN,2206,Spese correnti,Acquisto beni e servizi
 SP2,2206,Spese correnti,Acquisto beni e servizi
-SP4,2206,Spese correnti,Acquisto beni e servizi
-SP6,2206,Spese correnti,Acquisto beni e servizi
+SP4,2206,Spese correnti,Trasferimenti correnti
+SP6,2206,Spese correnti,Trasferimenti correnti
 VSN,2206,Spese correnti,Acquisto beni e servizi
-EGP,2207,Spese correnti,Acquisto beni e servizi
-EPF,2207,Spese correnti,Acquisto beni e servizi
-RIC,2207,Spese correnti,Acquisto beni e servizi
+EGP,2207,Spese correnti,Trasferimenti correnti
+EPF,2207,Spese correnti,Trasferimenti correnti
+RIC,2207,Spese correnti,Trasferimenti correnti
 SAN,2207,Spese correnti,Acquisto beni e servizi
 SP2,2207,Spese correnti,Acquisto beni e servizi
-SP4,2207,Spese correnti,Acquisto beni e servizi
-SP6,2207,Spese correnti,Acquisto beni e servizi
+SP4,2207,Spese correnti,Trasferimenti correnti
+SP6,2207,Spese correnti,Trasferimenti correnti
 VSN,2207,Spese correnti,Acquisto beni e servizi
 EGP,2208,Spese correnti,Trasferimenti correnti
 EPF,2208,Spese correnti,Trasferimenti correnti
@@ -12744,31 +12744,31 @@ EPF,2210,Spese correnti,Trasferimenti correnti
 RIC,2210,Spese correnti,Trasferimenti correnti
 SP4,2210,Spese correnti,Trasferimenti correnti
 SP6,2210,Spese correnti,Trasferimenti correnti
-EGP,2211,Spese in conto capitale,Trasferimenti c/capitale
-EPF,2211,Spese in conto capitale,Trasferimenti c/capitale
+EGP,2211,Spese correnti,Trasferimenti correnti
+EPF,2211,Spese correnti,Trasferimenti correnti
 REG,2211,Spese in conto capitale,Trasferimenti c/capitale
-RIC,2211,Spese in conto capitale,Trasferimenti c/capitale
-SP4,2211,Spese in conto capitale,Trasferimenti c/capitale
-SP6,2211,Spese in conto capitale,Trasferimenti c/capitale
+RIC,2211,Spese correnti,Trasferimenti correnti
+SP4,2211,Spese correnti,Trasferimenti correnti
+SP6,2211,Spese correnti,Trasferimenti correnti
 SP8,2211,Spese in conto capitale,Trasferimenti c/capitale
 EGP,2212,Spese correnti,Trasferimenti correnti
 EPF,2212,Spese correnti,Trasferimenti correnti
-REG,2212,Spese correnti,Trasferimenti correnti
+REG,2212,Spese in conto capitale,Trasferimenti c/capitale
 RIC,2212,Spese correnti,Trasferimenti correnti
 SP4,2212,Spese correnti,Trasferimenti correnti
 SP6,2212,Spese correnti,Trasferimenti correnti
-SP7,2212,Spese correnti,Trasferimenti correnti
-SP8,2212,Spese correnti,Trasferimenti correnti
-UNI,2212,Spese correnti,Trasferimenti correnti
-EGP,2213,Spese in conto capitale,Trasferimenti c/capitale
-EPF,2213,Spese in conto capitale,Trasferimenti c/capitale
+SP7,2212,Spese correnti,Altre spese
+SP8,2212,Spese in conto capitale,Trasferimenti c/capitale
+UNI,2212,Spese correnti,Altre spese
+EGP,2213,Spese correnti,Trasferimenti correnti
+EPF,2213,Spese correnti,Trasferimenti correnti
 REG,2213,Spese in conto capitale,Trasferimenti c/capitale
-RIC,2213,Spese in conto capitale,Trasferimenti c/capitale
-SP4,2213,Spese in conto capitale,Trasferimenti c/capitale
-SP6,2213,Spese in conto capitale,Trasferimenti c/capitale
-SP7,2213,Spese in conto capitale,Trasferimenti c/capitale
+RIC,2213,Spese correnti,Trasferimenti correnti
+SP4,2213,Spese correnti,Trasferimenti correnti
+SP6,2213,Spese correnti,Trasferimenti correnti
+SP7,2213,Spese correnti,Altre spese
 SP8,2213,Spese in conto capitale,Trasferimenti c/capitale
-UNI,2213,Spese in conto capitale,Trasferimenti c/capitale
+UNI,2213,Spese correnti,Altre spese
 EGP,2214,Spese correnti,Trasferimenti correnti
 EPF,2214,Spese correnti,Trasferimenti correnti
 RIC,2214,Spese correnti,Trasferimenti correnti
@@ -12779,15 +12779,15 @@ EPF,2215,Spese correnti,Trasferimenti correnti
 RIC,2215,Spese correnti,Trasferimenti correnti
 SP4,2215,Spese correnti,Trasferimenti correnti
 SP6,2215,Spese correnti,Trasferimenti correnti
-SP7,2215,Spese correnti,Trasferimenti correnti
-UNI,2215,Spese correnti,Trasferimenti correnti
+SP7,2215,Spese correnti,Altre spese
+UNI,2215,Spese correnti,Altre spese
 EGP,2216,Spese correnti,Trasferimenti correnti
 EPF,2216,Spese correnti,Trasferimenti correnti
 RIC,2216,Spese correnti,Trasferimenti correnti
 SP4,2216,Spese correnti,Trasferimenti correnti
 SP6,2216,Spese correnti,Trasferimenti correnti
-SP7,2216,Spese correnti,Trasferimenti correnti
-UNI,2216,Spese correnti,Trasferimenti correnti
+SP7,2216,Spese correnti,Altre spese
+UNI,2216,Spese correnti,Altre spese
 EGP,2217,Spese correnti,Trasferimenti correnti
 EPF,2217,Spese correnti,Trasferimenti correnti
 RIC,2217,Spese correnti,Trasferimenti correnti
@@ -12804,21 +12804,21 @@ RIC,2219,Spese correnti,Trasferimenti correnti
 SP4,2219,Spese correnti,Trasferimenti correnti
 SP6,2219,Spese correnti,Trasferimenti correnti
 STA,222,Spese correnti,Altre spese
-EGP,2220,Spese in conto capitale,Trasferimenti c/capitale
-EPF,2220,Spese in conto capitale,Trasferimenti c/capitale
+EGP,2220,Spese correnti,Trasferimenti correnti
+EPF,2220,Spese correnti,Trasferimenti correnti
 REG,2220,Spese in conto capitale,Trasferimenti c/capitale
-SP6,2220,Spese in conto capitale,Trasferimenti c/capitale
+SP6,2220,Spese correnti,Trasferimenti correnti
 SP8,2220,Spese in conto capitale,Trasferimenti c/capitale
-EGP,2221,Spese correnti,Acquisto beni e servizi
-EPF,2221,Spese correnti,Acquisto beni e servizi
-SP6,2221,Spese correnti,Acquisto beni e servizi
+EGP,2221,Spese correnti,Trasferimenti correnti
+EPF,2221,Spese correnti,Trasferimenti correnti
+SP6,2221,Spese correnti,Trasferimenti correnti
 SP7,2221,Spese correnti,Acquisto beni e servizi
 UNI,2221,Spese correnti,Acquisto beni e servizi
 EGP,2222,Spese correnti,Trasferimenti correnti
 EPF,2222,Spese correnti,Trasferimenti correnti
 SP6,2222,Spese correnti,Trasferimenti correnti
-SP7,2222,Spese correnti,Trasferimenti correnti
-UNI,2222,Spese correnti,Trasferimenti correnti
+SP7,2222,Spese correnti,Altre spese
+UNI,2222,Spese correnti,Altre spese
 SP7,2223,Spese correnti,Altre spese
 UNI,2223,Spese correnti,Altre spese
 SP7,2224,Spese correnti,Altre spese
@@ -12837,13 +12837,13 @@ STA,223,Spese correnti,Altre spese
 SP7,2230,Spese correnti,Acquisto beni e servizi
 UNI,2230,Spese correnti,Acquisto beni e servizi
 REG,2231,Spese in conto capitale,Trasferimenti c/capitale
-SP7,2231,Spese in conto capitale,Trasferimenti c/capitale
+SP7,2231,Spese correnti,Altre spese
 SP8,2231,Spese in conto capitale,Trasferimenti c/capitale
-UNI,2231,Spese in conto capitale,Trasferimenti c/capitale
+UNI,2231,Spese correnti,Altre spese
 REG,2232,Spese in conto capitale,Trasferimenti c/capitale
-SP7,2232,Spese in conto capitale,Trasferimenti c/capitale
+SP7,2232,Spese correnti,Altre spese
 SP8,2232,Spese in conto capitale,Trasferimenti c/capitale
-UNI,2232,Spese in conto capitale,Trasferimenti c/capitale
+UNI,2232,Spese correnti,Altre spese
 REG,2233,Spese in conto capitale,Trasferimenti c/capitale
 SP8,2233,Spese in conto capitale,Trasferimenti c/capitale
 REG,2234,Spese in conto capitale,Trasferimenti c/capitale
@@ -12937,15 +12937,15 @@ SP2,2299,Spese correnti,Acquisto beni e servizi
 SP5,2299,Spese correnti,Acquisto beni e servizi
 VSN,2299,Spese correnti,Acquisto beni e servizi
 STA,230,Spese correnti,Altre spese
-EGP,2301,Spese correnti,Altre spese
-EPF,2301,Spese correnti,Altre spese
+EGP,2301,Spese correnti,Interessi passivi
+EPF,2301,Spese correnti,Interessi passivi
 MON,2301,Spese correnti,Altre spese
 PRO,2301,Spese correnti,Altre spese
-RIC,2301,Spese correnti,Altre spese
+RIC,2301,Spese correnti,Interessi passivi
 SP1,2301,Spese correnti,Altre spese
 SP3,2301,Spese correnti,Altre spese
-SP4,2301,Spese correnti,Altre spese
-SP6,2301,Spese correnti,Altre spese
+SP4,2301,Spese correnti,Interessi passivi
+SP6,2301,Spese correnti,Interessi passivi
 EGP,2302,Spese correnti,Interessi passivi
 EPF,2302,Spese correnti,Interessi passivi
 RIC,2302,Spese correnti,Interessi passivi
@@ -12970,26 +12970,26 @@ RIC,2306,Anticipazioni e partite di giro,Anticipazioni
 SP4,2306,Anticipazioni e partite di giro,Anticipazioni
 SP6,2306,Anticipazioni e partite di giro,Anticipazioni
 STA,231,Spese correnti,Altre spese
-REG,2311,Spese correnti,Acquisto beni e servizi
-SP7,2311,Spese correnti,Acquisto beni e servizi
-SP8,2311,Spese correnti,Acquisto beni e servizi
-UNI,2311,Spese correnti,Acquisto beni e servizi
-REG,2312,Spese correnti,Acquisto beni e servizi
-SP7,2312,Spese correnti,Acquisto beni e servizi
-SP8,2312,Spese correnti,Acquisto beni e servizi
-UNI,2312,Spese correnti,Acquisto beni e servizi
-REG,2313,Spese correnti,Acquisto beni e servizi
-SP7,2313,Spese correnti,Acquisto beni e servizi
-SP8,2313,Spese correnti,Acquisto beni e servizi
-UNI,2313,Spese correnti,Acquisto beni e servizi
-SP7,2314,Spese correnti,Acquisto beni e servizi
-UNI,2314,Spese correnti,Acquisto beni e servizi
-SP7,2315,Spese correnti,Acquisto beni e servizi
-UNI,2315,Spese correnti,Acquisto beni e servizi
-SP7,2316,Spese correnti,Acquisto beni e servizi
-UNI,2316,Spese correnti,Acquisto beni e servizi
-SP7,2317,Spese correnti,Acquisto beni e servizi
-UNI,2317,Spese correnti,Acquisto beni e servizi
+REG,2311,Spese in conto capitale,Trasferimenti c/capitale
+SP7,2311,Spese correnti,Altre spese
+SP8,2311,Spese in conto capitale,Trasferimenti c/capitale
+UNI,2311,Spese correnti,Altre spese
+REG,2312,Spese in conto capitale,Trasferimenti c/capitale
+SP7,2312,Spese correnti,Altre spese
+SP8,2312,Spese in conto capitale,Trasferimenti c/capitale
+UNI,2312,Spese correnti,Altre spese
+REG,2313,Spese in conto capitale,Trasferimenti c/capitale
+SP7,2313,Spese correnti,Altre spese
+SP8,2313,Spese in conto capitale,Trasferimenti c/capitale
+UNI,2313,Spese correnti,Altre spese
+SP7,2314,Spese correnti,Altre spese
+UNI,2314,Spese correnti,Altre spese
+SP7,2315,Spese correnti,Altre spese
+UNI,2315,Spese correnti,Altre spese
+SP7,2316,Spese correnti,Altre spese
+UNI,2316,Spese correnti,Altre spese
+SP7,2317,Spese correnti,Altre spese
+UNI,2317,Spese correnti,Altre spese
 STA,232,Spese correnti,Altre spese
 REG,2323,Spese in conto capitale,Trasferimenti c/capitale
 SP8,2323,Spese in conto capitale,Trasferimenti c/capitale
@@ -13026,11 +13026,11 @@ SP4,2393,Spese correnti,Altre spese
 SP6,2393,Spese correnti,Altre spese
 EGP,2401,Spese correnti,Imposte e tasse
 EPF,2401,Spese correnti,Imposte e tasse
-MON,2401,Spese correnti,Imposte e tasse
-PRO,2401,Spese correnti,Imposte e tasse
+MON,2401,Spese correnti,Altre spese
+PRO,2401,Spese correnti,Altre spese
 RIC,2401,Spese correnti,Imposte e tasse
-SP1,2401,Spese correnti,Imposte e tasse
-SP3,2401,Spese correnti,Imposte e tasse
+SP1,2401,Spese correnti,Altre spese
+SP3,2401,Spese correnti,Altre spese
 SP4,2401,Spese correnti,Imposte e tasse
 SP6,2401,Spese correnti,Imposte e tasse
 EGP,2402,Spese correnti,Altre spese
@@ -13047,11 +13047,11 @@ RIC,2404,Spese correnti,Altre spese
 SP4,2404,Spese correnti,Altre spese
 RIC,2405,Spese correnti,Altre spese
 SP4,2405,Spese correnti,Altre spese
-EGP,2406,Spese correnti,Altre spese
-EPF,2406,Spese correnti,Altre spese
+EGP,2406,Spese correnti,Imposte e tasse
+EPF,2406,Spese correnti,Imposte e tasse
 RIC,2406,Spese correnti,Altre spese
 SP4,2406,Spese correnti,Altre spese
-SP6,2406,Spese correnti,Altre spese
+SP6,2406,Spese correnti,Imposte e tasse
 STA,241,Spese correnti,Altre spese
 SP7,2410,Spese correnti,Altre spese
 UNI,2410,Spese correnti,Altre spese
@@ -13092,24 +13092,24 @@ SP6,2501,Spese correnti,Altre spese
 SP8,2501,Spese correnti,Altre spese
 EGP,2502,Spese correnti,Personale
 EPF,2502,Spese correnti,Personale
-MON,2502,Spese correnti,Personale
-PRO,2502,Spese correnti,Personale
-REG,2502,Spese correnti,Personale
-SP1,2502,Spese correnti,Personale
-SP3,2502,Spese correnti,Personale
+MON,2502,Spese correnti,Altre spese
+PRO,2502,Spese correnti,Altre spese
+REG,2502,Spese correnti,Altre spese
+SP1,2502,Spese correnti,Altre spese
+SP3,2502,Spese correnti,Altre spese
 SP6,2502,Spese correnti,Personale
-SP8,2502,Spese correnti,Personale
-EGP,2503,Spese correnti,Personale
-EPF,2503,Spese correnti,Personale
-MON,2503,Spese correnti,Personale
-PRO,2503,Spese correnti,Personale
-REG,2503,Spese correnti,Personale
+SP8,2502,Spese correnti,Altre spese
+EGP,2503,Spese correnti,Altre spese
+EPF,2503,Spese correnti,Altre spese
+MON,2503,Spese correnti,Altre spese
+PRO,2503,Spese correnti,Altre spese
+REG,2503,Spese correnti,Altre spese
 RIC,2503,Spese correnti,Personale
-SP1,2503,Spese correnti,Personale
-SP3,2503,Spese correnti,Personale
+SP1,2503,Spese correnti,Altre spese
+SP3,2503,Spese correnti,Altre spese
 SP4,2503,Spese correnti,Personale
-SP6,2503,Spese correnti,Personale
-SP8,2503,Spese correnti,Personale
+SP6,2503,Spese correnti,Altre spese
+SP8,2503,Spese correnti,Altre spese
 EGP,2504,Spese correnti,Altre spese
 EPF,2504,Spese correnti,Altre spese
 MON,2504,Spese correnti,Altre spese
@@ -13157,18 +13157,18 @@ REG,2510,Spese correnti,Altre spese
 SP7,2510,Spese correnti,Altre spese
 SP8,2510,Spese correnti,Altre spese
 UNI,2510,Spese correnti,Altre spese
-MON,2511,Spese correnti,Altre spese
-PRO,2511,Spese correnti,Altre spese
+MON,2511,Spese correnti,Acquisto beni e servizi
+PRO,2511,Spese correnti,Acquisto beni e servizi
 REG,2511,Spese correnti,Altre spese
-SP1,2511,Spese correnti,Altre spese
-SP3,2511,Spese correnti,Altre spese
+SP1,2511,Spese correnti,Acquisto beni e servizi
+SP3,2511,Spese correnti,Acquisto beni e servizi
 SP8,2511,Spese correnti,Altre spese
 MON,2512,Spese correnti,Acquisto beni e servizi
 PRO,2512,Spese correnti,Acquisto beni e servizi
-REG,2512,Spese correnti,Acquisto beni e servizi
+REG,2512,Spese correnti,Altre spese
 SP1,2512,Spese correnti,Acquisto beni e servizi
 SP3,2512,Spese correnti,Acquisto beni e servizi
-SP8,2512,Spese correnti,Acquisto beni e servizi
+SP8,2512,Spese correnti,Altre spese
 REG,2513,Spese correnti,Altre spese
 SP8,2513,Spese correnti,Altre spese
 REG,2514,Spese correnti,Altre spese
@@ -13228,9 +13228,9 @@ STA,262,Spese correnti,Altre spese
 STA,263,Spese correnti,Altre spese
 REG,2630,Spese in conto capitale,Trasferimenti c/capitale
 SP8,2630,Spese in conto capitale,Trasferimenti c/capitale
-STA,264,Spese in conto capitale,Investimenti fissi
-STA,265,Spese in conto capitale,Investimenti fissi
-STA,266,Spese in conto capitale,Investimenti fissi
+STA,264,Spese correnti,Altre spese
+STA,265,Spese correnti,Acquisto beni e servizi
+STA,266,Spese correnti,Acquisto beni e servizi
 STA,267,Spese correnti,Acquisto beni e servizi
 STA,268,Spese correnti,Altre spese
 STA,269,Spese correnti,Acquisto beni e servizi
@@ -17181,165 +17181,165 @@ SP4,3.04.08.01.002,Incremento attivita' finanziarie,Incremento attivita' finanzi
 SP8,3.04.08.01.002,Incremento attivita' finanziarie,Incremento attivita' finanziarie
 VCE,3.04.08.01.002,Incremento attivita' finanziarie,Incremento attivita' finanziarie
 VCF,3.04.08.01.002,Incremento attivita' finanziarie,Incremento attivita' finanziarie
-CDC,3101,Spese correnti,Acquisto beni e servizi
-MON,3101,Spese correnti,Acquisto beni e servizi
-PRO,3101,Spese correnti,Acquisto beni e servizi
+CDC,3101,Spese correnti,Trasferimenti correnti
+MON,3101,Anticipazioni e partite di giro,Anticipazioni
+PRO,3101,Anticipazioni e partite di giro,Anticipazioni
 SAN,3101,Spese correnti,Acquisto beni e servizi
-SP1,3101,Spese correnti,Acquisto beni e servizi
+SP1,3101,Anticipazioni e partite di giro,Anticipazioni
 SP2,3101,Spese correnti,Acquisto beni e servizi
-SP3,3101,Spese correnti,Acquisto beni e servizi
-SP5,3101,Spese correnti,Acquisto beni e servizi
+SP3,3101,Anticipazioni e partite di giro,Anticipazioni
+SP5,3101,Spese correnti,Trasferimenti correnti
 VSN,3101,Spese correnti,Acquisto beni e servizi
-CDC,3102,Spese correnti,Acquisto beni e servizi
+CDC,3102,Spese correnti,Trasferimenti correnti
 SAN,3102,Spese correnti,Acquisto beni e servizi
 SP2,3102,Spese correnti,Acquisto beni e servizi
-SP5,3102,Spese correnti,Acquisto beni e servizi
+SP5,3102,Spese correnti,Trasferimenti correnti
 VSN,3102,Spese correnti,Acquisto beni e servizi
-CDC,3103,Spese correnti,Acquisto beni e servizi
+CDC,3103,Spese correnti,Trasferimenti correnti
 SAN,3103,Spese correnti,Acquisto beni e servizi
 SP2,3103,Spese correnti,Acquisto beni e servizi
-SP5,3103,Spese correnti,Acquisto beni e servizi
+SP5,3103,Spese correnti,Trasferimenti correnti
 VSN,3103,Spese correnti,Acquisto beni e servizi
-CDC,3104,Spese correnti,Acquisto beni e servizi
+CDC,3104,Spese correnti,Trasferimenti correnti
 SAN,3104,Spese correnti,Acquisto beni e servizi
 SP2,3104,Spese correnti,Acquisto beni e servizi
-SP5,3104,Spese correnti,Acquisto beni e servizi
+SP5,3104,Spese correnti,Trasferimenti correnti
 VSN,3104,Spese correnti,Acquisto beni e servizi
-CDC,3105,Spese correnti,Acquisto beni e servizi
+CDC,3105,Spese correnti,Trasferimenti correnti
 SAN,3105,Spese correnti,Acquisto beni e servizi
 SP2,3105,Spese correnti,Acquisto beni e servizi
-SP5,3105,Spese correnti,Acquisto beni e servizi
+SP5,3105,Spese correnti,Trasferimenti correnti
 VSN,3105,Spese correnti,Acquisto beni e servizi
-CDC,3106,Spese correnti,Acquisto beni e servizi
+CDC,3106,Spese correnti,Trasferimenti correnti
 SAN,3106,Spese correnti,Acquisto beni e servizi
 SP2,3106,Spese correnti,Acquisto beni e servizi
-SP5,3106,Spese correnti,Acquisto beni e servizi
+SP5,3106,Spese correnti,Trasferimenti correnti
 VSN,3106,Spese correnti,Acquisto beni e servizi
-CDC,3107,Spese correnti,Acquisto beni e servizi
+CDC,3107,Spese correnti,Trasferimenti correnti
 SAN,3107,Spese correnti,Acquisto beni e servizi
 SP2,3107,Spese correnti,Acquisto beni e servizi
-SP5,3107,Spese correnti,Acquisto beni e servizi
+SP5,3107,Spese correnti,Trasferimenti correnti
 VSN,3107,Spese correnti,Acquisto beni e servizi
-CDC,3108,Spese correnti,Acquisto beni e servizi
+CDC,3108,Spese correnti,Trasferimenti correnti
 SAN,3108,Spese correnti,Acquisto beni e servizi
 SP2,3108,Spese correnti,Acquisto beni e servizi
-SP5,3108,Spese correnti,Acquisto beni e servizi
+SP5,3108,Spese correnti,Trasferimenti correnti
 VSN,3108,Spese correnti,Acquisto beni e servizi
-CDC,3109,Spese correnti,Acquisto beni e servizi
+CDC,3109,Spese correnti,Trasferimenti correnti
 SAN,3109,Spese correnti,Acquisto beni e servizi
 SP2,3109,Spese correnti,Acquisto beni e servizi
-SP5,3109,Spese correnti,Acquisto beni e servizi
+SP5,3109,Spese correnti,Trasferimenti correnti
 VSN,3109,Spese correnti,Acquisto beni e servizi
-CDC,3110,Spese correnti,Acquisto beni e servizi
+CDC,3110,Spese correnti,Trasferimenti correnti
 SAN,3110,Spese correnti,Acquisto beni e servizi
 SP2,3110,Spese correnti,Acquisto beni e servizi
-SP5,3110,Spese correnti,Acquisto beni e servizi
-SP7,3110,Spese correnti,Acquisto beni e servizi
-UNI,3110,Spese correnti,Acquisto beni e servizi
+SP5,3110,Spese correnti,Trasferimenti correnti
+SP7,3110,Spese correnti,Altre spese
+UNI,3110,Spese correnti,Altre spese
 VSN,3110,Spese correnti,Acquisto beni e servizi
-CDC,3111,Spese correnti,Acquisto beni e servizi
-REG,3111,Spese correnti,Acquisto beni e servizi
+CDC,3111,Spese correnti,Trasferimenti correnti
+REG,3111,Spese correnti,Altre spese
 SAN,3111,Spese correnti,Acquisto beni e servizi
 SP2,3111,Spese correnti,Acquisto beni e servizi
-SP5,3111,Spese correnti,Acquisto beni e servizi
-SP8,3111,Spese correnti,Acquisto beni e servizi
+SP5,3111,Spese correnti,Trasferimenti correnti
+SP8,3111,Spese correnti,Altre spese
 VSN,3111,Spese correnti,Acquisto beni e servizi
-CDC,3112,Spese correnti,Acquisto beni e servizi
-REG,3112,Spese correnti,Acquisto beni e servizi
+CDC,3112,Spese correnti,Trasferimenti correnti
+REG,3112,Spese correnti,Altre spese
 SAN,3112,Spese correnti,Acquisto beni e servizi
 SP2,3112,Spese correnti,Acquisto beni e servizi
-SP5,3112,Spese correnti,Acquisto beni e servizi
-SP8,3112,Spese correnti,Acquisto beni e servizi
+SP5,3112,Spese correnti,Trasferimenti correnti
+SP8,3112,Spese correnti,Altre spese
 VSN,3112,Spese correnti,Acquisto beni e servizi
-CDC,3113,Spese correnti,Acquisto beni e servizi
+CDC,3113,Spese correnti,Trasferimenti correnti
 SAN,3113,Spese correnti,Acquisto beni e servizi
 SP2,3113,Spese correnti,Acquisto beni e servizi
-SP5,3113,Spese correnti,Acquisto beni e servizi
+SP5,3113,Spese correnti,Trasferimenti correnti
 VSN,3113,Spese correnti,Acquisto beni e servizi
-CDC,3114,Spese correnti,Acquisto beni e servizi
+CDC,3114,Spese correnti,Trasferimenti correnti
 SAN,3114,Spese correnti,Acquisto beni e servizi
 SP2,3114,Spese correnti,Acquisto beni e servizi
-SP5,3114,Spese correnti,Acquisto beni e servizi
+SP5,3114,Spese correnti,Trasferimenti correnti
 VSN,3114,Spese correnti,Acquisto beni e servizi
-CDC,3115,Spese correnti,Acquisto beni e servizi
+CDC,3115,Spese correnti,Trasferimenti correnti
 SAN,3115,Spese correnti,Acquisto beni e servizi
 SP2,3115,Spese correnti,Acquisto beni e servizi
-SP5,3115,Spese correnti,Acquisto beni e servizi
+SP5,3115,Spese correnti,Trasferimenti correnti
 VSN,3115,Spese correnti,Acquisto beni e servizi
-CDC,3116,Spese correnti,Acquisto beni e servizi
+CDC,3116,Spese correnti,Trasferimenti correnti
 SAN,3116,Spese correnti,Acquisto beni e servizi
 SP2,3116,Spese correnti,Acquisto beni e servizi
-SP5,3116,Spese correnti,Acquisto beni e servizi
+SP5,3116,Spese correnti,Trasferimenti correnti
 VSN,3116,Spese correnti,Acquisto beni e servizi
-CDC,3117,Spese correnti,Acquisto beni e servizi
+CDC,3117,Spese correnti,Trasferimenti correnti
 SAN,3117,Spese correnti,Acquisto beni e servizi
 SP2,3117,Spese correnti,Acquisto beni e servizi
-SP5,3117,Spese correnti,Acquisto beni e servizi
+SP5,3117,Spese correnti,Trasferimenti correnti
 VSN,3117,Spese correnti,Acquisto beni e servizi
-CDC,3118,Spese correnti,Acquisto beni e servizi
+CDC,3118,Spese correnti,Trasferimenti correnti
 SAN,3118,Spese correnti,Acquisto beni e servizi
 SP2,3118,Spese correnti,Acquisto beni e servizi
-SP5,3118,Spese correnti,Acquisto beni e servizi
+SP5,3118,Spese correnti,Trasferimenti correnti
 VSN,3118,Spese correnti,Acquisto beni e servizi
-CDC,3119,Spese correnti,Acquisto beni e servizi
+CDC,3119,Spese correnti,Trasferimenti correnti
 SAN,3119,Spese correnti,Acquisto beni e servizi
 SP2,3119,Spese correnti,Acquisto beni e servizi
-SP5,3119,Spese correnti,Acquisto beni e servizi
+SP5,3119,Spese correnti,Trasferimenti correnti
 VSN,3119,Spese correnti,Acquisto beni e servizi
-CDC,3120,Spese correnti,Acquisto beni e servizi
+CDC,3120,Spese correnti,Trasferimenti correnti
 SAN,3120,Spese correnti,Acquisto beni e servizi
 SP2,3120,Spese correnti,Acquisto beni e servizi
-SP5,3120,Spese correnti,Acquisto beni e servizi
-SP7,3120,Spese correnti,Acquisto beni e servizi
-UNI,3120,Spese correnti,Acquisto beni e servizi
+SP5,3120,Spese correnti,Trasferimenti correnti
+SP7,3120,Spese correnti,Altre spese
+UNI,3120,Spese correnti,Altre spese
 VSN,3120,Spese correnti,Acquisto beni e servizi
-CDC,3121,Spese correnti,Acquisto beni e servizi
+CDC,3121,Spese correnti,Trasferimenti correnti
 SAN,3121,Spese correnti,Acquisto beni e servizi
 SP2,3121,Spese correnti,Acquisto beni e servizi
-SP5,3121,Spese correnti,Acquisto beni e servizi
+SP5,3121,Spese correnti,Trasferimenti correnti
 VSN,3121,Spese correnti,Acquisto beni e servizi
-CDC,3122,Spese correnti,Acquisto beni e servizi
+CDC,3122,Spese correnti,Trasferimenti correnti
 SAN,3122,Spese correnti,Acquisto beni e servizi
 SP2,3122,Spese correnti,Acquisto beni e servizi
-SP5,3122,Spese correnti,Acquisto beni e servizi
+SP5,3122,Spese correnti,Trasferimenti correnti
 VSN,3122,Spese correnti,Acquisto beni e servizi
-CDC,3123,Spese correnti,Acquisto beni e servizi
+CDC,3123,Spese correnti,Trasferimenti correnti
 SAN,3123,Spese correnti,Acquisto beni e servizi
 SP2,3123,Spese correnti,Acquisto beni e servizi
-SP5,3123,Spese correnti,Acquisto beni e servizi
+SP5,3123,Spese correnti,Trasferimenti correnti
 VSN,3123,Spese correnti,Acquisto beni e servizi
-CDC,3124,Spese correnti,Acquisto beni e servizi
+CDC,3124,Spese correnti,Trasferimenti correnti
 SAN,3124,Spese correnti,Acquisto beni e servizi
 SP2,3124,Spese correnti,Acquisto beni e servizi
-SP5,3124,Spese correnti,Acquisto beni e servizi
+SP5,3124,Spese correnti,Trasferimenti correnti
 VSN,3124,Spese correnti,Acquisto beni e servizi
-CDC,3125,Spese correnti,Acquisto beni e servizi
+CDC,3125,Spese correnti,Trasferimenti correnti
 SAN,3125,Spese correnti,Acquisto beni e servizi
 SP2,3125,Spese correnti,Acquisto beni e servizi
-SP5,3125,Spese correnti,Acquisto beni e servizi
+SP5,3125,Spese correnti,Trasferimenti correnti
 VSN,3125,Spese correnti,Acquisto beni e servizi
-CDC,3126,Spese correnti,Acquisto beni e servizi
+CDC,3126,Spese correnti,Trasferimenti correnti
 SAN,3126,Spese correnti,Acquisto beni e servizi
 SP2,3126,Spese correnti,Acquisto beni e servizi
-SP5,3126,Spese correnti,Acquisto beni e servizi
+SP5,3126,Spese correnti,Trasferimenti correnti
 VSN,3126,Spese correnti,Acquisto beni e servizi
-CDC,3127,Spese correnti,Acquisto beni e servizi
+CDC,3127,Spese correnti,Trasferimenti correnti
 SAN,3127,Spese correnti,Acquisto beni e servizi
 SP2,3127,Spese correnti,Acquisto beni e servizi
-SP5,3127,Spese correnti,Acquisto beni e servizi
+SP5,3127,Spese correnti,Trasferimenti correnti
 VSN,3127,Spese correnti,Acquisto beni e servizi
-CDC,3128,Spese correnti,Acquisto beni e servizi
+CDC,3128,Spese correnti,Trasferimenti correnti
 SAN,3128,Spese correnti,Acquisto beni e servizi
 SP2,3128,Spese correnti,Acquisto beni e servizi
-SP5,3128,Spese correnti,Acquisto beni e servizi
+SP5,3128,Spese correnti,Trasferimenti correnti
 VSN,3128,Spese correnti,Acquisto beni e servizi
 SAN,3129,Spese correnti,Acquisto beni e servizi
 SP2,3129,Spese correnti,Acquisto beni e servizi
 VSN,3129,Spese correnti,Acquisto beni e servizi
 SAN,3130,Spese correnti,Acquisto beni e servizi
 SP2,3130,Spese correnti,Acquisto beni e servizi
-SP7,3130,Spese correnti,Acquisto beni e servizi
-UNI,3130,Spese correnti,Acquisto beni e servizi
+SP7,3130,Spese correnti,Altre spese
+UNI,3130,Spese correnti,Altre spese
 VSN,3130,Spese correnti,Acquisto beni e servizi
 SAN,3131,Spese correnti,Acquisto beni e servizi
 SP2,3131,Spese correnti,Acquisto beni e servizi
@@ -17369,8 +17369,8 @@ SP7,3140,Spese correnti,Altre spese
 UNI,3140,Spese correnti,Altre spese
 SAN,3150,Spese correnti,Acquisto beni e servizi
 SP2,3150,Spese correnti,Acquisto beni e servizi
-SP7,3150,Spese correnti,Acquisto beni e servizi
-UNI,3150,Spese correnti,Acquisto beni e servizi
+SP7,3150,Spese correnti,Altre spese
+UNI,3150,Spese correnti,Altre spese
 VSN,3150,Spese correnti,Acquisto beni e servizi
 SAN,3151,Spese correnti,Acquisto beni e servizi
 SP2,3151,Spese correnti,Acquisto beni e servizi
@@ -17389,48 +17389,48 @@ UNI,3160,Spese correnti,Altre spese
 SAN,3198,Spese correnti,Acquisto beni e servizi
 SP2,3198,Spese correnti,Acquisto beni e servizi
 VSN,3198,Spese correnti,Acquisto beni e servizi
-CDC,3199,Spese correnti,Acquisto beni e servizi
+CDC,3199,Spese correnti,Trasferimenti correnti
 SAN,3199,Spese correnti,Acquisto beni e servizi
 SP2,3199,Spese correnti,Acquisto beni e servizi
-SP5,3199,Spese correnti,Acquisto beni e servizi
+SP5,3199,Spese correnti,Trasferimenti correnti
 VSN,3199,Spese correnti,Acquisto beni e servizi
-CDC,3201,Spese correnti,Acquisto beni e servizi
-MON,3201,Spese correnti,Acquisto beni e servizi
-PRO,3201,Spese correnti,Acquisto beni e servizi
+CDC,3201,Spese correnti,Trasferimenti correnti
+MON,3201,Spese correnti,Altre spese
+PRO,3201,Spese correnti,Altre spese
 SAN,3201,Spese correnti,Acquisto beni e servizi
-SP1,3201,Spese correnti,Acquisto beni e servizi
+SP1,3201,Spese correnti,Altre spese
 SP2,3201,Spese correnti,Acquisto beni e servizi
-SP3,3201,Spese correnti,Acquisto beni e servizi
-SP5,3201,Spese correnti,Acquisto beni e servizi
+SP3,3201,Spese correnti,Altre spese
+SP5,3201,Spese correnti,Trasferimenti correnti
 VSN,3201,Spese correnti,Acquisto beni e servizi
-CDC,3202,Spese correnti,Acquisto beni e servizi
-MON,3202,Spese correnti,Acquisto beni e servizi
-PRO,3202,Spese correnti,Acquisto beni e servizi
+CDC,3202,Spese correnti,Trasferimenti correnti
+MON,3202,Spese correnti,Altre spese
+PRO,3202,Spese correnti,Altre spese
 SAN,3202,Spese correnti,Acquisto beni e servizi
-SP1,3202,Spese correnti,Acquisto beni e servizi
+SP1,3202,Spese correnti,Altre spese
 SP2,3202,Spese correnti,Acquisto beni e servizi
-SP3,3202,Spese correnti,Acquisto beni e servizi
-SP5,3202,Spese correnti,Acquisto beni e servizi
+SP3,3202,Spese correnti,Altre spese
+SP5,3202,Spese correnti,Trasferimenti correnti
 VSN,3202,Spese correnti,Acquisto beni e servizi
-CDC,3203,Spese correnti,Acquisto beni e servizi
+CDC,3203,Spese correnti,Trasferimenti correnti
 SAN,3203,Spese correnti,Acquisto beni e servizi
 SP2,3203,Spese correnti,Acquisto beni e servizi
-SP5,3203,Spese correnti,Acquisto beni e servizi
+SP5,3203,Spese correnti,Trasferimenti correnti
 VSN,3203,Spese correnti,Acquisto beni e servizi
-CDC,3204,Spese correnti,Acquisto beni e servizi
+CDC,3204,Spese correnti,Trasferimenti correnti
 SAN,3204,Spese correnti,Acquisto beni e servizi
 SP2,3204,Spese correnti,Acquisto beni e servizi
-SP5,3204,Spese correnti,Acquisto beni e servizi
+SP5,3204,Spese correnti,Trasferimenti correnti
 VSN,3204,Spese correnti,Acquisto beni e servizi
-CDC,3205,Spese correnti,Acquisto beni e servizi
+CDC,3205,Spese correnti,Trasferimenti correnti
 SAN,3205,Spese correnti,Acquisto beni e servizi
 SP2,3205,Spese correnti,Acquisto beni e servizi
-SP5,3205,Spese correnti,Acquisto beni e servizi
+SP5,3205,Spese correnti,Trasferimenti correnti
 VSN,3205,Spese correnti,Acquisto beni e servizi
-CDC,3206,Spese correnti,Acquisto beni e servizi
+CDC,3206,Spese correnti,Trasferimenti correnti
 SAN,3206,Spese correnti,Acquisto beni e servizi
 SP2,3206,Spese correnti,Acquisto beni e servizi
-SP5,3206,Spese correnti,Acquisto beni e servizi
+SP5,3206,Spese correnti,Trasferimenti correnti
 VSN,3206,Spese correnti,Acquisto beni e servizi
 SAN,3207,Spese correnti,Acquisto beni e servizi
 SP2,3207,Spese correnti,Acquisto beni e servizi
@@ -17443,18 +17443,18 @@ SP2,3209,Spese correnti,Acquisto beni e servizi
 VSN,3209,Spese correnti,Acquisto beni e servizi
 SAN,3210,Spese correnti,Acquisto beni e servizi
 SP2,3210,Spese correnti,Acquisto beni e servizi
-SP7,3210,Spese correnti,Acquisto beni e servizi
-UNI,3210,Spese correnti,Acquisto beni e servizi
+SP7,3210,Spese correnti,Altre spese
+UNI,3210,Spese correnti,Altre spese
 VSN,3210,Spese correnti,Acquisto beni e servizi
-REG,3211,Spese correnti,Acquisto beni e servizi
+REG,3211,Spese correnti,Altre spese
 SAN,3211,Spese correnti,Acquisto beni e servizi
 SP2,3211,Spese correnti,Acquisto beni e servizi
-SP8,3211,Spese correnti,Acquisto beni e servizi
+SP8,3211,Spese correnti,Altre spese
 VSN,3211,Spese correnti,Acquisto beni e servizi
-REG,3212,Spese correnti,Acquisto beni e servizi
+REG,3212,Spese correnti,Altre spese
 SAN,3212,Spese correnti,Acquisto beni e servizi
 SP2,3212,Spese correnti,Acquisto beni e servizi
-SP8,3212,Spese correnti,Acquisto beni e servizi
+SP8,3212,Spese correnti,Altre spese
 VSN,3212,Spese correnti,Acquisto beni e servizi
 SAN,3213,Spese correnti,Acquisto beni e servizi
 SP2,3213,Spese correnti,Acquisto beni e servizi
@@ -17479,8 +17479,8 @@ SP2,3219,Spese correnti,Acquisto beni e servizi
 VSN,3219,Spese correnti,Acquisto beni e servizi
 SAN,3220,Spese correnti,Acquisto beni e servizi
 SP2,3220,Spese correnti,Acquisto beni e servizi
-SP7,3220,Spese correnti,Acquisto beni e servizi
-UNI,3220,Spese correnti,Acquisto beni e servizi
+SP7,3220,Spese correnti,Altre spese
+UNI,3220,Spese correnti,Altre spese
 VSN,3220,Spese correnti,Acquisto beni e servizi
 SAN,3221,Spese correnti,Acquisto beni e servizi
 SP2,3221,Spese correnti,Acquisto beni e servizi
@@ -17572,14 +17572,14 @@ STA,347,Spese correnti,Altre spese
 STA,348,Spese correnti,Altre spese
 STA,349,Spese correnti,Altre spese
 STA,350,Spese correnti,Altre spese
-MON,3501,Spese correnti,Altre spese
-PRO,3501,Spese correnti,Altre spese
-SP1,3501,Spese correnti,Altre spese
-SP3,3501,Spese correnti,Altre spese
-MON,3502,Spese correnti,Altre spese
-PRO,3502,Spese correnti,Altre spese
-SP1,3502,Spese correnti,Altre spese
-SP3,3502,Spese correnti,Altre spese
+MON,3501,Rimborso prestiti,Rimborso prestiti
+PRO,3501,Rimborso prestiti,Rimborso prestiti
+SP1,3501,Rimborso prestiti,Rimborso prestiti
+SP3,3501,Rimborso prestiti,Rimborso prestiti
+MON,3502,Rimborso prestiti,Rimborso prestiti
+PRO,3502,Rimborso prestiti,Rimborso prestiti
+SP1,3502,Rimborso prestiti,Rimborso prestiti
+SP3,3502,Rimborso prestiti,Rimborso prestiti
 STA,351,Spese correnti,Altre spese
 REG,3511,Spese correnti,Altre spese
 SP8,3511,Spese correnti,Altre spese
@@ -17612,10 +17612,10 @@ STA,368,Spese correnti,Altre spese
 STA,369,Anticipazioni e partite di giro,Anticipazioni
 STA,370,Spese correnti,Altre spese
 STA,371,Spese correnti,Altre spese
-REG,3711,Spese correnti,Altre spese
-SP8,3711,Spese correnti,Altre spese
-REG,3712,Spese correnti,Altre spese
-SP8,3712,Spese correnti,Altre spese
+REG,3711,Rimborso prestiti,Rimborso prestiti
+SP8,3711,Rimborso prestiti,Rimborso prestiti
+REG,3712,Rimborso prestiti,Rimborso prestiti
+SP8,3712,Rimborso prestiti,Rimborso prestiti
 STA,374,Spese correnti,Altre spese
 STA,375,Spese in conto capitale,Trasferimenti c/capitale
 STA,378,Spese correnti,Altre spese
@@ -17627,7 +17627,7 @@ SP8,3811,Spese correnti,Altre spese
 REG,3812,Spese correnti,Altre spese
 SP8,3812,Spese correnti,Altre spese
 STA,382,Spese correnti,Altre spese
-STA,384,Spese correnti,Altre spese
+STA,384,Rimborso prestiti,Rimborso prestiti
 STA,386,Spese correnti,Altre spese
 STA,388,Spese correnti,Altre spese
 STA,389,Spese correnti,Altre spese
@@ -18881,35 +18881,35 @@ SP8,4.04.04.01.001,Rimborso prestiti,Rimborso prestiti
 VCE,4.04.04.01.001,Rimborso prestiti,Rimborso prestiti
 VCF,4.04.04.01.001,Rimborso prestiti,Rimborso prestiti
 STA,400,Spese correnti,Altre spese
-STA,401,Spese correnti,Acquisto beni e servizi
+STA,401,Spese correnti,Altre spese
 STA,402,Spese correnti,Altre spese
 STA,403,Spese correnti,Acquisto beni e servizi
 STA,404,Spese correnti,Altre spese
 STA,405,Spese correnti,Altre spese
 STA,406,Spese correnti,Altre spese
 STA,407,Spese correnti,Altre spese
-STA,408,Spese correnti,Trasferimenti correnti
+STA,408,Spese correnti,Altre spese
 STA,409,Spese correnti,Altre spese
 STA,410,Spese correnti,Altre spese
-CDC,4101,Spese correnti,Personale
-EGP,4101,Spese correnti,Personale
-EPF,4101,Spese correnti,Personale
+CDC,4101,Spese correnti,Altre spese
+EGP,4101,Spese correnti,Altre spese
+EPF,4101,Spese correnti,Altre spese
 MON,4101,Spese correnti,Personale
 PRO,4101,Spese correnti,Personale
-RIC,4101,Spese correnti,Personale
-SAN,4101,Spese correnti,Personale
+RIC,4101,Spese correnti,Altre spese
+SAN,4101,Spese correnti,Trasferimenti correnti
 SP1,4101,Spese correnti,Personale
-SP2,4101,Spese correnti,Personale
+SP2,4101,Spese correnti,Trasferimenti correnti
 SP3,4101,Spese correnti,Personale
-SP4,4101,Spese correnti,Personale
-SP5,4101,Spese correnti,Personale
-SP6,4101,Spese correnti,Personale
-VSN,4101,Spese correnti,Personale
+SP4,4101,Spese correnti,Altre spese
+SP5,4101,Spese correnti,Altre spese
+SP6,4101,Spese correnti,Altre spese
+VSN,4101,Spese correnti,Trasferimenti correnti
 CDC,4102,Spese correnti,Altre spese
-SAN,4102,Spese correnti,Altre spese
-SP2,4102,Spese correnti,Altre spese
+SAN,4102,Spese correnti,Trasferimenti correnti
+SP2,4102,Spese correnti,Trasferimenti correnti
 SP5,4102,Spese correnti,Altre spese
-VSN,4102,Spese correnti,Altre spese
+VSN,4102,Spese correnti,Trasferimenti correnti
 SAN,4103,Spese correnti,Trasferimenti correnti
 SP2,4103,Spese correnti,Trasferimenti correnti
 VSN,4103,Spese correnti,Trasferimenti correnti
@@ -18935,24 +18935,24 @@ STA,411,Spese correnti,Altre spese
 SAN,4110,Spese correnti,Trasferimenti correnti
 SP2,4110,Spese correnti,Trasferimenti correnti
 VSN,4110,Spese correnti,Trasferimenti correnti
-REG,4111,Spese correnti,Interessi passivi
-SAN,4111,Spese correnti,Interessi passivi
-SP2,4111,Spese correnti,Interessi passivi
+REG,4111,Spese correnti,Altre spese
+SAN,4111,Spese correnti,Trasferimenti correnti
+SP2,4111,Spese correnti,Trasferimenti correnti
 SP7,4111,Spese correnti,Interessi passivi
-SP8,4111,Spese correnti,Interessi passivi
+SP8,4111,Spese correnti,Altre spese
 UNI,4111,Spese correnti,Interessi passivi
-VSN,4111,Spese correnti,Interessi passivi
+VSN,4111,Spese correnti,Trasferimenti correnti
 REG,4112,Spese correnti,Altre spese
-SAN,4112,Spese correnti,Altre spese
-SP2,4112,Spese correnti,Altre spese
-SP7,4112,Spese correnti,Altre spese
+SAN,4112,Spese correnti,Trasferimenti correnti
+SP2,4112,Spese correnti,Trasferimenti correnti
+SP7,4112,Spese correnti,Interessi passivi
 SP8,4112,Spese correnti,Altre spese
-UNI,4112,Spese correnti,Altre spese
-VSN,4112,Spese correnti,Altre spese
-REG,4113,Spese correnti,Trasferimenti correnti
+UNI,4112,Spese correnti,Interessi passivi
+VSN,4112,Spese correnti,Trasferimenti correnti
+REG,4113,Spese correnti,Personale
 SAN,4113,Spese correnti,Trasferimenti correnti
 SP2,4113,Spese correnti,Trasferimenti correnti
-SP8,4113,Spese correnti,Trasferimenti correnti
+SP8,4113,Spese correnti,Personale
 VSN,4113,Spese correnti,Trasferimenti correnti
 SAN,4114,Spese correnti,Trasferimenti correnti
 SP2,4114,Spese correnti,Trasferimenti correnti
@@ -18997,36 +18997,36 @@ SAN,4198,Spese correnti,Trasferimenti correnti
 SP2,4198,Spese correnti,Trasferimenti correnti
 VSN,4198,Spese correnti,Trasferimenti correnti
 CDC,4199,Spese correnti,Altre spese
-EGP,4199,Spese correnti,Altre spese
-EPF,4199,Spese correnti,Altre spese
-RIC,4199,Spese correnti,Altre spese
-SAN,4199,Spese correnti,Altre spese
-SP2,4199,Spese correnti,Altre spese
-SP4,4199,Spese correnti,Altre spese
+EGP,4199,Spese correnti,Personale
+EPF,4199,Spese correnti,Personale
+RIC,4199,Spese correnti,Personale
+SAN,4199,Spese correnti,Trasferimenti correnti
+SP2,4199,Spese correnti,Trasferimenti correnti
+SP4,4199,Spese correnti,Personale
 SP5,4199,Spese correnti,Altre spese
-SP6,4199,Spese correnti,Altre spese
-VSN,4199,Spese correnti,Altre spese
+SP6,4199,Spese correnti,Personale
+VSN,4199,Spese correnti,Trasferimenti correnti
 STA,420,Spese correnti,Altre spese
 SP7,4200,Spese correnti,Altre spese
 UNI,4200,Spese correnti,Altre spese
-CDC,4201,Spese correnti,Trasferimenti correnti
-MON,4201,Spese correnti,Trasferimenti correnti
-PRO,4201,Spese correnti,Trasferimenti correnti
+CDC,4201,Spese correnti,Acquisto beni e servizi
+MON,4201,Spese correnti,Altre spese
+PRO,4201,Spese correnti,Altre spese
 SAN,4201,Spese correnti,Trasferimenti correnti
-SP1,4201,Spese correnti,Trasferimenti correnti
+SP1,4201,Spese correnti,Altre spese
 SP2,4201,Spese correnti,Trasferimenti correnti
-SP3,4201,Spese correnti,Trasferimenti correnti
-SP5,4201,Spese correnti,Trasferimenti correnti
+SP3,4201,Spese correnti,Altre spese
+SP5,4201,Spese correnti,Acquisto beni e servizi
 VSN,4201,Spese correnti,Trasferimenti correnti
-CDC,4202,Spese correnti,Trasferimenti correnti
+CDC,4202,Spese correnti,Altre spese
 SAN,4202,Spese correnti,Trasferimenti correnti
 SP2,4202,Spese correnti,Trasferimenti correnti
-SP5,4202,Spese correnti,Trasferimenti correnti
+SP5,4202,Spese correnti,Altre spese
 VSN,4202,Spese correnti,Trasferimenti correnti
-CDC,4203,Spese correnti,Trasferimenti correnti
+CDC,4203,Spese correnti,Altre spese
 SAN,4203,Spese correnti,Trasferimenti correnti
 SP2,4203,Spese correnti,Trasferimenti correnti
-SP5,4203,Spese correnti,Trasferimenti correnti
+SP5,4203,Spese correnti,Altre spese
 VSN,4203,Spese correnti,Trasferimenti correnti
 CDC,4204,Spese correnti,Altre spese
 SAN,4204,Spese correnti,Altre spese
@@ -19049,19 +19049,19 @@ REG,4230,Spese correnti,Altre spese
 SP8,4230,Spese correnti,Altre spese
 STA,424,Spese correnti,Altre spese
 STA,425,Spese correnti,Acquisto beni e servizi
-STA,426,Spese in conto capitale,Investimenti fissi
+STA,426,Spese correnti,Altre spese
 STA,428,Spese correnti,Altre spese
 STA,429,Spese correnti,Altre spese
 SAN,4299,Spese correnti,Trasferimenti correnti
 SP2,4299,Spese correnti,Trasferimenti correnti
 VSN,4299,Spese correnti,Trasferimenti correnti
 STA,430,Spese correnti,Personale
-CDC,4301,Spese correnti,Personale
+CDC,4301,Spese correnti,Interessi passivi
 MON,4301,Spese correnti,Personale
 PRO,4301,Spese correnti,Personale
 SP1,4301,Spese correnti,Personale
 SP3,4301,Spese correnti,Personale
-SP5,4301,Spese correnti,Personale
+SP5,4301,Spese correnti,Interessi passivi
 CDC,4304,Anticipazioni e partite di giro,Anticipazioni
 SP5,4304,Anticipazioni e partite di giro,Anticipazioni
 CDC,4305,Spese correnti,Altre spese
@@ -19073,37 +19073,37 @@ REG,4311,Spese correnti,Altre spese
 SP7,4311,Spese correnti,Personale
 SP8,4311,Spese correnti,Altre spese
 UNI,4311,Spese correnti,Personale
-REG,4312,Spese correnti,Imposte e tasse
+REG,4312,Spese correnti,Altre spese
 SP7,4312,Spese correnti,Imposte e tasse
-SP8,4312,Spese correnti,Imposte e tasse
+SP8,4312,Spese correnti,Altre spese
 UNI,4312,Spese correnti,Imposte e tasse
 REG,4313,Spese correnti,Acquisto beni e servizi
-SP7,4313,Spese correnti,Acquisto beni e servizi
+SP7,4313,Spese correnti,Personale
 SP8,4313,Spese correnti,Acquisto beni e servizi
-UNI,4313,Spese correnti,Acquisto beni e servizi
-REG,4314,Spese correnti,Imposte e tasse
+UNI,4313,Spese correnti,Personale
+REG,4314,Spese correnti,Altre spese
 SP7,4314,Spese correnti,Imposte e tasse
-SP8,4314,Spese correnti,Imposte e tasse
+SP8,4314,Spese correnti,Altre spese
 UNI,4314,Spese correnti,Imposte e tasse
-REG,4315,Spese correnti,Personale
+REG,4315,Spese correnti,Altre spese
 SP7,4315,Spese correnti,Personale
-SP8,4315,Spese correnti,Personale
+SP8,4315,Spese correnti,Altre spese
 UNI,4315,Spese correnti,Personale
 REG,4316,Spese correnti,Altre spese
-SP7,4316,Spese correnti,Altre spese
+SP7,4316,Spese correnti,Imposte e tasse
 SP8,4316,Spese correnti,Altre spese
-UNI,4316,Spese correnti,Altre spese
+UNI,4316,Spese correnti,Imposte e tasse
 REG,4317,Anticipazioni e partite di giro,Anticipazioni
-SP7,4317,Anticipazioni e partite di giro,Anticipazioni
+SP7,4317,Spese correnti,Imposte e tasse
 SP8,4317,Anticipazioni e partite di giro,Anticipazioni
-UNI,4317,Anticipazioni e partite di giro,Anticipazioni
+UNI,4317,Spese correnti,Imposte e tasse
 REG,4318,Spese correnti,Altre spese
-SP7,4318,Spese correnti,Altre spese
+SP7,4318,Spese correnti,Imposte e tasse
 SP8,4318,Spese correnti,Altre spese
-UNI,4318,Spese correnti,Altre spese
-REG,4319,Spese correnti,Personale
+UNI,4318,Spese correnti,Imposte e tasse
+REG,4319,Anticipazioni e partite di giro,Anticipazioni
 SP7,4319,Spese correnti,Personale
-SP8,4319,Spese correnti,Personale
+SP8,4319,Anticipazioni e partite di giro,Anticipazioni
 UNI,4319,Spese correnti,Personale
 STA,432,Spese correnti,Personale
 SP7,4320,Spese correnti,Imposte e tasse
@@ -19128,12 +19128,12 @@ SP7,4337,Spese correnti,Altre spese
 UNI,4337,Spese correnti,Altre spese
 CDC,4399,Spese correnti,Altre spese
 SP5,4399,Spese correnti,Altre spese
-CDC,4401,Spese correnti,Altre spese
+CDC,4401,Spese correnti,Imposte e tasse
 MON,4401,Spese correnti,Altre spese
 PRO,4401,Spese correnti,Altre spese
 SP1,4401,Spese correnti,Altre spese
 SP3,4401,Spese correnti,Altre spese
-SP5,4401,Spese correnti,Altre spese
+SP5,4401,Spese correnti,Imposte e tasse
 CDC,4402,Spese correnti,Altre spese
 SP5,4402,Spese correnti,Altre spese
 CDC,4403,Spese correnti,Altre spese
@@ -19148,12 +19148,12 @@ PRO,4502,Spese correnti,Altre spese
 SP1,4502,Spese correnti,Altre spese
 SP3,4502,Spese correnti,Altre spese
 SP5,4502,Spese correnti,Altre spese
-CDC,4503,Spese correnti,Acquisto beni e servizi
+CDC,4503,Spese correnti,Altre spese
 MON,4503,Spese correnti,Acquisto beni e servizi
 PRO,4503,Spese correnti,Acquisto beni e servizi
 SP1,4503,Spese correnti,Acquisto beni e servizi
 SP3,4503,Spese correnti,Acquisto beni e servizi
-SP5,4503,Spese correnti,Acquisto beni e servizi
+SP5,4503,Spese correnti,Altre spese
 CDC,4504,Spese correnti,Altre spese
 SP5,4504,Spese correnti,Altre spese
 CDC,4505,Spese correnti,Altre spese
@@ -19166,8 +19166,8 @@ CDC,4508,Spese correnti,Altre spese
 SP5,4508,Spese correnti,Altre spese
 CDC,4509,Spese correnti,Altre spese
 SP5,4509,Spese correnti,Altre spese
-CDC,4510,Spese correnti,Trasferimenti correnti
-SP5,4510,Spese correnti,Trasferimenti correnti
+CDC,4510,Spese correnti,Altre spese
+SP5,4510,Spese correnti,Altre spese
 CDC,4511,Spese correnti,Altre spese
 SP5,4511,Spese correnti,Altre spese
 CDC,4512,Spese correnti,Altre spese
@@ -19216,15 +19216,15 @@ SP4,5101,Spese correnti,Altre spese
 SP5,5101,Spese correnti,Altre spese
 SP6,5101,Spese correnti,Altre spese
 VSN,5101,Spese correnti,Altre spese
-CDC,5102,Spese correnti,Imposte e tasse
-EGP,5102,Spese correnti,Imposte e tasse
-EPF,5102,Spese correnti,Imposte e tasse
-RIC,5102,Spese correnti,Imposte e tasse
+CDC,5102,Spese correnti,Altre spese
+EGP,5102,Spese correnti,Altre spese
+EPF,5102,Spese correnti,Altre spese
+RIC,5102,Spese correnti,Altre spese
 SAN,5102,Spese correnti,Imposte e tasse
 SP2,5102,Spese correnti,Imposte e tasse
-SP4,5102,Spese correnti,Imposte e tasse
-SP5,5102,Spese correnti,Imposte e tasse
-SP6,5102,Spese correnti,Imposte e tasse
+SP4,5102,Spese correnti,Altre spese
+SP5,5102,Spese correnti,Altre spese
+SP6,5102,Spese correnti,Altre spese
 VSN,5102,Spese correnti,Imposte e tasse
 CDC,5103,Spese correnti,Altre spese
 EGP,5103,Spese correnti,Altre spese
@@ -19250,19 +19250,19 @@ RIC,5105,Spese correnti,Altre spese
 SP4,5105,Spese correnti,Altre spese
 SP5,5105,Spese correnti,Altre spese
 SP6,5105,Spese correnti,Altre spese
-CDC,5106,Spese correnti,Acquisto beni e servizi
-EGP,5106,Spese correnti,Acquisto beni e servizi
-EPF,5106,Spese correnti,Acquisto beni e servizi
+CDC,5106,Spese correnti,Altre spese
+EGP,5106,Spese correnti,Altre spese
+EPF,5106,Spese correnti,Altre spese
 RIC,5106,Spese correnti,Acquisto beni e servizi
 SP4,5106,Spese correnti,Acquisto beni e servizi
-SP5,5106,Spese correnti,Acquisto beni e servizi
-SP6,5106,Spese correnti,Acquisto beni e servizi
-EGP,5107,Spese in conto capitale,Investimenti fissi
-EPF,5107,Spese in conto capitale,Investimenti fissi
-SP6,5107,Spese in conto capitale,Investimenti fissi
-EGP,5108,Spese in conto capitale,Investimenti fissi
-EPF,5108,Spese in conto capitale,Investimenti fissi
-SP6,5108,Spese in conto capitale,Investimenti fissi
+SP5,5106,Spese correnti,Altre spese
+SP6,5106,Spese correnti,Altre spese
+EGP,5107,Spese correnti,Altre spese
+EPF,5107,Spese correnti,Altre spese
+SP6,5107,Spese correnti,Altre spese
+EGP,5108,Spese correnti,Altre spese
+EPF,5108,Spese correnti,Altre spese
+SP6,5108,Spese correnti,Altre spese
 EGP,5109,Spese correnti,Altre spese
 EPF,5109,Spese correnti,Altre spese
 SP6,5109,Spese correnti,Altre spese
@@ -19271,16 +19271,16 @@ EPF,5110,Spese correnti,Altre spese
 SP6,5110,Spese correnti,Altre spese
 SP7,5110,Spese correnti,Altre spese
 UNI,5110,Spese correnti,Altre spese
-EGP,5111,Spese correnti,Personale
-EPF,5111,Spese correnti,Personale
-SP6,5111,Spese correnti,Personale
+EGP,5111,Spese correnti,Altre spese
+EPF,5111,Spese correnti,Altre spese
+SP6,5111,Spese correnti,Altre spese
 SP7,5111,Spese correnti,Personale
 UNI,5111,Spese correnti,Personale
 EGP,5112,Spese correnti,Altre spese
 EPF,5112,Spese correnti,Altre spese
 SP6,5112,Spese correnti,Altre spese
-SP7,5112,Spese correnti,Altre spese
-UNI,5112,Spese correnti,Altre spese
+SP7,5112,Spese correnti,Imposte e tasse
+UNI,5112,Spese correnti,Imposte e tasse
 EGP,5113,Spese correnti,Acquisto beni e servizi
 EPF,5113,Spese correnti,Acquisto beni e servizi
 SP6,5113,Spese correnti,Acquisto beni e servizi
@@ -19301,22 +19301,22 @@ SP5,5155,Spese correnti,Altre spese
 CDC,5157,Spese correnti,Altre spese
 SP5,5157,Spese correnti,Altre spese
 CDC,5199,Spese correnti,Acquisto beni e servizi
-EGP,5199,Spese correnti,Acquisto beni e servizi
-EPF,5199,Spese correnti,Acquisto beni e servizi
-RIC,5199,Spese correnti,Acquisto beni e servizi
-SP4,5199,Spese correnti,Acquisto beni e servizi
+EGP,5199,Spese correnti,Altre spese
+EPF,5199,Spese correnti,Altre spese
+RIC,5199,Spese correnti,Altre spese
+SP4,5199,Spese correnti,Altre spese
 SP5,5199,Spese correnti,Acquisto beni e servizi
-SP6,5199,Spese correnti,Acquisto beni e servizi
+SP6,5199,Spese correnti,Altre spese
 CDC,5201,Spese correnti,Altre spese
 EGP,5201,Spese correnti,Altre spese
 EPF,5201,Spese correnti,Altre spese
 RIC,5201,Spese correnti,Altre spese
-SAN,5201,Spese correnti,Altre spese
-SP2,5201,Spese correnti,Altre spese
+SAN,5201,Spese correnti,Acquisto beni e servizi
+SP2,5201,Spese correnti,Acquisto beni e servizi
 SP4,5201,Spese correnti,Altre spese
 SP5,5201,Spese correnti,Altre spese
 SP6,5201,Spese correnti,Altre spese
-VSN,5201,Spese correnti,Altre spese
+VSN,5201,Spese correnti,Acquisto beni e servizi
 CDC,5202,Spese correnti,Altre spese
 EGP,5202,Spese correnti,Altre spese
 EPF,5202,Spese correnti,Altre spese
@@ -19363,29 +19363,29 @@ EGP,5299,Spese correnti,Altre spese
 EPF,5299,Spese correnti,Altre spese
 SP5,5299,Spese correnti,Altre spese
 SP6,5299,Spese correnti,Altre spese
-EGP,5301,Spese correnti,Interessi passivi
-EPF,5301,Spese correnti,Interessi passivi
-RIC,5301,Spese correnti,Interessi passivi
+EGP,5301,Spese correnti,Altre spese
+EPF,5301,Spese correnti,Altre spese
+RIC,5301,Spese correnti,Altre spese
 SAN,5301,Spese correnti,Interessi passivi
 SP2,5301,Spese correnti,Interessi passivi
-SP4,5301,Spese correnti,Interessi passivi
-SP6,5301,Spese correnti,Interessi passivi
+SP4,5301,Spese correnti,Altre spese
+SP6,5301,Spese correnti,Altre spese
 VSN,5301,Spese correnti,Interessi passivi
-EGP,5302,Spese correnti,Interessi passivi
-EPF,5302,Spese correnti,Interessi passivi
-RIC,5302,Spese correnti,Interessi passivi
+EGP,5302,Spese correnti,Altre spese
+EPF,5302,Spese correnti,Altre spese
+RIC,5302,Spese correnti,Altre spese
 SAN,5302,Spese correnti,Interessi passivi
 SP2,5302,Spese correnti,Interessi passivi
-SP4,5302,Spese correnti,Interessi passivi
-SP6,5302,Spese correnti,Interessi passivi
+SP4,5302,Spese correnti,Altre spese
+SP6,5302,Spese correnti,Altre spese
 VSN,5302,Spese correnti,Interessi passivi
-EGP,5303,Spese correnti,Interessi passivi
-EPF,5303,Spese correnti,Interessi passivi
-RIC,5303,Spese correnti,Interessi passivi
+EGP,5303,Spese correnti,Altre spese
+EPF,5303,Spese correnti,Altre spese
+RIC,5303,Spese correnti,Altre spese
 SAN,5303,Spese correnti,Interessi passivi
 SP2,5303,Spese correnti,Interessi passivi
-SP4,5303,Spese correnti,Interessi passivi
-SP6,5303,Spese correnti,Interessi passivi
+SP4,5303,Spese correnti,Altre spese
+SP6,5303,Spese correnti,Altre spese
 VSN,5303,Spese correnti,Interessi passivi
 SAN,5304,Spese correnti,Interessi passivi
 SP2,5304,Spese correnti,Interessi passivi
@@ -19409,31 +19409,31 @@ SP4,5399,Spese correnti,Altre spese
 EGP,5401,Anticipazioni e partite di giro,Anticipazioni
 EPF,5401,Anticipazioni e partite di giro,Anticipazioni
 RIC,5401,Anticipazioni e partite di giro,Anticipazioni
-SAN,5401,Anticipazioni e partite di giro,Anticipazioni
-SP2,5401,Anticipazioni e partite di giro,Anticipazioni
+SAN,5401,Spese correnti,Imposte e tasse
+SP2,5401,Spese correnti,Imposte e tasse
 SP4,5401,Anticipazioni e partite di giro,Anticipazioni
 SP6,5401,Anticipazioni e partite di giro,Anticipazioni
-VSN,5401,Anticipazioni e partite di giro,Anticipazioni
-EGP,5402,Spese correnti,Altre spese
-EPF,5402,Spese correnti,Altre spese
-RIC,5402,Spese correnti,Altre spese
+VSN,5401,Spese correnti,Imposte e tasse
+EGP,5402,Anticipazioni e partite di giro,Anticipazioni
+EPF,5402,Anticipazioni e partite di giro,Anticipazioni
+RIC,5402,Anticipazioni e partite di giro,Anticipazioni
 SAN,5402,Spese correnti,Altre spese
 SP2,5402,Spese correnti,Altre spese
-SP4,5402,Spese correnti,Altre spese
-SP6,5402,Spese correnti,Altre spese
+SP4,5402,Anticipazioni e partite di giro,Anticipazioni
+SP6,5402,Anticipazioni e partite di giro,Anticipazioni
 VSN,5402,Spese correnti,Altre spese
 EGP,5403,Anticipazioni e partite di giro,Anticipazioni
 EPF,5403,Anticipazioni e partite di giro,Anticipazioni
 RIC,5403,Anticipazioni e partite di giro,Anticipazioni
 SP4,5403,Anticipazioni e partite di giro,Anticipazioni
 SP6,5403,Anticipazioni e partite di giro,Anticipazioni
-EGP,5404,Spese correnti,Imposte e tasse
-EPF,5404,Spese correnti,Imposte e tasse
-RIC,5404,Spese correnti,Imposte e tasse
+EGP,5404,Anticipazioni e partite di giro,Anticipazioni
+EPF,5404,Anticipazioni e partite di giro,Anticipazioni
+RIC,5404,Anticipazioni e partite di giro,Anticipazioni
 SAN,5404,Spese correnti,Imposte e tasse
 SP2,5404,Spese correnti,Imposte e tasse
-SP4,5404,Spese correnti,Imposte e tasse
-SP6,5404,Spese correnti,Imposte e tasse
+SP4,5404,Anticipazioni e partite di giro,Anticipazioni
+SP6,5404,Anticipazioni e partite di giro,Anticipazioni
 VSN,5404,Spese correnti,Imposte e tasse
 EGP,5405,Anticipazioni e partite di giro,Anticipazioni
 EPF,5405,Anticipazioni e partite di giro,Anticipazioni
@@ -19496,8 +19496,8 @@ SP4,5491,Anticipazioni e partite di giro,Anticipazioni
 SP6,5491,Anticipazioni e partite di giro,Anticipazioni
 EGP,5492,Spese correnti,Altre spese
 EPF,5492,Spese correnti,Altre spese
-RIC,5492,Spese correnti,Altre spese
-SP4,5492,Spese correnti,Altre spese
+RIC,5492,Anticipazioni e partite di giro,Anticipazioni
+SP4,5492,Anticipazioni e partite di giro,Anticipazioni
 SP6,5492,Spese correnti,Altre spese
 EGP,5493,Anticipazioni e partite di giro,Anticipazioni
 EPF,5493,Anticipazioni e partite di giro,Anticipazioni
@@ -19505,27 +19505,27 @@ SP6,5493,Anticipazioni e partite di giro,Anticipazioni
 EGP,5494,Anticipazioni e partite di giro,Anticipazioni
 EPF,5494,Anticipazioni e partite di giro,Anticipazioni
 SP6,5494,Anticipazioni e partite di giro,Anticipazioni
-EGP,5499,Spese correnti,Altre spese
-EPF,5499,Spese correnti,Altre spese
-RIC,5499,Spese correnti,Altre spese
+EGP,5499,Anticipazioni e partite di giro,Anticipazioni
+EPF,5499,Anticipazioni e partite di giro,Anticipazioni
+RIC,5499,Anticipazioni e partite di giro,Anticipazioni
 SAN,5499,Spese correnti,Altre spese
 SP2,5499,Spese correnti,Altre spese
-SP4,5499,Spese correnti,Altre spese
-SP6,5499,Spese correnti,Altre spese
+SP4,5499,Anticipazioni e partite di giro,Anticipazioni
+SP6,5499,Anticipazioni e partite di giro,Anticipazioni
 VSN,5499,Spese correnti,Altre spese
-EGP,5501,Spese correnti,Acquisto beni e servizi
-EPF,5501,Spese correnti,Acquisto beni e servizi
-RIC,5501,Spese correnti,Acquisto beni e servizi
+EGP,5501,Spese correnti,Personale
+EPF,5501,Spese correnti,Personale
+RIC,5501,Spese correnti,Personale
 SAN,5501,Spese correnti,Acquisto beni e servizi
 SP2,5501,Spese correnti,Acquisto beni e servizi
-SP4,5501,Spese correnti,Acquisto beni e servizi
-SP6,5501,Spese correnti,Acquisto beni e servizi
+SP4,5501,Spese correnti,Personale
+SP6,5501,Spese correnti,Personale
 VSN,5501,Spese correnti,Acquisto beni e servizi
 RIC,5502,Spese correnti,Personale
-SAN,5502,Spese correnti,Personale
-SP2,5502,Spese correnti,Personale
+SAN,5502,Spese correnti,Acquisto beni e servizi
+SP2,5502,Spese correnti,Acquisto beni e servizi
 SP4,5502,Spese correnti,Personale
-VSN,5502,Spese correnti,Personale
+VSN,5502,Spese correnti,Acquisto beni e servizi
 SAN,5503,Spese correnti,Altre spese
 SP2,5503,Spese correnti,Altre spese
 VSN,5503,Spese correnti,Altre spese
@@ -19538,9 +19538,9 @@ VSN,5505,Spese correnti,Altre spese
 SAN,5506,Spese correnti,Altre spese
 SP2,5506,Spese correnti,Altre spese
 VSN,5506,Spese correnti,Altre spese
-SAN,5507,Spese correnti,Trasferimenti correnti
-SP2,5507,Spese correnti,Trasferimenti correnti
-VSN,5507,Spese correnti,Trasferimenti correnti
+SAN,5507,Spese correnti,Altre spese
+SP2,5507,Spese correnti,Altre spese
+VSN,5507,Spese correnti,Altre spese
 SAN,5508,Spese correnti,Altre spese
 SP2,5508,Spese correnti,Altre spese
 VSN,5508,Spese correnti,Altre spese
@@ -19559,197 +19559,197 @@ VSN,5598,Spese correnti,Altre spese
 SAN,5599,Spese correnti,Altre spese
 SP2,5599,Spese correnti,Altre spese
 VSN,5599,Spese correnti,Altre spese
-EGP,5601,Spese correnti,Trasferimenti correnti
-EPF,5601,Spese correnti,Trasferimenti correnti
-RIC,5601,Spese correnti,Trasferimenti correnti
-SP4,5601,Spese correnti,Trasferimenti correnti
-SP6,5601,Spese correnti,Trasferimenti correnti
-EGP,5602,Spese correnti,Trasferimenti correnti
-EPF,5602,Spese correnti,Trasferimenti correnti
-RIC,5602,Spese correnti,Trasferimenti correnti
-SP4,5602,Spese correnti,Trasferimenti correnti
-SP6,5602,Spese correnti,Trasferimenti correnti
-EGP,5603,Spese correnti,Trasferimenti correnti
-EPF,5603,Spese correnti,Trasferimenti correnti
-RIC,5603,Spese correnti,Trasferimenti correnti
-SP4,5603,Spese correnti,Trasferimenti correnti
-SP6,5603,Spese correnti,Trasferimenti correnti
-EGP,5604,Spese correnti,Trasferimenti correnti
-EPF,5604,Spese correnti,Trasferimenti correnti
-RIC,5604,Spese correnti,Trasferimenti correnti
-SP4,5604,Spese correnti,Trasferimenti correnti
-SP6,5604,Spese correnti,Trasferimenti correnti
-EGP,5605,Spese correnti,Trasferimenti correnti
-EPF,5605,Spese correnti,Trasferimenti correnti
-RIC,5605,Spese correnti,Trasferimenti correnti
-SP4,5605,Spese correnti,Trasferimenti correnti
-SP6,5605,Spese correnti,Trasferimenti correnti
-EGP,5606,Spese correnti,Trasferimenti correnti
-EPF,5606,Spese correnti,Trasferimenti correnti
-RIC,5606,Spese correnti,Trasferimenti correnti
-SP4,5606,Spese correnti,Trasferimenti correnti
-SP6,5606,Spese correnti,Trasferimenti correnti
-EGP,5607,Spese correnti,Trasferimenti correnti
-EPF,5607,Spese correnti,Trasferimenti correnti
-RIC,5607,Spese correnti,Trasferimenti correnti
-SP4,5607,Spese correnti,Trasferimenti correnti
-SP6,5607,Spese correnti,Trasferimenti correnti
-EGP,5608,Spese correnti,Trasferimenti correnti
-EPF,5608,Spese correnti,Trasferimenti correnti
-RIC,5608,Spese correnti,Trasferimenti correnti
-SP4,5608,Spese correnti,Trasferimenti correnti
-SP6,5608,Spese correnti,Trasferimenti correnti
-EGP,5609,Spese correnti,Trasferimenti correnti
-EPF,5609,Spese correnti,Trasferimenti correnti
-RIC,5609,Spese correnti,Trasferimenti correnti
-SP4,5609,Spese correnti,Trasferimenti correnti
-SP6,5609,Spese correnti,Trasferimenti correnti
-EGP,5610,Spese correnti,Trasferimenti correnti
-EPF,5610,Spese correnti,Trasferimenti correnti
-RIC,5610,Spese correnti,Trasferimenti correnti
-SP4,5610,Spese correnti,Trasferimenti correnti
-SP6,5610,Spese correnti,Trasferimenti correnti
-EGP,5611,Spese correnti,Trasferimenti correnti
-EPF,5611,Spese correnti,Trasferimenti correnti
-RIC,5611,Spese correnti,Trasferimenti correnti
-SP4,5611,Spese correnti,Trasferimenti correnti
-SP6,5611,Spese correnti,Trasferimenti correnti
-EGP,5612,Spese correnti,Trasferimenti correnti
-EPF,5612,Spese correnti,Trasferimenti correnti
-RIC,5612,Spese correnti,Trasferimenti correnti
-SP4,5612,Spese correnti,Trasferimenti correnti
-SP6,5612,Spese correnti,Trasferimenti correnti
-EGP,5613,Spese correnti,Trasferimenti correnti
-EPF,5613,Spese correnti,Trasferimenti correnti
-RIC,5613,Spese correnti,Trasferimenti correnti
-SP4,5613,Spese correnti,Trasferimenti correnti
-SP6,5613,Spese correnti,Trasferimenti correnti
-EGP,5614,Spese correnti,Trasferimenti correnti
-EPF,5614,Spese correnti,Trasferimenti correnti
-RIC,5614,Spese correnti,Trasferimenti correnti
-SP4,5614,Spese correnti,Trasferimenti correnti
-SP6,5614,Spese correnti,Trasferimenti correnti
-EGP,5615,Spese correnti,Trasferimenti correnti
-EPF,5615,Spese correnti,Trasferimenti correnti
-RIC,5615,Spese correnti,Trasferimenti correnti
-SP4,5615,Spese correnti,Trasferimenti correnti
-SP6,5615,Spese correnti,Trasferimenti correnti
-EGP,5616,Spese correnti,Trasferimenti correnti
-EPF,5616,Spese correnti,Trasferimenti correnti
-RIC,5616,Spese correnti,Trasferimenti correnti
-SP4,5616,Spese correnti,Trasferimenti correnti
-SP6,5616,Spese correnti,Trasferimenti correnti
-EGP,5617,Spese correnti,Trasferimenti correnti
-EPF,5617,Spese correnti,Trasferimenti correnti
-RIC,5617,Spese correnti,Trasferimenti correnti
-SP4,5617,Spese correnti,Trasferimenti correnti
-SP6,5617,Spese correnti,Trasferimenti correnti
-EGP,5618,Spese correnti,Trasferimenti correnti
-EPF,5618,Spese correnti,Trasferimenti correnti
-RIC,5618,Spese correnti,Trasferimenti correnti
-SP4,5618,Spese correnti,Trasferimenti correnti
-SP6,5618,Spese correnti,Trasferimenti correnti
-EGP,5619,Spese correnti,Trasferimenti correnti
-EPF,5619,Spese correnti,Trasferimenti correnti
-RIC,5619,Spese correnti,Trasferimenti correnti
-SP4,5619,Spese correnti,Trasferimenti correnti
-SP6,5619,Spese correnti,Trasferimenti correnti
-EGP,5620,Spese correnti,Trasferimenti correnti
-EPF,5620,Spese correnti,Trasferimenti correnti
-SP6,5620,Spese correnti,Trasferimenti correnti
-EGP,5689,Spese correnti,Trasferimenti correnti
-EPF,5689,Spese correnti,Trasferimenti correnti
-RIC,5689,Spese correnti,Trasferimenti correnti
-SP4,5689,Spese correnti,Trasferimenti correnti
-SP6,5689,Spese correnti,Trasferimenti correnti
-EGP,5690,Spese correnti,Trasferimenti correnti
-EPF,5690,Spese correnti,Trasferimenti correnti
-SP6,5690,Spese correnti,Trasferimenti correnti
-EGP,5691,Spese correnti,Trasferimenti correnti
-EPF,5691,Spese correnti,Trasferimenti correnti
-RIC,5691,Spese correnti,Trasferimenti correnti
-SP4,5691,Spese correnti,Trasferimenti correnti
-SP6,5691,Spese correnti,Trasferimenti correnti
-EGP,5692,Spese correnti,Trasferimenti correnti
-EPF,5692,Spese correnti,Trasferimenti correnti
-RIC,5692,Spese correnti,Trasferimenti correnti
-SP4,5692,Spese correnti,Trasferimenti correnti
-SP6,5692,Spese correnti,Trasferimenti correnti
-EGP,5693,Spese correnti,Trasferimenti correnti
-EPF,5693,Spese correnti,Trasferimenti correnti
-RIC,5693,Spese correnti,Trasferimenti correnti
-SP4,5693,Spese correnti,Trasferimenti correnti
-SP6,5693,Spese correnti,Trasferimenti correnti
-EGP,5694,Spese correnti,Trasferimenti correnti
-EPF,5694,Spese correnti,Trasferimenti correnti
-RIC,5694,Spese correnti,Trasferimenti correnti
-SP4,5694,Spese correnti,Trasferimenti correnti
-SP6,5694,Spese correnti,Trasferimenti correnti
-EGP,5695,Spese correnti,Trasferimenti correnti
-EPF,5695,Spese correnti,Trasferimenti correnti
-RIC,5695,Spese correnti,Trasferimenti correnti
-SP4,5695,Spese correnti,Trasferimenti correnti
-SP6,5695,Spese correnti,Trasferimenti correnti
-EGP,5696,Spese correnti,Trasferimenti correnti
-EPF,5696,Spese correnti,Trasferimenti correnti
-RIC,5696,Spese correnti,Trasferimenti correnti
-SP4,5696,Spese correnti,Trasferimenti correnti
-SP6,5696,Spese correnti,Trasferimenti correnti
-CDC,6101,Spese correnti,Altre spese
-EGP,6101,Spese correnti,Altre spese
-EPF,6101,Spese correnti,Altre spese
-RIC,6101,Spese correnti,Altre spese
+EGP,5601,Spese correnti,Altre spese
+EPF,5601,Spese correnti,Altre spese
+RIC,5601,Spese correnti,Altre spese
+SP4,5601,Spese correnti,Altre spese
+SP6,5601,Spese correnti,Altre spese
+EGP,5602,Spese correnti,Altre spese
+EPF,5602,Spese correnti,Altre spese
+RIC,5602,Spese correnti,Altre spese
+SP4,5602,Spese correnti,Altre spese
+SP6,5602,Spese correnti,Altre spese
+EGP,5603,Spese correnti,Altre spese
+EPF,5603,Spese correnti,Altre spese
+RIC,5603,Spese correnti,Altre spese
+SP4,5603,Spese correnti,Altre spese
+SP6,5603,Spese correnti,Altre spese
+EGP,5604,Spese correnti,Altre spese
+EPF,5604,Spese correnti,Altre spese
+RIC,5604,Spese correnti,Altre spese
+SP4,5604,Spese correnti,Altre spese
+SP6,5604,Spese correnti,Altre spese
+EGP,5605,Spese correnti,Altre spese
+EPF,5605,Spese correnti,Altre spese
+RIC,5605,Spese correnti,Altre spese
+SP4,5605,Spese correnti,Altre spese
+SP6,5605,Spese correnti,Altre spese
+EGP,5606,Spese correnti,Altre spese
+EPF,5606,Spese correnti,Altre spese
+RIC,5606,Spese correnti,Altre spese
+SP4,5606,Spese correnti,Altre spese
+SP6,5606,Spese correnti,Altre spese
+EGP,5607,Spese correnti,Altre spese
+EPF,5607,Spese correnti,Altre spese
+RIC,5607,Spese correnti,Altre spese
+SP4,5607,Spese correnti,Altre spese
+SP6,5607,Spese correnti,Altre spese
+EGP,5608,Spese correnti,Altre spese
+EPF,5608,Spese correnti,Altre spese
+RIC,5608,Spese correnti,Altre spese
+SP4,5608,Spese correnti,Altre spese
+SP6,5608,Spese correnti,Altre spese
+EGP,5609,Spese correnti,Altre spese
+EPF,5609,Spese correnti,Altre spese
+RIC,5609,Spese correnti,Altre spese
+SP4,5609,Spese correnti,Altre spese
+SP6,5609,Spese correnti,Altre spese
+EGP,5610,Spese correnti,Altre spese
+EPF,5610,Spese correnti,Altre spese
+RIC,5610,Spese correnti,Altre spese
+SP4,5610,Spese correnti,Altre spese
+SP6,5610,Spese correnti,Altre spese
+EGP,5611,Spese correnti,Altre spese
+EPF,5611,Spese correnti,Altre spese
+RIC,5611,Spese correnti,Altre spese
+SP4,5611,Spese correnti,Altre spese
+SP6,5611,Spese correnti,Altre spese
+EGP,5612,Spese correnti,Altre spese
+EPF,5612,Spese correnti,Altre spese
+RIC,5612,Spese correnti,Altre spese
+SP4,5612,Spese correnti,Altre spese
+SP6,5612,Spese correnti,Altre spese
+EGP,5613,Spese correnti,Altre spese
+EPF,5613,Spese correnti,Altre spese
+RIC,5613,Spese correnti,Altre spese
+SP4,5613,Spese correnti,Altre spese
+SP6,5613,Spese correnti,Altre spese
+EGP,5614,Spese correnti,Altre spese
+EPF,5614,Spese correnti,Altre spese
+RIC,5614,Spese correnti,Altre spese
+SP4,5614,Spese correnti,Altre spese
+SP6,5614,Spese correnti,Altre spese
+EGP,5615,Spese correnti,Altre spese
+EPF,5615,Spese correnti,Altre spese
+RIC,5615,Spese correnti,Altre spese
+SP4,5615,Spese correnti,Altre spese
+SP6,5615,Spese correnti,Altre spese
+EGP,5616,Spese correnti,Altre spese
+EPF,5616,Spese correnti,Altre spese
+RIC,5616,Spese correnti,Altre spese
+SP4,5616,Spese correnti,Altre spese
+SP6,5616,Spese correnti,Altre spese
+EGP,5617,Spese correnti,Altre spese
+EPF,5617,Spese correnti,Altre spese
+RIC,5617,Spese correnti,Altre spese
+SP4,5617,Spese correnti,Altre spese
+SP6,5617,Spese correnti,Altre spese
+EGP,5618,Spese correnti,Altre spese
+EPF,5618,Spese correnti,Altre spese
+RIC,5618,Spese correnti,Altre spese
+SP4,5618,Spese correnti,Altre spese
+SP6,5618,Spese correnti,Altre spese
+EGP,5619,Spese correnti,Altre spese
+EPF,5619,Spese correnti,Altre spese
+RIC,5619,Spese correnti,Altre spese
+SP4,5619,Spese correnti,Altre spese
+SP6,5619,Spese correnti,Altre spese
+EGP,5620,Spese correnti,Altre spese
+EPF,5620,Spese correnti,Altre spese
+SP6,5620,Spese correnti,Altre spese
+EGP,5689,Spese correnti,Altre spese
+EPF,5689,Spese correnti,Altre spese
+RIC,5689,Spese correnti,Altre spese
+SP4,5689,Spese correnti,Altre spese
+SP6,5689,Spese correnti,Altre spese
+EGP,5690,Spese correnti,Altre spese
+EPF,5690,Spese correnti,Altre spese
+SP6,5690,Spese correnti,Altre spese
+EGP,5691,Spese correnti,Altre spese
+EPF,5691,Spese correnti,Altre spese
+RIC,5691,Spese correnti,Altre spese
+SP4,5691,Spese correnti,Altre spese
+SP6,5691,Spese correnti,Altre spese
+EGP,5692,Spese correnti,Altre spese
+EPF,5692,Spese correnti,Altre spese
+RIC,5692,Spese correnti,Altre spese
+SP4,5692,Spese correnti,Altre spese
+SP6,5692,Spese correnti,Altre spese
+EGP,5693,Spese correnti,Altre spese
+EPF,5693,Spese correnti,Altre spese
+RIC,5693,Spese correnti,Altre spese
+SP4,5693,Spese correnti,Altre spese
+SP6,5693,Spese correnti,Altre spese
+EGP,5694,Spese correnti,Altre spese
+EPF,5694,Spese correnti,Altre spese
+RIC,5694,Spese correnti,Altre spese
+SP4,5694,Spese correnti,Altre spese
+SP6,5694,Spese correnti,Altre spese
+EGP,5695,Spese correnti,Altre spese
+EPF,5695,Spese correnti,Altre spese
+RIC,5695,Spese correnti,Altre spese
+SP4,5695,Spese correnti,Altre spese
+SP6,5695,Spese correnti,Altre spese
+EGP,5696,Spese correnti,Altre spese
+EPF,5696,Spese correnti,Altre spese
+RIC,5696,Spese correnti,Altre spese
+SP4,5696,Spese correnti,Altre spese
+SP6,5696,Spese correnti,Altre spese
+CDC,6101,Spese correnti,Trasferimenti correnti
+EGP,6101,Rimborso prestiti,Rimborso prestiti
+EPF,6101,Rimborso prestiti,Rimborso prestiti
+RIC,6101,Rimborso prestiti,Rimborso prestiti
 SAN,6101,Spese correnti,Altre spese
 SP2,6101,Spese correnti,Altre spese
-SP4,6101,Spese correnti,Altre spese
-SP5,6101,Spese correnti,Altre spese
-SP6,6101,Spese correnti,Altre spese
+SP4,6101,Rimborso prestiti,Rimborso prestiti
+SP5,6101,Spese correnti,Trasferimenti correnti
+SP6,6101,Rimborso prestiti,Rimborso prestiti
 VSN,6101,Spese correnti,Altre spese
-CDC,6102,Spese in conto capitale,Investimenti fissi
-EGP,6102,Spese in conto capitale,Investimenti fissi
-EPF,6102,Spese in conto capitale,Investimenti fissi
-RIC,6102,Spese in conto capitale,Investimenti fissi
-SAN,6102,Spese in conto capitale,Investimenti fissi
-SP2,6102,Spese in conto capitale,Investimenti fissi
-SP4,6102,Spese in conto capitale,Investimenti fissi
-SP5,6102,Spese in conto capitale,Investimenti fissi
-SP6,6102,Spese in conto capitale,Investimenti fissi
-VSN,6102,Spese in conto capitale,Investimenti fissi
+CDC,6102,Spese correnti,Trasferimenti correnti
+EGP,6102,Rimborso prestiti,Rimborso prestiti
+EPF,6102,Rimborso prestiti,Rimborso prestiti
+RIC,6102,Rimborso prestiti,Rimborso prestiti
+SAN,6102,Spese correnti,Altre spese
+SP2,6102,Spese correnti,Altre spese
+SP4,6102,Rimborso prestiti,Rimborso prestiti
+SP5,6102,Spese correnti,Trasferimenti correnti
+SP6,6102,Rimborso prestiti,Rimborso prestiti
+VSN,6102,Spese correnti,Altre spese
 CDC,6103,Spese correnti,Trasferimenti correnti
-EGP,6103,Spese correnti,Trasferimenti correnti
-EPF,6103,Spese correnti,Trasferimenti correnti
-RIC,6103,Spese correnti,Trasferimenti correnti
-SAN,6103,Spese correnti,Trasferimenti correnti
-SP2,6103,Spese correnti,Trasferimenti correnti
-SP4,6103,Spese correnti,Trasferimenti correnti
+EGP,6103,Rimborso prestiti,Rimborso prestiti
+EPF,6103,Rimborso prestiti,Rimborso prestiti
+RIC,6103,Rimborso prestiti,Rimborso prestiti
+SAN,6103,Spese correnti,Altre spese
+SP2,6103,Spese correnti,Altre spese
+SP4,6103,Rimborso prestiti,Rimborso prestiti
 SP5,6103,Spese correnti,Trasferimenti correnti
-SP6,6103,Spese correnti,Trasferimenti correnti
-VSN,6103,Spese correnti,Trasferimenti correnti
+SP6,6103,Rimborso prestiti,Rimborso prestiti
+VSN,6103,Spese correnti,Altre spese
 CDC,6104,Spese correnti,Trasferimenti correnti
-EGP,6104,Spese correnti,Trasferimenti correnti
-EPF,6104,Spese correnti,Trasferimenti correnti
-RIC,6104,Spese correnti,Trasferimenti correnti
-SAN,6104,Spese correnti,Trasferimenti correnti
-SP2,6104,Spese correnti,Trasferimenti correnti
-SP4,6104,Spese correnti,Trasferimenti correnti
+EGP,6104,Rimborso prestiti,Rimborso prestiti
+EPF,6104,Rimborso prestiti,Rimborso prestiti
+RIC,6104,Rimborso prestiti,Rimborso prestiti
+SAN,6104,Spese correnti,Altre spese
+SP2,6104,Spese correnti,Altre spese
+SP4,6104,Rimborso prestiti,Rimborso prestiti
 SP5,6104,Spese correnti,Trasferimenti correnti
-SP6,6104,Spese correnti,Trasferimenti correnti
-VSN,6104,Spese correnti,Trasferimenti correnti
+SP6,6104,Rimborso prestiti,Rimborso prestiti
+VSN,6104,Spese correnti,Altre spese
 CDC,6105,Spese correnti,Trasferimenti correnti
-EGP,6105,Spese correnti,Trasferimenti correnti
-EPF,6105,Spese correnti,Trasferimenti correnti
-RIC,6105,Spese correnti,Trasferimenti correnti
-SAN,6105,Spese correnti,Trasferimenti correnti
-SP2,6105,Spese correnti,Trasferimenti correnti
-SP4,6105,Spese correnti,Trasferimenti correnti
+EGP,6105,Rimborso prestiti,Rimborso prestiti
+EPF,6105,Rimborso prestiti,Rimborso prestiti
+RIC,6105,Rimborso prestiti,Rimborso prestiti
+SAN,6105,Spese correnti,Altre spese
+SP2,6105,Spese correnti,Altre spese
+SP4,6105,Rimborso prestiti,Rimborso prestiti
 SP5,6105,Spese correnti,Trasferimenti correnti
-SP6,6105,Spese correnti,Trasferimenti correnti
-VSN,6105,Spese correnti,Trasferimenti correnti
+SP6,6105,Rimborso prestiti,Rimborso prestiti
+VSN,6105,Spese correnti,Altre spese
 CDC,6106,Spese correnti,Trasferimenti correnti
-SAN,6106,Spese correnti,Trasferimenti correnti
-SP2,6106,Spese correnti,Trasferimenti correnti
+SAN,6106,Spese correnti,Altre spese
+SP2,6106,Spese correnti,Altre spese
 SP5,6106,Spese correnti,Trasferimenti correnti
-VSN,6106,Spese correnti,Trasferimenti correnti
+VSN,6106,Spese correnti,Altre spese
 CDC,6107,Spese correnti,Trasferimenti correnti
 SP5,6107,Spese correnti,Trasferimenti correnti
 CDC,6108,Spese correnti,Trasferimenti correnti
@@ -19842,21 +19842,21 @@ SP7,6140,Spese correnti,Trasferimenti correnti
 UNI,6140,Spese correnti,Trasferimenti correnti
 SP7,6141,Spese correnti,Trasferimenti correnti
 UNI,6141,Spese correnti,Trasferimenti correnti
-CDC,6199,Spese correnti,Acquisto beni e servizi
+CDC,6199,Spese correnti,Trasferimenti correnti
 SAN,6199,Spese correnti,Acquisto beni e servizi
 SP2,6199,Spese correnti,Acquisto beni e servizi
-SP5,6199,Spese correnti,Acquisto beni e servizi
+SP5,6199,Spese correnti,Trasferimenti correnti
 VSN,6199,Spese correnti,Acquisto beni e servizi
 SAN,6200,Spese correnti,Acquisto beni e servizi
 SP2,6200,Spese correnti,Acquisto beni e servizi
 VSN,6200,Spese correnti,Acquisto beni e servizi
 CDC,6201,Spese correnti,Trasferimenti correnti
-EGP,6201,Spese correnti,Trasferimenti correnti
-EPF,6201,Spese correnti,Trasferimenti correnti
-RIC,6201,Spese correnti,Trasferimenti correnti
-SP4,6201,Spese correnti,Trasferimenti correnti
+EGP,6201,Anticipazioni e partite di giro,Anticipazioni
+EPF,6201,Anticipazioni e partite di giro,Anticipazioni
+RIC,6201,Anticipazioni e partite di giro,Anticipazioni
+SP4,6201,Anticipazioni e partite di giro,Anticipazioni
 SP5,6201,Spese correnti,Trasferimenti correnti
-SP6,6201,Spese correnti,Trasferimenti correnti
+SP6,6201,Anticipazioni e partite di giro,Anticipazioni
 CDC,6204,Spese correnti,Trasferimenti correnti
 SP5,6204,Spese correnti,Trasferimenti correnti
 CDC,6206,Spese correnti,Trasferimenti correnti
@@ -19865,64 +19865,64 @@ CDC,6207,Spese correnti,Trasferimenti correnti
 SP5,6207,Spese correnti,Trasferimenti correnti
 CDC,6208,Spese correnti,Trasferimenti correnti
 SP5,6208,Spese correnti,Trasferimenti correnti
-SP7,6211,Spese correnti,Trasferimenti correnti
-UNI,6211,Spese correnti,Trasferimenti correnti
-SP7,6212,Spese correnti,Trasferimenti correnti
-UNI,6212,Spese correnti,Trasferimenti correnti
-SP7,6213,Spese correnti,Trasferimenti correnti
-UNI,6213,Spese correnti,Trasferimenti correnti
-SP7,6214,Spese correnti,Trasferimenti correnti
-UNI,6214,Spese correnti,Trasferimenti correnti
-SP7,6215,Spese correnti,Trasferimenti correnti
-UNI,6215,Spese correnti,Trasferimenti correnti
-SP7,6216,Spese correnti,Trasferimenti correnti
-UNI,6216,Spese correnti,Trasferimenti correnti
-SP7,6217,Spese correnti,Trasferimenti correnti
-UNI,6217,Spese correnti,Trasferimenti correnti
-SP7,6218,Spese correnti,Trasferimenti correnti
-UNI,6218,Spese correnti,Trasferimenti correnti
-SP7,6219,Spese correnti,Trasferimenti correnti
-UNI,6219,Spese correnti,Trasferimenti correnti
-SP7,6220,Spese correnti,Trasferimenti correnti
-UNI,6220,Spese correnti,Trasferimenti correnti
-SP7,6221,Spese correnti,Trasferimenti correnti
-UNI,6221,Spese correnti,Trasferimenti correnti
-SP7,6222,Spese correnti,Trasferimenti correnti
-UNI,6222,Spese correnti,Trasferimenti correnti
-SP7,6223,Spese correnti,Trasferimenti correnti
-UNI,6223,Spese correnti,Trasferimenti correnti
-SP7,6224,Spese correnti,Trasferimenti correnti
-UNI,6224,Spese correnti,Trasferimenti correnti
-SP7,6225,Spese correnti,Trasferimenti correnti
-UNI,6225,Spese correnti,Trasferimenti correnti
-SP7,6226,Spese correnti,Trasferimenti correnti
-UNI,6226,Spese correnti,Trasferimenti correnti
-SP7,6227,Spese correnti,Trasferimenti correnti
-UNI,6227,Spese correnti,Trasferimenti correnti
-SP7,6228,Spese correnti,Trasferimenti correnti
-UNI,6228,Spese correnti,Trasferimenti correnti
-SP7,6229,Spese correnti,Trasferimenti correnti
-UNI,6229,Spese correnti,Trasferimenti correnti
-SP7,6232,Spese correnti,Trasferimenti correnti
-UNI,6232,Spese correnti,Trasferimenti correnti
-SP7,6233,Spese correnti,Trasferimenti correnti
-UNI,6233,Spese correnti,Trasferimenti correnti
-SP7,6234,Spese correnti,Trasferimenti correnti
-UNI,6234,Spese correnti,Trasferimenti correnti
-SP7,6236,Spese correnti,Trasferimenti correnti
-UNI,6236,Spese correnti,Trasferimenti correnti
-SP7,6237,Spese correnti,Trasferimenti correnti
-UNI,6237,Spese correnti,Trasferimenti correnti
-SP7,6238,Spese correnti,Trasferimenti correnti
-UNI,6238,Spese correnti,Trasferimenti correnti
-SP7,6239,Spese correnti,Trasferimenti correnti
-UNI,6239,Spese correnti,Trasferimenti correnti
-SP7,6240,Spese correnti,Trasferimenti correnti
-UNI,6240,Spese correnti,Trasferimenti correnti
-SP7,6241,Spese correnti,Trasferimenti correnti
-UNI,6241,Spese correnti,Trasferimenti correnti
-SP7,6300,Spese correnti,Trasferimenti correnti
-UNI,6300,Spese correnti,Trasferimenti correnti
+SP7,6211,Spese correnti,Altre spese
+UNI,6211,Spese correnti,Altre spese
+SP7,6212,Spese correnti,Altre spese
+UNI,6212,Spese correnti,Altre spese
+SP7,6213,Spese correnti,Altre spese
+UNI,6213,Spese correnti,Altre spese
+SP7,6214,Spese correnti,Altre spese
+UNI,6214,Spese correnti,Altre spese
+SP7,6215,Spese correnti,Altre spese
+UNI,6215,Spese correnti,Altre spese
+SP7,6216,Spese correnti,Altre spese
+UNI,6216,Spese correnti,Altre spese
+SP7,6217,Spese correnti,Altre spese
+UNI,6217,Spese correnti,Altre spese
+SP7,6218,Spese correnti,Altre spese
+UNI,6218,Spese correnti,Altre spese
+SP7,6219,Spese correnti,Altre spese
+UNI,6219,Spese correnti,Altre spese
+SP7,6220,Spese correnti,Altre spese
+UNI,6220,Spese correnti,Altre spese
+SP7,6221,Spese correnti,Altre spese
+UNI,6221,Spese correnti,Altre spese
+SP7,6222,Spese correnti,Altre spese
+UNI,6222,Spese correnti,Altre spese
+SP7,6223,Spese correnti,Altre spese
+UNI,6223,Spese correnti,Altre spese
+SP7,6224,Spese correnti,Altre spese
+UNI,6224,Spese correnti,Altre spese
+SP7,6225,Spese correnti,Altre spese
+UNI,6225,Spese correnti,Altre spese
+SP7,6226,Spese correnti,Altre spese
+UNI,6226,Spese correnti,Altre spese
+SP7,6227,Spese correnti,Altre spese
+UNI,6227,Spese correnti,Altre spese
+SP7,6228,Spese correnti,Altre spese
+UNI,6228,Spese correnti,Altre spese
+SP7,6229,Spese correnti,Altre spese
+UNI,6229,Spese correnti,Altre spese
+SP7,6232,Spese correnti,Altre spese
+UNI,6232,Spese correnti,Altre spese
+SP7,6233,Spese correnti,Altre spese
+UNI,6233,Spese correnti,Altre spese
+SP7,6234,Spese correnti,Altre spese
+UNI,6234,Spese correnti,Altre spese
+SP7,6236,Spese correnti,Altre spese
+UNI,6236,Spese correnti,Altre spese
+SP7,6237,Spese correnti,Altre spese
+UNI,6237,Spese correnti,Altre spese
+SP7,6238,Spese correnti,Altre spese
+UNI,6238,Spese correnti,Altre spese
+SP7,6239,Spese correnti,Altre spese
+UNI,6239,Spese correnti,Altre spese
+SP7,6240,Spese correnti,Altre spese
+UNI,6240,Spese correnti,Altre spese
+SP7,6241,Spese correnti,Altre spese
+UNI,6241,Spese correnti,Altre spese
+SP7,6300,Spese correnti,Altre spese
+UNI,6300,Spese correnti,Altre spese
 EGP,6301,Spese correnti,Altre spese
 EPF,6301,Spese correnti,Altre spese
 RIC,6301,Spese correnti,Altre spese
@@ -19945,8 +19945,8 @@ VSN,6303,Spese correnti,Altre spese
 SAN,6399,Spese correnti,Altre spese
 SP2,6399,Spese correnti,Altre spese
 VSN,6399,Spese correnti,Altre spese
-SP7,6400,Spese correnti,Trasferimenti correnti
-UNI,6400,Spese correnti,Trasferimenti correnti
+SP7,6400,Spese correnti,Altre spese
+UNI,6400,Spese correnti,Altre spese
 EGP,6501,Spese correnti,Altre spese
 EPF,6501,Spese correnti,Altre spese
 RIC,6501,Spese correnti,Altre spese
@@ -20975,10 +20975,10 @@ SP8,7.02.99.99.999,Spese correnti,Altre spese
 UNI,7.02.99.99.999,Spese correnti,Altre spese
 VCE,7.02.99.99.999,Spese correnti,Altre spese
 VCF,7.02.99.99.999,Spese correnti,Altre spese
-CDC,7100,Incremento attivita' finanziarie,Incremento attivita' finanziarie
+CDC,7100,Spese correnti,Altre spese
 SAN,7100,Incremento attivita' finanziarie,Incremento attivita' finanziarie
 SP2,7100,Incremento attivita' finanziarie,Incremento attivita' finanziarie
-SP5,7100,Incremento attivita' finanziarie,Incremento attivita' finanziarie
+SP5,7100,Spese correnti,Altre spese
 VSN,7100,Incremento attivita' finanziarie,Incremento attivita' finanziarie
 EGP,7101,Spese correnti,Altre spese
 EPF,7101,Spese correnti,Altre spese
@@ -21002,14 +21002,14 @@ EPF,7106,Spese correnti,Altre spese
 SP6,7106,Spese correnti,Altre spese
 SP7,7111,Spese correnti,Altre spese
 UNI,7111,Spese correnti,Altre spese
-SP7,7112,Spese in conto capitale,Investimenti fissi
-UNI,7112,Spese in conto capitale,Investimenti fissi
-SP7,7113,Spese in conto capitale,Investimenti fissi
-UNI,7113,Spese in conto capitale,Investimenti fissi
-SP7,7114,Spese in conto capitale,Investimenti fissi
-UNI,7114,Spese in conto capitale,Investimenti fissi
-SP7,7115,Spese in conto capitale,Investimenti fissi
-UNI,7115,Spese in conto capitale,Investimenti fissi
+SP7,7112,Spese correnti,Altre spese
+UNI,7112,Spese correnti,Altre spese
+SP7,7113,Spese correnti,Altre spese
+UNI,7113,Spese correnti,Altre spese
+SP7,7114,Spese correnti,Altre spese
+UNI,7114,Spese correnti,Altre spese
+SP7,7115,Spese correnti,Altre spese
+UNI,7115,Spese correnti,Altre spese
 SP7,7116,Spese correnti,Altre spese
 UNI,7116,Spese correnti,Altre spese
 SP7,7117,Spese correnti,Altre spese
@@ -21019,31 +21019,31 @@ UNI,7118,Spese correnti,Altre spese
 EGP,7199,Spese correnti,Altre spese
 EPF,7199,Spese correnti,Altre spese
 SP6,7199,Spese correnti,Altre spese
-CDC,7200,Incremento attivita' finanziarie,Incremento attivita' finanziarie
+CDC,7200,Spese correnti,Altre spese
 SAN,7200,Incremento attivita' finanziarie,Incremento attivita' finanziarie
 SP2,7200,Incremento attivita' finanziarie,Incremento attivita' finanziarie
-SP5,7200,Incremento attivita' finanziarie,Incremento attivita' finanziarie
+SP5,7200,Spese correnti,Altre spese
 VSN,7200,Incremento attivita' finanziarie,Incremento attivita' finanziarie
 SP7,7211,Spese correnti,Altre spese
 UNI,7211,Spese correnti,Altre spese
-SP7,7212,Spese in conto capitale,Investimenti fissi
-UNI,7212,Spese in conto capitale,Investimenti fissi
-SP7,7213,Spese in conto capitale,Investimenti fissi
-UNI,7213,Spese in conto capitale,Investimenti fissi
-SP7,7214,Spese in conto capitale,Investimenti fissi
-UNI,7214,Spese in conto capitale,Investimenti fissi
-SP7,7215,Spese in conto capitale,Investimenti fissi
-UNI,7215,Spese in conto capitale,Investimenti fissi
+SP7,7212,Spese correnti,Altre spese
+UNI,7212,Spese correnti,Altre spese
+SP7,7213,Spese correnti,Altre spese
+UNI,7213,Spese correnti,Altre spese
+SP7,7214,Spese correnti,Altre spese
+UNI,7214,Spese correnti,Altre spese
+SP7,7215,Spese correnti,Altre spese
+UNI,7215,Spese correnti,Altre spese
 SP7,7216,Spese correnti,Altre spese
 UNI,7216,Spese correnti,Altre spese
 SP7,7217,Spese correnti,Altre spese
 UNI,7217,Spese correnti,Altre spese
 SP7,7218,Spese correnti,Altre spese
 UNI,7218,Spese correnti,Altre spese
-CDC,7300,Incremento attivita' finanziarie,Incremento attivita' finanziarie
+CDC,7300,Spese correnti,Altre spese
 SAN,7300,Incremento attivita' finanziarie,Incremento attivita' finanziarie
 SP2,7300,Incremento attivita' finanziarie,Incremento attivita' finanziarie
-SP5,7300,Incremento attivita' finanziarie,Incremento attivita' finanziarie
+SP5,7300,Spese correnti,Altre spese
 VSN,7300,Incremento attivita' finanziarie,Incremento attivita' finanziarie
 SP7,7311,Spese correnti,Altre spese
 UNI,7311,Spese correnti,Altre spese
@@ -21108,10 +21108,10 @@ VSN,7450,Incremento attivita' finanziarie,Incremento attivita' finanziarie
 SAN,7460,Incremento attivita' finanziarie,Incremento attivita' finanziarie
 SP2,7460,Incremento attivita' finanziarie,Incremento attivita' finanziarie
 VSN,7460,Incremento attivita' finanziarie,Incremento attivita' finanziarie
-CDC,7500,Incremento attivita' finanziarie,Incremento attivita' finanziarie
+CDC,7500,Spese correnti,Altre spese
 SAN,7500,Incremento attivita' finanziarie,Incremento attivita' finanziarie
 SP2,7500,Incremento attivita' finanziarie,Incremento attivita' finanziarie
-SP5,7500,Incremento attivita' finanziarie,Incremento attivita' finanziarie
+SP5,7500,Spese correnti,Altre spese
 VSN,7500,Incremento attivita' finanziarie,Incremento attivita' finanziarie
 SP7,7511,Anticipazioni e partite di giro,Anticipazioni
 UNI,7511,Anticipazioni e partite di giro,Anticipazioni
@@ -21154,10 +21154,10 @@ VSN,7911,Incremento attivita' finanziarie,Incremento attivita' finanziarie
 SAN,7912,Incremento attivita' finanziarie,Incremento attivita' finanziarie
 SP2,7912,Incremento attivita' finanziarie,Incremento attivita' finanziarie
 VSN,7912,Incremento attivita' finanziarie,Incremento attivita' finanziarie
-CDC,8100,Rimborso prestiti,Rimborso prestiti
+CDC,8100,Anticipazioni e partite di giro,Anticipazioni
 SAN,8100,Rimborso prestiti,Rimborso prestiti
 SP2,8100,Rimborso prestiti,Rimborso prestiti
-SP5,8100,Rimborso prestiti,Rimborso prestiti
+SP5,8100,Anticipazioni e partite di giro,Anticipazioni
 VSN,8100,Rimborso prestiti,Rimborso prestiti
 RIC,8101,Spese correnti,Altre spese
 SP4,8101,Spese correnti,Altre spese
@@ -21190,26 +21190,26 @@ UNI,8212,Spese correnti,Altre spese
 SAN,8300,Spese correnti,Altre spese
 SP2,8300,Spese correnti,Altre spese
 VSN,8300,Spese correnti,Altre spese
-SP7,8311,Spese correnti,Altre spese
-UNI,8311,Spese correnti,Altre spese
-SP7,8312,Spese correnti,Altre spese
-UNI,8312,Spese correnti,Altre spese
+SP7,8311,Rimborso prestiti,Rimborso prestiti
+UNI,8311,Rimborso prestiti,Rimborso prestiti
+SP7,8312,Rimborso prestiti,Rimborso prestiti
+UNI,8312,Rimborso prestiti,Rimborso prestiti
 SP7,8411,Spese correnti,Altre spese
 UNI,8411,Spese correnti,Altre spese
 SP7,8412,Spese correnti,Altre spese
 UNI,8412,Spese correnti,Altre spese
-SP7,8413,Spese correnti,Altre spese
-UNI,8413,Spese correnti,Altre spese
-SP7,8414,Spese correnti,Altre spese
-UNI,8414,Spese correnti,Altre spese
-SP7,8415,Spese correnti,Altre spese
-UNI,8415,Spese correnti,Altre spese
-SP7,8500,Spese correnti,Altre spese
-UNI,8500,Spese correnti,Altre spese
+SP7,8413,Rimborso prestiti,Rimborso prestiti
+UNI,8413,Rimborso prestiti,Rimborso prestiti
+SP7,8414,Rimborso prestiti,Rimborso prestiti
+UNI,8414,Rimborso prestiti,Rimborso prestiti
+SP7,8415,Rimborso prestiti,Rimborso prestiti
+UNI,8415,Rimborso prestiti,Rimborso prestiti
+SP7,8500,Rimborso prestiti,Rimborso prestiti
+UNI,8500,Rimborso prestiti,Rimborso prestiti
 RIC,8999,Spese correnti,Altre spese
 SP4,8999,Spese correnti,Altre spese
-RIC,9000,Spese correnti,Trasferimenti correnti
-SP4,9000,Spese correnti,Trasferimenti correnti
+RIC,9000,Spese correnti,Altre spese
+SP4,9000,Spese correnti,Altre spese
 SP7,9110,Spese correnti,Altre spese
 UNI,9110,Spese correnti,Altre spese
 SP7,9120,Spese correnti,Personale
@@ -21299,18 +21299,18 @@ SP7,9999,Spese correnti,Altre spese
 SP8,9999,Spese correnti,Altre spese
 UNI,9999,Spese correnti,Altre spese
 VSN,9999,Spese correnti,Altre spese
-STA,A0100,Spese correnti,Trasferimenti correnti
-STA,A0200,Spese correnti,Trasferimenti correnti
+STA,A0100,Spese correnti,Altre spese
+STA,A0200,Spese correnti,Altre spese
 STA,A0300,Spese correnti,Imposte e tasse
 STA,A0400,Spese correnti,Trasferimenti correnti
 STA,A0500,Spese correnti,Trasferimenti correnti
 STA,A0600,Spese correnti,Trasferimenti correnti
 STA,A0700,Spese correnti,Trasferimenti correnti
-STA,A0800,Spese correnti,Trasferimenti correnti
+STA,A0800,Spese correnti,Altre spese
 STA,A0900,Spese correnti,Interessi passivi
 STA,A1000,Spese correnti,Poste correttive
-STA,A1100,Spese correnti,Trasferimenti correnti
-STA,A1200,Spese correnti,Trasferimenti correnti
+STA,A1100,Spese correnti,Altre spese
+STA,A1200,Spese correnti,Altre spese
 STA,A2100,Spese in conto capitale,Investimenti fissi
 STA,A2200,Spese in conto capitale,Contributi investimenti
 STA,A2300,Spese in conto capitale,Contributi investimenti
@@ -21319,19 +21319,19 @@ STA,A2500,Spese in conto capitale,Contributi investimenti
 STA,A2600,Spese in conto capitale,Trasferimenti c/capitale
 STA,A3100,Incremento attivita' finanziarie,Incremento attivita' finanziarie
 STA,A6100,Rimborso prestiti,Rimborso prestiti
-STA,A9999,Spese correnti,Trasferimenti correnti
-STA,I0100,Spese correnti,Trasferimenti correnti
-STA,I0200,Spese correnti,Trasferimenti correnti
+STA,A9999,Spese correnti,Altre spese
+STA,I0100,Spese correnti,Altre spese
+STA,I0200,Spese correnti,Altre spese
 STA,I0300,Spese correnti,Imposte e tasse
 STA,I0400,Spese correnti,Trasferimenti correnti
 STA,I0500,Spese correnti,Trasferimenti correnti
 STA,I0600,Spese correnti,Trasferimenti correnti
 STA,I0700,Spese correnti,Trasferimenti correnti
-STA,I0800,Spese correnti,Trasferimenti correnti
+STA,I0800,Spese correnti,Altre spese
 STA,I0900,Spese correnti,Interessi passivi
 STA,I1000,Spese correnti,Poste correttive
-STA,I1100,Spese correnti,Trasferimenti correnti
-STA,I1200,Spese correnti,Trasferimenti correnti
+STA,I1100,Spese correnti,Altre spese
+STA,I1200,Spese correnti,Altre spese
 STA,I2100,Spese in conto capitale,Investimenti fissi
 STA,I2200,Spese in conto capitale,Contributi investimenti
 STA,I2300,Spese in conto capitale,Contributi investimenti
@@ -21340,4 +21340,4 @@ STA,I2500,Spese in conto capitale,Contributi investimenti
 STA,I2600,Spese in conto capitale,Trasferimenti c/capitale
 STA,I3100,Incremento attivita' finanziarie,Incremento attivita' finanziarie
 STA,I6100,Rimborso prestiti,Rimborso prestiti
-STA,I9999,Spese correnti,Trasferimenti correnti
+STA,I9999,Spese correnti,Altre spese
