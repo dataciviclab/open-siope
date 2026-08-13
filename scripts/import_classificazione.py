@@ -159,17 +159,19 @@ def parse_glossario_sanita(path: Path) -> dict[tuple[str, str], str]:
     return out
 
 
-def load_baseline() -> tuple[dict[str, tuple[str, str]], dict[str, str]]:
-    """Baseline: classificazione attuale dai seed (per i comparti senza fonte)."""
+def load_baseline() -> tuple[dict[tuple[str, str], tuple[str, str]], dict[tuple[str, str], str]]:
+    """Baseline PER RIGA (gestione, voce) dai seed — per i comparti senza fonte
+    ufficiale. Mantiene la granularità per gestione (364 codici hanno
+    descrizioni diverse tra gestioni)."""
     import duckdb
     con = duckdb.connect()
     W = str(ROOT)
     pu = f"{W}/out/data/clean/siope_anag_codgest_uscite_seed/2026/siope_anag_codgest_uscite_seed_2026_clean.parquet"
     pe = f"{W}/out/data/clean/siope_anag_codgest_entrate_seed/2026/siope_anag_codgest_entrate_seed_2026_clean.parquet"
-    u = {r[0]: (r[1], r[2]) for r in con.execute(
-        f"select distinct codice_voce, macro_area, macro_categoria from read_parquet('{pu}')").fetchall()}
-    e = {r[0]: r[1] for r in con.execute(
-        f"select distinct codice_voce, macro_categoria_v2 from read_parquet('{pe}')").fetchall()}
+    u = {(r[0], r[1]): (r[3], r[4]) for r in con.execute(
+        f"select codice_voce, codice_gestione, descrizione_codice, macro_area, macro_categoria from read_parquet('{pu}')").fetchall()}
+    e = {(r[0], r[1]): r[3] for r in con.execute(
+        f"select codice_voce, codice_gestione, descrizione_codice, macro_categoria_v2 from read_parquet('{pe}')").fetchall()}
     return u, e
 
 
@@ -185,38 +187,77 @@ def main() -> int:
 
     final_u: dict[str, tuple[str, str]] = {}
     final_e: dict[str, str] = {}
+    # Ufficiale: la stessa categoria vale per TUTTE le gestioni che usano il
+    # codice (puntati → piano dei conti; SAN compatti → glossario sanità).
     for cod, (macro, l1, l2) in g_enti.items():
         if macro == "U":
             cat = USCITE.get((macro, l1, l2))
             if cat:
-                final_u[cod] = (area_of(cat), cat)
+                for gest in [g for (c, g) in baseline_u if c == cod]:
+                    final_u[(cod, gest)] = (area_of(cat), cat)
         else:
             cat = ENTRATE.get((macro, l1, l2))
             if cat:
-                final_e[cod] = cat
+                for gest in [g for (c, g) in baseline_e if c == cod]:
+                    final_e[(cod, gest)] = cat
+    # Il glossario sanità vale SOLO per le strutture sanitarie (gestioni con
+    # descrizioni identiche a SAN: VSN e SP2 verificate 213/213). Gli altri
+    # comparti riusano gli stessi codici con descrizioni diverse → baseline.
+    SAN_GEST = {"SAN", "VSN", "SP2"}
     for (lato, cod), sez in g_san.items():
         if lato == "U":
             cat = san_cat(sez, SAN_USCITE)
             if cat:
-                final_u[cod] = (area_of(cat), cat)
+                for gest in [g for (c, g) in baseline_u if c == cod and g in SAN_GEST]:
+                    final_u[(cod, gest)] = (area_of(cat), cat)
         else:
             cat = san_cat(sez, SAN_ENTRATE)
             if cat:
-                final_e[cod] = cat
-    for cod, (a, c) in baseline_u.items():
-        final_u.setdefault(cod, (a, c))
-    for cod, c in baseline_e.items():
-        final_e.setdefault(cod, c)
+                for gest in [g for (c, g) in baseline_e if c == cod and g in SAN_GEST]:
+                    final_e[(cod, gest)] = cat
+    # Override mirati per i codici multi-descrizione (es. 1255 UNI "Arretrati
+    # ... ricercatori" → Personale; 2102 RIC "Assegni di ricerca" → Personale).
+    # La mappa resta esplicita: qualunque correzione ulteriore è un edit del CSV.
+    OVERRIDE_U = [
+        ("%ricercatori%", "Personale"),
+        ("%assegni di ricerca%", "Personale"),
+        ("%ricercatore%", "Personale"),
+    ]
+    OVERRIDE_E: list[tuple[str, str]] = []
+    # baseline per riga: applica override sulla descrizione quando la riga
+    # non è coperta dall'ufficiale
+    import duckdb
+    con = duckdb.connect()
+    pu = f"{ROOT}/out/data/clean/siope_anag_codgest_uscite_seed/2026/siope_anag_codgest_uscite_seed_2026_clean.parquet"
+    desc_u = {(r[0], r[1]): r[2] for r in con.execute(
+        f"select codice_voce, codice_gestione, descrizione_codice from read_parquet('{pu}')").fetchall()}
+    for (cod, gest), (a, c) in baseline_u.items():
+        if (cod, gest) in final_u:
+            continue
+        d = desc_u.get((cod, gest), "")
+        cat = c
+        for pat, ov in OVERRIDE_U:
+            if pat.strip("%") in d.lower():
+                cat = ov
+                break
+        final_u[(cod, gest)] = (area_of(cat), cat)
+    for (cod, gest), c in baseline_e.items():
+        final_e.setdefault((cod, gest), c)
 
     MAPPING.mkdir(exist_ok=True)
     with (MAPPING / "uscite_categorie.csv").open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["codice_voce", "macro_area", "macro_categoria"])
-        w.writerows((k, v[0], v[1]) for k, v in sorted(final_u.items()))
+        w.writerow(["codice_gestione", "codice_voce", "macro_area", "macro_categoria"])
+        w.writerows((k[1], k[0], v[0], v[1]) for k, v in sorted(final_u.items()))
     with (MAPPING / "entrate_categorie.csv").open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["codice_voce", "macro_categoria_v2"])
-        w.writerows((k, v) for k, v in sorted(final_e.items()))
+        w.writerow(["codice_gestione", "codice_voce", "macro_categoria_v2"])
+        w.writerows((k[1], k[0], v) for k, v in sorted(final_e.items()))
+    # Guardia di copertura: ogni riga del dizionario deve avere una riga in mappa
+    miss_u = [k for k in baseline_u if k not in final_u]
+    miss_e = [k for k in baseline_e if k not in final_e]
+    if miss_u or miss_e:
+        print(f"WARN: {len(miss_u)} righe uscite e {len(miss_e)} entrate senza categoria in mappa", file=sys.stderr)
     print(f"mappa scritta: uscite {len(final_u)}, entrate {len(final_e)}")
     return 0
 

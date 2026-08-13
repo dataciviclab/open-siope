@@ -27,4 +27,5 @@ select
     coalesce(m.macro_categoria_v2, 'Altro') as macro_categoria_v2
 from base b
 left join read_csv('mapping/entrate_categorie.csv', auto_detect=true, header=true) m
-    on b.codice_voce = m.codice_voce;
+    on b.codice_voce = m.codice_voce
+    and b.codice_gestione = m.codice_gestione;
