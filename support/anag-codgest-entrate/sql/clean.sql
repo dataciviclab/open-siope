@@ -34,11 +34,13 @@ select
         when b.descrizione_codice ilike '%trasferimenti%' then 'Trasferimenti correnti'
         when b.descrizione_codice ilike '%contributi%' then 'Trasferimenti correnti'
         when b.descrizione_codice ilike '%fondo perequativo%' then 'Fondi perequativi'
-        when b.descrizione_codice ilike '%imposta%' or b.descrizione_codice ilike '%tribut%'
-             or b.descrizione_codice ilike '%addizional%' or b.descrizione_codice ilike '%irap%'
+        when b.descrizione_codice ilike '%imposta%' or b.descrizione_codice ilike '%addizional%'
+             or b.descrizione_codice ilike '%irap%'
              or regexp_matches(b.descrizione_codice, '(?i)\biva\b')
-             or b.descrizione_codice ilike '%imu%'
-             or b.descrizione_codice ilike '%tari%' or b.descrizione_codice ilike '%canone%' then 'Imposte proprie'
+             or regexp_matches(b.descrizione_codice, '(?i)\btari\b')
+             or regexp_matches(b.descrizione_codice, '(?i)\bimu\b')
+             or regexp_matches(b.descrizione_codice, '(?i)\btribut\b')
+             or regexp_matches(b.descrizione_codice, '(?i)\bcanone\b') then 'Imposte proprie'
         else 'Altro'
     end as macro_categoria_v2
 from base b;
