@@ -44,35 +44,37 @@ Gli output prodotti sono descritti in [pipeline.md](pipeline.md).
 
 Nel `clean` arricchito (e nei `mart`) esistono `macro_categoria_v2` (entrate) e
 `macro_area` / `macro_categoria` (uscite), calcolate nel dizionario codgest
-(support seed) in due passaggi:
+(support seed) tramite **JOIN con la mappa versionata** `mapping/*.categorie.csv`
+— nessuna regola testuale a runtime.
 
-1. **Regole sul codice** per i codici strutturati (piano dei conti puntato):
-   - entrate: `1.01.*` → Imposte proprie · `1.03.*` → Fondi perequativi ·
-     `2.01.*` → Trasferimenti correnti · `4.02.*` → Contributi agli investimenti
-   - uscite: `1.01.*` → Personale · `1.02.*` → Imposte e tasse · `1.03.*` →
-     Acquisto beni e servizi · `1.04.*` → Trasferimenti correnti · `1.05.*` →
-     Interessi passivi · `1.07.*` → Poste correttive · `2.01.*` → Investimenti
-     fissi · `2.02.*` → Contributi investimenti · `2.03.*` → Trasferimenti
-     c/capitale · `3.*` → attività finanziarie · `4.*` → Rimborso prestiti ·
-     `7.*` → Anticipazioni
+**Fonte: classificazione ufficiale RGS**, importata da
+`scripts/import_classificazione.py`:
 
-2. **Fallback sulla descrizione** (ILIKE) per i codici compatti e i macroaggregati
-   alfanumerici, il cui codice non ha la struttura a punti:
-   - macroaggregati dello Stato (`A0100`-`I6100`): la categoria è nel testo
-     ("TRASFERIMENTI CORRENTI AD AMMINISTRAZIONI PUBBLICHE" → Trasferimenti correnti)
-   - compatti sanità e altri comparti (`1103` → Personale, `2101` → Acquisto beni,
-     `2102` → Trasferimenti correnti, ...)
-   - tributarie entrate esplicite (imposta/addizionale/IRAP/IVA/IMU/TARI/canone)
+- **Glossario SIOPE enti territoriali** (RGS): ogni codice gestionale SIOPE dei
+  puntati (PRO/REG/UNI) è mappato al piano dei conti integrato (titolo +
+  macroaggregato) → macro_area / macro_categoria. Match verificato: ~99% dei
+  codici, ~100% del denaro.
+- **Glossario SIOPE Sanità** (RGS): i codici compatti SAN sono organizzati per
+  sezioni (PERSONALE, ACQUISTO DI BENI, ACQUISTI DI SERVIZI, TRASFERIMENTI,
+  IMPOSTE E TASSE, ...) che sono le categorie → macro_categoria. Match: 100%.
+- **Baseline** (comparti senza glossario scaricabile — STA, CDC, VSN, ... e
+  residui `0.00.00.99.x`): classificazione dalle descrizioni, generata una
+  volta e versionata nella mappa.
 
-`macro_area` (uscite) è derivata dalla categoria, garantendo la coerenza.
-`is_titolo_9` (partite di giro) include anche i codici compatti `999x`
-(pagamenti da regolarizzare).
+`macro_area` (uscite) è derivata dalla categoria (coerenza garantita).
+`is_titolo_9` (partite di giro): nelle **uscite** è il **titolo 7** del piano
+dei conti (U7 = uscite per conto terzi e partite di giro, es. split payment)
+più i compatti `999x`; nelle **entrate** il titolo 9 più i `999x`.
 
-**Copertura** (misurata su 2024, % del denaro non classificato):
-STA uscite 100% → 3.4%, SAN uscite 100% → 6.4%, SAN entrate 100% → 7.4%.
-Il residuo `Altro` delle entrate include le entrate extra-tributarie
-(servizi, proventi, rimborsi): la griglia entrate (5 categorie) non le
-distingue — per analizzarle servirebbe una categoria dedicata.
+**Griglia entrate** (5 categorie): Imposte proprie · Fondi perequativi ·
+Trasferimenti correnti · Contributi agli investimenti · Entrate extratributarie
+(il titolo E3 del piano dei conti è ora una categoria esplicita, non più
+sparso in "Altro") · Altro (finanziarie e partite di giro).
+
+**Copertura** (misurata su 2024, % del denaro in "Altro"/"Altre spese"):
+entrate PRO 21% → 6% · REG → 6,5% · UNI → 11,1%; uscite STA 3,8% · SAN 2,3%.
+Per le uscite, "Altre spese" è la categoria ufficiale del piano (U1.10 altre
+spese correnti, U2.05 altre spese in conto capitale) — non un fallback.
 
 Questa classificazione non sostituisce la lettura puntuale delle singole
 `descrizione_codice`, ma rende più stabili i confronti pubblici come autonomia
