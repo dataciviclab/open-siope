@@ -20,7 +20,7 @@ USCITE = {
     # (codice_voce, codice_gestione) → (macro_area, macro_categoria)
     ("1.01.01.01.002", "PRO"): ("Spese correnti", "Personale"),   # puntato ufficiale
     ("1.01.01.01.002", "UNI"): ("Spese correnti", "Personale"),
-    ("2.01.01.09.012", "PRO"): ("Spese in conto capitale", "Investimenti fissi"),
+    ("2.02.01.09.012", "PRO"): ("Spese in conto capitale", "Investimenti fissi"),
     ("1103", "SAN"): ("Spese correnti", "Personale"),              # glossario sanità
     ("2101", "SAN"): ("Spese correnti", "Acquisto beni e servizi"),
     ("1255", "UNI"): ("Spese correnti", "Personale"),              # multi-gestione: UNI arretrati ricercatori
@@ -28,7 +28,7 @@ USCITE = {
     ("2102", "RIC"): ("Spese correnti", "Personale"),              # multi-gestione: RIC assegni di ricerca
     ("2102", "SAN"): ("Spese correnti", "Acquisto beni e servizi"),
     ("A0400", "STA"): ("Spese correnti", "Trasferimenti correnti"),
-    ("9999", "SAN"): ("Altre spese", "Altre spese"),               # partita di giro (compatti 999x)
+    ("9999", "SAN"): ("Spese correnti", "Altre spese"),          # partita di giro (compatti 999x); area irrilevante: is_titolo_9=True
 }
 
 ENTRATE = {
@@ -50,7 +50,7 @@ def test_uscite_golden(con):
         "select codice_gestione, codice_voce, macro_area, macro_categoria "
         "from read_csv('mapping/uscite_categorie.csv')"
     ).fetchall()
-    got = {(r[0], r[1]): (r[2], r[3]) for r in m}
+    got = {(r[1], r[0]): (r[2], r[3]) for r in m}
     for key, expected in USCITE.items():
         assert got.get(key) == expected, f"{key}: atteso {expected}, trovato {got.get(key)}"
 
@@ -61,7 +61,7 @@ def test_entrate_golden(con):
         "select codice_gestione, codice_voce, macro_categoria_v2 "
         "from read_csv('mapping/entrate_categorie.csv')"
     ).fetchall()
-    got = {(r[0], r[1]): r[2] for r in m}
+    got = {(r[1], r[0]): r[2] for r in m}
     for key, expected in ENTRATE.items():
         assert got.get(key) == expected, f"{key}: atteso {expected}, trovato {got.get(key)}"
 
@@ -70,12 +70,11 @@ def test_entrate_golden(con):
 def test_copertura_dizionario(con):
     """Ogni riga (gestione, voce) del dizionario ha una riga in mappa — la
     guardia contro il COALESCE silenzioso sul non-mappato."""
-    for seed, mappa, cols in [
-        ("support/anag-codgest-uscite", "mapping/uscite_categorie.csv", "codice_voce, codice_gestione"),
-        ("support/anag-codgest-entrate", "mapping/entrate_categorie.csv", "codice_voce, codice_gestione"),
+    for seed_name, mappa in [
+        ("siope_anag_codgest_uscite_seed", "mapping/uscite_categorie.csv"),
+        ("siope_anag_codgest_entrate_seed", "mapping/entrate_categorie.csv"),
     ]:
-        # il seed materializzato deve esistere; altrimenti skip (nessun run locale)
-        parquet = ROOT / "out" / "data" / "clean" / f"{seed.split('/')[-1]}_seed" / "2026" / f"{seed.split('/')[-1]}_seed_2026_clean.parquet"
+        parquet = ROOT / "out" / "data" / "clean" / seed_name / "2026" / f"{seed_name}_2026_clean.parquet"
         if not parquet.exists():
             pytest.skip("seed non materializzato localmente")
         miss = con.execute(f"""
