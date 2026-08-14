@@ -94,6 +94,13 @@ jobs:
           for dir in ${{ steps.detect.outputs.dirs }}; do
             case "$dir" in
               support/*) continue;;  # già eseguiti nei seeds
+              datasets/siope-bilancio)
+                # il bilancio dipende dai clean locali di entrate/uscite
+                YEARS=$(python3 -c "import yaml; print(','.join(map(str, yaml.safe_load(open('${dir}/dataset.yml'))['dataset']['years'])))")
+                echo "=== dipendenze entrate/uscite (anni:$YEARS) ==="
+                toolkit run --config datasets/siope-entrate/dataset.yml --years "$YEARS"
+                toolkit run --config datasets/siope-uscite/dataset.yml --years "$YEARS"
+                ;;
             esac
             YEARS=$(python3 -c "import yaml; print(','.join(map(str, yaml.safe_load(open('${dir}/dataset.yml'))['dataset']['years'])))")
             echo "=== $dir anni:$YEARS ==="
@@ -112,11 +119,17 @@ jobs:
       - name: Run uscite (schedule/dispatch)
         if: github.event_name != 'pull_request' && inputs.sides != 'entrate'
         run: |
-          YEARS_INPUT="${{ inputs.years || 'all' }}"
-          if [ "$YEARS_INPUT" = "all" ]; then YEARS="2021,2022,2023,2024,2025,2026"
-          else YEARS=$(echo "$YEARS_INPUT" | tr ' ' ','); fi
+          YEARS="2021,2022,2023,2024,2025,2026"
           echo "=== uscite anni:$YEARS ==="
           toolkit run --config datasets/siope-uscite/dataset.yml --years "$YEARS"
+
+      - name: Run bilancio unificato (annuale, schedule/dispatch)
+        if: github.event_name != 'pull_request'
+        run: |
+          # Richiede i clean locali di entrate/uscite (prodotti dagli step sopra).
+          YEARS="2021,2022,2023,2024,2025,2026"
+          echo "=== bilancio anni:$YEARS ==="
+          toolkit run --config datasets/siope-bilancio/dataset.yml --years "$YEARS"
 
       - name: Verify output (gate)
         if: steps.detect.outputs.dirs != ''
