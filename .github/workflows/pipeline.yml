@@ -39,9 +39,12 @@ jobs:
       contents: write
       pull-requests: write
     env:
-      # Runner CI = 2GB RAM: il default 2GB di safe_connect supera la RAM
-      # reale e causa OOM → limitiamo a 1.5GB (fix lab-connectors #76).
+      # Runner CI = 2GB RAM: limiti conservativi via env (lab-connectors
+      # safe_connect) — memory_limit + threads + preserve riducono il picco
+      # di allocazione ed evitano OOM sui volumi SIOPE (es. 2021, 4M righe).
       DUCKDB_MEMORY_LIMIT: 1.5GB
+      DUCKDB_THREADS: 2
+      DUCKDB_PRESERVE_INSERTION_ORDER: false
     steps:
       - uses: actions/checkout@v6.0.3
         with:
