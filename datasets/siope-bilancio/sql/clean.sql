@@ -13,6 +13,7 @@ with entrate as (
         codice_istat_comune, codice_provincia, provincia, regione,
         codice_voce, descrizione_codice, has_codgest_match, is_titolo_9,
         macro_categoria_v2 as macro_categoria,
+        count(distinct periodo) as n_periodi,
         round(sum(importo_eur), 2) as importo_eur
     from read_parquet('out/data/clean/siope_entrate/{year}/siope_entrate_{year}_clean.parquet')
     group by 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17
@@ -24,6 +25,7 @@ uscite as (
         codice_istat_comune, codice_provincia, provincia, regione,
         codice_voce, descrizione_codice, has_codgest_match, is_titolo_9,
         macro_categoria as macro_categoria,
+        count(distinct periodo) as n_periodi,
         round(sum(importo_eur), 2) as importo_eur
     from read_parquet('out/data/clean/siope_uscite/{year}/siope_uscite_{year}_clean.parquet')
     group by 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17

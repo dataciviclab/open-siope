@@ -44,6 +44,7 @@ clean:
     - has_codgest_match
     - is_titolo_9
     - macro_categoria
+    - n_periodi
     - importo_eur
   validate:
     min_rows: 500000
