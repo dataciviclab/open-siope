@@ -73,6 +73,5 @@ Bucket pubblico: `gs://dataciviclab-clean/siope/` (accessibile anche via HTTPS)
 - [Pipeline](docs/pipeline.md) — esecuzione, struttura, output
 - [Dataset registry](docs/dataset-registry.md) — catalogo `registry.json`, accesso MCP
 - [Metodologia](docs/metodologia.md) — origini dati, classificazioni
-- [Uso mart](docs/uso_mart_labeled.md) — tabelle aggregate
 
 Questo progetto fa parte di [DataCivicLab](https://github.com/dataciviclab).
