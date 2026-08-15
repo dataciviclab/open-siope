@@ -2,7 +2,7 @@
   "schema_version": 1,
   "repo": "open-siope",
   "source_repo": "dataciviclab/open-siope",
-  "updated_at": "2026-08-14",
+  "updated_at": "2026-08-15",
   "datasets": [
     {
       "slug": "siope_anag_codgest_entrate_seed",
@@ -445,6 +445,163 @@
       ]
     },
     {
+      "slug": "siope_bilancio_unificato",
+      "name": "Siope Bilancio Unificato",
+      "description": "Bilancio unificato ANNUALE entrate+uscite di tutti gli enti pubblici (2021-2026) — aggregazione per ente e voce, con colonna lato. Legge i clean mensili di entrate/uscite (tutti i comparti).",
+      "source": "",
+      "source_id": "siope",
+      "period": {
+        "start": 2021,
+        "end": 2026
+      },
+      "tags": [
+        "finanza-pubblica",
+        "siope",
+        "bilancio",
+        "unificato"
+      ],
+      "category": "finanza-pubblica",
+      "columns": [
+        {
+          "name": "lato",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "anno",
+          "type": "INTEGER",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "year"
+        },
+        {
+          "name": "codice_ente",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "siope_code"
+        },
+        {
+          "name": "denominazione_ente",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipo_ente",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_comparto",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "descrizione_comparto",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_sottocomparto",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "descrizione_sottocomparto",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_istat_comune",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "municipality_code"
+        },
+        {
+          "name": "codice_provincia",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "province_code"
+        },
+        {
+          "name": "provincia",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "province_code"
+        },
+        {
+          "name": "regione",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "region_code"
+        },
+        {
+          "name": "codice_voce",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "descrizione_codice",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "has_codgest_match",
+          "type": "BOOLEAN",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "is_titolo_9",
+          "type": "BOOLEAN",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "macro_categoria",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "n_periodi",
+          "type": "BIGINT",
+          "role": "metric",
+          "description": ""
+        },
+        {
+          "name": "importo_eur",
+          "type": "DOUBLE",
+          "role": "metric",
+          "description": ""
+        }
+      ],
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-clean/siope/siope_bilancio_unificato/*/siope_bilancio_unificato_*_clean.parquet",
+        "multi_file": true
+      },
+      "stage": "incubating",
+      "mart_refs": [
+        "siope_bilancio_unificato__mart_sintesi",
+        "siope_bilancio_unificato__mart_trend",
+        "siope_bilancio_unificato__mart_enti"
+      ]
+    },
+    {
       "slug": "siope_entrate",
       "name": "Siope Entrate",
       "description": "Entrate mensili di tutti gli enti pubblici italiani (comuni, regioni, ASL, universita') dal 2021 — importi per codice SIOPE, arricchite con anagrafica enti e territorio.",
@@ -847,6 +1004,36 @@
       }
     },
     {
+      "slug": "siope_bilancio_unificato__mart_enti",
+      "dataset": "siope_bilancio_unificato",
+      "table": "mart_enti",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/siope/siope_bilancio_unificato/2026/mart_enti.parquet",
+        "multi_file": false
+      }
+    },
+    {
+      "slug": "siope_bilancio_unificato__mart_sintesi",
+      "dataset": "siope_bilancio_unificato",
+      "table": "mart_sintesi",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/siope/siope_bilancio_unificato/2026/mart_sintesi.parquet",
+        "multi_file": false
+      }
+    },
+    {
+      "slug": "siope_bilancio_unificato__mart_trend",
+      "dataset": "siope_bilancio_unificato",
+      "table": "mart_trend",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/siope/siope_bilancio_unificato/mart_trend.parquet",
+        "multi_file": false
+      }
+    },
+    {
       "slug": "siope_entrate__mart_pro",
       "dataset": "siope_entrate",
       "table": "mart_pro",
@@ -969,6 +1156,36 @@
   ],
   "signals": [
     {
+      "id": "siope_bilancio_unificato",
+      "source_id": "siope",
+      "status": "ok",
+      "label": "siope_bilancio_unificato",
+      "detail": "anni 2021-2026 — mart: si",
+      "action": "",
+      "run": {
+        "run_id": "20260815T144626Z_d92ca53d",
+        "year": 2026,
+        "status": "SUCCESS",
+        "quality_score": {
+          "raw": 100,
+          "clean": 100,
+          "mart": 95
+        },
+        "output_rows": {
+          "clean": 1200760,
+          "mart": 12347
+        },
+        "output_bytes": {
+          "raw": 79775402,
+          "clean": 20633432,
+          "mart": 399716
+        },
+        "started_at": "2026-08-15T14:46:26.151713+00:00",
+        "finished_at": "2026-08-15T14:46:40.024413+00:00",
+        "duration_seconds": 13.873
+      }
+    },
+    {
       "id": "siope_entrate",
       "source_id": "siope",
       "status": "ok",
@@ -976,7 +1193,7 @@
       "detail": "anni 2021-2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20260814T101800Z_1515b785",
+        "run_id": "20260815T143059Z_552ce58a",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -991,12 +1208,12 @@
         },
         "output_bytes": {
           "raw": 125360894,
-          "clean": 26777441,
-          "mart": 6807899
+          "clean": 26774167,
+          "mart": 6822023
         },
-        "started_at": "2026-08-14T10:18:00.712227+00:00",
-        "finished_at": "2026-08-14T10:18:42.458609+00:00",
-        "duration_seconds": 41.746
+        "started_at": "2026-08-15T14:30:59.754142+00:00",
+        "finished_at": "2026-08-15T14:31:41.475638+00:00",
+        "duration_seconds": 41.721
       }
     },
     {
@@ -1007,7 +1224,7 @@
       "detail": "anni 2021-2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20260814T102942Z_eedcadad",
+        "run_id": "20260815T144305Z_bc7fd2bb",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -1022,12 +1239,12 @@
         },
         "output_bytes": {
           "raw": 259188279,
-          "clean": 52999203,
-          "mart": 14360650
+          "clean": 53001235,
+          "mart": 14360229
         },
-        "started_at": "2026-08-14T10:29:42.569506+00:00",
-        "finished_at": "2026-08-14T10:31:11.242918+00:00",
-        "duration_seconds": 88.673
+        "started_at": "2026-08-15T14:43:05.114818+00:00",
+        "finished_at": "2026-08-15T14:44:34.681095+00:00",
+        "duration_seconds": 89.566
       }
     },
     {
@@ -1038,7 +1255,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20260814T101221Z_3601465e",
+        "run_id": "20260815T142504Z_3a79469f",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -1056,9 +1273,9 @@
           "clean": 55755,
           "mart": 55755
         },
-        "started_at": "2026-08-14T10:12:21.996163+00:00",
-        "finished_at": "2026-08-14T10:12:26.147557+00:00",
-        "duration_seconds": 4.151
+        "started_at": "2026-08-15T14:25:04.888112+00:00",
+        "finished_at": "2026-08-15T14:25:07.279743+00:00",
+        "duration_seconds": 2.392
       }
     },
     {
@@ -1069,7 +1286,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20260814T101227Z_52b3c970",
+        "run_id": "20260815T142509Z_082be9df",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -1087,9 +1304,9 @@
           "clean": 72917,
           "mart": 72917
         },
-        "started_at": "2026-08-14T10:12:27.728636+00:00",
-        "finished_at": "2026-08-14T10:12:30.171188+00:00",
-        "duration_seconds": 2.443
+        "started_at": "2026-08-15T14:25:09.127546+00:00",
+        "finished_at": "2026-08-15T14:25:14.099704+00:00",
+        "duration_seconds": 4.972
       }
     },
     {
@@ -1100,7 +1317,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20260814T101209Z_76ca2550",
+        "run_id": "20260815T142450Z_9577b058",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -1117,9 +1334,9 @@
           "clean": 971,
           "mart": 971
         },
-        "started_at": "2026-08-14T10:12:09.739593+00:00",
-        "finished_at": "2026-08-14T10:12:13.468892+00:00",
-        "duration_seconds": 3.729
+        "started_at": "2026-08-15T14:24:50.364548+00:00",
+        "finished_at": "2026-08-15T14:24:54.697251+00:00",
+        "duration_seconds": 4.333
       }
     },
     {
@@ -1130,7 +1347,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20260814T101235Z_475806a1",
+        "run_id": "20260815T142519Z_d3f0cfb4",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -1147,9 +1364,9 @@
           "clean": 68330,
           "mart": 68330
         },
-        "started_at": "2026-08-14T10:12:35.160853+00:00",
-        "finished_at": "2026-08-14T10:12:37.276333+00:00",
-        "duration_seconds": 2.115
+        "started_at": "2026-08-15T14:25:19.624930+00:00",
+        "finished_at": "2026-08-15T14:25:21.864339+00:00",
+        "duration_seconds": 2.239
       }
     },
     {
@@ -1160,7 +1377,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20260814T101218Z_c70daa92",
+        "run_id": "20260815T142500Z_b45847fa",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -1177,9 +1394,9 @@
           "clean": 427771,
           "mart": 427771
         },
-        "started_at": "2026-08-14T10:12:18.035492+00:00",
-        "finished_at": "2026-08-14T10:12:20.388113+00:00",
-        "duration_seconds": 2.353
+        "started_at": "2026-08-15T14:25:00.648296+00:00",
+        "finished_at": "2026-08-15T14:25:03.067567+00:00",
+        "duration_seconds": 2.419
       }
     },
     {
@@ -1190,7 +1407,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20260814T101231Z_2ba4180d",
+        "run_id": "20260815T142515Z_13d35b97",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -1207,9 +1424,9 @@
           "clean": 2477,
           "mart": 2477
         },
-        "started_at": "2026-08-14T10:12:31.738246+00:00",
-        "finished_at": "2026-08-14T10:12:33.903979+00:00",
-        "duration_seconds": 2.166
+        "started_at": "2026-08-15T14:25:15.945188+00:00",
+        "finished_at": "2026-08-15T14:25:18.279434+00:00",
+        "duration_seconds": 2.334
       }
     },
     {
@@ -1220,7 +1437,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20260814T101214Z_c00a7dcb",
+        "run_id": "20260815T142456Z_53cde75e",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -1237,9 +1454,9 @@
           "clean": 2350,
           "mart": 2350
         },
-        "started_at": "2026-08-14T10:12:14.721680+00:00",
-        "finished_at": "2026-08-14T10:12:16.762898+00:00",
-        "duration_seconds": 2.041
+        "started_at": "2026-08-15T14:24:56.531463+00:00",
+        "finished_at": "2026-08-15T14:24:58.811760+00:00",
+        "duration_seconds": 2.28
       }
     }
   ],
@@ -1269,6 +1486,12 @@
             "semantic_type": "municipality_code"
           },
           {
+            "slug": "siope_bilancio_unificato",
+            "name": "Siope Bilancio Unificato",
+            "column": "codice_istat_comune",
+            "semantic_type": "municipality_code"
+          },
+          {
             "slug": "siope_entrate",
             "name": "Siope Entrate",
             "column": "codice_istat_comune",
@@ -1282,7 +1505,7 @@
           }
         ],
         "types": {
-          "municipality_code": 4,
+          "municipality_code": 5,
           "municipality_name": 1
         }
       },
@@ -1297,6 +1520,12 @@
             "semantic_type": "siope_code"
           },
           {
+            "slug": "siope_bilancio_unificato",
+            "name": "Siope Bilancio Unificato",
+            "column": "codice_ente",
+            "semantic_type": "siope_code"
+          },
+          {
             "slug": "siope_entrate",
             "name": "Siope Entrate",
             "column": "codice_ente",
@@ -1310,7 +1539,7 @@
           }
         ],
         "types": {
-          "siope_code": 3
+          "siope_code": 4
         }
       },
       "Ente (o Impresa)": {
@@ -1357,6 +1586,18 @@
             "semantic_type": "province_code"
           },
           {
+            "slug": "siope_bilancio_unificato",
+            "name": "Siope Bilancio Unificato",
+            "column": "codice_provincia",
+            "semantic_type": "province_code"
+          },
+          {
+            "slug": "siope_bilancio_unificato",
+            "name": "Siope Bilancio Unificato",
+            "column": "provincia",
+            "semantic_type": "province_code"
+          },
+          {
             "slug": "siope_entrate",
             "name": "Siope Entrate",
             "column": "codice_provincia",
@@ -1382,7 +1623,7 @@
           }
         ],
         "types": {
-          "province_code": 8
+          "province_code": 10
         }
       },
       "Regione": {
@@ -1402,6 +1643,12 @@
             "semantic_type": "region_code"
           },
           {
+            "slug": "siope_bilancio_unificato",
+            "name": "Siope Bilancio Unificato",
+            "column": "regione",
+            "semantic_type": "region_code"
+          },
+          {
             "slug": "siope_entrate",
             "name": "Siope Entrate",
             "column": "regione",
@@ -1415,7 +1662,7 @@
           }
         ],
         "types": {
-          "region_code": 4
+          "region_code": 5
         }
       },
       "Tempo": {
@@ -1423,6 +1670,12 @@
         "label": "Tempo / data",
         "datasets": [
           {
+            "slug": "siope_bilancio_unificato",
+            "name": "Siope Bilancio Unificato",
+            "column": "anno",
+            "semantic_type": "year"
+          },
+          {
             "slug": "siope_entrate",
             "name": "Siope Entrate",
             "column": "anno",
@@ -1448,7 +1701,7 @@
           }
         ],
         "types": {
-          "year": 2,
+          "year": 3,
           "month": 2
         }
       }
@@ -1458,6 +1711,19 @@
         "from": {
           "entity": "Ente",
           "dataset": "siope_anag_enti_seed",
+          "via": "siope_code"
+        },
+        "to": {
+          "entity": "Comune",
+          "bridge": "bdap_anagrafe_enti",
+          "on": "codice_ente_siope",
+          "semantic_type": "municipality_code"
+        }
+      },
+      {
+        "from": {
+          "entity": "Ente",
+          "dataset": "siope_bilancio_unificato",
           "via": "siope_code"
         },
         "to": {
