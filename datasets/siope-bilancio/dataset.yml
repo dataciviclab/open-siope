@@ -1,0 +1,80 @@
+root: "../../out"
+schema_version: 1
+
+dataset:
+  name: "siope_bilancio_unificato"
+  source_id: "siope"
+  tags: [finanza-pubblica, siope, bilancio, unificato]
+  category: finanza-pubblica
+  description: "Bilancio unificato ANNUALE entrate+uscite di tutti gli enti pubblici (2021-2026) — aggregazione per ente e voce, con colonna lato. Legge i clean mensili di entrate/uscite (tutti i comparti)."
+  years: [2021, 2022, 2023, 2024, 2025, 2026]
+
+raw:
+  sources:
+    - name: "clean_entrate"
+      type: "local_file"
+      args:
+        path: "../../out/data/clean/siope_entrate/{year}/siope_entrate_{year}_clean.parquet"
+    - name: "clean_uscite"
+      type: "local_file"
+      args:
+        path: "../../out/data/clean/siope_uscite/{year}/siope_uscite_{year}_clean.parquet"
+
+clean:
+  sql: "sql/clean.sql"
+  read:
+    mode: "latest"
+    header: true
+  required_columns:
+    - lato
+    - anno
+    - codice_ente
+    - denominazione_ente
+    - tipo_ente
+    - codice_comparto
+    - descrizione_comparto
+    - codice_sottocomparto
+    - descrizione_sottocomparto
+    - codice_istat_comune
+    - codice_provincia
+    - provincia
+    - regione
+    - codice_voce
+    - descrizione_codice
+    - has_codgest_match
+    - is_titolo_9
+    - macro_categoria
+    - n_periodi
+    - importo_eur
+  validate:
+    min_rows: 500000
+    primary_key: ["lato", "anno", "codice_ente", "codice_voce"]
+    not_null: ["lato", "anno", "codice_ente", "importo_eur"]
+
+mart:
+  tables:
+    - name: "mart_sintesi"
+      sql: "sql/mart_sintesi.sql"
+    - name: "mart_trend"
+      sql: "sql/mart_trend.sql"
+      years: [2021, 2022, 2023, 2024, 2025, 2026]
+      source_layer: clean
+    - name: "mart_enti"
+      sql: "sql/mart_enti.sql"
+  required_tables:
+    - "mart_sintesi"
+    - "mart_trend"
+    - "mart_enti"
+  validate:
+    table_rules:
+      mart_sintesi:
+        min_rows: 10
+        primary_key: ["anno", "regione", "comparto", "lato"]
+      mart_trend:
+        min_rows: 5
+      mart_enti:
+        min_rows: 100
+        primary_key: ["anno", "codice_ente"]
+
+validation:
+  fail_on_error: true
