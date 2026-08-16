@@ -12,20 +12,6 @@ on:
     # entro il 5 del mese successivo a quello di riferimento.
     - cron: "0 6 5 * *"
   workflow_dispatch:
-    inputs:
-      sides:
-        description: "Lato contabile (entrate, uscite, both)"
-        default: "both"
-        type: choice
-        options:
-          - both
-          - entrate
-          - uscite
-      years:
-        # NOTA: per entrate/uscite serve 'all' (o tutti gli anni): i mart
-        # multi-anno (mart_trend) richiedono i clean di tutti gli anni dichiarati.
-        description: "Anni (es. 2025 o 2021,2022,2025 o all) — per entrate/uscite usare 'all'"
-        default: "all"
 
 concurrency:
   group: siope-pipeline-${{ github.event.pull_request.number || github.ref || 'schedule' }}
@@ -53,107 +39,22 @@ jobs:
 
       - uses: dataciviclab/.github/actions/python-setup@main
 
-      # PR merged → solo i dataset/support toccati; altrimenti (schedule/dispatch) → tutti.
-      - name: Detect datasets to run
-        id: detect
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          EVENT: ${{ github.event_name }}
-        run: |
-          if [ "$EVENT" = "pull_request" ]; then
-            gh pr view "$PR_NUMBER" --json files --jq ".files[].path" | \
-              grep -E '^(datasets|support)/' | cut -d/ -f1,2 | sort -u > dirs.txt
-          else
-            find datasets support -mindepth 1 -maxdepth 1 -type d -printf '%p\n' | sort > dirs.txt
-          fi
-          DIRS=""
-          while read -r d; do
-            [ -n "$d" ] && [ -f "$d/dataset.yml" ] && DIRS="$DIRS $d"
-          done < dirs.txt
-          echo "dirs=$DIRS" >> "$GITHUB_OUTPUT"
-          echo "dirs=$DIRS"
-
-      - name: Support seeds (anagrafiche)
-        if: steps.detect.outputs.dirs != ''
-        run: make seeds
-
-      # I mart multi-anno (mart_trend) richiedono il run con TUTTI gli anni
-      # dichiarati nel dataset.yml: toolkit li usa dal config (nessun --years).
-      - name: Run datasets (PR merge — solo toccati)
-        if: github.event_name == 'pull_request' && steps.detect.outputs.dirs != ''
-        run: |
-          for dir in ${{ steps.detect.outputs.dirs }}; do
-            case "$dir" in
-              support/*) continue;;  # già eseguiti nei seeds
-              datasets/siope-bilancio)
-                # il bilancio dipende dai clean locali di entrate/uscite
-                echo "=== dipendenze entrate/uscite ==="
-                toolkit run --config datasets/siope-entrate/dataset.yml
-                toolkit run --config datasets/siope-uscite/dataset.yml
-                ;;
-            esac
-            echo "=== $dir ==="
-            toolkit run --config "$dir/dataset.yml"
-          done
-
-      - name: Run entrate (schedule/dispatch)
-        if: github.event_name != 'pull_request' && inputs.sides != 'uscite'
-        run: |
-          YEARS_INPUT="${{ inputs.years || 'all' }}"
-          if [ "$YEARS_INPUT" = "all" ]; then YEARS="2021,2022,2023,2024,2025,2026"
-          else YEARS=$(echo "$YEARS_INPUT" | tr ' ' ','); fi
-          echo "=== entrate anni:$YEARS ==="
-          toolkit run --config datasets/siope-entrate/dataset.yml --years "$YEARS"
-
-      - name: Run uscite (schedule/dispatch)
-        if: github.event_name != 'pull_request' && inputs.sides != 'entrate'
-        run: |
-          YEARS="2021,2022,2023,2024,2025,2026"
-          echo "=== uscite anni:$YEARS ==="
-          toolkit run --config datasets/siope-uscite/dataset.yml --years "$YEARS"
-
-      - name: Run bilancio unificato (annuale, schedule/dispatch)
-        if: github.event_name != 'pull_request'
-        run: |
-          # Richiede i clean locali di entrate/uscite (prodotti dagli step sopra).
-          YEARS="2021,2022,2023,2024,2025,2026"
-          echo "=== bilancio anni:$YEARS ==="
-          toolkit run --config datasets/siope-bilancio/dataset.yml --years "$YEARS"
+      # SIOPE = dataset collegati (bilancio dipende da entrate/uscite):
+      # si runna SEMPRE tutto, in ordine, via Makefile (modello ADR-001).
+      - name: Run all datasets (seeds → entrate → uscite → bilancio)
+        run: make run-all
 
       - name: Verify output (gate)
-        if: steps.detect.outputs.dirs != ''
-        env:
-          EVENT: ${{ github.event_name }}
-          PR_DIRS: ${{ steps.detect.outputs.dirs }}
-          SIDES: ${{ inputs.sides }}
-          YEARS: ${{ inputs.years }}
-        run: |
-          if [ "$EVENT" = "pull_request" ]; then
-            case "$PR_DIRS" in
-              *siope-entrate*siope-uscite*) LATO="all";;
-              *siope-entrate*) LATO="entrate";;
-              *siope-uscite*) LATO="uscite";;
-              *) echo "⏭️ nessun dataset principale toccato"; exit 0;;
-            esac
-            ANNO=$(python3 -c "import yaml; print(','.join(map(str, yaml.safe_load(open('datasets/siope-entrate/dataset.yml'))['dataset']['years'])))")
-          else
-            LATO="${SIDES:-all}"
-            [ "$LATO" = "both" ] && LATO="all"
-            ANNO="${YEARS:-all}"
-          fi
-          echo "verify: lato=$LATO anni=$ANNO"
-          python3 scripts/verify_output.py --lato "$LATO" --year "$ANNO" --ci
+        run: make verify
 
       - name: Auth GCP
         id: gcs
-        if: steps.detect.outputs.dirs != ''
         uses: dataciviclab/.github/actions/gcs-auth@main
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
 
       - name: Sync to GCS
-        if: steps.gcs.outputs.ready == 'true' && steps.detect.outputs.dirs != ''
+        if: steps.gcs.outputs.ready == 'true'
         run: |
           gsutil -m rsync -r out/data/mart/ gs://dataciviclab-mart/siope/
           gsutil -m rsync -r out/data/clean/ gs://dataciviclab-clean/siope/
@@ -162,17 +63,8 @@ jobs:
       # Registry → draft PR (composite, nello stesso job del run: il registry
       # deriva le entry dai parquet locali in out/).
       - name: Registry update PR
-        if: steps.detect.outputs.dirs != ''
         uses: dataciviclab/.github/actions/registry-update-pr@main
         with:
           prefix: "siope"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload mart artifacts
-        uses: actions/upload-artifact@v7
-        with:
-          name: siope-mart
-          path: out/data/mart/
-          compression-level: 0
-          if-no-files-found: warn
