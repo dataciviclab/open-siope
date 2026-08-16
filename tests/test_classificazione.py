@@ -11,8 +11,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import duckdb
 import pytest
+from lab_connectors.duckdb import safe_connect
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -45,7 +45,8 @@ ENTRATE = {
 
 @pytest.fixture(scope="module")
 def con():
-    return duckdb.connect()
+    with safe_connect() as con:
+        yield con
 
 
 @pytest.mark.contract
