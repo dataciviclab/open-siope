@@ -18,29 +18,8 @@ on:
 
 jobs:
   validate-config:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6.0.3
-      - uses: actions/setup-python@v6.2.0
-        with:
-          python-version: "3.12"
-
-      - name: Install dependencies
-        run: |
-          pip install git+https://github.com/dataciviclab/lab-connectors.git
-          pip install git+https://github.com/dataciviclab/toolkit.git
-          pip install duckdb mcp pytest pytest-timeout
-
-      - name: Validate all dataset configs parse correctly
-        run: |
-          for cfg in $(find . -path '*/support/*' -name dataset.yml | sort); do
-            echo "→ $cfg"
-            toolkit run preflight --config "$cfg" --years 2026 > /dev/null 2>&1 || exit 1
-          done
-          for cfg in $(find . -path '*/datasets/*' -name dataset.yml | sort); do
-            echo "→ $cfg"
-            toolkit run preflight --config "$cfg" --years 2025 > /dev/null 2>&1 || exit 1
-          done
-          echo "✅ All configs valid"
-
-
+    uses: dataciviclab/.github/.github/workflows/dataset-config-check-reusable.yml@main
+    with:
+      install: "pip install -r requirements.txt"
+      globs: "support datasets"
+      years: "from-config"

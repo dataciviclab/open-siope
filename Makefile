@@ -22,15 +22,20 @@ seeds:
 	done
 
 # --- Dataset principali ---
+# SIOPE = dataset collegati: bilancio dipende dai clean locali di
+# entrate/uscite → l'ordine di run-all è vincolato (seeds → entrate → uscite → bilancio).
 
-.PHONY: run-entrate run-uscite run-all
+.PHONY: run-entrate run-uscite run-bilancio run-all
 run-entrate:
 	$(TOOLKIT) run --config datasets/siope-entrate/dataset.yml
 
 run-uscite:
 	$(TOOLKIT) run --config datasets/siope-uscite/dataset.yml
 
-run-all: seeds run-entrate run-uscite
+run-bilancio:
+	$(TOOLKIT) run --config datasets/siope-bilancio/dataset.yml
+
+run-all: seeds run-entrate run-uscite run-bilancio
 
 # --- Validazione config ---
 
@@ -60,7 +65,7 @@ clean-runs:
 
 .PHONY: verify
 verify:
-	python3 scripts/verify_output.py
+	python3 scripts/verify_output.py --year all
 
 # --- Registry (artifact catalogo — dry-run di default) ---
 

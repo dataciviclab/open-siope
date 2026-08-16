@@ -14,8 +14,6 @@ Usage:
 import argparse, datetime, json, os, sys
 from pathlib import Path
 
-import duckdb
-
 ROOT = Path(__file__).resolve().parent.parent / "out" / "data"
 # Default: range completo SIOPE (2021-2026). Se --config e' passato,
 # gli anni vengono letti dal dataset.yml per allineamento automatico.
@@ -230,34 +228,33 @@ def main():
     else:
         anni = [int(y) for y in args.year.split(",")]
 
-    con = duckdb.connect()
-    checks = []
+    from lab_connectors.duckdb import safe_connect
+    with safe_connect() as con:
+        checks = []
 
-    for lato in lati:
-        cfg = LATI_CONFIG[lato]
-        for anno in anni:
-            for check_fn, check_args in [
-                (check_clean, [con, lato, anno, cfg]),
-                (check_join, [con, lato, anno, cfg]),
-            ] + [(check_mart, [con, lato, anno, cfg, c]) for c in ["PRO", "REG", "SAN", "UNI"]]:
+        for lato in lati:
+            cfg = LATI_CONFIG[lato]
+            for anno in anni:
+                for check_fn, check_args in [
+                    (check_clean, [con, lato, anno, cfg]),
+                    (check_join, [con, lato, anno, cfg]),
+                ] + [(check_mart, [con, lato, anno, cfg, c]) for c in ["PRO", "REG", "SAN", "UNI"]]:
+                    try:
+                        checks.append(check_fn(*check_args))
+                    except Exception as e:
+                        checks.append({
+                            "check": f"{check_fn.__name__}_{lato}_{anno}",
+                            "esito": "CRITICAL",
+                            "dettaglio": f"ERRORE ESECUZIONE: {e}",
+                        })
                 try:
-                    checks.append(check_fn(*check_args))
+                    checks.extend(check_analitici(con, lato, anno, cfg))
                 except Exception as e:
                     checks.append({
-                        "check": f"{check_fn.__name__}_{lato}_{anno}",
+                        "check": f"check_analitici_{lato}_{anno}",
                         "esito": "CRITICAL",
                         "dettaglio": f"ERRORE ESECUZIONE: {e}",
                     })
-            try:
-                checks.extend(check_analitici(con, lato, anno, cfg))
-            except Exception as e:
-                checks.append({
-                    "check": f"check_analitici_{lato}_{anno}",
-                    "esito": "CRITICAL",
-                    "dettaglio": f"ERRORE ESECUZIONE: {e}",
-                })
-
-    con.close()
 
     ok = sum(1 for c in checks if c["esito"] == "PASS")
     warn = sum(1 for c in checks if c["esito"] == "WARN")

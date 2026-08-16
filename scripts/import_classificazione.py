@@ -163,15 +163,15 @@ def load_baseline() -> tuple[dict[tuple[str, str], tuple[str, str]], dict[tuple[
     """Baseline PER RIGA (gestione, voce) dai seed — per i comparti senza fonte
     ufficiale. Mantiene la granularità per gestione (364 codici hanno
     descrizioni diverse tra gestioni)."""
-    import duckdb
-    con = duckdb.connect()
-    W = str(ROOT)
-    pu = f"{W}/out/data/clean/siope_anag_codgest_uscite_seed/2026/siope_anag_codgest_uscite_seed_2026_clean.parquet"
-    pe = f"{W}/out/data/clean/siope_anag_codgest_entrate_seed/2026/siope_anag_codgest_entrate_seed_2026_clean.parquet"
-    u = {(r[0], r[1]): (r[3], r[4]) for r in con.execute(
-        f"select codice_voce, codice_gestione, descrizione_codice, macro_area, macro_categoria from read_parquet('{pu}')").fetchall()}
-    e = {(r[0], r[1]): r[3] for r in con.execute(
-        f"select codice_voce, codice_gestione, descrizione_codice, macro_categoria_v2 from read_parquet('{pe}')").fetchall()}
+    from lab_connectors.duckdb import safe_connect
+    with safe_connect() as con:
+        W = str(ROOT)
+        pu = f"{W}/out/data/clean/siope_anag_codgest_uscite_seed/2026/siope_anag_codgest_uscite_seed_2026_clean.parquet"
+        pe = f"{W}/out/data/clean/siope_anag_codgest_entrate_seed/2026/siope_anag_codgest_entrate_seed_2026_clean.parquet"
+        u = {(r[0], r[1]): (r[3], r[4]) for r in con.execute(
+            f"select codice_voce, codice_gestione, descrizione_codice, macro_area, macro_categoria from read_parquet('{pu}')").fetchall()}
+        e = {(r[0], r[1]): r[3] for r in con.execute(
+            f"select codice_voce, codice_gestione, descrizione_codice, macro_categoria_v2 from read_parquet('{pe}')").fetchall()}
     return u, e
 
 
@@ -221,15 +221,15 @@ def main() -> int:
     # specifico→generico; word-boundary per i token ambigui iva/tari/tribut/
     # imu/canone). Il risultato è versionato nel CSV: è il contratto, non una
     # regola runtime — l'audit a 0 contraddizioni descrizione↔categoria è il gate.
-    import duckdb
     import re as _re
-    con = duckdb.connect()
-    pu = f"{ROOT}/out/data/clean/siope_anag_codgest_uscite_seed/2026/siope_anag_codgest_uscite_seed_2026_clean.parquet"
-    pe = f"{ROOT}/out/data/clean/siope_anag_codgest_entrate_seed/2026/siope_anag_codgest_entrate_seed_2026_clean.parquet"
-    desc_u = {(r[0], r[1]): r[2] for r in con.execute(
-        f"select codice_voce, codice_gestione, descrizione_codice from read_parquet('{pu}')").fetchall()}
-    desc_e = {(r[0], r[1]): r[2] for r in con.execute(
-        f"select codice_voce, codice_gestione, descrizione_codice from read_parquet('{pe}')").fetchall()}
+    from lab_connectors.duckdb import safe_connect
+    with safe_connect() as con:
+        pu = f"{ROOT}/out/data/clean/siope_anag_codgest_uscite_seed/2026/siope_anag_codgest_uscite_seed_2026_clean.parquet"
+        pe = f"{ROOT}/out/data/clean/siope_anag_codgest_entrate_seed/2026/siope_anag_codgest_entrate_seed_2026_clean.parquet"
+        desc_u = {(r[0], r[1]): r[2] for r in con.execute(
+            f"select codice_voce, codice_gestione, descrizione_codice from read_parquet('{pu}')").fetchall()}
+        desc_e = {(r[0], r[1]): r[2] for r in con.execute(
+            f"select codice_voce, codice_gestione, descrizione_codice from read_parquet('{pe}')").fetchall()}
 
     def _cat_uscite(d: str) -> str:
         dl = d.lower()
