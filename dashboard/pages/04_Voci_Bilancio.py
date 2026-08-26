@@ -18,7 +18,7 @@ with col2:
     lato = st.selectbox("Lato", ["Entrate", "Uscite"])
 
 lato_val = "entrate" if lato == "Entrate" else "uscite"
-macro_col = "macro_categoria_v2" if lato_val == "entrate" else "macro_categoria"
+macro_col = "macro_categoria"
 
 # ── Top macro categorie ────────────────────────────────────────────
 st.subheader(f"Top Macro Categorie — {lato}")

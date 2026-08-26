@@ -78,7 +78,7 @@ st.subheader("Top 10 Macro Categorie Entrate")
 
 df_macro = query_bilancio(f"""
     SELECT
-        COALESCE(macro_categoria_v2, 'Altro') AS macro_categoria,
+        COALESCE(macro_categoria, 'Altro') AS macro_categoria,
         SUM(importo_eur) AS totale
     FROM clean_input
     WHERE anno = {year} AND lato = 'entrate'
