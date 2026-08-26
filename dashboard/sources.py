@@ -17,7 +17,7 @@ PREFIX = "siope/"
 _registry = load_registry(Path(__file__).parent.parent / "registry" / "registry.json")
 
 # Registry lookup by slug
-_registry_by_slug = {ds["slug"]: ds for ds in _registry.get("datasets", [])}
+_registry_by_slug = {ds.slug: ds for ds in _registry.datasets}
 
 
 # ── bilancio unificato ──────────────────────────────────────────────
