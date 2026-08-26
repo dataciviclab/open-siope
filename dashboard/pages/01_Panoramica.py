@@ -6,7 +6,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import streamlit as st
-from sources import query_bilancio, YEARS
+from sources import query_bilancio, YEARS, get_comparti
 
 st.title("📊 Panoramica Bilancio SIOPE")
 
@@ -15,16 +15,13 @@ col1, col2 = st.columns(2)
 with col1:
     year = st.selectbox("Anno", YEARS, index=len(YEARS) - 1)
 with col2:
+    _comparti = get_comparti(year)
     comparto = st.selectbox(
         "Comparto",
-        ["Tutti", "PRO", "SAN", "UNI", "REG"],
-        format_func=lambda x: {
-            "Tutti": "Tutti",
-            "PRO": "Province / Comuni",
-            "SAN": "Sanità",
-            "UNI": "Università",
-            "REG": "Regioni",
-        }.get(x, x),
+        ["Tutti"] + [c[0] for c in _comparti],
+        format_func=lambda x: "Tutti" if x == "Tutti" else next(
+            (f"{c[0]} — {c[1]}" for c in _comparti if c[0] == x), x
+        ),
     )
 
 # ── KPI ─────────────────────────────────────────────────────────────

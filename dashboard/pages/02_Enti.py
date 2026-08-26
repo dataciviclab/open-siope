@@ -6,7 +6,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import streamlit as st
-from sources import query_bilancio, YEARS
+from sources import query_bilancio, YEARS, get_comparti
 
 st.title("🏛️ Enti")
 
@@ -20,16 +20,13 @@ with col3:
     top_n = st.slider("Top N", 5, 50, 20)
 
 comparto_filter = ""
+_comparti = get_comparti(year)
 comparto = st.selectbox(
     "Comparto (opzionale)",
-    ["Tutti", "PRO", "SAN", "UNI", "REG"],
-    format_func=lambda x: {
-        "Tutti": "Tutti",
-        "PRO": "Province / Comuni",
-        "SAN": "Sanità",
-        "UNI": "Università",
-        "REG": "Regioni",
-    }.get(x, x),
+    ["Tutti"] + [c[0] for c in _comparti],
+    format_func=lambda x: "Tutti" if x == "Tutti" else next(
+        (f"{c[0]} — {c[1]}" for c in _comparti if c[0] == x), x
+    ),
 )
 if comparto != "Tutti":
     comparto_filter = f"AND codice_comparto = '{comparto}'"

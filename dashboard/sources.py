@@ -80,6 +80,17 @@ def load_seeds():
     return pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
 
 
+def get_comparti(year: int = 2026):
+    """Return list of (codice, descrizione) for all comparti in the data."""
+    df = query_bilancio("""
+        SELECT DISTINCT codice_comparto, descrizione_comparto
+        FROM clean_input
+        WHERE codice_comparto IS NOT NULL
+        ORDER BY codice_comparto
+    """, years=(year,))
+    return list(zip(df["codice_comparto"], df["descrizione_comparto"]))
+
+
 def get_registry():
     return _registry
 
