@@ -39,7 +39,7 @@ if not df_reg.empty:
 # ── Drill-down provincia ───────────────────────────────────────────
 st.subheader("Drill-down per Provincia")
 
-regione = st.selectbox("Seleziona Regione", ["Tutte"] + sorted(df_reg["regione"].tolist()) if not df_reg.empty else ["Tutte"])
+regione = st.selectbox("Seleziona Regione", ["Tutte"] + sorted(df_reg["regione"].dropna().astype(str).tolist()) if not df_reg.empty else ["Tutte"])
 
 regione_filter = f"AND regione = '{regione}'" if regione != "Tutte" else ""
 
