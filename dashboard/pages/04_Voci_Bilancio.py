@@ -56,9 +56,8 @@ else:
 
 macro_in = ""
 if selected_macro:
-    escaped = [m.replace("'", "''") for m in selected_macro]
-    macro_in = f"AND COALESCE({macro_col}, 'Altro') IN ('{'',''.join(escaped)}')"
-
+    values_sql = ", ".join(f"'{m.replace(chr(39), chr(39)*2)}'" for m in selected_macro)
+    macro_in = f"AND COALESCE({macro_col}, 'Altro') IN ({values_sql})"
 df_voci = query_bilancio(f"""
     SELECT
         codice_voce,
@@ -82,8 +81,8 @@ st.subheader("Trend per Macro Categoria")
 if not df_macro.empty:
     top3 = df_macro["macro"].head(3).tolist()
     escaped = [m.replace("'", "''") for m in top3]
-    macro_in_3 = f"AND COALESCE({macro_col}, 'Altro') IN ('{'',''.join(escaped)}')"
-
+    values_sql_3 = ", ".join(f"'{m.replace(chr(39), chr(39)*2)}'" for m in top3)
+    macro_in_3 = f"AND COALESCE({macro_col}, 'Altro') IN ({values_sql_3})"
     df_trend = query_bilancio(f"""
         SELECT
             anno,
