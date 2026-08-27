@@ -5,8 +5,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
+import pandas as pd
 import streamlit as st
-from sources import query_bilancio, YEARS, get_comparti
+from lab_connectors.formatters import fmt_num
+from sources import query_bilancio, YEARS, get_comparti, load_clean
 
 st.title("🏛️ Enti")
 
@@ -80,21 +82,24 @@ if not df_tipo.empty:
 # ── Scatter: Importo vs Popolazione (solo per COMUNE) ─────────────
 st.subheader("📍 Importo vs Popolazione (Comuni)")
 
-df_scatter = query_bilancio(f"""
+df_scatter_base = query_bilancio(f"""
     SELECT
-        b.codice_ente,
-        b.denominazione_ente,
-        SUM(b.importo_eur) AS totale,
-        TRY_CAST(e.popolazione AS INTEGER) AS popolazione
-    FROM clean_input b
-    LEFT JOIN read_parquet(
-        'https://storage.googleapis.com/dataciviclab-clean/siope/siope_anag_enti_seed/2026/siope_anag_enti_seed_2026_clean.parquet'
-    ) e ON b.codice_ente = e.codice_ente
-    WHERE b.anno = {year} AND b.lato = '{lato_val}'
-        AND b.tipo_ente = 'COMUNE'
-        AND TRY_CAST(e.popolazione AS INTEGER) > 0
-    GROUP BY b.codice_ente, b.denominazione_ente, popolazione
+        codice_ente,
+        denominazione_ente,
+        regione,
+        SUM(importo_eur) AS totale
+    FROM clean_input
+    WHERE anno = {year} AND lato = '{lato_val}'
+        AND tipo_ente = 'COMUNE'
+    GROUP BY codice_ente, denominazione_ente, regione
 """, years=(year,))
+
+df_enti_seed = load_clean("siope_anag_enti_seed", [year], prefix="siope/")
+df_enti_seed = df_enti_seed[["codice_ente", "popolazione"]].copy()
+df_enti_seed["popolazione"] = pd.to_numeric(df_enti_seed["popolazione"], errors="coerce")
+
+df_scatter = df_scatter_base.merge(df_enti_seed, on="codice_ente", how="left")
+df_scatter = df_scatter[df_scatter["popolazione"].notna() & (df_scatter["popolazione"] > 0)]
 
 if not df_scatter.empty:
     df_scatter["importo_per_abitante"] = df_scatter["totale"] / df_scatter["popolazione"]

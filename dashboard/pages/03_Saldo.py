@@ -6,6 +6,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import streamlit as st
+from lab_connectors.formatters import fmt_eur
 from sources import query_bilancio, YEARS, get_comparti
 
 st.title("⚖️ Saldo Bilancio")
@@ -51,9 +52,9 @@ tot_verde = df.loc[df["saldo"] >= 0, "saldo"].sum()
 
 col1, col2, col3, col4 = st.columns(4)
 col1.metric("🔴 In passivo", f"{nr_in_rosso}")
-col2.metric("💰 Tot. passivo", f"€ {abs(tot_rosso)/1e9:,.1f} mld")
+col2.metric("💰 Tot. passivo", fmt_eur(abs(tot_rosso), compact=True))
 col3.metric("🟢 In attivo", f"{nr_in_verde}")
-col4.metric("💰 Tot. attivo", f"€ {tot_verde/1e9:,.1f} mld")
+col4.metric("💰 Tot. attivo", fmt_eur(tot_verde, compact=True))
 
 # ── Bar chart saldo (rosso/verde) ─────────────────────────────────
 st.subheader(f"Saldo per {raggruppa}")
@@ -86,9 +87,9 @@ except ImportError:
 # ── Tabella dettaglio ─────────────────────────────────────────────
 st.subheader("Dettaglio")
 
-df["saldo_fmt"] = df["saldo"].apply(lambda x: f"€ {x/1e9:,.2f} mld" if abs(x) >= 1e9 else f"€ {x/1e6:,.0f} mln")
-df["entrate_fmt"] = df["entrate"].apply(lambda x: f"€ {x/1e9:,.1f} mld")
-df["uscite_fmt"] = df["uscite"].apply(lambda x: f"€ {x/1e9:,.1f} mld")
+df["saldo_fmt"] = df["saldo"].apply(lambda x: fmt_eur(x, compact=True))
+df["entrate_fmt"] = df["entrate"].apply(lambda x: fmt_eur(x, compact=True))
+df["uscite_fmt"] = df["uscite"].apply(lambda x: fmt_eur(x, compact=True))
 
 st.dataframe(
     df[["gruppo", "nr_enti", "entrate_fmt", "uscite_fmt", "saldo_fmt"]].rename(columns={

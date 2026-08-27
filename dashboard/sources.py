@@ -7,16 +7,18 @@ from pathlib import Path
 
 from lab_connectors.duckdb.queries import (
     load_clean,
+    load_mart_flat as _load_mart_flat,
     query_clean,
+    years_from_registry,
 )
 from lab_connectors.registry import load_registry
 
-YEARS = list(range(2021, 2027))
 PREFIX = "siope/"
 
 _registry = load_registry(Path(__file__).parent.parent / "registry" / "registry.json")
+_all_years = years_from_registry(_registry)
+YEARS = list(range(min(_all_years), max(_all_years) + 1)) if _all_years else []
 
-# Registry lookup by slug
 _registry_by_slug = {ds.slug: ds for ds in _registry.datasets}
 
 
@@ -80,6 +82,7 @@ def load_seeds():
     return pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
 
 
+@st.cache_data(ttl=3600, show_spinner=False)
 def get_comparti(year: int = 2026):
     """Return list of (codice, descrizione) for all comparti in the data."""
     df = query_bilancio("""

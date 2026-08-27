@@ -6,6 +6,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import streamlit as st
+from lab_connectors.formatters import fmt_eur, fmt_num
 from sources import query_bilancio, YEARS, get_comparti
 
 st.title("📊 Panoramica Bilancio SIOPE")
@@ -46,10 +47,10 @@ if df_kpi.empty:
 row = df_kpi.iloc[0]
 
 col1, col2, col3, col4 = st.columns(4)
-col1.metric("🏛️ Enti", f"{int(row['nr_enti']):,}")
-col2.metric("💰 Entrate", f"€ {row['tot_entrate']/1e9:,.1f} mld")
-col3.metric("💸 Uscite", f"€ {row['tot_uscite']/1e9:,.1f} mld")
-col4.metric("📊 Saldo", f"€ {row['saldo']/1e9:,.1f} mld")
+col1.metric("🏛️ Enti", fmt_num(row['nr_enti']))
+col2.metric("💰 Entrate", fmt_eur(row['tot_entrate'], compact=True))
+col3.metric("💸 Uscite", fmt_eur(row['tot_uscite'], compact=True))
+col4.metric("📊 Saldo", fmt_eur(row['saldo'], compact=True))
 
 # ── Sunburst: Comparto → Tipo Ente (Entrate) ──────────────────────
 st.subheader("🌅 Distribuzione Entrate — Comparto → Tipo Ente")
@@ -122,13 +123,13 @@ if not df_t9.empty:
     pct = tot_t9 / row["tot_entrate"] * 100 if row["tot_entrate"] else 0
 
     col1, col2 = st.columns(2)
-    col1.metric("Totale Titolo 9", f"€ {tot_t9/1e9:,.1f} mld")
+    col1.metric("Totale Titolo 9", fmt_eur(tot_t9, compact=True))
     col2.metric("% sul totale entrate", f"{pct:.1f}%")
 
     st.caption(
         "Le voci del Titolo 9 comprendono ritenute erariali, scissione contabile IVA "
         "(split payment) e ritenute per conto terzi — sono importi che transitano "
-        "dall'ente ma non ne rappresentano un真正的 entrata."
+        "dall'ente ma non ne rappresentano una vera entrata."
     )
 
     df_t9_chart = df_t9.set_index("codice_comparto")["totale_t9"] / 1e9
