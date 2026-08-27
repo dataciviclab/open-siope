@@ -19,12 +19,13 @@ pages = {
     ],
     "Analisi": [
         st.Page("pages/02_Enti.py", title="Enti", icon="🏛️"),
-        st.Page("pages/03_Territorio.py", title="Territorio", icon="🗺️"),
-        st.Page("pages/04_Voci_Bilancio.py", title="Voci Bilancio", icon="📋"),
-        st.Page("pages/05_Trend.py", title="Trend", icon="📈"),
+        st.Page("pages/03_Saldo.py", title="Saldo", icon="⚖️"),
+        st.Page("pages/04_Territorio.py", title="Territorio", icon="🗺️"),
+        st.Page("pages/05_Voci_Bilancio.py", title="Voci Bilancio", icon="📋"),
+        st.Page("pages/06_Trend.py", title="Trend", icon="📈"),
     ],
     "Strumenti": [
-        st.Page("pages/06_SQL.py", title="Query SQL", icon="🧪"),
+        st.Page("pages/07_SQL.py", title="Query SQL", icon="🧪"),
     ],
 }
 

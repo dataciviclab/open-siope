@@ -1,4 +1,4 @@
-"""Enti — Top enti per entrate/uscite."""
+"""Enti — Top enti per entrate/uscite + scatter importo vs popolazione."""
 
 import sys
 from pathlib import Path
@@ -71,9 +71,53 @@ df_tipo = query_bilancio(f"""
 """, years=(year,))
 
 if not df_tipo.empty:
-    import pandas as pd
     col1, col2 = st.columns(2)
     with col1:
-        st.bar_chart(df_tipo.set_index("tipo_ente")["totale"])
+        st.bar_chart(df_tipo.set_index("tipo_ente")["totale"] / 1e9)
     with col2:
         st.dataframe(df_tipo, use_container_width=True, hide_index=True)
+
+# ── Scatter: Importo vs Popolazione (solo per COMUNE) ─────────────
+st.subheader("📍 Importo vs Popolazione (Comuni)")
+
+df_scatter = query_bilancio(f"""
+    SELECT
+        b.codice_ente,
+        b.denominazione_ente,
+        SUM(b.importo_eur) AS totale,
+        TRY_CAST(e.popolazione AS INTEGER) AS popolazione
+    FROM clean_input b
+    LEFT JOIN read_parquet(
+        'https://storage.googleapis.com/dataciviclab-clean/siope/siope_anag_enti_seed/2026/siope_anag_enti_seed_2026_clean.parquet'
+    ) e ON b.codice_ente = e.codice_ente
+    WHERE b.anno = {year} AND b.lato = '{lato_val}'
+        AND b.tipo_ente = 'COMUNE'
+        AND TRY_CAST(e.popolazione AS INTEGER) > 0
+    GROUP BY b.codice_ente, b.denominazione_ente, popolazione
+""", years=(year,))
+
+if not df_scatter.empty:
+    df_scatter["importo_per_abitante"] = df_scatter["totale"] / df_scatter["popolazione"]
+    df_scatter["pop_migliaia"] = df_scatter["popolazione"] / 1000
+
+    try:
+        import plotly.express as px
+        fig = px.scatter(
+            df_scatter,
+            x="pop_migliaia",
+            y="importo_per_abitante",
+            hover_name="denominazione_ente",
+            size="totale",
+            color="regione",
+            title=f"Importo {lato} per abitante vs Popolazione",
+            labels={
+                "pop_migliaia": "Popolazione (migliaia)",
+                "importo_per_abitante": f"{lato} per abitante (€)",
+            },
+            height=600,
+        )
+        st.plotly_chart(fig, use_container_width=True)
+    except ImportError:
+        st.info("Installa plotly per lo scatter.")
+        st.scatter_chart(df_scatter.set_index("pop_migliaia")["importo_per_abitante"])
+
