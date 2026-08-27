@@ -61,6 +61,7 @@ df_sun = query_bilancio(f"""
         SUM(importo_eur) AS totale
     FROM clean_input
     WHERE anno = {year} AND lato = 'entrate'
+        AND codice_comparto IS NOT NULL AND tipo_ente IS NOT NULL
     GROUP BY codice_comparto, tipo_ente
     ORDER BY totale DESC
 """, years=(year,))
