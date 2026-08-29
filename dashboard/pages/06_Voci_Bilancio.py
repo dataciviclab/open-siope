@@ -1,10 +1,5 @@
 """Voci Bilancio — Analisi per codice voce SIOPE."""
 
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).parent.parent))
-
 import streamlit as st
 from sources import query_bilancio, query_entrate, query_uscite, YEARS
 
@@ -38,7 +33,7 @@ if not df_macro.empty:
     try:
         import plotly.express as px
         fig = px.treemap(df_macro, path=["macro"], values="totale", title="Macro Categorie")
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
     except ImportError:
         st.bar_chart(df_macro.set_index("macro")["totale"])
 
@@ -73,7 +68,7 @@ df_voci = query_bilancio(f"""
 """, years=(year,))
 
 if not df_voci.empty:
-    st.dataframe(df_voci, use_container_width=True, hide_index=True)
+    st.dataframe(df_voci, width='stretch', hide_index=True)
 
 # ── Trend per macro categoria ──────────────────────────────────────
 st.subheader("Trend per Macro Categoria")

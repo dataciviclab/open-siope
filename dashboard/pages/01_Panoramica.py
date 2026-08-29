@@ -1,10 +1,5 @@
 """Panoramica — KPI e sunburst del bilancio SIOPE."""
 
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).parent.parent))
-
 import streamlit as st
 from lab_connectors.formatters import fmt_eur, fmt_num
 from sources import query_bilancio, YEARS, get_comparti
@@ -81,7 +76,7 @@ if not df_sun.empty:
             title="Entrate per Comparto e Tipo Ente",
         )
         fig.update_layout(height=600)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
     except ImportError:
         st.info("Installa plotly per il sunburst: `pip install plotly`")
 

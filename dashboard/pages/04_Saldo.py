@@ -1,10 +1,5 @@
 """Saldo — Enti in attivo vs passivo per regione/comparto."""
 
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).parent.parent))
-
 import streamlit as st
 from lab_connectors.formatters import fmt_eur
 from sources import query_bilancio, YEARS, get_comparti
@@ -78,7 +73,7 @@ try:
         yaxis_title="Saldo (mld €)",
         yaxis_tickformat=",.0f",
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width='stretch')
 except ImportError:
     st.info("Installa plotly per il grafico colorato.")
     df_display = df.set_index("gruppo")[["saldo"]] / 1e9
@@ -99,6 +94,6 @@ st.dataframe(
         "uscite_fmt": "Uscite",
         "saldo_fmt": "Saldo",
     }),
-    use_container_width=True,
+    width='stretch',
     hide_index=True,
 )

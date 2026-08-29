@@ -1,10 +1,5 @@
 """Enti — Top enti per entrate/uscite + scatter importo vs popolazione."""
 
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).parent.parent))
-
 import pandas as pd
 import streamlit as st
 from lab_connectors.formatters import fmt_num
@@ -55,7 +50,7 @@ if df.empty:
     st.warning("Nessun dato disponibile.")
     st.stop()
 
-st.dataframe(df, use_container_width=True)
+st.dataframe(df, width='stretch')
 
 # ── Distribuzione per tipo ente ────────────────────────────────────
 st.subheader("Distribuzione per Tipo Ente")
@@ -77,7 +72,7 @@ if not df_tipo.empty:
     with col1:
         st.bar_chart(df_tipo.set_index("tipo_ente")["totale"] / 1e9)
     with col2:
-        st.dataframe(df_tipo, use_container_width=True, hide_index=True)
+        st.dataframe(df_tipo, width='stretch', hide_index=True)
 
 # ── Scatter: Importo vs Popolazione (solo per COMUNE) ─────────────
 st.subheader("📍 Importo vs Popolazione (Comuni)")
@@ -121,7 +116,7 @@ if not df_scatter.empty:
             },
             height=600,
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
     except ImportError:
         st.info("Installa plotly per lo scatter.")
         st.scatter_chart(df_scatter.set_index("pop_migliaia")["importo_per_abitante"])

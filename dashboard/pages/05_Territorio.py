@@ -1,10 +1,5 @@
 """Territorio — Analisi geografica per regione/provincia."""
 
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).parent.parent))
-
 import streamlit as st
 from sources import query_bilancio, YEARS
 
@@ -58,7 +53,7 @@ df_prov = query_bilancio(f"""
 
 if not df_prov.empty:
     st.bar_chart(df_prov.set_index("provincia")["totale"])
-    st.dataframe(df_prov, use_container_width=True, hide_index=True)
+    st.dataframe(df_prov, width='stretch', hide_index=True)
 
 # ── Confronto anno vs anno ─────────────────────────────────────────
 st.subheader("Confronto Anno vs Anno")

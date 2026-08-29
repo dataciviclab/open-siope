@@ -1,10 +1,5 @@
 """Scheda Ente — Dettaglio singolo ente pubblico."""
 
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).parent.parent))
-
 import streamlit as st
 from sources import query_bilancio, YEARS, get_comparti
 
@@ -109,11 +104,11 @@ if not df_voci.empty:
             labels={"totale": "Importo (€)", "descrizione_codice": ""},
         )
         fig.update_layout(height=500, yaxis={"categoryorder": "total ascending"})
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
     except ImportError:
         st.bar_chart(df_voci.set_index("descrizione_codice")["totale"])
 
-    st.dataframe(df_voci, use_container_width=True, hide_index=True)
+    st.dataframe(df_voci, width='stretch', hide_index=True)
 
 # ── Trend temporale ────────────────────────────────────────────────
 st.subheader("Trend Temporale")
