@@ -1,4 +1,5 @@
 name: pipeline
+
 on:
   pull_request:
     types: [closed]
@@ -8,8 +9,7 @@ on:
       - "scripts/**"
       - ".github/workflows/pipeline.yml"
   schedule:
-    # Mensile: 5 del mese alle 6:00 UTC — i dati SIOPE vengono aggiornati
-    # entro il 5 del mese successivo a quello di riferimento.
+    # Mensile: 5 del mese alle 6:00 UTC
     - cron: "0 6 5 * *"
   workflow_dispatch:
 
@@ -18,53 +18,14 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  siope-pipeline:
-    if: github.event.pull_request.merged == true || github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-    env:
-      # Runner CI = 2GB RAM: limiti conservativi via env (lab-connectors
-      # safe_connect) — memory_limit + threads + preserve riducono il picco
-      # di allocazione ed evitano OOM sui volumi SIOPE (es. 2021, 4M righe).
-      DUCKDB_MEMORY_LIMIT: 1.5GB
-      DUCKDB_THREADS: 2
-      DUCKDB_PRESERVE_INSERTION_ORDER: false
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          ref: ${{ github.event.pull_request.merge_commit_sha || github.ref }}
-          fetch-depth: 0
-
-      - uses: dataciviclab/.github/actions/python-setup@main
-
-      # SIOPE = dataset collegati (bilancio dipende da entrate/uscite):
-      # si runna SEMPRE tutto, in ordine, via Makefile (modello ADR-001).
-      - name: Run all datasets (seeds → entrate → uscite → bilancio)
-        run: make run-all
-
-      - name: Verify output (gate)
-        run: make verify
-
-      - name: Auth GCP
-        id: gcs
-        uses: dataciviclab/.github/actions/gcs-auth@main
-        env:
-          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
-
-      - name: Sync to GCS
-        if: steps.gcs.outputs.ready == 'true'
-        run: |
-          gsutil -m rsync -r out/data/mart/ gs://dataciviclab-mart/siope/
-          gsutil -m rsync -r out/data/clean/ gs://dataciviclab-clean/siope/
-          echo "✅ Synced to gs://dataciviclab-mart|clean/siope/"
-
-      # Registry → draft PR (composite, nello stesso job del run: il registry
-      # deriva le entry dai parquet locali in out/).
-      - name: Registry update PR
-        uses: dataciviclab/.github/actions/registry-update-pr@main
-        with:
-          prefix: "siope"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  pipeline:
+    uses: dataciviclab/.github/.github/workflows/pipeline-reusable.yml@main
+    with:
+      repo-slug: siope
+      run-command: make run-all
+      verify-command: make verify
+      extra-env: |
+        DUCKDB_MEMORY_LIMIT=1.5GB
+        DUCKDB_THREADS=2
+        DUCKDB_PRESERVE_INSERTION_ORDER=false
+    secrets: inherit
