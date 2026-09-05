@@ -5,6 +5,7 @@ Bilancio della PA italiana — entrate, uscite, saldi per ente e voce SIOPE.
 """
 
 import streamlit as st
+from lab_connectors.branding import apply_branding
 
 st.set_page_config(
     page_title="SIOPE · Dashboard",
@@ -12,6 +13,8 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
+apply_branding(repo_name="open-siope", repo_url="https://github.com/dataciviclab/open-siope")
 
 pages = {
     "": [
@@ -31,10 +34,5 @@ pages = {
 }
 
 pg = st.navigation(pages, position="sidebar")
-
-st.sidebar.markdown("---")
-st.sidebar.caption("Dati: [SIOPE Open Data](https://www.siope.it/) · MEF")
-st.sidebar.caption("Codice: [dataciviclab/open-siope](https://github.com/dataciviclab/open-siope)")
-st.sidebar.caption("[DataCivicLab](https://dataciviclab.org/) · CC BY 4.0")
 
 pg.run()
