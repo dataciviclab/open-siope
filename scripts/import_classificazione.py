@@ -171,7 +171,7 @@ def load_baseline() -> tuple[dict[tuple[str, str], tuple[str, str]], dict[tuple[
         u = {(r[0], r[1]): (r[3], r[4]) for r in con.execute(
             f"select codice_voce, codice_gestione, descrizione_codice, macro_area, macro_categoria from read_parquet('{pu}')").fetchall()}
         e = {(r[0], r[1]): r[3] for r in con.execute(
-            f"select codice_voce, codice_gestione, descrizione_codice, macro_categoria_v2 from read_parquet('{pe}')").fetchall()}
+            f"select codice_voce, codice_gestione, descrizione_codice, macro_categoria from read_parquet('{pe}')").fetchall()}
     return u, e
 
 
@@ -257,7 +257,7 @@ def main() -> int:
         if "trasferimenti in conto capitale" in dl or "conto capitale" in dl: return "Trasferimenti c/capitale"
         if "fondo perequativo" in dl: return "Fondi perequativi"
         if "trasferimenti correnti" in dl or "contributi e trasferimenti" in dl: return "Trasferimenti correnti"
-        if "imposta" in dl or "addizional" in dl or "irap" in dl or _re.search(r"\b(iva|imu|tari|tribut|canone)\b", dl): return "Imposte proprie"
+        if _re.search(r"\bimposta\b", dl) or "addizional" in dl or "irap" in dl or _re.search(r"\b(iva|imu|tari|tribut|canone)\b", dl): return "Imposte proprie"
         return "Entrate extratributarie"
 
     for (cod, gest), (a, c) in baseline_u.items():
@@ -279,7 +279,7 @@ def main() -> int:
         w.writerows((k[1], k[0], v[0], v[1]) for k, v in sorted(final_u.items()))
     with (MAPPING / "entrate_categorie.csv").open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["codice_gestione", "codice_voce", "macro_categoria_v2"])
+        w.writerow(["codice_gestione", "codice_voce", "macro_categoria"])
         w.writerows((k[1], k[0], v) for k, v in sorted(final_e.items()))
     # Guardia di copertura: ogni riga del dizionario deve avere una riga in mappa
     miss_u = [k for k in baseline_u if k not in final_u]

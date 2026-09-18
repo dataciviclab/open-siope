@@ -42,7 +42,7 @@ Gli output prodotti sono descritti in [pipeline.md](pipeline.md).
 
 ## Classificazione per macro-categoria (entrate e uscite)
 
-Nel `clean` arricchito (e nei `mart`) esistono `macro_categoria_v2` (entrate) e
+Nel `clean` arricchito (e nei `mart`) esistono `macro_categoria` (entrate) e
 `macro_area` / `macro_categoria` (uscite), calcolate nel dizionario codgest
 (support seed) tramite **JOIN con la mappa versionata** `mapping/*.categorie.csv`
 — nessuna regola testuale a runtime.

@@ -25,7 +25,7 @@ select
     s.codice_comparto,
     c.descrizione_comparto,
     coalesce(g.is_titolo_9, false) as is_titolo_9,
-    coalesce(g.macro_categoria_v2, 'Altro') as macro_categoria_v2,
+    coalesce(g.macro_categoria, 'Altro') as macro_categoria,
     g.descrizione_codice,
     case when g.codice_voce is not null then true else false end as has_codgest_match
 from base b

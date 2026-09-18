@@ -26,7 +26,7 @@ select
         else false
     end as is_titolo_9,
     coalesce(m.macro_categoria, 'Altre spese') as macro_categoria,
-    coalesce(m.macro_area, 'Altre spese') as macro_area
+    coalesce(m.macro_area, 'Spese correnti') as macro_area
 from base b
 left join read_csv('mapping/uscite_categorie.csv', auto_detect=true, header=true) m
     on b.codice_voce = m.codice_voce

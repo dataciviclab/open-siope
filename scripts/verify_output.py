@@ -22,7 +22,7 @@ ANNI_DISPONIBILI = [2021, 2022, 2023, 2024, 2025, 2026]
 LATI_CONFIG = {
     "entrate": {
         "clean": "clean/siope_entrate/{a}/siope_entrate_{a}_clean.parquet",
-        "class_col": "macro_categoria_v2",
+        "class_col": "macro_categoria",
         "class_altro": "Altro",
         "mart": {
             "PRO":  "mart/siope_entrate/{a}/mart_pro.parquet",
