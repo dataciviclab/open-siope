@@ -63,6 +63,14 @@ mart:
       source_layer: clean
     - name: "mart_enti"
       sql: "sql/mart_enti.sql"
+    - name: "mart_bilancio_per_ente"
+      sql: "sql/mart_bilancio_per_ente.sql"
+    - name: "mart_voci_per_ente"
+      sql: "sql/mart_voci_per_ente.sql"
+    - name: "mart_trend_periodo"
+      sql: "sql/mart_trend_periodo.sql"
+      years: [2021, 2022, 2023, 2024, 2025, 2026]
+      source_layer: clean
   required_tables:
     - "mart_anno_comparto"
     - "mart_sintesi"
