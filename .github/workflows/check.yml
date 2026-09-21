@@ -20,6 +20,5 @@ jobs:
   validate-config:
     uses: dataciviclab/.github/.github/workflows/dataset-config-check-reusable.yml@main
     with:
-      install: "pip install -r requirements.txt"
       globs: "support datasets"
       years: "from-config"
