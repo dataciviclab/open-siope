@@ -11,18 +11,14 @@ dataset:
 
 raw:
   sources:
-    - name: "placeholder"
+    - name: "clean_entrate"
       type: "local_file"
       args:
         path: "../../out/data/clean/siope_entrate/{year}/siope_entrate_{year}_clean.parquet"
-
-support:
-  - name: "entrate"
-    config: "../siope-entrate/dataset.yml"
-    years: [2021, 2022, 2023, 2024, 2025, 2026]
-  - name: "uscite"
-    config: "../siope-uscite/dataset.yml"
-    years: [2021, 2022, 2023, 2024, 2025, 2026]
+    - name: "clean_uscite"
+      type: "local_file"
+      args:
+        path: "../../out/data/clean/siope_uscite/{year}/siope_uscite_{year}_clean.parquet"
 
 clean:
   sql: "sql/clean.sql"
