@@ -25,15 +25,8 @@ LATI_CONFIG = {
         "class_col": "macro_categoria",
         "class_altro": "Altro",
         "mart": {
-            "PRO":  "mart/siope_entrate/{a}/mart_pro.parquet",
-            "REG":  "mart/siope_entrate/{a}/mart_reg.parquet",
-            "SAN":  "mart/siope_entrate/{a}/mart_san.parquet",
-            "UNI":  "mart/siope_entrate/{a}/mart_uni.parquet",
-        },
-        "analitici": {
-            "sintesi": "mart/siope_entrate/{a}/mart_sintesi.parquet",
-            # mart_trend è multi-anno → scritto flat (fuori dalla dir anno)
-            "trend": "mart/siope_entrate/mart_trend.parquet",
+            "anno_comparto": "mart/siope_entrate/{a}/mart_anno_comparto.parquet",
+            "ente": "mart/siope_entrate/{a}/mart_ente.parquet",
         },
     },
     "uscite": {
@@ -41,14 +34,8 @@ LATI_CONFIG = {
         "class_col": "macro_categoria",
         "class_altro": "Altre spese",
         "mart": {
-            "PRO":  "mart/siope_uscite/{a}/mart_pro.parquet",
-            "REG":  "mart/siope_uscite/{a}/mart_reg.parquet",
-            "SAN":  "mart/siope_uscite/{a}/mart_san.parquet",
-            "UNI":  "mart/siope_uscite/{a}/mart_uni.parquet",
-        },
-        "analitici": {
-            "sintesi": "mart/siope_uscite/{a}/mart_sintesi.parquet",
-            "trend": "mart/siope_uscite/mart_trend.parquet",
+            "anno_comparto": "mart/siope_uscite/{a}/mart_anno_comparto.parquet",
+            "ente": "mart/siope_uscite/{a}/mart_ente.parquet",
         },
     },
 }
@@ -145,11 +132,10 @@ def check_join(con, lato, anno, cfg):
             "dettaglio": {"territorio_pct": pct_terr, "codgest_pct": pct_codg, "enti_pct": pct_enti}}
 
 
-def check_mart(con, lato, anno, cfg, comparto):
-    path = resolve(cfg["mart"][comparto], anno)
-    # MART mancante = CRITICAL (non SKIP)
+def check_mart_anno_comparto(con, lato, anno, cfg):
+    path = resolve(cfg["mart"]["anno_comparto"], anno)
     if not Path(path).exists():
-        return {"check": f"mart_{lato}_{anno}_{comparto}", "esito": "CRITICAL",
+        return {"check": f"mart_{lato}_{anno}_anno_comparto", "esito": "CRITICAL",
                 "dettaglio": f"FILE MANCANTE: {path}"}
 
     class_col = cfg["class_col"]
@@ -157,47 +143,53 @@ def check_mart(con, lato, anno, cfg, comparto):
 
     r = con.execute(f"""
         select count(*),
-               round(sum(importo_totale_eur), 0),
-               count(*) filter (where importo_totale_eur < 0),
+               round(sum(importo_eur), 0),
+               count(*) filter (where importo_eur < 0),
                count(*) filter (where {class_col} is null),
-               round(100.0 * count(*) filter (where {class_col} = '{class_altro}') / count(*), 2)
+               round(100.0 * count(*) filter (where {class_col} = '{class_altro}') / count(*), 2),
+               count(distinct codice_comparto),
+               count(distinct n_enti)
         from read_parquet('{path}')
     """).fetchone()
 
-    righe, totale, neg, null_class, altro_pct = r
+    righe, totale, neg, null_class, altro_pct, n_comparti, n_enti_max = r
     esito = "PASS"
-    # min_rows è già bloccato a runtime da mart.validate.table_rules nel dataset.yml
     if null_class > 0:
         esito = "CRITICAL"
 
-    return {"check": f"mart_{lato}_{anno}_{comparto}", "esito": esito,
+    return {"check": f"mart_{lato}_{anno}_anno_comparto", "esito": esito,
             "dettaglio": {"righe": righe, "totale_eur": totale,
-                          "negativi": neg, "null_class": null_class, "altro_pct": altro_pct}}
+                          "negativi": neg, "null_class": null_class, "altro_pct": altro_pct,
+                          "comparti_distinti": n_comparti}}
 
 
-def check_analitici(con, lato, anno, cfg):
-    """Check mart analitici: sintesi per-anno (CRITICAL se manca), trend multi-anno
-    (WARN se manca — generato solo nei run multi-anno, non in PR mode)."""
-    checks = []
-
-    path = resolve(cfg["analitici"]["sintesi"], anno)
+def check_mart_ente(con, lato, anno, cfg):
+    path = resolve(cfg["mart"]["ente"], anno)
     if not Path(path).exists():
-        checks.append({"check": f"analitici_{lato}_{anno}_sintesi", "esito": "CRITICAL",
-                       "dettaglio": f"FILE MANCANTE: {path}"})
-    else:
-        # min_rows è già bloccato a runtime da mart.validate.table_rules
-        checks.append({"check": f"analitici_{lato}_{anno}_sintesi", "esito": "PASS",
-                       "dettaglio": "presente"})
+        return {"check": f"mart_{lato}_{anno}_ente", "esito": "CRITICAL",
+                "dettaglio": f"FILE MANCANTE: {path}"}
 
-    tpath = str(ROOT / cfg["analitici"]["trend"])
-    if not Path(tpath).exists():
-        checks.append({"check": f"analitici_{lato}_trend", "esito": "WARN",
-                       "dettaglio": "FILE MANCANTE (generato nei run multi-anno)"})
-    else:
-        checks.append({"check": f"analitici_{lato}_trend", "esito": "PASS",
-                       "dettaglio": "presente"})
+    r = con.execute(f"""
+        select count(*),
+               round(sum(totale_eur), 0),
+               count(*) filter (where totale_eur < 0),
+               count(*) filter (where denominazione_ente is null),
+               count(*) filter (where codice_comparto is null),
+               count(distinct codice_ente),
+               round(avg(n_mesi), 1)
+        from read_parquet('{path}')
+    """).fetchone()
 
-    return checks
+    righe, totale, neg, null_ente, null_comparto, n_enti, avg_mesi = r
+    esito = "PASS"
+    if null_ente > 0:
+        esito = "CRITICAL"
+
+    return {"check": f"mart_{lato}_{anno}_ente", "esito": esito,
+            "dettaglio": {"righe": righe, "totale_eur": totale,
+                          "negativi": neg, "null_ente": null_ente,
+                          "null_comparto": null_comparto,
+                          "enti_distinti": n_enti, "avg_mesi": avg_mesi}}
 
 
 def main():
@@ -238,7 +230,9 @@ def main():
                 for check_fn, check_args in [
                     (check_clean, [con, lato, anno, cfg]),
                     (check_join, [con, lato, anno, cfg]),
-                ] + [(check_mart, [con, lato, anno, cfg, c]) for c in ["PRO", "REG", "SAN", "UNI"]]:
+                    (check_mart_anno_comparto, [con, lato, anno, cfg]),
+                    (check_mart_ente, [con, lato, anno, cfg]),
+                ]:
                     try:
                         checks.append(check_fn(*check_args))
                     except Exception as e:
@@ -247,14 +241,6 @@ def main():
                             "esito": "CRITICAL",
                             "dettaglio": f"ERRORE ESECUZIONE: {e}",
                         })
-                try:
-                    checks.extend(check_analitici(con, lato, anno, cfg))
-                except Exception as e:
-                    checks.append({
-                        "check": f"check_analitici_{lato}_{anno}",
-                        "esito": "CRITICAL",
-                        "dettaglio": f"ERRORE ESECUZIONE: {e}",
-                    })
 
     ok = sum(1 for c in checks if c["esito"] == "PASS")
     warn = sum(1 for c in checks if c["esito"] == "WARN")
@@ -268,11 +254,11 @@ def main():
         print(f"\n{'='*50}")
         print(f"  VERIFICA OUTPUT SIOPE")
         print(f"{'='*50}")
-        print(f"  Esito: {'✅ PASS' if globale == 'PASS' else '⚠️  WARN' if globale == 'WARN' else '❌ CRITICAL'}")
-        print(f"  Checks: {ok} ✅  {warn} ⚠️  {crit} ❌  {skip} ⏭️")
+        print(f"  Esito: {'PASS' if globale == 'PASS' else 'WARN' if globale == 'WARN' else 'CRITICAL'}")
+        print(f"  Checks: {ok} PASS  {warn} WARN  {crit} CRITICAL  {skip} SKIP")
         print(f"{'='*50}\n")
         for c in checks:
-            ico = {"PASS": "✅", "WARN": "⚠️", "CRITICAL": "❌", "SKIP": "⏭️"}
+            ico = {"PASS": "PASS", "WARN": "WARN", "CRITICAL": "CRITICAL", "SKIP": "SKIP"}
             det = c["dettaglio"]
             print(f"  {ico[c['esito']]} {c['check']}: {json.dumps(det) if not isinstance(det, str) else det}")
 
