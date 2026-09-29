@@ -63,7 +63,7 @@ def test_uscite_golden(con):
 @pytest.mark.contract
 def test_entrate_golden(con):
     m = con.execute(
-        "select codice_gestione, codice_voce, macro_categoria_v2 "
+        "select codice_gestione, codice_voce, macro_categoria "
         "from read_csv('mapping/entrate_categorie.csv')"
     ).fetchall()
     got = {(r[1], r[0]): r[2] for r in m}

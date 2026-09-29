@@ -24,7 +24,7 @@ select
         when b.codice_voce like '9.%' or b.codice_voce like '999%' then true
         else false
     end as is_titolo_9,
-    coalesce(m.macro_categoria_v2, 'Altro') as macro_categoria_v2
+    coalesce(m.macro_categoria, 'Altro') as macro_categoria
 from base b
 left join read_csv('mapping/entrate_categorie.csv', auto_detect=true, header=true) m
     on b.codice_voce = m.codice_voce

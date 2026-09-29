@@ -53,6 +53,8 @@ clean:
 
 mart:
   tables:
+    - name: "mart_anno_comparto"
+      sql: "sql/mart_anno_comparto.sql"
     - name: "mart_sintesi"
       sql: "sql/mart_sintesi.sql"
     - name: "mart_trend"
@@ -62,11 +64,17 @@ mart:
     - name: "mart_enti"
       sql: "sql/mart_enti.sql"
   required_tables:
+    - "mart_anno_comparto"
     - "mart_sintesi"
     - "mart_trend"
     - "mart_enti"
   validate:
     table_rules:
+      mart_anno_comparto:
+        min_rows: 100
+        required_columns: ["anno", "comparto", "lato", "macro_categoria", "is_titolo_9", "importo_eur", "n_enti", "n_voci"]
+        primary_key: ["anno", "comparto", "lato", "macro_categoria", "is_titolo_9"]
+        not_null: ["anno", "comparto", "lato", "importo_eur"]
       mart_sintesi:
         min_rows: 10
         primary_key: ["anno", "regione", "comparto", "lato"]
