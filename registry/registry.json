@@ -1,19 +1,18 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "repo": "open-siope",
   "source_repo": "dataciviclab/open-siope",
-  "updated_at": "2026-11-05",
+  "updated_at": "2026-11-25",
+  "gcs": {
+    "clean": "year",
+    "prefix": "siope/"
+  },
   "datasets": [
     {
       "slug": "siope_anag_codgest_entrate_seed",
       "name": "Siope Anag Codgest Entrate Seed",
       "description": "Dizionario codici gestionali entrate SIOPE con classificazione per macro-categoria — dizionario di supporto.",
-      "source": "",
       "source_id": "siope",
-      "period": {
-        "start": 2026,
-        "end": 2026
-      },
       "tags": [
         "siope",
         "anagrafica",
@@ -22,70 +21,64 @@
         "entrate"
       ],
       "category": "finanza-pubblica",
+      "period": {
+        "start": 2026,
+        "end": 2026
+      },
+      "partitions": {
+        "2026": 18066
+      },
       "columns": [
         {
           "name": "codice_voce",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "codice_gestione",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "descrizione_codice",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "data_inizio",
           "type": "DATE",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "data_fine",
           "type": "DATE",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "is_titolo_9",
           "type": "BOOLEAN",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "macro_categoria",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         }
       ],
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope/siope_anag_codgest_entrate_seed/2026/siope_anag_codgest_entrate_seed_2026_clean.parquet",
-        "multi_file": false
-      },
-      "stage": "incubating",
       "mart_refs": [
         "siope_anag_codgest_entrate_seed__siope_anag_codgest_entrate_seed"
-      ]
+      ],
+      "last_run": {
+        "at": "2026-11-25T08:30:49.525761+00:00",
+        "year": 2026,
+        "status": "SUCCESS"
+      }
     },
     {
       "slug": "siope_anag_codgest_uscite_seed",
       "name": "Siope Anag Codgest Uscite Seed",
       "description": "Dizionario codici gestionali uscite SIOPE con classificazione per macro-area e macro-categoria — dizionario di supporto.",
-      "source": "",
       "source_id": "siope",
-      "period": {
-        "start": 2026,
-        "end": 2026
-      },
       "tags": [
         "siope",
         "anagrafica",
@@ -94,76 +87,69 @@
         "uscite"
       ],
       "category": "finanza-pubblica",
+      "period": {
+        "start": 2026,
+        "end": 2026
+      },
+      "partitions": {
+        "2026": 21343
+      },
       "columns": [
         {
           "name": "codice_voce",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "codice_gestione",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "descrizione_codice",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "data_inizio",
           "type": "DATE",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "data_fine",
           "type": "DATE",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "is_titolo_9",
           "type": "BOOLEAN",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "macro_categoria",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "macro_area",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         }
       ],
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope/siope_anag_codgest_uscite_seed/2026/siope_anag_codgest_uscite_seed_2026_clean.parquet",
-        "multi_file": false
-      },
-      "stage": "incubating",
       "mart_refs": [
         "siope_anag_codgest_uscite_seed__siope_anag_codgest_uscite_seed"
-      ]
+      ],
+      "last_run": {
+        "at": "2026-11-25T08:30:52.911807+00:00",
+        "year": 2026,
+        "status": "SUCCESS"
+      }
     },
     {
       "slug": "siope_anag_comparti_seed",
       "name": "Siope Anag Comparti Seed",
       "description": "Comparti SIOPE (PRO, REG, SAN, UNI, ...) con descrizione — dizionario di supporto.",
-      "source": "",
       "source_id": "siope",
-      "period": {
-        "start": 2026,
-        "end": 2026
-      },
       "tags": [
         "siope",
         "anagrafica",
@@ -171,40 +157,39 @@
         "comparti"
       ],
       "category": "finanza-pubblica",
+      "period": {
+        "start": 2026,
+        "end": 2026
+      },
+      "partitions": {
+        "2026": 24
+      },
       "columns": [
         {
           "name": "codice_comparto",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "descrizione_comparto",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         }
       ],
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope/siope_anag_comparti_seed/2026/siope_anag_comparti_seed_2026_clean.parquet",
-        "multi_file": false
-      },
-      "stage": "incubating",
       "mart_refs": [
         "siope_anag_comparti_seed__siope_anag_comparti_seed"
-      ]
+      ],
+      "last_run": {
+        "at": "2026-11-25T08:30:39.864385+00:00",
+        "year": 2026,
+        "status": "SUCCESS"
+      }
     },
     {
       "slug": "siope_anag_comuni_seed",
       "name": "Siope Anag Comuni Seed",
       "description": "Anagrafica comuni SIOPE: codice ISTAT, denominazione e provincia — dizionario di supporto.",
-      "source": "",
       "source_id": "siope",
-      "period": {
-        "start": 2026,
-        "end": 2026
-      },
       "tags": [
         "siope",
         "anagrafica",
@@ -212,49 +197,47 @@
         "comuni"
       ],
       "category": "finanza-pubblica",
+      "period": {
+        "start": 2026,
+        "end": 2026
+      },
+      "partitions": {
+        "2026": 8226
+      },
       "columns": [
         {
           "name": "codice_istat_comune",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "municipality_code"
         },
         {
           "name": "denominazione_comune",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "municipality_name"
         },
         {
           "name": "codice_provincia",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "province_code"
         }
       ],
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope/siope_anag_comuni_seed/2026/siope_anag_comuni_seed_2026_clean.parquet",
-        "multi_file": false
-      },
-      "stage": "incubating",
       "mart_refs": [
         "siope_anag_comuni_seed__siope_anag_comuni_seed"
-      ]
+      ],
+      "last_run": {
+        "at": "2026-11-25T08:30:59.134814+00:00",
+        "year": 2026,
+        "status": "SUCCESS"
+      }
     },
     {
       "slug": "siope_anag_enti_seed",
       "name": "Siope Anag Enti Seed",
       "description": "Anagrafica enti SIOPE: denominazione, codice fiscale, territorio, tipo ente e validita' temporale — dizionario di supporto.",
-      "source": "",
       "source_id": "siope",
-      "period": {
-        "start": 2026,
-        "end": 2026
-      },
       "tags": [
         "siope",
         "anagrafica",
@@ -262,86 +245,78 @@
         "enti"
       ],
       "category": "finanza-pubblica",
+      "period": {
+        "start": 2026,
+        "end": 2026
+      },
+      "partitions": {
+        "2026": 18214
+      },
       "columns": [
         {
           "name": "codice_ente",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "siope_code"
         },
         {
           "name": "data_inizio",
           "type": "DATE",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "data_fine",
           "type": "DATE",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "codice_fiscale",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "fiscal_code"
         },
         {
           "name": "denominazione_ente",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "codice_istat_comune",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "municipality_code"
         },
         {
           "name": "codice_provincia",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "province_code"
         },
         {
           "name": "popolazione",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "tipo_ente",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         }
       ],
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope/siope_anag_enti_seed/2026/siope_anag_enti_seed_2026_clean.parquet",
-        "multi_file": false
-      },
-      "stage": "incubating",
       "mart_refs": [
         "siope_anag_enti_seed__siope_anag_enti_seed"
-      ]
+      ],
+      "last_run": {
+        "at": "2026-11-25T08:30:46.356962+00:00",
+        "year": 2026,
+        "status": "SUCCESS"
+      }
     },
     {
       "slug": "siope_anag_reg_prov_seed",
       "name": "Siope Anag Reg Prov Seed",
       "description": "Mappa regioni e province SIOPE con area geografica — dizionario di supporto per l'arricchimento territoriale.",
-      "source": "",
       "source_id": "siope",
-      "period": {
-        "start": 2026,
-        "end": 2026
-      },
       "tags": [
         "siope",
         "anagrafica",
@@ -351,62 +326,58 @@
         "province"
       ],
       "category": "finanza-pubblica",
+      "period": {
+        "start": 2026,
+        "end": 2026
+      },
+      "partitions": {
+        "2026": 110
+      },
       "columns": [
         {
           "name": "area_geografica",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "codice_regione",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "region_code"
         },
         {
           "name": "regione",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "region_code"
         },
         {
           "name": "codice_provincia",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "province_code"
         },
         {
           "name": "provincia",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "province_code"
         }
       ],
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope/siope_anag_reg_prov_seed/2026/siope_anag_reg_prov_seed_2026_clean.parquet",
-        "multi_file": false
-      },
-      "stage": "incubating",
       "mart_refs": [
         "siope_anag_reg_prov_seed__siope_anag_reg_prov_seed"
-      ]
+      ],
+      "last_run": {
+        "at": "2026-11-25T08:30:56.121708+00:00",
+        "year": 2026,
+        "status": "SUCCESS"
+      }
     },
     {
       "slug": "siope_anag_sottocomparti_seed",
       "name": "Siope Anag Sottocomparti Seed",
       "description": "Sottocomparti SIOPE con mappatura al comparto di appartenenza — dizionario di supporto.",
-      "source": "",
       "source_id": "siope",
-      "period": {
-        "start": 2026,
-        "end": 2026
-      },
       "tags": [
         "siope",
         "anagrafica",
@@ -414,46 +385,44 @@
         "sottocomparti"
       ],
       "category": "finanza-pubblica",
+      "period": {
+        "start": 2026,
+        "end": 2026
+      },
+      "partitions": {
+        "2026": 75
+      },
       "columns": [
         {
           "name": "codice_sottocomparto",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "descrizione_sottocomparto",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "codice_comparto",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         }
       ],
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope/siope_anag_sottocomparti_seed/2026/siope_anag_sottocomparti_seed_2026_clean.parquet",
-        "multi_file": false
-      },
-      "stage": "incubating",
       "mart_refs": [
         "siope_anag_sottocomparti_seed__siope_anag_sottocomparti_seed"
-      ]
+      ],
+      "last_run": {
+        "at": "2026-11-25T08:30:43.572184+00:00",
+        "year": 2026,
+        "status": "SUCCESS"
+      }
     },
     {
       "slug": "siope_bilancio_unificato",
       "name": "Siope Bilancio Unificato",
       "description": "Bilancio unificato ANNUALE entrate+uscite di tutti gli enti pubblici (2021-2026) — aggregazione per ente e voce, con colonna lato. Legge i clean mensili di entrate/uscite (tutti i comparti).",
-      "source": "",
       "source_id": "siope",
-      "period": {
-        "start": 2021,
-        "end": 2026
-      },
       "tags": [
         "finanza-pubblica",
         "siope",
@@ -461,157 +430,143 @@
         "unificato"
       ],
       "category": "finanza-pubblica",
+      "period": {
+        "start": 2021,
+        "end": 2026
+      },
+      "partitions": {
+        "2021": 1247347,
+        "2022": 1257281,
+        "2023": 1212841,
+        "2024": 1317172,
+        "2025": 1343726,
+        "2026": 1302541
+      },
       "columns": [
         {
           "name": "lato",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "anno",
           "type": "INTEGER",
           "role": "dimension",
-          "description": "",
           "semantic_type": "year"
         },
         {
           "name": "codice_ente",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "siope_code"
         },
         {
           "name": "denominazione_ente",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "tipo_ente",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "codice_comparto",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "descrizione_comparto",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "codice_sottocomparto",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "descrizione_sottocomparto",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "codice_istat_comune",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "municipality_code"
         },
         {
           "name": "codice_provincia",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "province_code"
         },
         {
           "name": "provincia",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "province_code"
         },
         {
           "name": "regione",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "region_code"
         },
         {
           "name": "codice_voce",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "descrizione_codice",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "has_codgest_match",
           "type": "BOOLEAN",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "is_titolo_9",
           "type": "BOOLEAN",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "macro_categoria",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "n_periodi",
           "type": "BIGINT",
-          "role": "metric",
-          "description": ""
+          "role": "metric"
         },
         {
           "name": "importo_eur",
           "type": "DOUBLE",
-          "role": "metric",
-          "description": ""
+          "role": "metric"
         }
       ],
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope/siope_bilancio_unificato/*/siope_bilancio_unificato_*_clean.parquet",
-        "multi_file": true
-      },
-      "stage": "incubating",
       "mart_refs": [
         "siope_bilancio_unificato__mart_anno_comparto",
         "siope_bilancio_unificato__mart_sintesi",
         "siope_bilancio_unificato__mart_trend",
         "siope_bilancio_unificato__mart_enti"
-      ]
+      ],
+      "last_run": {
+        "at": "2026-11-25T08:47:18.796724+00:00",
+        "year": 2026,
+        "status": "SUCCESS"
+      }
     },
     {
       "slug": "siope_entrate",
       "name": "Siope Entrate",
       "description": "Entrate mensili di tutti gli enti pubblici italiani (comuni, regioni, ASL, universita') dal 2021 — importi per codice SIOPE, arricchite con anagrafica enti e territorio.",
-      "source": "",
       "source_id": "siope",
-      "period": {
-        "start": 2021,
-        "end": 2026
-      },
       "tags": [
         "finanza-pubblica",
         "siope",
@@ -620,156 +575,142 @@
         "enti-pubblici"
       ],
       "category": "finanza-pubblica",
+      "period": {
+        "start": 2021,
+        "end": 2026
+      },
+      "partitions": {
+        "2021": 4072951,
+        "2022": 4060149,
+        "2023": 3983152,
+        "2024": 4261540,
+        "2025": 4290734,
+        "2026": 3871124
+      },
       "columns": [
         {
           "name": "codice_ente",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "siope_code"
         },
         {
           "name": "anno",
           "type": "INTEGER",
           "role": "dimension",
-          "description": "",
           "semantic_type": "year"
         },
         {
           "name": "periodo",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "month"
         },
         {
           "name": "codice_voce",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "importo",
           "type": "BIGINT",
-          "role": "metric",
-          "description": ""
+          "role": "metric"
         },
         {
           "name": "importo_eur",
           "type": "DOUBLE",
-          "role": "metric",
-          "description": ""
+          "role": "metric"
         },
         {
           "name": "denominazione_ente",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "tipo_ente",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "codice_istat_comune",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "municipality_code"
         },
         {
           "name": "codice_provincia",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "province_code"
         },
         {
           "name": "provincia",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "province_code"
         },
         {
           "name": "regione",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "region_code"
         },
         {
           "name": "codice_sottocomparto",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "descrizione_sottocomparto",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "codice_comparto",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "descrizione_comparto",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "is_titolo_9",
           "type": "BOOLEAN",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "macro_categoria",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "descrizione_codice",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "has_codgest_match",
           "type": "BOOLEAN",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         }
       ],
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope/siope_entrate/*/siope_entrate_*_clean.parquet",
-        "multi_file": true
-      },
-      "stage": "incubating",
       "mart_refs": [
         "siope_entrate__mart_anno_comparto",
         "siope_entrate__mart_ente"
-      ]
+      ],
+      "last_run": {
+        "at": "2026-11-25T08:34:54.660909+00:00",
+        "year": 2026,
+        "status": "SUCCESS"
+      }
     },
     {
       "slug": "siope_uscite",
       "name": "Siope Uscite",
       "description": "Uscite mensili di tutti gli enti pubblici italiani (comuni, regioni, ASL, universita') dal 2021 — importi per codice SIOPE, arricchite con anagrafica enti e territorio.",
-      "source": "",
       "source_id": "siope",
-      "period": {
-        "start": 2021,
-        "end": 2026
-      },
       "tags": [
         "finanza-pubblica",
         "siope",
@@ -778,151 +719,141 @@
         "enti-pubblici"
       ],
       "category": "finanza-pubblica",
+      "period": {
+        "start": 2021,
+        "end": 2026
+      },
+      "partitions": {
+        "2021": 7980508,
+        "2022": 8084463,
+        "2023": 7855196,
+        "2024": 8507789,
+        "2025": 8714561,
+        "2026": 8091751
+      },
       "columns": [
         {
           "name": "codice_ente",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "siope_code"
         },
         {
           "name": "anno",
           "type": "INTEGER",
           "role": "dimension",
-          "description": "",
           "semantic_type": "year"
         },
         {
           "name": "periodo",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "month"
         },
         {
           "name": "codice_voce",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "importo",
           "type": "BIGINT",
-          "role": "metric",
-          "description": ""
+          "role": "metric"
         },
         {
           "name": "importo_eur",
           "type": "DOUBLE",
-          "role": "metric",
-          "description": ""
+          "role": "metric"
         },
         {
           "name": "denominazione_ente",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "tipo_ente",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "codice_istat_comune",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "municipality_code"
         },
         {
           "name": "codice_provincia",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "province_code"
         },
         {
           "name": "provincia",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "province_code"
         },
         {
           "name": "regione",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "region_code"
         },
         {
           "name": "codice_sottocomparto",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "descrizione_sottocomparto",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "codice_comparto",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "descrizione_comparto",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "is_titolo_9",
           "type": "BOOLEAN",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "macro_area",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "macro_categoria",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "descrizione_codice",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "has_codgest_match",
           "type": "BOOLEAN",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         }
       ],
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-clean/siope/siope_uscite/*/siope_uscite_*_clean.parquet",
-        "multi_file": true
-      },
-      "stage": "incubating",
       "mart_refs": [
         "siope_uscite__mart_anno_comparto",
         "siope_uscite__mart_ente"
-      ]
+      ],
+      "last_run": {
+        "at": "2026-11-25T08:43:22.020077+00:00",
+        "year": 2026,
+        "status": "SUCCESS"
+      }
     }
   ],
   "marts": [
@@ -930,758 +861,137 @@
       "slug": "siope_anag_codgest_entrate_seed__siope_anag_codgest_entrate_seed",
       "dataset": "siope_anag_codgest_entrate_seed",
       "table": "siope_anag_codgest_entrate_seed",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_anag_codgest_entrate_seed/2026/siope_anag_codgest_entrate_seed.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "siope_anag_codgest_uscite_seed__siope_anag_codgest_uscite_seed",
       "dataset": "siope_anag_codgest_uscite_seed",
       "table": "siope_anag_codgest_uscite_seed",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_anag_codgest_uscite_seed/2026/siope_anag_codgest_uscite_seed.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "siope_anag_comparti_seed__siope_anag_comparti_seed",
       "dataset": "siope_anag_comparti_seed",
       "table": "siope_anag_comparti_seed",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_anag_comparti_seed/2026/siope_anag_comparti_seed.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "siope_anag_comuni_seed__siope_anag_comuni_seed",
       "dataset": "siope_anag_comuni_seed",
       "table": "siope_anag_comuni_seed",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_anag_comuni_seed/2026/siope_anag_comuni_seed.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "siope_anag_enti_seed__siope_anag_enti_seed",
       "dataset": "siope_anag_enti_seed",
       "table": "siope_anag_enti_seed",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_anag_enti_seed/2026/siope_anag_enti_seed.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "siope_anag_reg_prov_seed__siope_anag_reg_prov_seed",
       "dataset": "siope_anag_reg_prov_seed",
       "table": "siope_anag_reg_prov_seed",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_anag_reg_prov_seed/2026/siope_anag_reg_prov_seed.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "siope_anag_sottocomparti_seed__siope_anag_sottocomparti_seed",
       "dataset": "siope_anag_sottocomparti_seed",
       "table": "siope_anag_sottocomparti_seed",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_anag_sottocomparti_seed/2026/siope_anag_sottocomparti_seed.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "siope_bilancio_unificato__mart_anno_comparto",
       "dataset": "siope_bilancio_unificato",
       "table": "mart_anno_comparto",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_bilancio_unificato/*/mart_anno_comparto.parquet",
-        "multi_file": true
-      }
+      "layout": "glob",
+      "primary_key": [
+        "anno",
+        "comparto",
+        "lato",
+        "macro_categoria",
+        "is_titolo_9"
+      ]
     },
     {
       "slug": "siope_bilancio_unificato__mart_enti",
       "dataset": "siope_bilancio_unificato",
       "table": "mart_enti",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_bilancio_unificato/*/mart_enti.parquet",
-        "multi_file": true
-      }
+      "layout": "glob",
+      "primary_key": [
+        "anno",
+        "codice_ente"
+      ]
     },
     {
       "slug": "siope_bilancio_unificato__mart_sintesi",
       "dataset": "siope_bilancio_unificato",
       "table": "mart_sintesi",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_bilancio_unificato/*/mart_sintesi.parquet",
-        "multi_file": true
-      }
+      "layout": "glob",
+      "primary_key": [
+        "anno",
+        "regione",
+        "comparto",
+        "lato"
+      ]
     },
     {
       "slug": "siope_bilancio_unificato__mart_trend",
       "dataset": "siope_bilancio_unificato",
       "table": "mart_trend",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_bilancio_unificato/mart_trend.parquet",
-        "multi_file": false
-      }
+      "layout": "flat"
     },
     {
       "slug": "siope_entrate__mart_anno_comparto",
       "dataset": "siope_entrate",
       "table": "mart_anno_comparto",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_entrate/*/mart_anno_comparto.parquet",
-        "multi_file": true
-      }
+      "layout": "glob",
+      "primary_key": [
+        "anno",
+        "codice_comparto",
+        "macro_categoria",
+        "is_titolo_9"
+      ]
     },
     {
       "slug": "siope_entrate__mart_ente",
       "dataset": "siope_entrate",
       "table": "mart_ente",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_entrate/*/mart_ente.parquet",
-        "multi_file": true
-      }
+      "layout": "glob",
+      "primary_key": [
+        "anno",
+        "codice_ente"
+      ]
     },
     {
       "slug": "siope_uscite__mart_anno_comparto",
       "dataset": "siope_uscite",
       "table": "mart_anno_comparto",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_uscite/*/mart_anno_comparto.parquet",
-        "multi_file": true
-      }
+      "layout": "glob",
+      "primary_key": [
+        "anno",
+        "codice_comparto",
+        "macro_categoria",
+        "is_titolo_9"
+      ]
     },
     {
       "slug": "siope_uscite__mart_ente",
       "dataset": "siope_uscite",
       "table": "mart_ente",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/siope/siope_uscite/*/mart_ente.parquet",
-        "multi_file": true
-      }
+      "layout": "glob",
+      "primary_key": [
+        "anno",
+        "codice_ente"
+      ]
     }
   ],
-  "signals": [
-    {
-      "id": "siope_bilancio_unificato",
-      "source_id": "siope",
-      "status": "ok",
-      "label": "siope_bilancio_unificato",
-      "detail": "anni 2021-2026 — mart: si",
-      "action": "",
-      "run": {
-        "run_id": "20261105T143635Z_069a8b06",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 95
-        },
-        "output_rows": {
-          "clean": 1279660,
-          "mart": 12702
-        },
-        "output_bytes": {
-          "raw": 191503539,
-          "clean": 22645858,
-          "mart": 411923
-        },
-        "started_at": "2026-11-05T14:36:35.207523+00:00",
-        "finished_at": "2026-11-05T14:36:59.354719+00:00",
-        "duration_seconds": 24.147
-      }
-    },
-    {
-      "id": "siope_entrate",
-      "source_id": "siope",
-      "status": "ok",
-      "label": "siope_entrate",
-      "detail": "anni 2021-2026 — mart: si",
-      "action": "",
-      "run": {
-        "run_id": "20261105T142428Z_ab443172",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 3448026,
-          "clean": 3448027,
-          "mart": 12287
-        },
-        "output_bytes": {
-          "raw": 166093028,
-          "clean": 62592721,
-          "mart": 445711
-        },
-        "started_at": "2026-11-05T14:24:28.136024+00:00",
-        "finished_at": "2026-11-05T14:25:06.108198+00:00",
-        "duration_seconds": 37.972
-      }
-    },
-    {
-      "id": "siope_uscite",
-      "source_id": "siope",
-      "status": "ok",
-      "label": "siope_uscite",
-      "detail": "anni 2021-2026 — mart: si",
-      "action": "",
-      "run": {
-        "run_id": "20261105T143242Z_aa544e9d",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 7190210,
-          "clean": 7190211,
-          "mart": 12338
-        },
-        "output_bytes": {
-          "raw": 343241799,
-          "clean": 128910818,
-          "mart": 557413
-        },
-        "started_at": "2026-11-05T14:32:42.316059+00:00",
-        "finished_at": "2026-11-05T14:33:59.405259+00:00",
-        "duration_seconds": 77.089
-      }
-    },
-    {
-      "id": "siope_anag_codgest_entrate_seed",
-      "source_id": "siope",
-      "status": "ok",
-      "label": "siope_anag_codgest_entrate_seed",
-      "detail": "anno 2026 — mart: si",
-      "action": "",
-      "run": {
-        "run_id": "20261105T142019Z_18212d36",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 18065,
-          "clean": 18066,
-          "mart": 18066
-        },
-        "output_bytes": {
-          "raw": 7543159,
-          "clean": 63609,
-          "mart": 63609
-        },
-        "started_at": "2026-11-05T14:20:19.332270+00:00",
-        "finished_at": "2026-11-05T14:20:21.373662+00:00",
-        "duration_seconds": 2.041
-      }
-    },
-    {
-      "id": "siope_anag_codgest_uscite_seed",
-      "source_id": "siope",
-      "status": "ok",
-      "label": "siope_anag_codgest_uscite_seed",
-      "detail": "anno 2026 — mart: si",
-      "action": "",
-      "run": {
-        "run_id": "20261105T142022Z_3ee779c4",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 18065,
-          "clean": 21343,
-          "mart": 21343
-        },
-        "output_bytes": {
-          "raw": 7543159,
-          "clean": 83247,
-          "mart": 83247
-        },
-        "started_at": "2026-11-05T14:20:22.230350+00:00",
-        "finished_at": "2026-11-05T14:20:26.882041+00:00",
-        "duration_seconds": 4.652
-      }
-    },
-    {
-      "id": "siope_anag_comparti_seed",
-      "source_id": "siope",
-      "status": "ok",
-      "label": "siope_anag_comparti_seed",
-      "detail": "anno 2026 — mart: si",
-      "action": "",
-      "run": {
-        "run_id": "20261105T142009Z_45c2d3e3",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "clean": 24,
-          "mart": 24
-        },
-        "output_bytes": {
-          "raw": 7543159,
-          "clean": 971,
-          "mart": 971
-        },
-        "started_at": "2026-11-05T14:20:09.159000+00:00",
-        "finished_at": "2026-11-05T14:20:12.172887+00:00",
-        "duration_seconds": 3.014
-      }
-    },
-    {
-      "id": "siope_anag_comuni_seed",
-      "source_id": "siope",
-      "status": "ok",
-      "label": "siope_anag_comuni_seed",
-      "detail": "anno 2026 — mart: si",
-      "action": "",
-      "run": {
-        "run_id": "20261105T142030Z_93265175",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "clean": 8226,
-          "mart": 8226
-        },
-        "output_bytes": {
-          "raw": 7543159,
-          "clean": 68190,
-          "mart": 68190
-        },
-        "started_at": "2026-11-05T14:20:30.770421+00:00",
-        "finished_at": "2026-11-05T14:20:32.374656+00:00",
-        "duration_seconds": 1.604
-      }
-    },
-    {
-      "id": "siope_anag_enti_seed",
-      "source_id": "siope",
-      "status": "ok",
-      "label": "siope_anag_enti_seed",
-      "detail": "anno 2026 — mart: si",
-      "action": "",
-      "run": {
-        "run_id": "20261105T142016Z_4faba1cb",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "clean": 18164,
-          "mart": 18164
-        },
-        "output_bytes": {
-          "raw": 7543159,
-          "clean": 430856,
-          "mart": 430856
-        },
-        "started_at": "2026-11-05T14:20:16.432260+00:00",
-        "finished_at": "2026-11-05T14:20:18.498846+00:00",
-        "duration_seconds": 2.067
-      }
-    },
-    {
-      "id": "siope_anag_reg_prov_seed",
-      "source_id": "siope",
-      "status": "ok",
-      "label": "siope_anag_reg_prov_seed",
-      "detail": "anno 2026 — mart: si",
-      "action": "",
-      "run": {
-        "run_id": "20261105T142027Z_c606cc68",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "clean": 110,
-          "mart": 110
-        },
-        "output_bytes": {
-          "raw": 7543159,
-          "clean": 2477,
-          "mart": 2477
-        },
-        "started_at": "2026-11-05T14:20:27.712000+00:00",
-        "finished_at": "2026-11-05T14:20:29.565899+00:00",
-        "duration_seconds": 1.854
-      }
-    },
-    {
-      "id": "siope_anag_sottocomparti_seed",
-      "source_id": "siope",
-      "status": "ok",
-      "label": "siope_anag_sottocomparti_seed",
-      "detail": "anno 2026 — mart: si",
-      "action": "",
-      "run": {
-        "run_id": "20261105T142013Z_819a4712",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "clean": 75,
-          "mart": 75
-        },
-        "output_bytes": {
-          "raw": 7543159,
-          "clean": 2350,
-          "mart": 2350
-        },
-        "started_at": "2026-11-05T14:20:13.303271+00:00",
-        "finished_at": "2026-11-05T14:20:15.291029+00:00",
-        "duration_seconds": 1.988
-      }
-    }
-  ],
-  "codelists": [],
-  "entities": {
-    "entities": {
-      "Comune": {
-        "entity": "Comune",
-        "label": "Comune (ISTAT)",
-        "datasets": [
-          {
-            "slug": "siope_anag_comuni_seed",
-            "name": "Siope Anag Comuni Seed",
-            "column": "codice_istat_comune",
-            "semantic_type": "municipality_code"
-          },
-          {
-            "slug": "siope_anag_comuni_seed",
-            "name": "Siope Anag Comuni Seed",
-            "column": "denominazione_comune",
-            "semantic_type": "municipality_name"
-          },
-          {
-            "slug": "siope_anag_enti_seed",
-            "name": "Siope Anag Enti Seed",
-            "column": "codice_istat_comune",
-            "semantic_type": "municipality_code"
-          },
-          {
-            "slug": "siope_bilancio_unificato",
-            "name": "Siope Bilancio Unificato",
-            "column": "codice_istat_comune",
-            "semantic_type": "municipality_code"
-          },
-          {
-            "slug": "siope_entrate",
-            "name": "Siope Entrate",
-            "column": "codice_istat_comune",
-            "semantic_type": "municipality_code"
-          },
-          {
-            "slug": "siope_uscite",
-            "name": "Siope Uscite",
-            "column": "codice_istat_comune",
-            "semantic_type": "municipality_code"
-          }
-        ],
-        "types": {
-          "municipality_code": 5,
-          "municipality_name": 1
-        }
-      },
-      "Ente": {
-        "entity": "Ente",
-        "label": "Ente pubblico",
-        "datasets": [
-          {
-            "slug": "siope_anag_enti_seed",
-            "name": "Siope Anag Enti Seed",
-            "column": "codice_ente",
-            "semantic_type": "siope_code"
-          },
-          {
-            "slug": "siope_bilancio_unificato",
-            "name": "Siope Bilancio Unificato",
-            "column": "codice_ente",
-            "semantic_type": "siope_code"
-          },
-          {
-            "slug": "siope_entrate",
-            "name": "Siope Entrate",
-            "column": "codice_ente",
-            "semantic_type": "siope_code"
-          },
-          {
-            "slug": "siope_uscite",
-            "name": "Siope Uscite",
-            "column": "codice_ente",
-            "semantic_type": "siope_code"
-          }
-        ],
-        "types": {
-          "siope_code": 4
-        }
-      },
-      "Ente (o Impresa)": {
-        "entity": "Ente (o Impresa)",
-        "label": "Ente (o Impresa)",
-        "datasets": [
-          {
-            "slug": "siope_anag_enti_seed",
-            "name": "Siope Anag Enti Seed",
-            "column": "codice_fiscale",
-            "semantic_type": "fiscal_code"
-          }
-        ],
-        "types": {
-          "fiscal_code": 1
-        }
-      },
-      "Provincia": {
-        "entity": "Provincia",
-        "label": "Provincia",
-        "datasets": [
-          {
-            "slug": "siope_anag_comuni_seed",
-            "name": "Siope Anag Comuni Seed",
-            "column": "codice_provincia",
-            "semantic_type": "province_code"
-          },
-          {
-            "slug": "siope_anag_enti_seed",
-            "name": "Siope Anag Enti Seed",
-            "column": "codice_provincia",
-            "semantic_type": "province_code"
-          },
-          {
-            "slug": "siope_anag_reg_prov_seed",
-            "name": "Siope Anag Reg Prov Seed",
-            "column": "codice_provincia",
-            "semantic_type": "province_code"
-          },
-          {
-            "slug": "siope_anag_reg_prov_seed",
-            "name": "Siope Anag Reg Prov Seed",
-            "column": "provincia",
-            "semantic_type": "province_code"
-          },
-          {
-            "slug": "siope_bilancio_unificato",
-            "name": "Siope Bilancio Unificato",
-            "column": "codice_provincia",
-            "semantic_type": "province_code"
-          },
-          {
-            "slug": "siope_bilancio_unificato",
-            "name": "Siope Bilancio Unificato",
-            "column": "provincia",
-            "semantic_type": "province_code"
-          },
-          {
-            "slug": "siope_entrate",
-            "name": "Siope Entrate",
-            "column": "codice_provincia",
-            "semantic_type": "province_code"
-          },
-          {
-            "slug": "siope_entrate",
-            "name": "Siope Entrate",
-            "column": "provincia",
-            "semantic_type": "province_code"
-          },
-          {
-            "slug": "siope_uscite",
-            "name": "Siope Uscite",
-            "column": "codice_provincia",
-            "semantic_type": "province_code"
-          },
-          {
-            "slug": "siope_uscite",
-            "name": "Siope Uscite",
-            "column": "provincia",
-            "semantic_type": "province_code"
-          }
-        ],
-        "types": {
-          "province_code": 10
-        }
-      },
-      "Regione": {
-        "entity": "Regione",
-        "label": "Regione",
-        "datasets": [
-          {
-            "slug": "siope_anag_reg_prov_seed",
-            "name": "Siope Anag Reg Prov Seed",
-            "column": "codice_regione",
-            "semantic_type": "region_code"
-          },
-          {
-            "slug": "siope_anag_reg_prov_seed",
-            "name": "Siope Anag Reg Prov Seed",
-            "column": "regione",
-            "semantic_type": "region_code"
-          },
-          {
-            "slug": "siope_bilancio_unificato",
-            "name": "Siope Bilancio Unificato",
-            "column": "regione",
-            "semantic_type": "region_code"
-          },
-          {
-            "slug": "siope_entrate",
-            "name": "Siope Entrate",
-            "column": "regione",
-            "semantic_type": "region_code"
-          },
-          {
-            "slug": "siope_uscite",
-            "name": "Siope Uscite",
-            "column": "regione",
-            "semantic_type": "region_code"
-          }
-        ],
-        "types": {
-          "region_code": 5
-        }
-      },
-      "Tempo": {
-        "entity": "Tempo",
-        "label": "Tempo / data",
-        "datasets": [
-          {
-            "slug": "siope_bilancio_unificato",
-            "name": "Siope Bilancio Unificato",
-            "column": "anno",
-            "semantic_type": "year"
-          },
-          {
-            "slug": "siope_entrate",
-            "name": "Siope Entrate",
-            "column": "anno",
-            "semantic_type": "year"
-          },
-          {
-            "slug": "siope_entrate",
-            "name": "Siope Entrate",
-            "column": "periodo",
-            "semantic_type": "month"
-          },
-          {
-            "slug": "siope_uscite",
-            "name": "Siope Uscite",
-            "column": "anno",
-            "semantic_type": "year"
-          },
-          {
-            "slug": "siope_uscite",
-            "name": "Siope Uscite",
-            "column": "periodo",
-            "semantic_type": "month"
-          }
-        ],
-        "types": {
-          "year": 3,
-          "month": 2
-        }
-      }
-    },
-    "bridges": [
-      {
-        "from": {
-          "entity": "Ente",
-          "dataset": "siope_anag_enti_seed",
-          "via": "siope_code"
-        },
-        "to": {
-          "entity": "Comune",
-          "bridge": "bdap_anagrafe_enti",
-          "on": "codice_ente_siope",
-          "semantic_type": "municipality_code"
-        }
-      },
-      {
-        "from": {
-          "entity": "Ente",
-          "dataset": "siope_bilancio_unificato",
-          "via": "siope_code"
-        },
-        "to": {
-          "entity": "Comune",
-          "bridge": "bdap_anagrafe_enti",
-          "on": "codice_ente_siope",
-          "semantic_type": "municipality_code"
-        }
-      },
-      {
-        "from": {
-          "entity": "Ente",
-          "dataset": "siope_entrate",
-          "via": "siope_code"
-        },
-        "to": {
-          "entity": "Comune",
-          "bridge": "bdap_anagrafe_enti",
-          "on": "codice_ente_siope",
-          "semantic_type": "municipality_code"
-        }
-      },
-      {
-        "from": {
-          "entity": "Ente",
-          "dataset": "siope_uscite",
-          "via": "siope_code"
-        },
-        "to": {
-          "entity": "Comune",
-          "bridge": "bdap_anagrafe_enti",
-          "on": "codice_ente_siope",
-          "semantic_type": "municipality_code"
-        }
-      }
-    ]
-  }
+  "checks": [],
+  "codelists": []
 }
